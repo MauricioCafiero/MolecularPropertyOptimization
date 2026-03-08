@@ -305,11 +305,11 @@ def replace_groups(orig_smiles = 'c1ccccc1', best_score = 0.0, substituents_to_r
     replace existing substituents in the molecule with new ones. 
 
     Args:
-      best_smiles: the current best molecule, as a SMILES string
+      orig_smiles: the current best molecule, as a SMILES string
       best_score: the current best docking score, as a float
       substituents_to_replace: a list of SMILES strings for substituents to replace
       new_substituents: a list of SMILES strings for substituents to add
-      
+
     Returns:
       total_list: a list of tuples containing the new SMILES strings and their corresponding scores
     '''
