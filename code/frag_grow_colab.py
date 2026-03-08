@@ -1,7 +1,6 @@
 from rdkit import Chem
 from rdkit.Chem import Draw
-import time, datetime
-import os, re, random
+import os, re, random, sys
 from typing import Optional
 
 sys.path.append('MolecularPropertyOptimization/code')
@@ -94,6 +93,7 @@ def make_random_list(num_items: int) -> tuple[list, list]:
     donate_with_linkers and returns them as a single list along with the remaining items.
     Args:
       num_items: the number of items to select from the lists
+
     Returns:
       tuple: (selected_items: list, remaining_items: list)
         - selected_items: a list of num_items items randomly selected from the lists
@@ -207,6 +207,7 @@ def convert_smiles(smiles: str) -> str:
     the substituents are added to the correct positions on the ring.
     Args:
       smiles: a SMILES string for a molecule
+
     Returns:
       new_smiles: a canonical SMILES string for the same molecule
   '''
@@ -220,6 +221,7 @@ def sub_cycle(substituents: list = e_withdraw):
   
   Args:
     substituents : a list of SMILES strings for substituents to add
+
   Returns:
     total_list : a list of tuples containing the new SMILES strings and their corresponding scores
   '''
@@ -264,6 +266,7 @@ def grow_cycle(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substitue
       best_smiles : the current best molecule, as a SMILES string
       best_score : the current best docking score, as a float
       substituents : a list of SMILES strings for substituents to add
+
     Returns:
       total_list : a list of tuples containing the new SMILES strings and their corresponding scores
     '''
@@ -306,6 +309,7 @@ def replace_groups(orig_smiles = 'c1ccccc1', best_score = 0.0, substituents_to_r
       best_score: the current best docking score, as a float
       substituents_to_replace: a list of SMILES strings for substituents to replace
       new_substituents: a list of SMILES strings for substituents to add
+      
     Returns:
       total_list: a list of tuples containing the new SMILES strings and their corresponding scores
     '''
