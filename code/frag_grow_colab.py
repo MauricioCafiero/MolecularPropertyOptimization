@@ -299,8 +299,8 @@ def grow_cycle(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substitue
     print('=============================================================================')
     return total_list
 
-def replace_groups(orig_smiles = 'c1ccccc1', best_score = 0.0, substituents_to_replace = e_withdraw, 
-                   new_substituents = e_donate):
+def replace_groups(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, substituents_to_replace: list = e_withdraw, 
+                   new_substituents: list = e_donate):
     '''
     replace existing substituents in the molecule with new ones. 
 
