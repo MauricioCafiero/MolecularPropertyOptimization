@@ -214,7 +214,7 @@ def convert_smiles(smiles: str) -> str:
   new_smiles = Chem.MolToSmiles(Chem.MolFromSmiles(smiles))
   return new_smiles
 
-def sub_cycle(substituents: list = e_withdraw):
+def sub_cycle(substituents: list = e_withdraw, scoring_args: list = scoring_args):
   '''
   add substituents to free carbons in the molecule. Only adds to symmetrically unique 
   positions on the ring, as defined in clean_ring_locations.
@@ -226,7 +226,7 @@ def sub_cycle(substituents: list = e_withdraw):
     total_list : a list of tuples containing the new SMILES strings and their corresponding scores
   '''
   print('=============================================================================')
-  print(f"Starting sub cycle on base rings.")
+  print(f"Starting sub cycle on base rings for protein {scoring_args[1]}.")
 
   best_score = 0.0
   best_smiles = ''

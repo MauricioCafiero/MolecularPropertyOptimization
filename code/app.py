@@ -15,13 +15,14 @@ import time, sys
 from google.colab import userdata
 
 sys.path.append('MolecularPropertyOptimization/code')
-from frag_grow_colab import *
+from MolPropOp import *
+from docking_module import *
 
 #get key from secrets
 openai_key = userdata.get('OPENAI_API_KEY')
 #openai_key = os.getenv("OPENAI_API_KEY")
 
-tools = [grow_cycle, replace_groups, add_ring, remove_ring, make_random_list, list_rings]
+tools = [grow_cycle, replace_groups, make_random_list]
 
 model = ChatOpenAI(model_name="gpt-5.2", api_key=openai_key).bind_tools(tools)
 
@@ -40,16 +41,14 @@ builder.add_conditional_edges('model', tools_condition)
 builder.add_edge('tools',  'model')
 
 graph = builder.compile()
-sys_message = SystemMessage(content='''
-# You are a drug design assistant. In the first user message you will
-see a list of molecule SMILES strings and docking scores.
-The lower the docking score (the more negative), the more affinity the
-molecule has for the protein in question.
+
+sys_message = SystemMessage(content=f'''
+{task_specific_prompt}
 
 ## You will first:
 - Read the list of molecule SMILES and scores
-- Ascertain any features of the molecules that make them a good binder. For example, if,
-from one molecule to the next, the addition of an O group makes the affinity stronger.
+- Ascertain any features of the molecules that contribute to the desired score. For example, if,
+from one molecule to the next, the addition of an O group makes the score better.
 - Gather all of these trends across all of the molecules.
 
 ## If you need additional information to ascertain the trends, such as more modified
@@ -64,18 +63,26 @@ the tools include:
               to promising molecules that you find in the input data. You can provide a list of
               substituents to add, or use the predefined sets: e_withdraw (electron withdrawing),
               e_donate (electron donating), withdraw_with_linkers (electron withdrawing with linkers), 
-              donate_with_linkers (electron donating with linkers).
+              donate_with_linkers (electron donating with linkers). You can also generate a random list 
+              of substituents with the make_random_list tool and use that as input to grow_cycle.
 
 - replace_groups: starts with a molecule SMILES and replaces specific groups in it with new groups, returning a list of new
                   molecules and scores. This tool allows you to test specific hypotheses about how replacing certain
                   groups in a molecule might affect binding affinity. You can specify which groups to replace and
-                  what to replace them with, or use the predefined sets of substituents mentioned above.
+                  what to replace them with, or use the predefined sets of substituents mentioned above. You can also 
+                  generate a random list of substituents with the make_random_list tool and use that as input to replace_groups.
+
+- make_random_list: this tool generates a list of substituents of specified length (num_items). It draws from the predefined lists:
+                    e_withdraw (electron withdrawing), e_donate (electron donating), withdraw_with_linkers 
+                    (electron withdrawing with linkers), donate_with_linkers (electron donating with linkers). 
+                    Use this tool when you want to get a broad sense of how different modifications affect binding affinity, 
+                    without having a specific hypothesis in mind.
 
 ## Once you have ascertained the trends:
 - Use the trends you learned to suggest 1-5 new molecules that obey the trends you found
-and which should have more affinity than the molecules in the list.
+and which should have a better score than the molecules in the list.
 - Provide reasoning as to why you created those new molecules.
-- Estimate the new docking scores.
+- Estimate the new scores.
 
 ## You may ask te user for clarification if needed, but try to use the tools to gather as much information as you
 can before asking for clarification.
@@ -138,19 +145,31 @@ def chat_turn(prompt: str):
   chat_history.append(local_history)
   return '', img, chat_history
 
-random_list = make_random_list(10)
-first_list = sub_cycle(random_list)
-context = ''
-for smiles, score in first_list:
-    context += f"{smiles}: {score}\n"
-
-first_prompt = f'''
-Here is a list of molecules and their docking scores:
-{context}\n'''
-
 start_chat()
-chat_turn(first_prompt)
 
+def get_initial_prompt(protein):
+  '''
+  '''
+  scoring_args[1] = protein
+  random_list, excluded_list = make_random_list(10)
+  first_list = sub_cycle(random_list, scoring_args)
+  context = ''
+  for smiles, score in first_list:
+      context += f"{smiles}: {score}\n"
+
+  first_prompt = f'''
+  Here is a list of molecules and their docking scores:
+  {context}\n'''
+
+  blank, img, mes = chat_turn(first_prompt)
+  #print(mes[-1])
+
+  chat_history.append([first_prompt, mes[-1]])
+  return 
+
+dudes = ['IGF1R', 'JAK2', 'KIT', 'LCK', 'MAPK14', 'MAPKAPK2', 'MET', 'PTK2', 'PTPN1', 'SRC', 'ABL1', 'AKT1', 'AKT2', 'CDK2', 'CSF1R', 'EGFR', 'KDR', 'MAPK1', 'FGFR1', 'ROCK1', 'MAP2K1', 'PLK1',
+         'HSD11B1', 'PARP1', 'PDE5A', 'PTGS2', 'ACHE', 'MAOB', 'CA2', 'GBA', 'HMGCR', 'NOS1', 'REN', 'DHFR', 'ESR1', 'ESR2', 'NR3C1', 'PGR', 'PPARA', 'PPARD', 'PPARG',
+        'AR','THRB','ADAM17', 'F10', 'F2', 'BACE1', 'CASP3', 'MMP13', 'DPP4', 'ADRB1', 'ADRB2', 'DRD2', 'DRD3','ADORA2A','CYP2C9', 'CYP3A4', 'HSP90AA1']
 
 with gr.Blocks(fill_height=True) as MoleculeDesignApp:
   top = gr.Markdown('''
@@ -158,23 +177,17 @@ with gr.Blocks(fill_height=True) as MoleculeDesignApp:
               ''')
 
 
+  protein_dropdown = gr.Dropdown(dudes, label='Select Protein Target to start Agent')
   chat = gr.Chatbot()
   with gr.Row(equal_height = True):
     msg = gr.Textbox(label = 'query', scale = 8)
     sub_button = gr.Button("Submit", scale = 2)
   clear = gr.ClearButton([msg, chat])
   img_box = gr.Image()
-  reasoning_box = gr.Textbox(label="Tool logs", lines = 20)
   msg.submit(chat_turn, [msg], [msg, img_box, chat]).then(send_reasoning, [], [reasoning_box])
   sub_button.click(chat_turn, [msg], [msg, img_box, chat])
   clear.click(start_chat, [], [])
 
-  @gr.render(inputs=top)
-  def get_speech(args):
-    audio_file = 'MoDrAg_hello.mp3'
-    with open(audio_file, 'rb') as audio_bytes:
-                audio = base64.b64encode(audio_bytes.read()).decode("utf-8")
-    audio_player = f'<audio src="data:audio/mpeg;base64,{audio}" controls autoplay></audio>'
-    talk_ele = gr.HTML(audio_player)
+  protein_dropdown.change(get_initial_prompt, [protein_dropdown], [chat])
 
-MoleculeDesignApp.launch(mcp_server = True)
+MoleculeDesignApp.launch(debug=True)#mcp_server = True)

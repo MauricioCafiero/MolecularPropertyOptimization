@@ -14,3 +14,11 @@ def scoring_function(smiles: str):
     score = 0.0
     aux = None
   return score, aux
+
+task_specific_prompt = '''# You are a drug design assistant. In the first user message you will
+see a list of molecule SMILES strings and docking scores.
+The lower the docking score (the more negative), the more affinity the
+molecule has for the protein in question. Your task is to use the information 
+in the list to learn trends about what makes a molecule a good binder, and then 
+use those trends to suggest new molecules that should have better docking scores 
+(more negative) than the ones in the list.'''
