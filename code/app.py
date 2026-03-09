@@ -163,9 +163,14 @@ def get_initial_prompt(protein):
 
   blank, img, mes = chat_turn(first_prompt)
   #print(mes[-1])
-
+  
+  #chat_history.append({'role': 'user', 'content': 'User sent protein name'})
+  #chat_history.append({'role': 'assistant', 'content': 'Assistant running sub_cycle'})
+  #chat_history.append({'role': 'user', 'content': first_prompt})
+  #chat_history.append({'role': 'assistant', 'content': mes[-1]})
+  chat_history.append(['User sent protein name', 'Assistant running sub_cycle'])
   chat_history.append([first_prompt, mes[-1]])
-  return 
+  return chat_history
 
 dudes = ['IGF1R', 'JAK2', 'KIT', 'LCK', 'MAPK14', 'MAPKAPK2', 'MET', 'PTK2', 'PTPN1', 'SRC', 'ABL1', 'AKT1', 'AKT2', 'CDK2', 'CSF1R', 'EGFR', 'KDR', 'MAPK1', 'FGFR1', 'ROCK1', 'MAP2K1', 'PLK1',
          'HSD11B1', 'PARP1', 'PDE5A', 'PTGS2', 'ACHE', 'MAOB', 'CA2', 'GBA', 'HMGCR', 'NOS1', 'REN', 'DHFR', 'ESR1', 'ESR2', 'NR3C1', 'PGR', 'PPARA', 'PPARD', 'PPARG',
@@ -184,7 +189,7 @@ with gr.Blocks(fill_height=True) as MoleculeDesignApp:
     sub_button = gr.Button("Submit", scale = 2)
   clear = gr.ClearButton([msg, chat])
   img_box = gr.Image()
-  msg.submit(chat_turn, [msg], [msg, img_box, chat]).then(send_reasoning, [], [reasoning_box])
+  msg.submit(chat_turn, [msg], [msg, img_box, chat])
   sub_button.click(chat_turn, [msg], [msg, img_box, chat])
   clear.click(start_chat, [], [])
 

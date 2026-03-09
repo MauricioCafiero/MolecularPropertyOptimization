@@ -281,7 +281,7 @@ def grow_cycle(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substitue
                 new_smiles = f'{current_smiles[:match.start() + insert_point]}({e}){current_smiles[match.start() + insert_point:]}'
                 mol = Chem.MolFromSmiles(new_smiles)
                 if mol != None:
-                    print(new_smiles)
+                    #print(new_smiles)
                     try:
                         score, aux = scoring_function(new_smiles)
                         total_list.append((new_smiles, score))
@@ -315,6 +315,7 @@ def replace_groups(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, subst
     '''
     print('=============================================================================')
     print(f"Starting replace cycle with best score {best_score} for {orig_smiles}.")
+    best_smiles = orig_smiles
     #look in best_smiles for substituents in the substituents_to_replace list and replace them with substituents in the new_substituents list
     total_list = []
     for old in substituents_to_replace:
@@ -340,4 +341,168 @@ def replace_groups(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, subst
 
     print(f"Best score: {best_score} for {best_smiles}")
     print('=============================================================================')
+    return total_list
+
+def sub_cycle_batch(substituents: list = e_withdraw, scoring_args: list = scoring_args):
+    '''
+    Batch version of sub_cycle. Add substituents to free carbons in the molecule. 
+    Only adds to symmetrically unique positions on the ring, as defined in clean_ring_locations.
+    Generates all SMILES first, then scores them in batch.
+    
+    Args:
+      substituents: a list of SMILES strings for substituents to add
+      scoring_args: arguments to pass to the scoring function
+
+    Returns:
+      total_list: a list of tuples containing the new SMILES strings and their corresponding scores
+    '''
+    print('=============================================================================')
+    print(f"Starting batch sub cycle on base rings for protein {scoring_args[1]}.")
+
+    # First pass: generate all valid SMILES
+    intermediate_list = []
+    for ring, locs in zip(base_rings, clean_ring_locations):
+        for loc in locs:
+            for e in substituents:
+                new_smiles = f'{ring[:loc+1]}({e}){ring[loc+1:]}'
+                new_mol = Chem.MolFromSmiles(new_smiles)
+                if new_mol != None:
+                    intermediate_list.append(new_smiles)
+                else:
+                    print(new_smiles, 'bad')
+
+    print(f"Generated {len(intermediate_list)} valid SMILES strings. Scoring in batch...")
+
+    # Second pass: score all SMILES in batch with single function call
+    try:
+        scores = scoring_function(intermediate_list)
+    except:
+        print(f"Error in batch scoring, returning zero scores")
+        scores = [0.0] * len(intermediate_list)
+
+    # Combine SMILES with scores
+    total_list = list(zip(intermediate_list, scores))
+
+    # Find best score
+    best_score = 0.0
+    best_smiles = ''
+    for smiles, score in total_list:
+        print(f"{smiles}: {score}")
+        if score < best_score:
+            best_score = score
+            best_smiles = smiles
+            print(f"=========== New best score: {best_score} for {best_smiles} ======")
+
+    print(f"Best score: {best_score} for {best_smiles}")
+    print('=============================================================================')
+
+    return total_list
+
+def grow_cycle_batch(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substituents: list = e_withdraw):
+    '''
+    Batch version of grow_cycle. Add substituents to free carbons in the molecule.
+    Generates all SMILES first, then scores them in batch.
+
+    Args:
+      best_smiles: the current best molecule, as a SMILES string
+      best_score: the current best docking score, as a float
+      substituents: a list of SMILES strings for substituents to add
+
+    Returns:      total_list: a list of tuples containing the new SMILES strings and their corresponding scores
+    '''
+    print('=============================================================================')
+    print(f"Starting batch grow cycle with best score {best_score} for {best_smiles}.")
+    
+    # First pass: generate all valid SMILES
+    intermediate_list = []
+    for pattern, insert_point in zip(free_carbon_search_patterns, free_carbon_insert_points):
+        current_smiles = best_smiles
+        for match in re.finditer(f'(?={pattern})', current_smiles):
+            for e in substituents:
+                new_smiles = f'{current_smiles[:match.start() + insert_point]}({e}){current_smiles[match.start() + insert_point:]}'
+                mol = Chem.MolFromSmiles(new_smiles)
+                if mol != None:
+                    intermediate_list.append(new_smiles)
+                else:
+                    print(new_smiles, 'bad')
+
+    print(f"Generated {len(intermediate_list)} valid SMILES strings. Scoring in batch...")
+
+    # Second pass: score all SMILES in batch with single function call
+    try:
+        scores = scoring_function(intermediate_list)
+    except:
+        print(f"Error in batch scoring, returning zero scores")
+        scores = [0.0] * len(intermediate_list)
+
+    # Combine SMILES with scores
+    total_list = list(zip(intermediate_list, scores))
+
+    # Find best score
+    for smiles, score in total_list:
+        print(f"{smiles}: {score}")
+        if score < best_score:
+            best_score = score
+            best_smiles = smiles
+            print(f"=========== New best score: {best_score} for {best_smiles} ========")
+
+    print(f"Best score: {best_score} for {best_smiles}")
+    print('=============================================================================')
+    
+    return total_list
+
+def replace_groups_batch(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, 
+                         substituents_to_replace: list = e_withdraw, 
+                         new_substituents: list = e_donate):
+    '''
+    Batch version of replace_groups. Replace existing substituents in the molecule with new ones.
+    Generates all SMILES first, then scores them in batch.
+
+    Args:
+      orig_smiles: the current best molecule, as a SMILES string
+      best_score: the current best docking score, as a float
+      substituents_to_replace: a list of SMILES strings for substituents to replace
+      new_substituents: a list of SMILES strings for substituents to add
+
+    Returns:      total_list: a list of tuples containing the new SMILES strings and their corresponding scores
+    '''
+    print('=============================================================================')
+    print(f"Starting batch replace cycle with best score {best_score} for {orig_smiles}.")
+    best_smiles = orig_smiles
+    
+    # First pass: generate all valid SMILES
+    intermediate_list = []
+    for old in substituents_to_replace:
+        if old in orig_smiles:
+            print(f"Found {old} in {orig_smiles}")
+            for new in new_substituents:
+                new_smiles = orig_smiles.replace(old, new)
+                mol = Chem.MolFromSmiles(new_smiles)
+                if mol != None:
+                    intermediate_list.append(new_smiles)
+                else:
+                    print(new_smiles, 'bad')
+
+    print(f"Generated {len(intermediate_list)} valid SMILES strings. Scoring in batch...")
+
+    # Second pass: score all SMILES in batch with single function call
+    try:
+        scores = scoring_function(intermediate_list)
+    except:
+        print(f"Error in batch scoring, returning zero scores")
+        scores = [0.0] * len(intermediate_list)
+
+    # Combine SMILES with scores
+    total_list = list(zip(intermediate_list, scores))
+
+    # Find best score
+    for smiles, score in total_list:
+        if score < best_score:
+            best_score = score
+            best_smiles = smiles
+            print(f"=========== New best score: {best_score} for {best_smiles} ========")
+
+    print(f"Best score: {best_score} for {best_smiles}")
+    print('=============================================================================')
+    
     return total_list

@@ -1,0 +1,130 @@
+# First set
+
+Using 32 cores for docking.
+Analysing gpt_oss_20 =======================================
+invalid smiles: c1(C(C(F)(F)(F)))c(C(Cl)(Cl)(Cl))cc(C(Cl)(Cl)(Cl))c1
+c1(C(C(F)(F)(F)))c2ccccc2c1(C(C(Cl)(Cl)(Cl))) : 0.0
+c1(C(C(F)(F)(F)))c2ccccc2c1C(=O)O : 0.0
+invalid smiles: O=c1c(ccc2ccccc12)C(CF3)C
+invalid smiles: c1(C(C(Cl)(Cl)(Cl)))c(C(=O)N(C)C)cc(cc1)C(CF3)C
+Average score: N/A (no valid scores)
+
+Analysing gpt_oss_120 =======================================
+invalid smiles: O=c1cc(-c2ccc(C(F)(F)F)cc2)oc2ccc3c2c(ccc3)C(F)(F)F
+c1ccc2c(c1)ccc3c2c(ccc3C(F)(F)F)C(F)(F)F : -9.5
+c1ccc2c(c1)ccc3c2c(ccc3C#CC(F)(F)F)C(F)(F)F : -9.8
+c1ccc2c(c1)ccc3c2c(ccc3OC(F)(F)F)C(F)(F)F : -9.5
+c1ccc2c(c1)ccc3c2c(ccc3C(F)(F)F)C(=O)N(C)C(=O)OCc4ccccc4 : -11.7
+Average score: -10.12 (n=4)
+
+Analysing devstral2 =======================================
+O=c1cc(-c2ccc(CC=C(C(F)(F)(F)))cc2)oc2cc3ccccc3cc12 : -11.5
+O=c1cc(-c2ccc(C=C(C(F)(F)(F)))cc2)oc2ccccc12 : -10.9
+invalid smiles: O=c1cc(-c2ccc3ccccc3cc2)oc2ccc(CC=C(C(F)(F)(F)))cc12
+O=c1cc(-c2ccc(CC#C(C(F)(F)(F)))cc2)oc2ccccc12 : -10.8
+O=c1cc(-c2ccc(CC=C(C(F)(F)(F)))cc2)oc2ccc([N+](=O)[O-])cc12 : -10.1
+Average score: -10.83 (n=4)
+
+Analysing minimax-m2 =======================================
+O=c1cc(-c2ccc(C)cc2S(=O)(=O)[O-])oc2ccc(C#C(C(F)(F)(F)))cc12 : -10.3
+O=c1cc(-c2ccc(CC(=O)[O-])cc2)oc2ccc(C#C(C(F)(F)(F)))cc12 : -9.6
+O=c1cc(-c2ccc(C(F)(F)(F))cc2S(=O)(=O)[O-])oc2ccc(C#C(C(F)(F)(F)))cc12 : -10.5
+invalid smiles: O=c1cc(-c2ccc(C)(C)cc2C(=O)[O-])oc2ccc(C#C(C(F)(F)(F)))cc12
+O=c1cc(-c2ccc(C(C)C)cc2S(=O)(=O)[O-])oc2ccc(C#C(C(F)(F)(F)))cc12 : -10.2
+Average score: -10.15 (n=4)
+
+Analysing gemini3_flash =======================================
+O=c1cc(-c2c(C)cccc2)oc2ccc(CC#C(C(F)(F)(F)))cc12 : -11.8
+O=c1cc(-c2c(C(F)(F)(F))cccc2)oc2ccc(CC=C(C(F)(F)(F)))cc12 : -11.1
+O=c1cc(-c2ccc3ccccc3c2)oc2ccc(CC=C(C(F)(F)(F)))cc12 : -11.9
+O=c1cc(-c2c(C(F)(F)(F))cccc2)oc2ccc(CC#C(C(F)(F)(F)))cc12 : -11.4
+O=c1cc(-c2ccccc2)oc2c1ccc1ccccc21.CC#C(C(F)(F)(F)) : 0.0
+Average score: -11.55 (n=4) *only one to beat given values
+
+Analysing nemotron3_nano =======================================
+invalid smiles: Brc1ccc(cc2cc(Cl)nc(O)=C2)c1
+invalid smiles: Clc1ccc(cc2cc(O)=C(C(F)(F)(F))n2)c1
+invalid smiles: Fc1ccc(cc2cc(Cl)ccc2c(O)=c1)CCl3
+Average score: N/A (no valid scores)
+
+Analysing deepseek3p1 =======================================
+O=c1cc(-c2ccc(C#C(C(F)(F)F))cc2)oc2ccccc12 : -10.8
+O=c1cc(-c2ccc(C(=O)C(F)(F)F)cc2)oc2ccc(C(F)(F)F)cc12 : -10.9
+c1(C(=O)C(F)(F)F)ccc2cc3ccccc3cc2c1 : -11.2
+O=c1cc(-c2cc(CC=C(C(F)(F)F))ccc2)oc2cc(CC=C(C(F)(F)F))ccc12 : -11.4
+O=c1cc(-c2ccccc2C(F)(F)F)oc2ccccc12 : -10.7
+Average score: -11.00 (n=5)
+
+Analysing cogito2p1 =======================================
+invalid smiles: O=c1cc(-c2ccc(C#C(CF3))cc2)oc2ccc(CC=C(CF3))cc12
+O=c1cc(-c2ccc(C(=O)C(F)(F)F)cc2)oc2ccc(C=C(C(F)(F)F))cc12 : -11.7
+O=c1cc(-c2ccc(C(=O)CC(F)(F)F)cc2)oc2ccc(C#CC(F)(F)F)cc12 : -10.9
+O=c1cc(-c2ccc(SC(F)(F)F)cc2)oc2ccc(CC(F)(F)F)cc12 : -10.3
+O=c1cc(-c2ccc(C(=O)NC(F)(F)F)cc2)oc2ccc(C(F)(F)F)cc12 : -10.6
+Average score: -10.88 (n=4)
+
+# set 2
+
+Analysing gpt_oss_20b =======================================
+c1(C=CC(c5c(C(F)(F)(F))cccc5))ccc2cc3ccccc3cc2c1 : -12.3
+invalid smiles: n1c(C=CC(c5c(C(F)(F)(F))cccc5))ccc2ccccc2c1
+c1(O(c5c(C(F)(F)(F))cccc5))ccc2cc3ccccc3cc2c1 : -11.3
+n1c(C=CC(c5c(I)cccc5))cccc1 : -7.9
+c1(C=CC(c5c(C(F)(F)(F))cccc5))ccc2cc3cc(C(F)(F)(F))ccc3cc2c1 : -12.3
+Average score: -11.45 (n=4)
+
+Analysing gpt_oss_120b =======================================
+c1(O(c5c(C(F)(F)F)ccc(C(F)(F)F)c5))ccc2cc3ccccc3cc2c1 : -11.9
+c1(O(c5c(I)ccc(C(F)(F)F)c5))ccc2cc3ccccc3cc2c1 : -11.8
+c1(O(c5c(Br)ccc(C(F)(F)F)c5))ccc2cc3ccccc3cc2c1 : -11.8
+c1(C=CC(c5c(C(F)(F)F)ccc(I)c5))ccc2cc3ccccc3cc2c1 : -12.4
+n1c(C=CC(c5c(C(F)(F)F)ccc(Cl)c5))cccc1 : -8.8
+Average score: -11.34 (n=5)
+
+Analysing devstral2 =======================================
+c1(Oc2c(C(F)(F)(F))cccc2)ccc2ccccc2c1 : -9.7
+c1(C=Cc2c(Br)cccc2)ccc2ccccc2c1 : -8.9
+invalid smiles: c1(Oc2c(C(F)(F)(F))ccc(C(F)(F)(F))cc2)ccc2ccccc2c1
+invalid smiles: c1(C=Cc2c(C(F)(F)(F))ccc(C(F)(F)(F))cc2)ccc2ccccc2c1
+invalid smiles: c1(Oc2c(Br)ccc(C(F)(F)(F))cc2)ccc2cc3ccccc3cc2c1
+Average score: -9.30 (n=2)
+
+Analysing minimax_m2 =======================================
+c1(Oc2c(C(F)(F)(F))cccc2)ccc2ccccc2c1 : -9.7
+c1(C=Cc2c(Br)cccc2)ccc2ccccc2c1 : -8.9
+invalid smiles: c1(Oc2c(C(F)(F)(F))ccc(C(F)(F)(F))cc2)ccc2ccccc2c1
+invalid smiles: c1(C=Cc2c(C(F)(F)(F))ccc(C(F)(F)(F))cc2)ccc2ccccc2c1
+invalid smiles: c1(Oc2c(Br)ccc(C(F)(F)(F))cc2)ccc2cc3ccccc3cc2c1
+Average score: -9.30 (n=2)
+
+Analysing gemini3_flash =======================================
+c1(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3ccccc3cc2c1 : -12.9
+c1(C=CC(c5cc(C(F)(F)(F))cc(C(F)(F)(F))c5))ccc2cc3ccccc3cc2c1 : -12.4
+c1(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3cc4ccccc4cc3cc2c1 : -14.1
+invalid smiles: C(C=Cc1ccc(cc1)C(F)(F)(F))c2cc3ccc4cccc5ccc2c3c45
+c1(C=CC(c5ccc(C(Cl)(Cl)(Cl))cc5))ccc2cc3ccccc3cc2c1 : -12.6
+Average score: -13.00 (n=4)
+
+Analysing nemotron3_nano =======================================
+c1c2ccccc2c(c3ccc(Cl)cc3)cc1Cl : -8.5
+c1c2ccc(C(F)(F)(F))cc2c(c3ccc(Br)cc3)cc1Br : -9.3
+c1c2ccc(I)cc2c(c3ccc(Cl)cc3)cc1I : -8.4
+invalid smiles: O(c1ccccc1)c2c3ccc(Cl)cc3c(Cl)cc3c2
+invalid smiles: c1c2c(cc3c(Cl)ccc(Cl)cc3)cc2ccc(Cl)cc1Cl
+Average score: -8.73 (n=3)
+
+Analysing deepseek3p1 =======================================
+c1(C=CC(c5ccc(C(F)(F)F)cc5))ccc2cc3ccccc3cc2c1 : -12.9
+c1(C=CC(c5ccc(C(Br)(Br)Br)cc5))ccc2cc3ccccc3cc2c1 : -12.3
+c1(C=CC(c5ccc(C(F)(F)F)cc5))ccc2cc(C(F)(F)F)ccc2c1 : -11.7
+invalid smiles: c1(C=CC(c5ccc(C(F)(F)F)cc5))cccc1
+invalid smiles: c1cc(C=CC(c5ccc(C(F)(F)F)cc5))ccc2cccc3cc1c23
+Average score: -12.30 (n=3)
+
+Analysing cogito2p1 =======================================
+c1(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3ccccc3cc2c1 : -12.9
+invalid smiles: c1(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3c4ccccc4cc3cc2c1
+n1c(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3ccccc3cc12 : -12.6
+c1(C=CC(c5ccc(C(F)(F)(C(F)(F)(F)))cc5))ccc2cc3ccccc3cc2c1 : -12.9
+c1(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3c(ccc4ccccc34)cc2c1 : -14.6
+Average score: -13.25 (n=4)
