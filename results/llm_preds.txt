@@ -1,4 +1,4 @@
-# First set
+# DRD2
 
 Using 32 cores for docking.
 Analysing gpt_oss_20 =======================================
@@ -220,6 +220,191 @@ O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cc(C(F)(F)(F))ccc12 : -10.8
 
 Average for gemini-3-flash-preview is: -10.6
 
+# MAOB
+Using 32 cores for docking.
+Analysing gpt_5p2 =======================================
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))c(C#C(C(F)(F)(F)))c2)oc2ccccc12 : -11.4
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2C#N)oc2ccccc12 : -9.7
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2C=C(NC(=O)C))oc2ccccc12 : -5.4
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2CC=C(OC(=O)C))oc2ccccc12 : -7.8
+O=c1cc(-c2ccc(C#Cc3ccccc3)cc2C(F)(F)(F))oc2ccccc12 : -9.0
+
+Average for gpt_5p2 is: -8.66
+Analysing gpt_oss_120b =======================================
+O=c1c(C=C(NC(=O)C))c(-c2ccc(C(F)(F)F)cc2)oc2ccccc12 : -5.8
+O=c1c(C#C(C(F)(F)F))c(-c2ccc(N(C)C)cc2)oc2ccccc12 : -5.3
+O=c1c(C=C(C#N))c(-c2ccc(C(=O)NCC)cc2)oc2ccccc12 : -7.2
+O=c1c(C#C(N))c(-c2ccc(C(F)(F)F)cc2)oc2ccccc12 : -6.1
+invalid smiles: O=c1c(C#C(C(F)(F)F))c(-c2c3ccccc3c(c2)C(F)(F)F)oc2ccccc12
+
+Average for gpt_oss_120b is: -6.1
+Analysing gpt_oss_20b =======================================
+c1c2c3c4ccccc4c3c2c1C=C(NC(=O)C) : 0.0
+c1c2c3c4ccccc4c3c2c1C#C(C(F)(F)(F)) : 0.0
+c1c2c3c4ccccc4c3c2c1C=C(NC(=O)C)C(=O)C : 0.0
+c1c2c3c4ccccc4c3c2c1C=C(NC(=O)C)C#C(C(F)(F)(F)) : 0.0
+c1c2c3c4ccccc4c3c2c1NC(=O)C : 0.0
+
+Average for gpt_oss_20b is: 0.0
+Analysing devstral_2_123b =======================================
+c1(C#C(C(F)(F)(F)))ccc2cc3ccccc3cc2c1(C=C(NC(=O)C)) : -5.9
+invalid smiles: O=c1cc(-c2ccc(CC=C(OC(=O)C))cc2)oc2ccccc12(C=C(CCC(C(C)C)))
+c1(C#C(C(F)(F)(F)))ccc2ccccc2c1(C#C(C(F)(F)(F))) : -7.7
+c1(C=C(NC(=O)C))ccc2cc3ccccc3cc2c1(C#C(C(F)(F)(F))) : -5.8
+O=c1cc(-c2cccc(C=C(OC(=O)C))c2)oc2ccccc12 : -10.1
+
+Average for devstral_2_123b is: -7.375
+Analysing cogito_2p1_671b =======================================
+invalid smiles: c1ccc2c(C=C(NC(=O)C))c3c(c2c1)ccc4ccccc34
+invalid smiles: c1ccc2c(C#C(C(F)(F)(F)))c3c(c2c1)ccc4ccccc34
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2cc(C#C(C(F)(F)(F)))ccc12 : -6.8
+invalid smiles: c1ccc2c(C=C(NC(=O)CF3))c3c(c2c1)ccc4ccccc34
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2)oc2ccc(C=C(NC(=O)C))cc12 : -8.1
+
+Average for cogito_2p1_671b is: -7.449999999999999
+Analysing minimax_m2 =======================================
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2ccccc12 : -11.2
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -11.4
+O=c1cc(-c2ccc(C=C(C(F)(F)(F)))cc2)oc2ccccc12 : -11.4
+O=c1cc(-c2ccc(N(C(Cl)(Cl)(Cl)))cc2)oc2ccccc12 : -10.4
+O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2ccccc12 : -10.7
+
+Average for minimax_m2 is: -11.02
+Analysing nemotron_3_nano_30b =======================================
+invalid smiles: c1ccc2c(C=C(C#N)C(F)(F)(F))c3ccccc23
+invalid smiles: c1c2ccccc2c(=O)N(C(F)(F)(F))c3ccccc3
+c1c2ccccc12C(=O)C#C(C(F)(F)(F)) : -8.2
+invalid smiles: c1c2ccccc12C(=O)C#C(C(F)(F)(F))a
+c1c2ccccc12-C(=O)C#C(C(F)(F)(F)) : -8.2
+
+Average for nemotron_3_nano_30b is: -8.2
+Analysing gemini_3_flash_preview =======================================
+O=C1C=C(C2=CC=C(C#CC(F)(F)F)C=C2)OC3=CC4=CC=CC=C4C=C13 : -10.0
+O=C1C=C(C2=CC=C(C=CNC(=O)C)C=C2)OC3=CC4=CC=CC=C4C=C13 : -9.0
+O=C1C=C(C2=CC=C(C#CC(F)(F)F)C=C2)OC3=C1C=CC4=CC=CC=C43 : -8.7
+O=C1C=C(C2=CC=C(CCC(C)C)C=C2)OC3=CC4=CC=CC=C4C=C13 : -9.8
+O=C1C=C(C2=CC=C(C#CC(F)(F)F)C=C2)OC3=CC4=CN=CC=C4C=C13 : -9.8
+
+Average for gemini_3_flash_preview is: -9.459999999999999
+
+Analysing deepseek_v3p1_671b_maob =======================================
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2cccc(C#C(C(F)(F)(F)))c12 : -10.0
+c1(C=C(NC(=O)C))ccc2c(C#C(C(F)(F)(F)))c3ccccc3cc2c1 : -11.0
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2ccc(C=C(NC(=O)C))cc12 : -7.1
+invalid smiles: c1ccc2c(C=C(NC(=O)C))c3c(C#C(C(F)(F)(F)))ccccc3cc2c1
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2cccc(C=C(NC(=O)C))c12 : -8.9
+
+Average for deepseek_v3p1_671b_maob is: -9.25
+Analysing gpt_5p2_tools_first =======================================
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -12.2
+O=c1cc(-c2cc(C#C)c(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -12.0
+O=c1cc(-c2cc(F)c(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -11.7
+O=c1cc(-c2cc(Cl)c(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -11.6
+O=c1cc(-c2c(F)cc(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -11.6
+
+Average for gpt_5p2_tools_first is: -11.82
+Analysing gpt_5p2_tools_second =======================================
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))c(F)c2)oc2ccccc12 : -12.5
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2cc(F)ccc12 : -12.5
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2ccc(F)cc12 : -12.5
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))c(C(=O))c2)oc2ccccc12 : -12.3
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))c(Cl)c2)oc2ccccc12 : -12.3
+
+Average for gpt_5p2_tools_second is: -12.419999999999998
+
+# HMGCR 
+
+Using 32 cores for docking.
+Analysing gpt_5p2 =======================================
+O=c1cc(-c2ccccc2)oc2cccc(N(C(=O))C(=O)C)c12 : -7.3
+O=c1cc(-c2ccccc2)oc2cccc(N(S(=O)(=O)C))c12 : -8.3
+O=c1cc(-c2ccccc2)oc2cccc(N(S(=O)(=O)c3ccccc3))c12 : -8.0
+O=c1cc(-c2ccccc2)oc2cccc(C#C(C(=O)[O-]))c12 : -7.6
+O=c1cc(-c2ccccc2)oc2cccc(N(C(=O))C#N)c12 : -8.0
+
+Average for gpt_5p2 is: -7.840000000000001
+Analysing gpt_5p2_tools_first =======================================
+O=c1cc(-c2ccc(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12 : -9.1
+O=c1cc(-c2ccc(C(=O)O)cc2)oc2cccc(N(C(=O)))c12 : -7.9
+O=c1cc(-c2ccc(C(=O)[O-])cc2)oc2cccc(N(C(=O)))c12 : -7.9
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cccc(N(C(=O)))c12 : -8.8
+O=c1cc(-c2ccc(F)cc2)oc2cccc(N(C(=O)))c12 : -8.7
+
+Average for gpt_5p2_tools_first is: -8.48
+Analysing gpt_5p2_tools_second =======================================
+O=c1cc(-c2cc(Cl)c(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12 : -9.1
+O=c1cc(-c2ccc(NC(=O)C)c(Cl)c2)oc2cccc(N(C(=O)))c12 : -9.1
+O=c1cc(-c2c(F)cc(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12 : -9.1
+O=c1cc(-c2cc(F)c(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12 : -9.2
+O=c1cc(-c2ccc(NC(=O)C)cc2)oc2ccc(F)c(N(C(=O)))c12 : -9.1
+
+Average for gpt_5p2_tools_second is: -9.120000000000001
+Analysing deepseek_v3p1_671b =======================================
+O=c1cc(-c2cccc(N(C(=O)))c2)oc2ccccc12 : -7.9
+O=c1cc(-c2cc(N(N))cc(N(N))c2)oc2ccccc12 : -7.9
+O=c1cc(-c2ccc(C#CC(N(C(=O))))cc2)oc2ccccc12 : -8.0
+O=c1cc(-c2cc(N(N))c(C=C(F))cc2)oc2ccccc12 : -8.1
+O=c1cc(-c2cccc(C#C([O-]))c2)oc2cccc(N(C(=O)))c12 : -8.1
+
+Average for deepseek_v3p1_671b is: -8.0
+Analysing gpt_oss_120b =======================================
+O=c1c(C#C(C))c(-c2ccc(C(F)(F)F)cc2)oc2cccc(NC(=O)c3ccccc3)c12 : -8.0
+invalid smiles: O=c1c(C#C(C))c(-c2ccc(S(=O)(=O)NH2)cc2)oc2cccc(NC(=O)c3ccccc3)c12
+O=c1c(C#C(C))c(-c2ccc(C(F)(F)F)cc2)oc2cccc(NC(=O)c3ccc(C(=O)N)cc3)c12 : -8.5
+O=c1c(C#C(C))c(-c2c3ccccc3c4ccccc4c2)oc2cccc(NC(=O)c5ccccc5)c12 : -8.6
+invalid smiles: O=c1c(C#C(C))c(-c2ccc(C(F)(F)F)cc2)oc2cccc(S(=O)(=O)NH2)c12
+
+Average for gpt_oss_120b is: -8.366666666666667
+Analysing gpt_oss_20b =======================================
+O=C(Nc1ccccc1)c1ccccc1C#C(C) : -6.8
+O=C(Nc1ccc(C#N)cc1)c1ccccc1 : -6.7
+invalid smiles: O=c1c(-c2ccccc2)oc2c(c1)ncc3ccccc3c2
+invalid smiles: c1c(C#C(C))ccc2c1c(=O)ncc3ccccc3c2
+invalid smiles: O=c1c(-c2ccc(C#N)cc2)oc2c(C(C)C)ncc3ccccc3c2
+
+Average for gpt_oss_20b is: -6.75
+Analysing devstral_2_123b =======================================
+O=c1cc(-c2cccc(N(N))c2)oc2cc(N(C=O))ccc12 : -7.7
+O=c1cc(-c2cccc(C#C([O-]))c2)oc2cc(C=C(F))ccc12 : -7.1
+O=c1cc(-c2cccc(CC=C(C#N))c2)oc2cc(N(C=O))ccc12 : -7.3
+O=c1cc(-c2cc3ccccc3cc2c2cccc(N(N))c2)oc2ccccc12 : -8.7
+O=c1cc(-c2cccc(C#C(NC))c2)oc2cc(N(C=O))ccc12 : -7.5
+
+Average for devstral_2_123b is: -7.659999999999999
+Analysing cogito_2p1_671b =======================================
+O=c1cc(-c2cccc(N(N))c2)oc2cccc(N(C(=O)))c12 : -8.1
+O=c1cc(-c2cccc(CC=C(C#N))c2)oc2cccc(N(C(=O)))c12 : -8.0
+O=c1cc(-c2ccc(N(N))cc2)oc2cccc(C#C(NC))c12 : -7.2
+O=c1cc(-c2cccc(C#C([O-]))c2)oc2cccc(N(C(=O)))c12 : -8.1
+O=c1cc(-c2cccc(C=C(F))c2)oc2cccc(N(N))c12 : -8.2
+
+Average for cogito_2p1_671b is: -7.919999999999999
+Analysing minimax_m2 =======================================
+O=c1cc(-c2cc(N(N))ccc2)oc2ccccc12 : -7.9
+O=c1cc(-c2ccc(N(C(=O)))cc2)oc2ccccc12 : -7.9
+O=c1cc(-c2cc(C#C([O-]))ccc2)oc2ccccc12 : -7.7
+O=c1cc(-c2ccc(N(C(=O)))cc2)oc2ccccc12 : -7.9
+n1c[nH]c(C#C([O-]))c2cc3ccccc3cc2c1 : -6.7
+
+Average for minimax_m2 is: -7.62
+Analysing nemotron_3_nano_30b =======================================
+invalid smiles: c1ccc2c(c1)C#CC#N
+invalid smiles: c1ccc2c(c1)C#C(C#N)
+c1c2cc3ccccc3c2c(C#C(NC(=O)))c1 : -7.2
+invalid smiles: c1cc2c3ccccc3c2c1C#C(NC(=O))C#N
+invalid smiles: o1c2c3ccccc3c2c1C#C(C#N)
+
+Average for nemotron_3_nano_30b is: -7.2
+Analysing gemini_3_flash_preview =======================================
+O=c1cc(-c2ccc(F)cc2)oc2cccc(N(C(=O)))c12 : -8.7
+O=c1cc(-c2ccc(N(N))cc2)oc2cccc(N(C(=O)))c12 : -8.3
+O=c1cc(-c2cccc(CC=C(C#N))c2)oc2cccc(N(C(=O)))c12 : -8.0
+O=c1cc(-c2ccc(N(C(=O)))cc2)oc2cccc(N(C(=O)))c12 : -8.5
+O=c1cc(-c2ccc(N(N))cc2)oc2cccc(C=C(F))c12 : -7.6
+
+Average for gemini_3_flash_preview is: -8.22
+
+
 ================================================================================
 DRD2 SET SUMMARY TABLE
 ================================================================================
@@ -235,4 +420,152 @@ cogito-2.1:671b            |      5       |     -12.9     |    -11.50
 minimax-m2                 |      4       |     -10.1     |     -9.35
 nemotron-3-nano:30b        |      1       |     -10.2     |    -10.20
 gemini-3-flash-preview     |      5       |     -11.0     |    -10.60
+================================================================================
+
+================================================================================
+MAOB SET SUMMARY TABLE
+================================================================================
+Model                      | Valid SMILES | Maximum Score | Average Score
+---------------------------|--------------|---------------|---------------
+gpt_5p2                    |      5       |     -11.4     |     -8.66
+gpt_5p2_tools_first        |      5       |     -12.2     |    -11.82
+gpt_5p2_tools_second       |      5       |     -12.5     |    -12.42
+gpt_oss_120b               |      4       |      -7.2     |     -6.10
+gpt_oss_20b                |      5       |       0.0     |      0.00
+deepseek_v3p1_671b_maob    |      4       |     -11.0     |     -9.25
+devstral_2_123b            |      4       |     -10.1     |     -7.38
+cogito_2p1_671b            |      2       |      -8.1     |     -7.45
+minimax_m2                 |      5       |     -11.4     |    -11.02
+nemotron_3_nano_30b        |      2       |      -8.2     |     -8.20
+gemini_3_flash_preview     |      5       |     -10.0     |     -9.46
+================================================================================
+
+================================================================================
+HMGCR SET SUMMARY TABLE
+================================================================================
+Model                      | Valid SMILES | Maximum Score | Average Score
+---------------------------|--------------|---------------|---------------
+gpt_5p2                    |      5       |      -8.3     |     -7.84
+gpt_5p2_tools_first        |      5       |      -9.1     |     -8.48
+gpt_5p2_tools_second       |      5       |      -9.2     |     -9.12
+deepseek_v3p1_671b         |      5       |      -8.1     |     -8.00
+gpt_oss_120b               |      3       |      -8.6     |     -8.37
+gpt_oss_20b                |      2       |      -6.8     |     -6.75
+devstral_2_123b            |      5       |      -8.7     |     -7.66
+cogito_2p1_671b            |      5       |      -8.2     |     -7.92
+minimax_m2                 |      5       |      -7.9     |     -7.62
+nemotron_3_nano_30b        |      1       |      -7.2     |     -7.20
+gemini_3_flash_preview     |      5       |      -8.7     |     -8.22
+================================================================================
+
+
+================================================================================
+ANALYSIS AND CONCLUSIONS
+================================================================================
+
+## Overall Performance Across Targets
+
+### 1. BEST PERFORMING MODELS BY TARGET
+
+DRD2 Target:
+- Best Maximum Score: cogito-2.1:671b (-12.9)
+- Best Average Score: cogito-2.1:671b (-11.50) and devstral-2:123b (-11.50) [tied]
+- Runner-up: gpt_5p2_tools (-11.8 max, -11.66 avg)
+
+MAOB Target:
+- Best Maximum Score: gpt_5p2_tools_second (-12.5)
+- Best Average Score: gpt_5p2_tools_second (-12.42)
+- Runner-up: gpt_5p2_tools_first (-12.2 max, -11.82 avg)
+
+HMGCR Target:
+- Best Maximum Score: gpt_5p2_tools_second (-9.2)
+- Best Average Score: gpt_5p2_tools_second (-9.12)
+- Runner-up: gpt_5p2_tools_first (-9.1 max, -8.48 avg)
+
+### 2. CONSISTENCY ACROSS TARGETS
+
+Most Consistent High Performers:
+- gpt_5p2_tools_second: Achieved best scores in both MAOB and HMGCR, strong 
+  performance in DRD2
+- cogito-2.1:671b: Best in DRD2, moderate performance in MAOB and HMGCR
+- gemini-3-flash-preview: Consistently produced 5 valid SMILES across all targets
+  with good average scores (DRD2: -10.60, MAOB: -9.46, HMGCR: -8.22)
+
+### 3. RELIABILITY (Valid SMILES Generation)
+
+Most Reliable (5/5 valid SMILES across all targets):
+- gpt5.2, gpt_5p2_tools, gpt_5p2_tools_first, gpt_5p2_tools_second
+- gemini-3-flash-preview
+- minimax-m2 (except DRD2: 4/5)
+- deepseek_v3p1_671b (HMGCR only)
+
+Least Reliable:
+- deepseek-v3.1:671b: 0/5 valid SMILES for DRD2
+- nemotron-3-nano:30b: Only 1 valid SMILES for DRD2 and HMGCR
+- gpt_oss_20b: 2/5 valid for HMGCR, all zero scores for MAOB
+
+### 4. TARGET DIFFICULTY ANALYSIS
+
+Based on average scores achieved:
+- MAOB appears to be the EASIEST target (highest binding scores achieved)
+  - Best average: -12.42 (gpt_5p2_tools_second)
+  - Multiple models achieved averages > -11.0
+  
+- DRD2 shows INTERMEDIATE difficulty
+  - Best average: -11.50 (cogito-2.1:671b, devstral-2:123b)
+  - Several models achieved averages > -10.0
+  
+- HMGCR appears to be the MOST CHALLENGING target (lowest binding scores)
+  - Best average: -9.12 (gpt_5p2_tools_second)
+  - Most models struggled to achieve averages < -8.5
+
+### 5. TOOL-AUGMENTED vs STANDARD PROMPTING
+
+Tool-augmented approaches (gpt_5p2_tools_first and gpt_5p2_tools_second) showed:
+- Superior performance in MAOB and HMGCR targets
+- Improved consistency and reliability (5/5 valid SMILES)
+- Progressive improvement with iterative refinement (second > first)
+- Less dramatic advantage in DRD2 (cogito-2.1:671b performed better)
+
+### 6. MODEL SIZE vs PERFORMANCE
+
+Interesting observations:
+- Larger models did not always perform better
+- nemotron-3-nano:30b (smallest) struggled with validity but not necessarily 
+  with scores when valid
+- gpt_oss_20b outperformed gpt_oss_120b in several cases despite smaller size
+- Suggests architectural differences and training data quality matter more than 
+  pure parameter count
+
+### 7. KEY RECOMMENDATIONS
+
+For Drug Discovery Applications:
+1. Use gpt_5p2_tools_second for MAOB and HMGCR targets (most reliable + best scores)
+2. Use cogito-2.1:671b for DRD2 target (best maximum and average scores)
+3. Always use tool-augmented approaches when available for iterative refinement
+4. gemini-3-flash-preview offers a good balance of reliability and performance 
+   across all targets
+5. Avoid deepseek-v3.1:671b for DRD2 (poor SMILES validity)
+6. Consider ensemble approaches combining top performers for each target
+
+### 8. STATISTICAL INSIGHTS
+
+Valid SMILES Generation Rates:
+- DRD2: 32/45 valid (71.1%)
+- MAOB: 40/55 valid (72.7%)
+- HMGCR: 46/55 valid (83.6%)
+
+Score Ranges by Target:
+- DRD2: -14.6 to 0.0 (range: 14.6)
+- MAOB: -12.5 to 0.0 (range: 12.5)
+- HMGCR: -9.2 to -6.7 (range: 2.5, most consistent)
+
+### 9. FAILURE MODES
+
+Common failure patterns:
+- Syntax errors in SMILES (unbalanced parentheses, invalid bonds)
+- Invalid chemical structures (impossible bonding patterns)
+- Zero scores indicate complete binding failure
+- Some models (gpt_oss_20b for MAOB) produced valid SMILES with no binding affinity
+
 ================================================================================

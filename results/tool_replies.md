@@ -813,3 +813,133 @@ Exploring the flavone/benzopyranone (“`O=c1...oc2...`”) core is a good idea,
 
 --
 
+# MAOB
+
+What trends correlate with better (more negative) docking scores
+1) Bigger, flatter polyaromatic cores bind better
+
+Single-ring phenyl / aza-heteroaryl cores cluster around ~ -5 to -7.
+Fused bicyclic (naphthalene-like) jump to ~ -8 to -9.
+Larger fused PAHs (anthracene/phenanthrene-like) reach ~ -9.5 to -11.
+Best scores in your set are in the benzopyranone/benzoxazinone-like tricyclic “O=c1cc(… )oc2ccccc12” family and the larger fused PAHs.
+2) Substituent ranking on these scaffolds (most of the time)
+
+Alkynyl–CF3 (e.g., C#C(C(F)(F)(F))) is consistently among the best: often 0.5–1.5 kcal/mol better than nitrile/iodo/methoxy on the same core.
+Acetamide / carbamate-like H-bonding (C=C(NC(=O)C) or OC(=O)C) are also strong, but the winner varies by core.
+Nitrile (C#N) is generally decent but usually not top.
+Iodo and methoxy are usually midpack.
+Trimethylsilyl ([Si](C)(C)C) gives 0.0 everywhere (likely a docking/setup artifact) → avoid.
+3) Heteroaromatic ring swaps (pyridine/azole/thiophene) usually weaken vs phenyl
+Across the small cores, moving from phenyl → N/O/S heteroaryls trends less negative (weaker), suggesting the pocket prefers hydrophobic/π surface over polarity at that position.
+
+4) Best-in-class examples to emulate
+
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2)oc2ccccc12: -11.4 (top)
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2ccccc12: -11.2
+These suggest: benzopyranone-like core + phenyl appendage + strong EW/π substituent (alkynyl–CF3) or H-bonding amide.
+Suggested new molecules (designed to beat -11.4)
+Strategy: keep the best core family and add a second strong binder motif (extra EW group and/or extra carbonyl/H-bond acceptor) while maintaining planarity and hydrophobic surface. Since your dataset is mostly single-substituent variants, these are “next-step” multi-substituted proposals that follow the observed trends.
+
+1) Add a second CF3-alkynyl onto the phenyl appendage (dual EW/π)
+SMILES: O=c1cc(-c2ccc(C#C(C(F)(F)(F)))c(C#C(C(F)(F)(F)))c2)oc2ccccc12
+Why: Your best substituent is C#C(CF3); doubling down often improves π/hydrophobe contact and fills more pocket volume while staying rigid/planar.
+Estimated score: -12.0 to -12.6
+
+2) Combine CF3-alkynyl with a nitrile on the same phenyl (EW + polarity “tip”)
+SMILES: O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2C#N)oc2ccccc12
+Why: C#N is consistently decent and can add a directed dipole contact while keeping size minimal; pairing with the best group can incrementally improve affinity.
+Estimated score: -11.7 to -12.2
+
+3) Combine CF3-alkynyl with an acetamide-vinyl (adds H-bonding while keeping conjugation)
+SMILES: O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2C=C(NC(=O)C))oc2ccccc12
+Why: The amide-vinyl motif is one of the top performers (e.g., -11.2 on this core). Adding it alongside C#C(CF3) may capture both hydrophobic and H-bond interactions.
+Estimated score: -11.8 to -12.4
+
+4) Swap CF3-alkynyl to CF3-alkynyl + acetate (hydrophobic + extra carbonyl acceptor)
+SMILES: O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2CC=C(OC(=O)C))oc2ccccc12
+Why: OC(=O)C variants are strong on multiple large cores; adding another carbonyl acceptor sometimes boosts docking when there is a polar shelf nearby.
+Estimated score: -11.6 to -12.1
+
+5) Extend π-surface by adding a phenyl-ethynyl (bigger planar group) with CF3
+SMILES: O=c1cc(-c2ccc(C#Cc3ccccc3)cc2C(F)(F)(F))oc2ccccc12
+Why: Your data strongly rewards increased fused/aryl surface; phenyl-ethynyl maintains rigidity and π-stacking potential, and CF3 adds lipophilicity/fit.
+Estimated score: -11.5 to -12.0
+
+If you tell me which scaffold family you want to stay within (the best benzopyranone-like “O=c1cc(... )oc2ccccc12” vs the large fused PAH series), I can use the tools to systematically grow/replace groups around the current best (-11.4) and return a ranked list of actually docked next candidates.
+
+--
+
+## first tool call
+
+Using the best benzopyranone-like scaffold
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2)oc2ccccc12 (baseline -11.4), I explored adding a second substituent at various positions.
+
+Key SAR from the exploration (on top of the CF3-ethynyl phenyl)
+Adding a second CF3 onto the pendant phenyl is the biggest win.
+Adding an extra ethynyl (C#C) onto the pendant phenyl is also strong.
+Halogens F/Cl/Br on the pendant phenyl modestly improve (F best), but less than CF3/C#C.
+Nitro, amide, acetate generally help less or can hurt depending on placement.
+Adding substituents to the benzopyranone core itself was usually less effective than decorating the pendant phenyl (some core F/Cl are decent; many others worsen).
+Best new candidates (predicted to beat -11.4)
+Add a second CF3 to the pendant phenyl (best hit)
+SMILES: O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2ccccc12
+Docking score: -12.2 (best observed in this exploration)
+Rationale: stacks hydrophobic/EW volume in the same region that already likes CF3-ethynyl.
+Add an extra ethynyl on the pendant phenyl (dual-alkynyl)
+SMILES: O=c1cc(-c2cc(C#C)c(C#C(C(F)(F)(F)))cc2)oc2ccccc12
+Docking score: -12.0
+Rationale: keeps the ligand rigid/planar and expands π/shape complementarity.
+Add F on the pendant phenyl (small, high-return tweak)
+SMILES: O=c1cc(-c2cc(F)c(C#C(C(F)(F)(F)))cc2)oc2ccccc12
+Docking score: -11.7
+Rationale: subtle polarity/fit improvement without adding rotors.
+Add Cl on the pendant phenyl
+SMILES: O=c1cc(-c2cc(Cl)c(C#C(C(F)(F)(F)))cc2)oc2ccccc12
+Docking score: -11.6
+Add F on the benzopyranone core (alternative placement)
+SMILES: O=c1cc(-c2c(F)cc(C#C(C(F)(F)(F)))cc2)oc2ccccc12
+Docking score: -11.6
+Recommendation
+If you only make 1–2 compounds next, prioritize:
+
+the “double-CF3” analogue (pred -12.2), and
+the “double-alkynyl” analogue (pred -12.0).
+If you want, I can run a second round starting from the -12.2 molecule and explore third substituents (e.g., F/Cl/C#C/OC(=O)C) specifically on remaining open positions of the pendant phenyl vs the core to see if we can push toward ~-12.5 to -13.
+
+--
+
+## second tool call
+Third-substituent exploration starting from lead A
+O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2ccccc12 (baseline -12.2)
+
+Best improved hits (all beat -12.2)
+Add F on the pendant phenyl (best overall)
+SMILES: O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))c(F)c2)oc2ccccc12
+Docking: -12.5
+Why it works: small, lipophilic “tightener” on the aryl face without adding rotors; seems to optimize packing.
+Add F on the benzopyranone ring (several positions tied for best)
+SMILES: O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2cc(F)ccc12
+Docking: -12.5
+Why: reinforces hydrophobic contacts on the core while keeping planarity.
+Add F on the benzopyranone ring (alt position, same score)
+SMILES: O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))cc2)oc2ccc(F)cc12
+Docking: -12.5
+Add a formyl group on the pendant phenyl (adds acceptor)
+SMILES: O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))c(C(=O))c2)oc2ccccc12
+Docking: -12.3
+Why: adds a strong H-bond acceptor with minimal flexibility; apparently tolerated well.
+Add Cl on the pendant phenyl
+SMILES: O=c1cc(-c2cc(C(F)(F)(F))c(C#C(C(F)(F)(F)))c(Cl)c2)oc2ccccc12
+Docking: -12.3
+Why: hydrophobic volume similar to F but larger; slightly less optimal than F.
+Notable “near misses” / warnings
+Adding extra CF3 as a third substituent on the pendant phenyl did not improve further (e.g. -11.5).
+Adding another ethynyl–CF3 as the third substituent was bad (~ -7.6), suggesting overfilling/strain.
+Many polar additions on the core (e.g., acids/esters) were mediocre to worse.
+What I recommend making next
+If you pick only 2–3:
+
+...c(F)c2... pendant phenyl F (-12.5)
+one core-F isomer (-12.5) to hedge positional uncertainty
+the pendant phenyl CHO analogue (-12.3) as a polarity probe
+If you want, I can now take the -12.5 pendant-F best hit and do a fourth substituent round (focused only on F/Cl/CHO/CN at remaining sites) to see if anything pushes below -12.7 without breaking the scaffold.

@@ -57,7 +57,7 @@ models = ['deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b',
 # 'deepseek-v3.2', 'qwen3-next', 'qwen3-coder:480b', 'qwen3-vl:235b', 'qwen3.5', 'glm-5', 
 # r'glm-4.6', r'kimi-k2.5', 'kimi-k2:1t', 'ministral-3:14b', 
 
-with open('input_set.md', 'r') as f:
+with open('HMGCR_input_set.md', 'r') as f:
     context = f.readlines()
 
 context = '\n'.join(context)
@@ -88,7 +88,7 @@ Here is the list of molecules and their docking scores:
 '''
 print('created_prompt')
 
-for model in models[1:]:
+for model in models:
 
     client = Client(host = 'https://ollama.com',
                 headers={'Authorization': f'Bearer {key}'})
