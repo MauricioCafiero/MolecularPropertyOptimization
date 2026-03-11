@@ -128,3 +128,111 @@ n1c(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3ccccc3cc12 : -12.6
 c1(C=CC(c5ccc(C(F)(F)(C(F)(F)(F)))cc5))ccc2cc3ccccc3cc2c1 : -12.9
 c1(C=CC(c5ccc(C(F)(F)(F))cc5))ccc2cc3c(ccc4ccccc34)cc2c1 : -14.6
 Average score: -13.25 (n=4)
+
+#DRD2
+Analysing gpt_5p2_initial =======================================
+FC(F)(F)c1ccc2cc3ccccc3cc2c1C(F)(F)(F) : -10.9
+N#Cc1ccc2cc3ccccc3cc2c1C(F)(F)(F) : -10.2
+invalid smiles: [N+](=O)[O-]c1ccc2cc3ccccc3cc2c1C(F)(F)(F)
+O=C(NN)c1ccc2cc3ccccc3cc2c1C(F)(F)(F) : -10.5
+[NH3+]C(=O)c1ccc2cc3ccccc3cc2c1C(F)(F)(F) : -10.6
+
+Analysing gpt_5p2_tools =======================================
+c1(C(F)(F)(F))ccc2cc3ccc(C(F)(F)(F))cc3cc2c1 : -11.8
+c1(C(F)(F)(F))ccc2cc3cccc(C(F)(F)(F))c3cc2c1 : -11.8
+c1(C(F)(F)(F))ccc2cc3ccc(C(=O)N(N))cc3cc2c1 : -11.6
+c1(C(F)(F)(F))ccc2cc3ccc(C(=O)[NH3+])cc3cc2c1 : -11.6
+c1(C(F)(F)(F))ccc2cc3cccc(Cl)c3cc2c1 : -11.5
+
+# DRD2 set 
+
+Using 32 cores for docking.
+Analysing gpt5.2 =======================================
+c1(C(F)(F)(F))ccc2cc3ccccc3cc2c1C(F)(F)(F) : -10.9
+c1(C(F)(F)(F))ccc2cc3ccccc3cc2c1C(=O)N(OC(=O)C) : -9.6
+c1(CC(C(Cl)(Cl)(Cl)))ccc2cc3ccccc3cc2c1C(=O)N(OC(=O)C) : -9.0
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cc(C(F)(F)(F))ccc12 : -10.8
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cc(C(=O)N(OC(=O)C))ccc12 : -10.9
+
+Average for gpt5.2 is: -10.239999999999998
+Analysing deepseek-v3.1:671b =======================================
+invalid smiles: c1(C(F)(F))(F))ccc2ccccc2c1
+invalid smiles: c1(C(Cl)(Cl))(Cl))ccc2ccccc2c1
+invalid smiles: c1(C(=O)N(OC(=O)C))(C(=O)N(OC(=O)C)))ccc2ccccc2c1
+invalid smiles: c1(C(F)(F))(C(Cl)(Cl))(Cl)))ccc2ccccc2c1
+invalid smiles: c1(C(=O)O(N(C)C))(C(F)(F))(F)))ccc2ccccc2c1
+
+No valid SMILES
+Analysing gpt-oss:120b =======================================
+c1(C(F)(F)F)ccc2c3ccccc3c4ccccc4c2c1 : -9.9
+c1(C(F)(F)F)ccc2c3ccccc3c4ccccc4c2c1C(F)(F)F : -10.2
+c1(C(F)(F)F)ccc2c3ccccc3c4ccccc4c2c1C(Cl)(Cl)(Cl) : -9.7
+invalid smiles: c1ccc2c(c1)ccc3c2c4ccccc4c3C(F)(F)F
+invalid smiles: c1ccc2c(c1)ccc3c2c4ccccc4c3C(F)(F)F
+
+Average for gpt-oss:120b is: -9.933333333333334
+Analysing gpt-oss:20b =======================================
+c1(C(F)(F)(F))ccc2ccc3ccc4ccccc4c3c2c1 : -10.0
+c1(C(F)(F)(F))ccc2ccc3ccc4cc(C(F)(F)(F))ccc4c3c2c1 : -10.5
+c1(C(F)(F)(F))ccc2ccc3ccc4ccc5ccccc5c4c3c2c1 : -11.4
+invalid smiles: c1(CCl3)ccc2cc3cc4ccccc4c3c2c1
+c1(C(F)(F)(F))ccc2ccc3ccc4ccccc4c3c(cc2c1)C(C)(C)C : -8.4
+
+Average for gpt-oss:20b is: -10.075
+Analysing devstral-2:123b =======================================
+c1(C(F)(F)(F))ccc2cc3cc4ccccc4cc3cc2c1 : -11.5
+invalid smiles: c1(C(F)(F)(F))ccc2cc(C(F)(F)(F))ccc3ccccc23c1
+invalid smiles: c1(C(=O)N(OC(=O)C))ccc2cc(C(F)(F)(F))ccc3ccccc23c1
+invalid smiles: O=c1cc(-c2cc(C(F)(F)(F))ccc3ccccc23)oc2ccccc12
+invalid smiles: c1(O(C(C)(C)C))ccc2cc(C(F)(F)(F))ccc3ccccc23c1
+
+Average for devstral-2:123b is: -11.5
+Analysing cogito-2.1:671b =======================================
+c1(C(F)(F)(F))ccc2cc3c(cc2c1)-c4ccccc4-c5ccccc35 : -11.6
+c1(CC(C(Cl)(Cl)(Cl)))ccc2cc3c(cc2c1)-c4ccccc4-c5ccccc35 : -11.5
+O=c1c(C(F)(F)(F))c(-c2ccc3ccccc3c2)oc2ccccc12 : -10.0
+c1(C(F)(F)(F))ccc2cc3cc4ccccc4cc3cc2c1 : -11.5
+c1(C(F)(F)(F))ccc2cc3cc4c(cc3cc2c1)-c5ccccc5-c6ccccc46 : -12.9
+
+Average for cogito-2.1:671b is: -11.5
+Analysing minimax-m2 =======================================
+c1(C(F)(F)(F))ccc2(C(F)(F)(F))c3ccccc3cc2c1 : -9.5
+c1(C(F)(F)(F))ccc2c(C(=O)N(OC(=O)C))c3ccccc3cc2c1 : -10.1
+c1(C(F)(F)(F))ccc2c(C(=O)O(N(C)C))c3ccccc3cc2c1 : -8.9
+invalid smiles: O=c1cc(-c2(C(F)(F)(F))ccccc2)oc2(C(F)(F)(F))ccccc12
+c1(C(F)(F)(F))ccc2c(C(N(C)C))c3ccccc3cc2c1 : -8.9
+
+Average for minimax-m2 is: -9.35
+Analysing nemotron-3-nano:30b =======================================
+c1(C(F)(F)(F))ccc2cc3ccc3cc2c1 : -10.2
+invalid smiles: c1(C(F)(F)(F)C(F)(F)F)ccc2cc3ccc3cc2c1
+invalid smiles: c1(c2ccc(C(F)(F)(F))c2ccc(cc3c2c2ccc(C(F)(F)(F))c3)cc1)O=C(N)C(=O)O
+invalid smiles: c1(C(F)(F)(F)C(F)(F)F)ccc2cc3c(ccc2c3)C(=O)N(OC(=O)C)ccc4ccccc4
+invalid smiles: c1(C(F)(F)(F)C(F)(F)F)ccc2cc3c(ccc2c3)C(N(=O)O)C(=O)O
+
+Average for nemotron-3-nano:30b is: -10.2
+Analysing gemini-3-flash-preview =======================================
+FC(F)(F)c1ccc2cc3cc(C(F)(F)(F))ccc3cc2c1 : -11.0
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cc3ccccc3cc12 : -10.8
+ClC(Cl)(Cl)Cc1ccc2cc3cc(C(F)(F)(F))ccc3cc2c1 : -10.6
+CC(=O)ON(C(=O)c1ccc2cc3cc(C(=O)N(OC(C)=O))ccc3cc2c1)C : -9.8
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cc(C(F)(F)(F))ccc12 : -10.8
+
+Average for gemini-3-flash-preview is: -10.6
+
+================================================================================
+DRD2 SET SUMMARY TABLE
+================================================================================
+Model                      | Valid SMILES | Maximum Score | Average Score
+---------------------------|--------------|---------------|---------------
+gpt5.2                     |      5       |     -10.9     |    -10.24
+gpt_5p2_tools              |      5       |     -11.8     |    -11.66
+gpt-oss:120b               |      3       |     -10.2     |     -9.93
+gpt-oss:20b                |      4       |     -11.4     |    -10.08
+deepseek-v3.1:671b         |      0       |      N/A      |      N/A
+devstral-2:123b            |      1       |     -11.5     |    -11.50
+cogito-2.1:671b            |      5       |     -12.9     |    -11.50
+minimax-m2                 |      4       |     -10.1     |     -9.35
+nemotron-3-nano:30b        |      1       |     -10.2     |    -10.20
+gemini-3-flash-preview     |      5       |     -11.0     |    -10.60
+================================================================================
