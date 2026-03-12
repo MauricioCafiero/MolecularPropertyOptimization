@@ -4,7 +4,8 @@ import os, re, random, sys
 from typing import Optional
 
 sys.path.append('MolecularPropertyOptimization/code')
-from docking_module import scoring_function, scoring_args
+#from docking_module import scoring_function, scoring_args
+from lipinski_module import scoring_function, scoring_args
 
 ''' define functions'''
 # define a scoring function that can be substituted into the cycle functions. 

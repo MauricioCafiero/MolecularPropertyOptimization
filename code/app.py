@@ -12,15 +12,15 @@ from collections import Counter
 from typing import Annotated, TypedDict
 import time, sys
 
-from google.colab import userdata
+#from google.colab import userdata
 
 sys.path.append('MolecularPropertyOptimization/code')
 from MolPropOp import *
 from docking_module import *
 
 #get key from secrets
-openai_key = userdata.get('OPENAI_API_KEY')
-#openai_key = os.getenv("OPENAI_API_KEY")
+#openai_key = userdata.get('OPENAI_API_KEY')
+openai_key = os.getenv("OPENAI_API_KEY")
 
 tools = [grow_cycle, replace_groups, make_random_list]
 

@@ -2,7 +2,7 @@ from rdkit import Chem
 from rdkit.Chem import QED, Draw
 import os
 
-scoring_args = ['alogp']
+scoring_args = [2.5, 'alogp']
 
 def scoring_function(smiles: str):
   '''
@@ -18,11 +18,11 @@ def scoring_function(smiles: str):
   lipinski_hash = {'mw': 0, 'alogp': 1, 'hba': 2, 'hbd': 3, 'psa': 4, 'rb': 5, 'ar': 6, 'um': 7}
 
   try:
-    score = p[lipinski_hash[scoring_args[0]]]
+    score = p[lipinski_hash[scoring_args[1]]]
   except:
     score = -999
 
-  return score
+  return score, None
 
 task_hash = {
     'alogp': 'The octanol-water partition coefficient (logP) is a measure of how \
@@ -60,7 +60,7 @@ oral bioavailability.'
 }
 
 task_specific_prompt = f'''# You are a drug design assistant. In the first user message you will
-see a list of molecular SMILES strings and a specific property calculated for each molecule. 
-{task_hash[scoring_args[0]]} Your task is to use the information in the list to learn trends about 
-what makes a molecule have a good value for that property, and then use those trends to suggest 
-new molecules that should have better values for that property than the ones in the list.'''
+see a list of molecular SMILES strings and the following property calculated for each molecule: 
+{task_hash[scoring_args[1]]} Your task is to use the information in the list to learn trends about 
+what makes a molecule have a specific for that property, and then use those trends to suggest 
+new molecules that should have a value as close to {scoring_args[0]} as possible.'''
