@@ -1,4 +1,5 @@
 from anthropic import Anthropic
+import os
 
 anthropic_key = os.getenv("ANTHROPIC_KEY")
 
@@ -6,7 +7,7 @@ client = Anthropic(api_key=anthropic_key)
 
 chat_history = []
 
-with open('HMGCR_input_set.md', 'r') as f:
+with open('data/input_set.md', 'r') as f:
     context = f.readlines()
 
 context = '\n'.join(context)
@@ -45,5 +46,8 @@ messages=[
 )
 
 elita_text = elita_message.content[0].text
+
+with open('data/ant_model_replies.md', 'a') as f:
+    f.write(elita_text + '\n')
 
 print(elita_text)

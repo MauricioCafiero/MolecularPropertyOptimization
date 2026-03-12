@@ -1,14 +1,11 @@
 
 c1(CC(C(Cl)(Cl)(Cl)))ccccc1: -6.9
-=========== New best score: -6.9 for c1(CC(C(Cl)(Cl)(Cl)))ccccc1 ======
 c1(CC(SC))ccccc1: -5.9
 c1(CC(CC))ccccc1: -6.4
 c1(C=C([NH3+]))ccccc1: -6.2
 c1(O(C(C)(C)C))ccccc1: -6.2
 c1(C(F)(F)(F))ccccc1: -7.0
-=========== New best score: -7.0 for c1(C(F)(F)(F))ccccc1 ======
 c1(C(=O)N(OC(=O)C))ccccc1: -7.1
-=========== New best score: -7.1 for c1(C(=O)N(OC(=O)C))ccccc1 ======
 c1(C(N(C)C))ccccc1: -5.9
 c1(O([NH3+]))ccccc1: -5.3
 c1(C(=O)O(N(C)C))ccccc1: -6.3
@@ -133,13 +130,11 @@ n1c[nH]cc1(C(N(C)C)): -4.7
 n1c[nH]cc1(O([NH3+])): -4.5
 n1c[nH]cc1(C(=O)O(N(C)C)): -5.2
 c1(CC(C(Cl)(Cl)(Cl)))ccc2ccccc2c1: -8.9
-=========== New best score: -8.9 for c1(CC(C(Cl)(Cl)(Cl)))ccc2ccccc2c1 ======
 c1(CC(SC))ccc2ccccc2c1: -7.7
 c1(CC(CC))ccc2ccccc2c1: -8.4
 c1(C=C([NH3+]))ccc2ccccc2c1: -8.2
 c1(O(C(C)(C)C))ccc2ccccc2c1: -8.4
 c1(C(F)(F)(F))ccc2ccccc2c1: -9.2
-=========== New best score: -9.2 for c1(C(F)(F)(F))ccc2ccccc2c1 ======
 c1(C(=O)N(OC(=O)C))ccc2ccccc2c1: -9.0
 c1(C(N(C)C))ccc2ccccc2c1: -8.0
 c1(O([NH3+]))ccc2ccccc2c1: -7.4
@@ -155,13 +150,11 @@ c1cc(C(N(C)C))c2ccccc2c1: -7.7
 c1cc(O([NH3+]))c2ccccc2c1: -7.2
 c1cc(C(=O)O(N(C)C))c2ccccc2c1: -7.0
 c1(CC(C(Cl)(Cl)(Cl)))ccc2cc3ccccc3cc2c1: -10.1
-=========== New best score: -10.1 for c1(CC(C(Cl)(Cl)(Cl)))ccc2cc3ccccc3cc2c1 ======
 c1(CC(SC))ccc2cc3ccccc3cc2c1: -9.3
 c1(CC(CC))ccc2cc3ccccc3cc2c1: -9.8
 c1(C=C([NH3+]))ccc2cc3ccccc3cc2c1: -9.9
 c1(O(C(C)(C)C))ccc2cc3ccccc3cc2c1: -10.0
 c1(C(F)(F)(F))ccc2cc3ccccc3cc2c1: -11.0
-=========== New best score: -11.0 for c1(C(F)(F)(F))ccc2cc3ccccc3cc2c1 ======
 c1(C(=O)N(OC(=O)C))ccc2cc3ccccc3cc2c1: -10.7
 c1(C(N(C)C))ccc2cc3ccccc3cc2c1: -9.1
 c1(O([NH3+]))ccc2cc3ccccc3cc2c1: -9.4
@@ -266,4 +259,3 @@ O=c1cc(-c2ccccc2)oc2cccc(C(=O)N(OC(=O)C))c12: -10.2
 O=c1cc(-c2ccccc2)oc2cccc(C(N(C)C))c12: -9.8
 O=c1cc(-c2ccccc2)oc2cccc(O([NH3+]))c12: -9.8
 O=c1cc(-c2ccccc2)oc2cccc(C(=O)O(N(C)C))c12: -9.6
-Best score: -11.0 for c1(C(F)(F)(F))ccc2cc3ccccc3cc2c1
