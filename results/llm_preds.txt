@@ -404,6 +404,33 @@ O=c1cc(-c2ccc(N(N))cc2)oc2cccc(C=C(F))c12 : -7.6
 
 Average for gemini_3_flash_preview is: -8.22
 
+Using 32 cores for docking.
+Analysing anthropic_hmgcr =======================================
+O=c1cc(-c2cccc(C#C(C(=O)O))c2)oc2cccc(N(C(=O)))c12 : -7.4
+O=c1cc(-c2ccc3ccccc3c2)oc2cccc(N(C(=O)))c12 : -9.2
+O=c1cc(-c2ccc(C#C([O-]))cc2)oc2cccc(N(C(=O)))c12 : -8.5
+O=c1cc(-c2cccc(N(C(=O)))c2)oc2cccc(N(C(=O)))c12 : -8.3
+O=c1cc(-c2cccc(CC=C(C#N))c2)oc2cccc(N(C(=O)))c12 : -8.0
+
+Average for anthropic_hmgcr is: -8.280000000000001
+Analysing anthropic_maob =======================================
+invalid smiles: O=c1cc(-c2ccc(C=C(NC(=O)CF3))cc2)oc2ccccc12
+invalid smiles: O=c1cc(-c2ccc(CC=C(OC(=O)CF3))cc2)oc2ccccc12
+O=c1cc(-c2ccc(C#C(C(F)(F)(F)))cc2)oc2ccccc12 : -11.4
+O=c1cc(-c2ccc(C=C(NC(=O)C))cc2)oc2cc(C#N)ccc12 : -8.9
+O=c1cc(-c2ccc(CC=C(OC(=O)C))cc2)oc2cc(C=C(NC(=O)C))ccc12 : -5.6
+
+Average for anthropic_maob is: -8.633333333333333
+Analysing anthropic_drd2 =======================================
+c1(C(F)(F)(F))ccc2c(C(F)(F)(F))c3ccccc3cc2c1 : -9.6
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2ccc(C(=O)N(OC(=O)C))cc12 : -10.5
+invalid smiles: c1(C(F)(F)(F))ccc2c(C(=O)N(OC(=O)C))ccccc2c1
+c1(CC(C(Cl)(Cl)(Cl)))ccc2c(C(F)(F)(F))c3ccccc3cc2c1 : -9.7
+O=c1cc(-c2ccc(C(F)(F)(F))cc2)oc2cc(CC(C(Cl)(Cl)(Cl)))ccc12 : -10.2
+
+Average for anthropic_drd2 is: -10.0
+
+
 
 ================================================================================
 DRD2 SET SUMMARY TABLE
@@ -420,6 +447,7 @@ cogito-2.1:671b            |      5       |     -12.9     |    -11.50
 minimax-m2                 |      4       |     -10.1     |     -9.35
 nemotron-3-nano:30b        |      1       |     -10.2     |    -10.20
 gemini-3-flash-preview     |      5       |     -11.0     |    -10.60
+anthropic_drd2             |      4       |     -10.5     |    -10.00
 ================================================================================
 
 ================================================================================
@@ -438,6 +466,7 @@ cogito_2p1_671b            |      2       |      -8.1     |     -7.45
 minimax_m2                 |      5       |     -11.4     |    -11.02
 nemotron_3_nano_30b        |      2       |      -8.2     |     -8.20
 gemini_3_flash_preview     |      5       |     -10.0     |     -9.46
+anthropic_maob             |      3       |     -11.4     |     -8.63
 ================================================================================
 
 ================================================================================
@@ -456,6 +485,7 @@ cogito_2p1_671b            |      5       |      -8.2     |     -7.92
 minimax_m2                 |      5       |      -7.9     |     -7.62
 nemotron_3_nano_30b        |      1       |      -7.2     |     -7.20
 gemini_3_flash_preview     |      5       |      -8.7     |     -8.22
+anthropic_hmgcr            |      5       |      -9.2     |     -8.28
 ================================================================================
 
 
@@ -498,11 +528,58 @@ Most Reliable (5/5 valid SMILES across all targets):
 - gemini-3-flash-preview
 - minimax-m2 (except DRD2: 4/5)
 - deepseek_v3p1_671b (HMGCR only)
+- anthropic_hmgcr (5/5 for HMGCR specifically)
+
+Moderate Reliability:
+- anthropic models: 4/5 for DRD2, 3/5 for MAOB, 5/5 for HMGCR (overall: 80%)
 
 Least Reliable:
 - deepseek-v3.1:671b: 0/5 valid SMILES for DRD2
 - nemotron-3-nano:30b: Only 1 valid SMILES for DRD2 and HMGCR
 - gpt_oss_20b: 2/5 valid for HMGCR, all zero scores for MAOB
+
+### 3.5 ANTHROPIC MODEL (CLAUDE-HAIKU-4.5) PERFORMANCE ANALYSIS
+
+Cross-Target Performance Summary:
+- DRD2: 4/5 valid SMILES, -10.5 max, -10.00 avg (middle tier performance)
+- MAOB: 3/5 valid SMILES, -11.4 max, -8.63 avg (high variance, reliability issues)
+- HMGCR: 5/5 valid SMILES, -9.2 max, -8.28 avg (TIED FOR BEST MAXIMUM!)
+
+Key Strengths:
+1. **HMGCR Excellence**: Anthropic achieved the joint-best maximum score (-9.2) 
+   alongside gpt_5p2_tools_second, with perfect SMILES validity (5/5)
+2. **Balanced Cross-Target Performance**: No catastrophic failures across any target
+3. **MAOB Peak Performance**: Strong maximum score (-11.4, tied with gpt_5p2 and minimax_m2)
+4. **DRD2 Stability**: Solid middle-tier average (-10.00) without major outliers
+
+Weaknesses:
+1. **MAOB Inconsistency**: Only 60% valid SMILES (3/5) with high variance 
+   (range: -11.4 to -5.6), indicating difficulty with certain chemical patterns
+2. **Below Tool-Augmented Performance**: Lags behind gpt_5p2_tools in average scores
+3. **DRD2 Validity**: One invalid SMILES reduced potential performance
+
+Comparative Analysis:
+- vs. gpt_5p2_tools_second: Anthropic competitive in HMGCR (tied maximum) but 
+  significantly behind in MAOB (-8.63 vs -12.42)
+- vs. cogito-2.1:671b: More consistent across targets but doesn't achieve the 
+  exceptional DRD2 performance (-10.00 vs -11.50)
+- vs. gemini-3-flash: Slightly better HMGCR (-8.28 vs -8.22) but marginally 
+  worse DRD2 (-10.00 vs -10.60)
+
+Strategic Recommendations:
+- **Primary Use Case**: HMGCR target optimization (tied for best maximum score)
+- **Secondary Use Case**: General-purpose balanced molecule generation
+- **Avoid**: As sole predictor for MAOB (high variance, 40% failure rate)
+
+Overall Ranking: **UPPER-MIDDLE TIER**
+- Better than: gpt_oss models, devstral, nemotron, standard minimax
+- Comparable to: gemini-3-flash-preview, deepseek (target-dependent)
+- Behind: gpt_5p2_tools (especially second iteration), cogito-2.1 (DRD2 only)
+
+Failure Mode Analysis:
+- MAOB failures: Two SMILES with "CF3" notation errors (should be C(F)(F)(F))
+- DRD2 failure: Invalid carbamate placement on naphthalene structure
+- Generally higher-quality failures (syntax rather than chemically nonsensical)
 
 ### 4. TARGET DIFFICULTY ANALYSIS
 
