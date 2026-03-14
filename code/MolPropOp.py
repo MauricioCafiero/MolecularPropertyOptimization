@@ -21,7 +21,7 @@ base_rings = ['c1ccccc1', #benzene
                'c1ccc2cc3ccccc3cc2c1', #anthracene
                'O=c1cc(-c2ccccc2)oc2ccccc12'] #flavone
 
-free_carbon_search_patterns = ['c1c', r'1c\[n', 'cc', r'c\[nH\]']
+free_carbon_search_patterns = ['c[0-9]c', r'1c\[n', 'cc', r'c\[nH\]']
 free_carbon_insert_points = [2, 2, 1, 1]
 
 clean_ring_locations = [
@@ -64,8 +64,8 @@ e_donate = [
     "CC",            # Ethyl (-Et)
     "C",             # Methyl (-Me)
     "c5ccccc5",      # Phenyl (-Ph)
-    "C=C",           # Vinyl (-CH=CH2)
-    "[Si](C)(C)C"    # Trimethylsilyl (-SiMe3)
+    "C=C"           # Vinyl (-CH=CH2)
+    #"[Si](C)(C)C"    # Trimethylsilyl (-SiMe3)
 ]
 
 linkers = [
