@@ -2,6 +2,7 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import os, re, random, sys
 from typing import Optional
+import pubchempy as pcp
 
 sys.path.append('MolecularPropertyOptimization/code')
 from docking_module import scoring_function, scoring_args
@@ -343,6 +344,103 @@ def replace_groups(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, subst
     print(f"Best score: {best_score} for {best_smiles}")
     print('=============================================================================')
     return total_list
+
+def related(smiles_list: list[str]):
+  '''
+    Queries Pubchem for similar molecules based on the smiles string or name
+
+      Args:
+        smiles_list: the input smiles strings
+
+      Returns:
+        related_string: a string containing the related molecules and their properties, 
+        formatted for display in the UI
+  '''
+  print("related tool")
+  print('===================================================')
+
+  related_string = ''
+  for smiles in smiles_list:
+    try:
+        res = pcp.get_compounds(smiles, "smiles", searchtype="similarity",listkey_count=25)
+        related_string += f'## The following molecules are similar to {smiles}: \n'
+        print('got related molecules with smiles')
+
+        sub_smiles = []
+
+        i = 0
+        for compound in res:
+            if i == 0:
+                print(compound.iupac_name)
+                i+=1
+            sub_smiles.append(compound.smiles)
+            related_string += f'- Name: {compound.iupac_name}\n'
+            related_string += f'- SMILES: {compound.smiles}\n'
+            related_string += f'- Molecular Weight: {compound.molecular_weight}\n'
+            related_string += f'- LogP: {compound.xlogp}\n'
+            related_string += '===================\n'
+    except:
+        related_string += f'{smiles}: Fail\n'
+
+  return related_string
+
+def lipinski(smiles_list: list[str] = ['c1ccccc1']):
+  '''
+    A tool to calculate QED and other lipinski properties of a molecule.
+
+      Args:
+        smiles_list: the input smiles strings
+
+      Returns:
+        total_lipinski_string: a string of the QED and other lipinski properties of the molecules,
+                      including Molecular Weight, LogP, HBA, HBD, Polar Surface Area,
+                      Rotatable Bonds, Aromatic Rings and Undesireable Moieties.
+  '''
+  print("lipinski tool")
+  print('===================================================')
+
+  total_lipinski_string = ''
+
+  for smiles in smiles_list:
+    for ion in ['.[Na+]', '.[K+]', '.[Cl-]', '.[Br-]', '[Na+].', '[K+].', '[Cl-].', '[Br-].']:
+        smiles = smiles.replace(ion, '')
+    lipinski_list = []
+    try:
+        mol = Chem.MolFromSmiles(smiles)
+        qed = Chem.QED.default(mol)
+
+        p = Chem.QED.properties(mol)
+        mw = p[0]
+        logP = p[1]
+        hba = p[2]
+        hbd = p[3]
+        psa = p[4]
+        rb = p[5]
+        ar = p[6]
+        um = p[7]
+
+        lipinski_list.append(qed)
+        lipinski_list.append(mw)
+        lipinski_list.append(logP)
+        lipinski_list.append(hba)
+        lipinski_list.append(hbd)
+        lipinski_list.append(psa)
+        lipinski_list.append(rb)
+        lipinski_list.append(ar)
+        lipinski_list.append(um)
+
+        total_lipinski_string += f"Properties of SMILES: {smiles}: QED: {qed:.3f}\n"
+        total_lipinski_string += f"Molecular Weight: {mw:.3f}, LogP: {logP:.3f}\n"
+        total_lipinski_string += f"Hydrogen bond acceptors: {hba}, Hydrogen bond donors: {hbd}\n" 
+        total_lipinski_string += f"Polar Surface Area: {psa:.3f}, Rotatable Bonds: {rb}\n" 
+        total_lipinski_string += f"Aromatic Rings: {ar}, Undesireable moieties: {um}\n"
+        total_lipinski_string += "===================================================\n"    
+    except:
+        total_lipinski_string += f"SMILES: {smiles}, Could not get properties\n"
+  
+  return total_lipinski_string
+
+''' batch versions of the above functions. These generate all SMILES first, then score them in batch with a single function call to scoring_function. This is more efficient than scoring each SMILES individually, especially when using docking as the scoring function.'''
 
 def sub_cycle_batch(substituents: list = e_withdraw, scoring_args: list = scoring_args):
     '''
