@@ -1,4 +1,4 @@
-from langchain_openai.chat_models import ChatOpenAI
+from langchain_anthropic.chat_models import ChatAnthropic
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 from google.colab import userdata
 from langchain_core.tools import tool
@@ -11,7 +11,8 @@ from PIL import Image
 from collections import Counter
 from typing import Annotated, TypedDict
 import time, sys
-from anthropic import Anthropic
+from openai import OpenAI
+
 
 sys.path.append('MolecularPropertyOptimization/code')
 from MolPropOp import *
@@ -20,44 +21,44 @@ from docking_module import *
 tools = [grow_cycle, replace_groups, make_random_list, related, lipinski]
 
 anthropic_key = os.getenv("ANTHROPIC_KEY")
-client = Anthropic(api_key=anthropic_key)
+model = ChatAnthropic(model="claude-haiku-4-5-20251001", api_key=anthropic_key).bind_tools(tools)
 
 openai_key = os.getenv("OPENAI_API_TOKEN")
-model = ChatOpenAI(model_name="gpt-5.2", api_key=openai_key).bind_tools(tools)
+client = OpenAI(api_key=openai_key)
 
 def adversary(prompt: str):
-    adversary_message = client.messages.create(
-    model="claude-haiku-4-5-20251001",
-    max_tokens=2000,
-    system = '''
-    You are a drug design assistant. You will recieve a proposal from  another model
-    of novel molecules it has designed to bind to a particular protein target. The proposal will 
-    include reasoning as to why the model thinks those molecules will bind well, and estimated 
-    docking scores for each molecule. Your task is to analyze the proposal and find any flaws 
-    in the reasoning or estimation of the docking scores. You should then suggest modifications 
-    to the proposed molecules that would make them more likely to bind well, and provide reasoning 
-    for why those modifications would help.
-
-    The other model has access to the following tools, and you may suggest that it use these tools to 
-    gather more information or test out modifications to the proposed molecules:
-
-    - grow_cycle: starts with a molecule SMILES and adds substituents to it, docks them, and returns 
-                  a list of molecules and scores. 
-
-    - replace_groups: starts with a molecule SMILES and replaces specific groups in it with new groups, 
-                      returning a list of new molecules and scores. 
     
-    - make_random_list: this tool generates a list of substituents of specified length (num_items). 
+    adversary_message = client.responses.create(
+      model="gpt-5.2",
+      instructions = '''
+      You are a drug design assistant. You will recieve a proposal from  another model
+      of novel molecules it has designed to bind to a particular protein target. The proposal will 
+      include reasoning as to why the model thinks those molecules will bind well, and estimated 
+      docking scores for each molecule. Your task is to analyze the proposal and find any flaws 
+      in the reasoning or estimation of the docking scores. You should then suggest modifications 
+      to the proposed molecules that would make them more likely to bind well, and provide reasoning 
+      for why those modifications would help.
+
+      The other model has access to the following tools, and you may suggest that it use these tools to 
+      gather more information or test out modifications to the proposed molecules:
+
+      - grow_cycle: starts with a molecule SMILES and adds substituents to it, docks them, and returns 
+                    a list of molecules and scores. 
+
+      - replace_groups: starts with a molecule SMILES and replaces specific groups in it with new groups, 
+                        returning a list of new molecules and scores. 
+      
+      - make_random_list: this tool generates a list of substituents of specified length (num_items). 
+      
+      - related: this tool generates a list of molecules that are structurally related to a given molecule, 
+                  and may be useful for exploring the chemical space around promising molecules.
+
+      - lipinski: this tool evaluates a list of molecules for their drug-likeness based on Lipinski's rule of five.
+      ''',
+      input=prompt
+    )
     
-    - related: this tool generates a list of molecules that are structurally related to a given molecule, 
-                and may be useful for exploring the chemical space around promising molecules.
-
-    - lipinski: this tool evaluates a list of molecules for their drug-likeness based on Lipinski's rule of five.
-    ''',
-    messages=[
-        {"role": "user", "content": prompt},])
-
-    response = adversary_message.content[0].text
+    response = adversary_message.output_text
 
     return response
 
@@ -89,7 +90,7 @@ from one molecule to the next, the addition of an O group makes the score better
 ## If you need additional information to ascertain the trends, such as more modified
 molecules and their docking scores, you have tools you can call to generate new
 molecules and get their docking scores. You can use these tools as many times as you want
-to gather information on the trends.*NOTE: if you choose to add a phenyl group to a molecule,
+to gather information on the trends. *NOTE: if you choose to add a phenyl group to a molecule,
 use the SMILES 'c7ccccc7', so that it does not interfere with other rings in the molecule that
 may already use numbers 1-6 in their SMILES notation. 
 
@@ -234,7 +235,6 @@ def get_initial_prompt(protein):
 
   return mes
 
-
 start_chat()
 
 date_string = time.strftime("%Y-%m-%d_%H-%M-%S")
@@ -251,10 +251,10 @@ with open(filename, 'a') as f:
 text_av = ''
 while text_av != 'Done':
 
-    ant_response = adversary(response_list[-1][-1])
+    adv_response = adversary(response_list[-1][-1])
     with open(filename, 'a') as f:
         f.write('\n# Adversary feedback:\n')
-        text_av = ant_response+'\n'
+        text_av = adv_response+'\n'
         f.write(text_av)
 
     _, _, response_list = chat_turn(ant_response)
