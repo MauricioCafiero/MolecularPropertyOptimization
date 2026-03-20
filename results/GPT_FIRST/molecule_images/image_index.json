@@ -1,0 +1,62 @@
+{
+  "turn1_mol1_tBu_9.0": {
+    "path": "results/GPT_FIRST/molecule_images/turn1_mol1_tBu_9.0.png",
+    "affinity": "-9.0",
+    "name": "tert-Butyl variant",
+    "description": "tert-Butyl on pendant phenyl (best from scan)"
+  },
+  "turn1_mol2_phenyl_meta_8.7": {
+    "path": "results/GPT_FIRST/molecule_images/turn1_mol2_phenyl_meta_8.7.png",
+    "affinity": "-8.7",
+    "name": "Phenyl extension (meta)",
+    "description": "Phenyl growth at meta position"
+  },
+  "turn1_mol3_phenyl_ortho_8.7": {
+    "path": "results/GPT_FIRST/molecule_images/turn1_mol3_phenyl_ortho_8.7.png",
+    "affinity": "-8.7",
+    "name": "Phenyl extension (ortho)",
+    "description": "Phenyl growth at ortho position"
+  },
+  "turn1_mol4_phenolic_oh_8.8": {
+    "path": "results/GPT_FIRST/molecule_images/turn1_mol4_phenolic_oh_8.8.png",
+    "affinity": "-8.8",
+    "name": "Phenolic OH variant",
+    "description": "Phenolic OH on pendant phenyl"
+  },
+  "turn3_mol_oh_core_9.2": {
+    "path": "results/GPT_FIRST/molecule_images/turn3_mol_oh_core_9.2.png",
+    "affinity": "-9.2",
+    "name": "OH on core (best)",
+    "description": "Hydroxyl at optimal position on fused core"
+  },
+  "turn5_champion_cooh_9.2": {
+    "path": "results/GPT_FIRST/molecule_images/turn5_champion_cooh_9.2.png",
+    "affinity": "-9.2",
+    "name": "Champion (COOH form)",
+    "description": "Best affinity: core-OH + tBu + COOH (neutral)"
+  },
+  "turn5_ocf3_bioisostere_9.1": {
+    "path": "results/GPT_FIRST/molecule_images/turn5_ocf3_bioisostere_9.1.png",
+    "affinity": "-9.1",
+    "name": "OCF\u2083 bioisostere",
+    "description": "tBu replacement with OCF\u2083: improved LogP, -0.1 affinity loss"
+  },
+  "turn5_cf3_8.7": {
+    "path": "results/GPT_FIRST/molecule_images/turn5_cf3_8.7.png",
+    "affinity": "-8.7",
+    "name": "CF\u2083 variant",
+    "description": "Plain CF\u2083 replacement (poor bioisostere)"
+  },
+  "turn5_ipr_8.7": {
+    "path": "results/GPT_FIRST/molecule_images/turn5_ipr_8.7.png",
+    "affinity": "-8.7",
+    "name": "iPr variant",
+    "description": "Isopropyl downsizing (-0.5 penalty)"
+  },
+  "turn5_me_8.8": {
+    "path": "results/GPT_FIRST/molecule_images/turn5_me_8.8.png",
+    "affinity": "-8.8",
+    "name": "Me variant",
+    "description": "Methyl downsizing (best QED 0.776)"
+  }
+}

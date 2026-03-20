@@ -89,7 +89,7 @@ from one molecule to the next, the addition of an O group makes the score better
 ## If you need additional information to ascertain the trends, such as more modified
 molecules and their docking scores, you have tools you can call to generate new
 molecules and get their docking scores. You can use these tools as many times as you want
-to gather information on the trends.*NOTE: if you choose to add a phenyl group to a molecule,
+to gather information on the trends. *NOTE: if you choose to add a phenyl group to a molecule,
 use the SMILES 'c7ccccc7', so that it does not interfere with other rings in the molecule that
 may already use numbers 1-6 in their SMILES notation. 
 
@@ -234,11 +234,10 @@ def get_initial_prompt(protein):
 
   return mes
 
-
 start_chat()
 
 date_string = time.strftime("%Y-%m-%d_%H-%M-%S")
-filename = f'../results/adversary_design_{date_string}.md'
+filename = f'../results/GPT_FIRST/adversary_design_{date_string}.md'
 with open(filename, 'w') as f:
     f.write(f'# Adversarial Design Session - {date_string}\n\n')
 

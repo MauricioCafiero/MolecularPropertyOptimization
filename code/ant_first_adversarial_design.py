@@ -180,6 +180,7 @@ def chat_turn(prompt: str):
   for c in graph.stream(input):
     try:
       ai_mes = c['model']['messages'].content
+      #print(c)
       messages.append(AIMessage(ai_mes))
       if ai_mes != '':
         #print(f'message is {ai_mes}')
@@ -237,28 +238,52 @@ def get_initial_prompt(protein):
 
 start_chat()
 
-date_string = time.strftime("%Y-%m-%d_%H-%M-%S")
-filename = f'../results/adversary_design_{date_string}.md'
+filename = f'../results/adversary_design_test.md'
 with open(filename, 'w') as f:
-    f.write(f'# Adversarial Design Session - {date_string}\n\n')
+    f.write(f'# Adversarial Design Session - test\n\n')
 
 response_list = get_initial_prompt('HMGCR')
 with open(filename, 'a') as f:
     f.write('# Initial model response:\n')
-    text_av = response_list[-1][-1]+'\n'
+    text_av = response_list[-1][-2]+'\n'
     f.write(text_av)
 
 text_av = ''
 while text_av != 'Done':
 
-    adv_response = adversary(response_list[-1][-1])
+    adv_response = adversary(response_list[-1][-2])
     with open(filename, 'a') as f:
         f.write('\n# Adversary feedback:\n')
         text_av = adv_response+'\n'
         f.write(text_av)
 
-    _, _, response_list = chat_turn(ant_response)
+    _, _, response_list = chat_turn(adv_response)
     with open(filename, 'a') as f:
         f.write('\n# Model response:\n')
-        text_av = response_list[-1][-1]+'\n'
-        f.write(text_av)
+        text_av = response_list[-1][-2]
+        f.write(text_av +'\n')
+
+''' code used due to issues with Anthropic chat returns'''
+
+chat_history = []
+adv_response = messages[-1].content
+chat_history = []
+filename = '../results/adversary_design_test.md'
+
+# for i in range(10):
+#     _ = messages.pop(8)
+messages.append(HumanMessage(content=adv_response))
+messages
+
+_, _, response_list = chat_turn(adv_response)
+with open(filename, 'a') as f:
+    f.write('\n# Model response:\n')
+    text_av = response_list[-1][-2]
+    f.write(text_av +'\n')
+
+adv_response = adversary(messages[-1].content)
+with open(filename, 'a') as f:
+    f.write('\n# Adversary feedback:\n')
+    text_av = adv_response+'\n'
+    f.write(text_av)
+
