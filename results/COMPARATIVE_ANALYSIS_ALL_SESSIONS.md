@@ -194,9 +194,9 @@ SMILES: O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12
 ---
 
 #### **GEMINI_FIRST Lead 4 (CONFIDENCE REFERENCE) - Statin-Like Pattern**
-```
-![GEMINI_FIRST Lead 4 - Reference](GEMINI_FIRST/molecular_structures/Lead_4_4-fluorophenyl_statin_like.png)
 
+![GEMINI_FIRST Lead 4 - Reference](GEMINI_FIRST/molecular_structures/Lead_4_4-fluorophenyl_statin_like.png)
+```
 SMILES: O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12
 ```
 | Property | Value |
