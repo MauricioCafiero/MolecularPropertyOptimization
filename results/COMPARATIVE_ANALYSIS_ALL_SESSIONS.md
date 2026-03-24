@@ -10,7 +10,7 @@
 
 | Dimension | ANT_FIRST | GPT_FIRST | GEMINI_FIRST |
 |-----------|-----------|-----------|--------------|
-| **Design Turns** | 8 turns | 3 tracks (depth analysis) | 10 turns |
+| **Design Turns** | 8 turns | 5+ adversarial turns | 10 turns |
 | **Primary Scaffold** | Coumarin + diol-acid | Chromone + phenolic OH | Chromone + acetate linker |
 | **Top Affinity** | -10.4 kcal/mol (Lead #2) | -9.2 kcal/mol (Champion) | -9.0 kcal/mol (Leads 1 & 2) |
 | **Number of Leads** | 3 final leads | 2 co-leads | 4 final leads |
@@ -94,6 +94,8 @@ SMILES: O=c1cc(-c2ccc(C)cc2)oc2cc(F)cc(CCC(O)C(O)C(=O)O)c12
 ```
 SMILES: O=c1c(O)c(-c2ccc(CC(C)(C)C)cc2)oc2cccc(C(C(=O)O))c12
 ```
+![GPT_FIRST Champion](GPT_FIRST/molecule_images/turn5_champion_cooh_9.2.png)
+
 | Property | Value |
 |----------|-------|
 | **Docking Score** | **-9.2 kcal/mol** |
@@ -114,6 +116,8 @@ SMILES: O=c1c(O)c(-c2ccc(CC(C)(C)C)cc2)oc2cccc(C(C(=O)O))c12
 ```
 SMILES: O=c1c(O)c(-c2ccc(OC(F)(F)(F))cc2)oc2cccc(C(C(=O)O))c12
 ```
+![GPT_FIRST OCF3 Bioisostere](GPT_FIRST/molecule_images/turn5_ocf3_bioisostere_9.1.png)
+
 | Property | Value |
 |----------|-------|
 | **Docking Score** | -9.1 kcal/mol (-0.1 vs Champion) |
@@ -254,15 +258,16 @@ SMILES: O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12
 
 ---
 
-### **GPT_FIRST: Depth Optimization of Known Champion**
-- **Approach:** 3-track parallel exploration (not adversarial); bioisosteric refinement
-- **Key Strategy:**
-  - Track 1: tBu bioisosteres → OCF₃ identified as best balance
-  - Track 2: Core polar substitution → no improvement
-  - Track 3: Scaffold exploration → no alternatives identified
-- **Outcome:** 2 co-leads: Champion (-9.2, LogP 4.38) + OCF₃ variant (-9.1, LogP 3.69)
-- **Strength:** Thorough mechanistic analysis of binding pocket; clear trade-off rationale
-- **Weakness:** LogP still high (3.69 OCF₃); pharmacophore is different from ANT/GEMINI (phenolic OH vs diol/acetate); no post-docking validation
+### **GPT_FIRST: Iterative Adversarial Optimization**
+- **Approach:** 5+ turn iterative adversarial cycle; systematic challenge → refinement (docking score & drug-likeness)
+- **Key Evolution:**
+  - Turns 1-2: Identify tert-butyl-substituted chromone scaffold; initial scoring (-9.0 to -8.8)
+  - Turns 3-4: Challenge affinity ceiling; discover core-OH addition → -9.2 (breakthrough)
+  - Turns 5-6: Validate core-OH necessity; test tBu bioisosteres; confirm OCF₃ @ -9.1 as ~9% LogP reduction with minimal affinity loss
+  - Turns 6+: Final Lipinski/QED validation; confirm COOH vs carboxylate parity; establish co-lead strategy
+- **Outcome:** 2 co-leads: Champion (-9.2, LogP 4.38, higher affinity) + OCF₃ variant (-9.1, LogP 3.69, better drug-likeness)
+- **Strength:** Rigorous adversarial challenge of each claim (peak affinity, bioisostere necessity, protonation state); comprehensive property validation
+- **Weakness:** Champion's LogP still elevated; pharmacophore differs from ANT/GEMINI (core-OH + tBu vs diol-acid/acetate); poses unvalidated but docking scores highly reproducible across perturbations
 
 ---
 
@@ -321,8 +326,8 @@ Permeability risk: MODERATE to HIGH (anionic, but lower PSA ~95; fewer HBD) → 
 - ⚠️ **Ortho-Cl mechanism:** Claim that Cl "controls dihedral" is conjecture without pose analysis
 
 ### **GPT_FIRST**
-- ⚠️ **No full adversarial challenge:** 3-track exploration is thorough but lacks critical external feedback
-- ⚠️ **LogP still problematic:** Best variant (OCF₃) at LogP 3.69 still suboptimal; no clear path to LogP <3.0
+- ⚠️ **LogP still problematic:** Best variant (OCF₃) at LogP 3.69; higher than ideal for oral bioavailability (Lipinski <3.5 preferred)
+- ⚠️ **Pharmacophore differs from precedent:** Core-OH + tBu strategy is novel; no clear statin-like lipophilic anchor (unlike ANT's diol-acid network)
 - ⚠️ **Phenolic OH metabolism:** Glucuronidation/sulfation risk noted but not mitigated; no prodrug strategy for phenolic
 - ⚠️ **Scaffold assumption:** No experimental validation that tBu pocket exists or that phenolic OH is necessary
 
