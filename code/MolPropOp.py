@@ -260,7 +260,7 @@ def sub_cycle(substituents: list = e_withdraw, scoring_args: list = scoring_args
 
   return total_list
 
-def grow_cycle(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substituents: list = e_withdraw):
+def grow_cycle(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substituents: list[str] = e_withdraw):
     '''
     add substituents to free carbons in the molecule. 
 
@@ -301,8 +301,8 @@ def grow_cycle(best_smiles: str = 'c1ccccc1', best_score: float = 0.0, substitue
     print('=============================================================================')
     return total_list
 
-def replace_groups(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, substituents_to_replace: list = e_withdraw, 
-                   new_substituents: list = e_donate):
+def replace_groups(orig_smiles: str = 'c1ccccc1', best_score: float = 0.0, substituents_to_replace: list[str] = e_withdraw, 
+                   new_substituents: list[str] = e_donate):
     '''
     replace existing substituents in the molecule with new ones. 
 
