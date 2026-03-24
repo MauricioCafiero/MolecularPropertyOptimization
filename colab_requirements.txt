@@ -1,0 +1,9 @@
+langchain_anthropic 
+langchain_openai 
+langchain_google_genai 
+langgraph 
+langchain_core 
+pyscf 
+rdkit 
+pubchempy 
+dockstring
