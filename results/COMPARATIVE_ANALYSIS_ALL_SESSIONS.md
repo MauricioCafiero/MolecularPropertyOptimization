@@ -20,6 +20,35 @@
 
 ---
 
+## Preliminary one-shot trials
+Before adversarial design, each model was given a set of initial data and asked to propose leads (no tools available)
+
+### HMGCR SET SUMMARY TABLE
+
+Model                      | Valid SMILES | Maximum Score | Average Score
+---------------------------|--------------|---------------|---------------
+gpt_5p2                    |      5       |      -8.3     |     -7.84
+gemini_3_flash_preview     |      5       |      -8.7     |     -8.22
+anthropic_claude           |      5       |      -9.2     |     -8.28
+gpt_oss_20b                |      2       |      -6.8     |     -6.75
+nemotron_3_nano_30b        |      1       |      -7.2     |     -7.20
+minimax_m2                 |      5       |      -7.9     |     -7.62
+devstral_2_123b            |      5       |      -8.7     |     -7.66
+cogito_2p1_671b            |      5       |      -8.2     |     -7.92
+deepseek_v3p1_671b         |      5       |      -8.1     |     -8.00
+gpt_oss_120b               |      3       |      -8.6     |     -8.37
+
+### GPT5p2 with tool calling ability
+GPT5.2 was then given tools and allowed to iterate on its ideas; no adversarial feedback, only a statement to 'go on'.
+
+Model                      | Valid SMILES | Maximum Score | Average Score
+---------------------------|--------------|---------------|---------------
+gpt_5p2                    |      5       |      -8.3     |     -7.84
+gpt_5p2_tools : 1 turn     |      5       |      -9.1     |     -8.48
+gpt_5p2_tools: 2 turns     |      5       |      -9.2     |     -9.12
+
+---
+
 ## Detailed Lead Molecule Comparison
 
 ### **LEAD SET 1: ANT_FIRST (Coumarin + Diol-Acid)**
