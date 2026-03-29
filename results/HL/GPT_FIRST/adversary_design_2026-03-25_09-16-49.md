@@ -1277,10 +1277,6 @@ I'd adjust your 4-molecule set slightly to maximize information:
 ### Phase 4b: One more constrained `grow_cycle` push for <4.4 eV
 Starting from A' (4.44 eV), try adding **one small, linear acceptor** to a free aromatic position that isn't yet substituted, with the constraint "no fused rings, no PAH extension":
 
-```
-grow_cycle(
-  starting_smiles="c1(C#CC(=O)OC)ccc2c(C#C(C#N
-
 # Model response:
 The constrained push worked extremely well: with **Option (i)** (min gap, but no PAH runaway), the tool found several **sub‑4.2 eV** candidates by adding just one extra *small linear acceptor* onto A′. This is exactly the regime you wanted (no graphene-like growth, still local chemical edits).
 
