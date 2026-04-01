@@ -1,0 +1,55 @@
+Using 32 cores for docking.
+Analysing one_shot =======================================
+O=c1cc(-c2ccccc2)oc2cccc(N(S(=O)(=O)C))c12 : -8.3
+score validated.
+O=c1cc(-c2ccc3ccccc3c2)oc2cccc(N(C(=O)))c12 : -9.2
+score validated.
+O=c1cc(-c2ccc(F)cc2)oc2cccc(N(C(=O)))c12 : -8.7
+score validated.
+
+Average for one_shot is: -8.733333333333333
+======================================================
+
+Analysing openai_tools =======================================
+O=c1cc(-c2ccc(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12 : -9.1
+score validated.
+O=c1cc(-c2cc(F)c(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12 : -9.2
+score validated.
+
+Average for openai_tools is: -9.149999999999999
+======================================================
+
+Analysing ANTHROPIC =======================================
+O=c1c(O)c(-c2c(C)cc(C(=O)N)cc2)oc2c(F)ccc(C(=O)N)c12 : -9.2
+score validated.
+O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N)c12 : -8.1
+score validated.
+O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N(C)C)c12 : -8.2
+score validated.
+O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)ccc2)oc2c(C(F)(F)(F))ccc(C(=O)N)c12 : -9.4
+score validated.
+O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)c(F)cc2)oc2cc(F)cc(C)c12 : -9.9
+score validated.
+
+Average for ANTHROPIC is: -8.959999999999999
+======================================================
+
+Analysing OPENAI =======================================
+O=c1c(O)c(-c2ccc(CC(C)(C)C)cc2)oc2cccc(C(C(=O)O))c12 : -8.9
+score validated.
+O=c1c(O)c(-c2ccc(OC(F)(F)(F))cc2)oc2cccc(C(C(=O)O))c12 : -8.9
+score validated.
+
+Average for OPENAI is: -8.9
+======================================================
+
+Analysing GEMINI =======================================
+O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 : -9.0
+score validated.
+O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12 : -8.9
+score validated.
+O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 : -8.9
+score validated.
+
+Average for GEMINI is: -8.933333333333332
+======================================================
