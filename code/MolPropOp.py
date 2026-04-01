@@ -5,8 +5,8 @@ from typing import Optional
 import pubchempy as pcp
 
 sys.path.append('MolecularPropertyOptimization/code')
-#from docking_module import scoring_function, scoring_args
-from HL_gap_module import scoring_function, scoring_args
+from docking_module import scoring_function, scoring_args
+#from HL_gap_module import scoring_function, scoring_args
 #from lipinski_module import scoring_function, scoring_args
 
 ''' define functions'''
