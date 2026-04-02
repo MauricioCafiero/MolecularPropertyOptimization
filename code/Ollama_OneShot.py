@@ -3,9 +3,6 @@ import sys
 import os
 import platform
 
-sys.path.append('code')
-from docking_module import *
-#from HL_module import *
 
 def get_api_key():
     '''
@@ -53,18 +50,27 @@ def get_api_key():
 
 key = get_api_key()
 
-models = ['deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b', 
-          'devstral-2:123b', 'cogito-2.1:671b', 'minimax-m2', 
-          'nemotron-3-nano:30b', 'gemini-3-flash-preview']
+models = [#'deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b', 
+          #'devstral-2:123b', 'cogito-2.1:671b', 
+          'nemotron-3-nano:30b', 'gemini-3-flash-preview', 'kimi-k2:1t']
 
 # 'deepseek-v3.2', 'qwen3-next', 'qwen3-coder:480b', 'qwen3-vl:235b', 'qwen3.5', 'glm-5', 
-# r'glm-4.6', r'kimi-k2.5', 'kimi-k2:1t', 'ministral-3:14b', 
+# r'glm-4.6', r'kimi-k2.5', 'kimi-k2:1t', 'ministral-3:14b', 'minimax-m2.1',
 
-  with open('adversarial_set.md', 'r') as f:
+with open('adversarial_set.md', 'r') as f:
     context = f.read()
-  first_prompt = f'''
+first_prompt = f'''
   Here is a list of molecules and their docking scores:
   {context}\n'''
+
+
+task_specific_prompt = '''# You are a drug design assistant. In the first user message you will
+see a list of molecule SMILES strings and docking scores.
+The lower the docking score (the more negative), the more affinity the
+molecule has for the protein in question. Your task is to use the information 
+in the list to learn trends about what makes a molecule a good binder, and then 
+use those trends to suggest new molecules that should have better docking scores 
+(more negative) than the ones in the list.'''
 
 sys_message = f'''
 {task_specific_prompt}
