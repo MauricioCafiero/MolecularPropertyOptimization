@@ -66,7 +66,7 @@ models = ['deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b',
   Here is a list of molecules and their docking scores:
   {context}\n'''
 
-sys_message = SystemMessage(content=f'''
+sys_message = f'''
 {task_specific_prompt}
 
 ## You will first:
@@ -80,7 +80,7 @@ from one molecule to the next, the addition of an O group makes the score better
 and which should have a better score than the molecules in the list.
 - Provide reasoning as to why you created those new molecules.
 - Estimate the new scores.
-''')
+'''
 print('created_prompt')
 
 for model in models:
@@ -89,6 +89,9 @@ for model in models:
                 headers={'Authorization': f'Bearer {key}'})
     
     messages = []
+    messages.append({
+               'role': 'system', 'content': sys_message
+            })
     messages.append({
                 'role': 'user', 'content': first_prompt
             })
