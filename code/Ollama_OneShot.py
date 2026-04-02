@@ -3,6 +3,9 @@ import sys
 import os
 import platform
 
+sys.path.append('code')
+from docking_module import *
+#from HL_module import *
 
 def get_api_key():
     '''
@@ -57,19 +60,14 @@ models = ['deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b',
 # 'deepseek-v3.2', 'qwen3-next', 'qwen3-coder:480b', 'qwen3-vl:235b', 'qwen3.5', 'glm-5', 
 # r'glm-4.6', r'kimi-k2.5', 'kimi-k2:1t', 'ministral-3:14b', 
 
-with open('HMGCR_input_set.md', 'r') as f:
-    context = f.readlines()
+  with open('adversarial_set.md', 'r') as f:
+    context = f.read()
+  first_prompt = f'''
+  Here is a list of molecules and their docking scores:
+  {context}\n'''
 
-context = '\n'.join(context)
-
-first_prompt = f'''
-# You are a drug design assistant. Below you will
-see a list of molecule SMILES strings and docking scores.
-The lower the docking score (the more negative), the more affinity the
-molecule has for the protein in question. Your task is to use the information 
-in the list to learn trends about what makes a molecule a good binder, and then 
-use those trends to suggest new molecules that should have better docking scores 
-(more negative) than the ones in the list.
+sys_message = SystemMessage(content=f'''
+{task_specific_prompt}
 
 ## You will first:
 - Read the list of molecule SMILES and scores
@@ -82,10 +80,7 @@ from one molecule to the next, the addition of an O group makes the score better
 and which should have a better score than the molecules in the list.
 - Provide reasoning as to why you created those new molecules.
 - Estimate the new scores.
-
-Here is the list of molecules and their docking scores:
-{context}\n
-'''
+''')
 print('created_prompt')
 
 for model in models:
@@ -103,7 +98,7 @@ for model in models:
 
     print(answer)
 
-    path = "model_replies.md"
+    path = "../results/ONE_SHOT/ollama_replies.md"
     with open(path, 'a', encoding = 'utf-8') as f:
         f.write(f'# {model} =========================================================\n')
         f.write(answer + '\n\n')
