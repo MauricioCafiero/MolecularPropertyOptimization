@@ -19,7 +19,7 @@ first_prompt = f'''
   {context}\n'''
 
 
-task_specific_prompt = '''# You are a drug design assistant. In the first user message you will
+dock_task_specific_prompt = '''# You are a drug design assistant. In the first user message you will
 see a list of molecule SMILES strings and docking scores.
 The lower the docking score (the more negative), the more affinity the
 molecule has for the protein in question. Your task is to use the information 
@@ -27,8 +27,15 @@ in the list to learn trends about what makes a molecule a good binder, and then
 use those trends to suggest new molecules that should have better docking scores 
 (more negative) than the ones in the list.'''
 
+HL_task_specific_prompt = '''# You are a materials science assistant. In the first user
+message you will see a list of molecule SMILES strings and their corresponding HOMO-LUMO gaps.
+Your task is to use the information in the list to learn trends about what makes a molecule 
+have a small or large HOMO-LUMO gap, and then use those trends to suggest new molecules 
+that should have the smallest possible HOMO-LUMO gap.
+'''
+
 sys_message = f'''
-{task_specific_prompt}
+{HL_task_specific_prompt}
 
 ## You will first:
 - Read the list of molecule SMILES and scores

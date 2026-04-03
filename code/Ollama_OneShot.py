@@ -50,21 +50,21 @@ def get_api_key():
 
 key = get_api_key()
 
-models = [#'deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b', 
-          #'devstral-2:123b', 'cogito-2.1:671b', 
+models = ['deepseek-v3.1:671b', 'gpt-oss:120b', 'gpt-oss:20b', 
+          'devstral-2:123b', 'cogito-2.1:671b', 
           'nemotron-3-nano:30b', 'gemini-3-flash-preview', 'kimi-k2:1t']
 
 # 'deepseek-v3.2', 'qwen3-next', 'qwen3-coder:480b', 'qwen3-vl:235b', 'qwen3.5', 'glm-5', 
 # r'glm-4.6', r'kimi-k2.5', 'kimi-k2:1t', 'ministral-3:14b', 'minimax-m2.1',
 
-with open('adversarial_set.md', 'r') as f:
+with open('../data/HL_initial_data.txt', 'r') as f:
     context = f.read()
 first_prompt = f'''
-  Here is a list of molecules and their docking scores:
+  Here is a list of molecules and their scores:
   {context}\n'''
 
 
-task_specific_prompt = '''# You are a drug design assistant. In the first user message you will
+dock_task_specific_prompt = '''# You are a drug design assistant. In the first user message you will
 see a list of molecule SMILES strings and docking scores.
 The lower the docking score (the more negative), the more affinity the
 molecule has for the protein in question. Your task is to use the information 
@@ -72,8 +72,15 @@ in the list to learn trends about what makes a molecule a good binder, and then
 use those trends to suggest new molecules that should have better docking scores 
 (more negative) than the ones in the list.'''
 
+HL_task_specific_prompt = '''# You are a materials science assistant. In the first user
+message you will see a list of molecule SMILES strings and their corresponding HOMO-LUMO gaps.
+Your task is to use the information in the list to learn trends about what makes a molecule 
+have a small or large HOMO-LUMO gap, and then use those trends to suggest new molecules 
+that should have the smallest possible HOMO-LUMO gap.
+'''
+
 sys_message = f'''
-{task_specific_prompt}
+{HL_task_specific_prompt}
 
 ## You will first:
 - Read the list of molecule SMILES and scores
@@ -107,7 +114,7 @@ for model in models:
 
     print(answer)
 
-    path = "../results/ONE_SHOT/ollama_replies.md"
+    path = "../results/ONE_SHOT/HL/ollama_replies.md"
     with open(path, 'a', encoding = 'utf-8') as f:
         f.write(f'# {model} =========================================================\n')
         f.write(answer + '\n\n')

@@ -1,0 +1,99 @@
+Using 32 cores for docking.
+Analysing deepseek-v3.1:671b =======================================
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cccc(C=C([N+](=O)[O-]))c12 : -8.2
+c1ccc2c(C(C(=O)[O-]))c3cccc(C=C([N+](=O)[O-]))c3cc2c1 : -7.9
+O=c1cc(-c2ccc(C(C(=O)[O-]))cc2)oc2ccc(C=C([N+](=O)[O-]))cc12 : -7.5
+invalid smiles: c1cc(C(C(=O)[O-]))c2cc3cc(C=C([N+](=O)[O-]))cc3cc2c1
+O=c1c(C(C(=O)[O-]))c(-c2cc(C=C([N+](=O)[O-]))ccc2)oc2ccccc12 : -7.6
+
+Average for deepseek-v3.1:671b is: -7.800000000000001
+======================================================
+
+Analysing gpt-oss:120b =======================================
+O=c1c(C(=O)OCC)c(-c2ccc(I)cc2)oc2cccc(C(=O)OCC)c12 : -6.8
+O=c1c(C(=O)OCC)c(-c2ccc([N+](=O)[O-])cc2)oc2cccc([N+](=O)[O-])c12 : -7.7
+O=c1c(C(=O)OCC)c(-c2ccc([N+](=O)[O-])cc2)oc2cccc(C(=O)OCC)c12 : -7.0
+O=c1c(C(=O)OC(C)(C)C)c(-c2ccc(C(=O)OC(C)(C)C)cc2)oc2cccc(C(=O)OC(C)(C)C)c12 : -6.9
+O=c1c(C(=O)[O-])c(-c2ccc(C(=O)[O-])cc2)oc2cccc(C(=O)[O-])c12 : -7.9
+
+Average for gpt-oss:120b is: -7.26
+======================================================
+
+Analysing gpt-oss:20b =======================================
+invalid smiles: c1c(C(C(=O)[O-])c(C(C(=O)[O-]))ccc1
+invalid smiles: O=c1c(C(C(=O)[O-])c(-c2cc(C(C(=O)[O-]))ccc2)oc2ccccc12
+invalid smiles: c1c(C(C(=O)[O-])c(C(N)(C)C)cc1
+O=c1c(O(C#N))c(-c2cc(C(C(=O)[O-]))ccc2)oc2ccccc12 : -7.5
+
+Average for gpt-oss:20b is: -7.5
+======================================================
+
+Analysing devstral-2:123b =======================================
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C=C([N+](=O)[O-]))ccc12 : -8.1
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C(=O)O(C(C)C))ccc12 : -7.9
+O=c1cc(-c2ccccc2)oc2cccc(C(C(=O)[O-]))c12 : -8.6
+invalid smiles: O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2ccn(C=C([N+](=O)[O-]))cc12
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C(C(=O)[O-]))ccc12 : -8.2
+
+Average for devstral-2:123b is: -8.2
+======================================================
+
+Analysing cogito-2.1:671b =======================================
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cccc(C(C(=O)[O-]))c12 : -8.5
+O=c1cc(-c2cc(C(C(=O)[O-]))ccc2)oc2ccc(C=C([N+](=O)[O-]))cc12 : -8.3
+O=c1cc(-c2cc(C(=O)O(C(C)C))ccc2)oc2ccc(C(C(=O)[O-]))cc12 : -7.5
+O=c1cc(-c2ccccc2C(C(=O)[O-]))oc2cccc(C=C([N+](=O)[O-]))c12 : -7.8
+O=c1cc(-c2cc(C(C(=O)[O-]))ccc2C(C(=O)[O-]))oc2ccccc12 : -8.4
+
+Average for cogito-2.1:671b is: -8.1
+======================================================
+
+Analysing nemotron-3-nano:30b =======================================
+invalid smiles: c1c2c(ccccc2)c(cccc1)C(=O)Oc3ccc(cc3)C(=O)O
+invalid smiles: c1c2ccccc2c(ccccc1)C(=O)Nc3ccc(cc3)C(=O)O
+C1=CC=C(C=C1)C(=O)Oc2ccccc2C(=O)Oc3ccccc3 : -7.6
+c1c2c(ccccc2)c(ccccc1)C(=O)Oc3ccc(cc3)N=C=O : -8.1
+c1c2c(ccccc2)c(ccccc1)C(=O)Oc3ccccc3C(=O)Oc4ccccc4 : -9.1
+
+Average for nemotron-3-nano:30b is: -8.266666666666666
+======================================================
+
+Analysing gemini-3-flash-preview =======================================
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc(CC(=O)[O-])cc3 : -7.7
+[O-]C(=O)CC(O)Cc1cccc2oc(cc(=O)c12)-c3ccccc3 : -7.3
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc(F)cc3 : -8.7
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc4ccccc4c3 : -9.2
+O=c1cc(-c2ccccc2)oc2c(O)cc(CC(=O)[O-])cc12 : -7.8
+
+Average for gemini-3-flash-preview is: -8.139999999999999
+======================================================
+
+Analysing kimi-k2:1t =======================================
+O=C(O)Cc1cc2cc3ccccc3cc2o1 : -6.9
+O=C(O)CCc1cc2cc3ccccc3cc2o1 : -7.0
+invalid smiles: O=C(O)Cc1cc2c(CC(=O)O)cc3ccccc3cc2o1
+O=C(O)Cc1cc2cc3cc4ccccc4cc3cc2o1 : -7.2
+O=C(O)C(C(=O)O)c1cc2cc3cc4ccccc4cc3cc2o1 : -7.5
+
+Average for kimi-k2:1t is: -7.15
+======================================================
+
+Analysing GPT 5.2 =======================================
+O=c1cc(-c2ccc(C(C(=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 : -7.7
+O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 : -8.9
+O=c1cc(-c2ccccc2)oc2cccc(C(C(=O)[O-])C(=O)[O-])c12 : -7.2
+O=c1cc(-c2ccccc2C(C(=O)[O-]))oc2cccc(C(C))c12 : -7.7
+O=c1cc(-c2ccc(OC#N)cc2)oc2cccc(C(C(=O)[O-]))c12 : -7.6
+
+Average for GPT 5.2 is: -7.82
+======================================================
+
+Analysing Claude =======================================
+O=c1cc(-c2cccc(c2)C(=O)[O-])oc2cccc(C(=O)[O-])c12 : -8.3
+O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2cccc(C(=O)[O-])c12 : -8.9
+O=c1cc(-c2ccccc2C(=O)[O-])oc2c(C=C([N+](=O)[O-]))ccc(C(C(=O)[O-]))c12 : -8.5
+O=c1cc(-c2ccc(C(=O)[O-])cc2)oc2ccc(C(=O)[O-])cc12 : -7.4
+O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12 : -9.0
+
+Average for Claude is: -8.42
+======================================================

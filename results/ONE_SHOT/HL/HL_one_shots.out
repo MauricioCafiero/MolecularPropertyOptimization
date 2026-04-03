@@ -1,0 +1,150 @@
+Number of cores: 32
+Analysing deepseek-v3.1:671b =======================================
+invalid smiles: O=c1c2ccccc2c(S([NH3+]))c3ccccc3c1=O
+invalid smiles: O=c1c2ccc(S([NH3+]))cc2c(C#N)c3ccccc3c1=O
+invalid smiles: O=c1c2ccccc2c(OC)c3ccc(C(=O)O(O))cc3c1=O
+converged SCF energy = -919.930410052228
+The HOMO-LUMO gap for n1c2ccccc2c(C(=O)O(O))c3ccccc3c1=O is: 3.458 and took 76.902 seconds
+n1c2ccccc2c(C(=O)O(O))c3ccccc3c1=O : 3.457718772406734
+invalid smiles: O=c1c2cccc(S([NH3+]))c2c(C#N)c3cccc(C#N)c3c1=O
+
+Average for deepseek-v3.1:671b is: 3.457718772406734
+======================================================
+
+Analysing gpt-oss:120b =======================================
+invalid smiles: S([NH3+])c1ccc2c(c1)ccc3c2ccc3
+invalid smiles: S([NH3+])c1ccc2c(c1)ccc3c2ccc3C#N
+invalid smiles: COc1ccc2c(c1)ccc3c2ccc3S([NH3+])
+invalid smiles: S([NH3+])c1c(S([NH3+]))c2ccc3ccccc3c2c1
+invalid smiles: S([NH3+])c1ccc2c(c1)ccc3c2ccc3[N+](=O)[O-]
+
+No valid SMILES
+Analysing gpt-oss:20b =======================================
+converged SCF energy = -608.841875482031
+The HOMO-LUMO gap for c1ccc2ccccc2c3ccccc3c1 is: 5.212 and took 42.245 seconds
+c1ccc2ccccc2c3ccccc3c1 : 5.212294200406336
+converged SCF energy = -532.589896254398
+The HOMO-LUMO gap for c1c2ccccc2c3ccccc3c1 is: 7.544 and took 30.432 seconds
+c1c2ccccc2c3ccccc3c1 : 7.543608724570779
+invalid smiles: c1c2ccccc2c3ccccc13
+converged SCF energy = -548.361795705002
+The HOMO-LUMO gap for n1c2ccccc2c3ccccc3c1 is: 7.552 and took 34.640 seconds
+n1c2ccccc2c3ccccc3c1 : 7.55243347508948
+converged SCF energy = -607.638750923246
+The HOMO-LUMO gap for c1c2c3ccccc3c4ccccc4c2c1 is: 4.755 and took 40.866 seconds
+c1c2c3ccccc3c4ccccc4c2c1 : 4.754784692898675
+
+Average for gpt-oss:20b is: 6.265780273241317
+======================================================
+
+Analysing devstral-2:123b =======================================
+converged SCF energy = -1153.45555491914
+The HOMO-LUMO gap for c1ccc2cc3ccccc3cc2c1(C(=O)N(Cl)) is: 5.924 and took 51.400 seconds
+c1ccc2cc3ccccc3cc2c1(C(=O)N(Cl)) : 5.92405527411898
+converged SCF energy = -808.338298575854
+The HOMO-LUMO gap for n1ccc2cc3ccccc3cc2c1(C(=O)O(O)) is: 5.828 and took 44.928 seconds
+n1ccc2cc3ccccc3cc2c1(C(=O)O(O)) : 5.827733085727469
+converged SCF energy = -623.565261798989
+The HOMO-LUMO gap for c1ccc2cc3ccccc3cc2c1(C#N) is: 5.852 and took 38.758 seconds
+c1ccc2cc3ccccc3cc2c1(C#N) : 5.852029929715843
+invalid smiles: o1ccc2cc3ccccc3cc2c1(C(=O)N(Cl))
+invalid smiles: c1ccc2cc3ccccc3cc2c1(C(=O)N(Cl))(C#N)
+
+Average for devstral-2:123b is: 5.867939429854097
+======================================================
+
+Analysing cogito-2.1:671b =======================================
+invalid smiles: c1cc2c3c4cc(C(=O)O(O))ccc4ccc3ccc2c1
+converged SCF energy = -1489.59833788047
+The HOMO-LUMO gap for O=C(O)c1ccc2c3c1c1c4c(c3ccc2)ccc(C(=O)N(Cl))c4c1 is: 3.479 and took 99.448 seconds
+O=C(O)c1ccc2c3c1c1c4c(c3ccc2)ccc(C(=O)N(Cl))c4c1 : 3.4791443385955247
+invalid smiles: s1ccc2sc3c4c(cc3c2c1)ccc(C(=O)O(O))c4
+invalid smiles: c1cc2c3c4c5c6c1c1c7c(c6cc5cc4cc3cc2)ccc(C(=O)N(Cl))c7c1
+converged SCF energy = -1656.74499725014
+The HOMO-LUMO gap for O=C(O)c1ccc2sc3c(c2c1)ccc(C(=O)N(Cl))c3 is: 7.574 and took 48.224 seconds
+O=C(O)c1ccc2sc3c(c2c1)ccc(C(=O)N(Cl))c3 : 7.573947241977247
+
+Average for cogito-2.1:671b is: 5.526545790286386
+======================================================
+
+Analysing nemotron-3-nano:30b =======================================
+invalid smiles: c1ccc(S(=O)(=O)[NH3+])c2ccccc2
+converged SCF energy = -678.02635776051
+The HOMO-LUMO gap for c1c(S([NH3+]))cccc1 is: 9.501 and took 12.027 seconds
+c1c(S([NH3+]))cccc1 : 9.500817105287972
+invalid smiles: n1c(S([NH3+]))c2ccccc2
+invalid smiles: [NH3+]S(=O)(=O)c1ccc2ccccc2
+invalid smiles: c1c(S([NH3+]))c2cc(ccc2)[N+](=O)[O-]
+
+Average for nemotron-3-nano:30b is: 9.500817105287972
+======================================================
+
+Analysing gemini-3-flash-preview =======================================
+converged SCF energy = -984.092233564497
+The HOMO-LUMO gap for CC(=O)OC#Cc1ccc2cc3cc4ccccc4cc3cc2c1 is: 4.898 and took 53.242 seconds
+CC(=O)OC#Cc1ccc2cc3cc4ccccc4cc3cc2c1 : 4.8975578769023205
+converged SCF energy = -1430.03355302305
+The HOMO-LUMO gap for [NH3+]S(c1c2ccccc2c(S([NH3+]))c3ccccc13) is: 5.506 and took 48.761 seconds
+[NH3+]S(c1c2ccccc2c(S([NH3+]))c3ccccc13) : 5.505977189607664
+converged SCF energy = -1318.90021236873
+The HOMO-LUMO gap for O=c1cc(-c2ccc3ccccc3c2)oc2cc(S([NH3+]))ccc12 is: 5.688 and took 61.903 seconds
+O=c1cc(-c2ccc3ccccc3c2)oc2cc(S([NH3+]))ccc12 : 5.688453226419892
+converged SCF energy = -835.878051898864
+The HOMO-LUMO gap for c1ccc2cc3cc4cc5ccccc5cc4cc3cc2c1 is: 4.266 and took 44.124 seconds
+c1ccc2cc3cc4cc5ccccc5cc4cc3cc2c1 : 4.265965618007132
+converged SCF energy = -928.042534000404
+The HOMO-LUMO gap for N#CC=Cc1ccc(-c2c3ccccc3cc4ccccc24)cc1 is: 5.951 and took 52.803 seconds
+N#CC=Cc1ccc(-c2c3ccccc3cc4ccccc24)cc1 : 5.9514260927610065
+
+Average for gemini-3-flash-preview is: 5.261876000739603
+======================================================
+
+Analysing kimi-k2:1t =======================================
+converged SCF energy = -981.34981347083
+The HOMO-LUMO gap for c1(S([NH3+]))ccc2cc3ccccc3cc2c1 is: 5.709 and took 37.823 seconds
+c1(S([NH3+]))ccc2cc3ccccc3cc2c1 : 5.708939407699935
+converged SCF energy = -981.350555675605
+The HOMO-LUMO gap for c1cc(S([NH3+]))c2cc3ccccc3cc2c1 is: 5.732 and took 41.599 seconds
+c1cc(S([NH3+]))c2cc3ccccc3cc2c1 : 5.732444325003809
+converged SCF energy = -981.350656321853
+The HOMO-LUMO gap for c1ccc2c(S([NH3+]))c3ccccc3cc2c1 is: 5.827 and took 44.077 seconds
+c1ccc2c(S([NH3+]))c3ccccc3cc2c1 : 5.8272231842583455
+converged SCF energy = -1167.27487013671
+The HOMO-LUMO gap for O=c1c(S([NH3+]))c(-c2ccccc2)oc2ccccc12 is: 7.528 and took 53.515 seconds
+O=c1c(S([NH3+]))c(-c2ccccc2)oc2ccccc12 : 7.528068458752219
+converged SCF energy = -1167.23656915634
+The HOMO-LUMO gap for O=c1cc(-c2ccc(S([NH3+]))cc2)oc2ccccc12 is: 5.689 and took 53.787 seconds
+O=c1cc(-c2ccc(S([NH3+]))cc2)oc2ccccc12 : 5.6889656304278935
+
+Average for kimi-k2:1t is: 6.097128201228442
+======================================================
+
+Analysing gpt-5p2 =======================================
+invalid smiles: CC(=O)OcC#Cc1ccc2cccc3ccc1c23
+invalid smiles: CC(=O)OcC#Cc1cccc2cccc3cccc4cccc1c234
+invalid smiles: CC(=O)OcC#Cc1ccc2cccc3cccc4ccc1c2c34
+converged SCF energy = -662.333943089759
+The HOMO-LUMO gap for N#CC=CCc1ccc2cccc3ccc1c23 is: 7.081 and took 40.143 seconds
+N#CC=CCc1ccc2cccc3ccc1c23 : 7.08117178996206
+invalid smiles: CC(=O)OcC#Cc1ccc2cccc3cccc4ccc(C#Cc5oc(=O)ccccc5)c1c2c34
+
+Average for gpt-5p2 is: 7.08117178996206
+======================================================
+
+Analysing claude =======================================
+invalid smiles: c1cc2ccc3cccc4cccc(c1)c2c34
+converged SCF energy = -797.136828803258
+The HOMO-LUMO gap for c1cc2ccc3cccc4cccc(OC)c(c1)c2c34 is: 7.056 and took 57.441 seconds
+c1cc2ccc3cccc4cccc(OC)c(c1)c2c34 : 7.055659940002047
+converged SCF energy = -835.610978546533
+The HOMO-LUMO gap for c1cc2ccc3cccc4cccc5cccc(c1)c2c3c45 is: 2.461 and took 73.654 seconds
+c1cc2ccc3cccc4cccc5cccc(c1)c2c3c45 : 2.4606341479114
+converged SCF energy = -624.705906259514
+The HOMO-LUMO gap for c1ccc2c(C=CC=CC#N)cccc2c1 is: 6.944 and took 34.184 seconds
+c1ccc2c(C=CC=CC#N)cccc2c1 : 6.943527247049854
+converged SCF energy = -494.959457775264
+The HOMO-LUMO gap for C1=Cc2ccc3ccccc3c2C1 is: 7.337 and took 28.583 seconds
+C1=Cc2ccc3ccccc3c2C1 : 7.33701959256748
+
+Average for claude is: 5.949210231882695
+======================================================
