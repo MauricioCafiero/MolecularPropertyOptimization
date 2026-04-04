@@ -21,20 +21,15 @@ def docking(smiles: str):
 target_name = 'HMGCR'
 
 
-one_shot_smiles = ['O=c1cc(-c2ccccc2)oc2cccc(N(S(=O)(=O)C))c12',
-                   'O=c1cc(-c2ccc3ccccc3c2)oc2cccc(N(C(=O)))c12',
-                   'O=c1cc(-c2ccc(F)cc2)oc2cccc(N(C(=O)))c12']
+one_shot_smiles = [
+                   'O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12',
+                   'O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12',
+                   '[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc4ccccc4c3']
 
-one_shot_scores = [-8.3,-9.2,-8.7]
+one_shot_scores = [-8.9, -9.0, -9.2]
 
 one_shot_logp = [2.83, 4.18, 3.17]
 
-openai_tools_smiles = ['O=c1cc(-c2ccc(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12',
-                'O=c1cc(-c2cc(F)c(NC(=O)C)cc2)oc2cccc(N(C(=O)))c12']
-
-openai_tools_scores = [-9.1, -9.2]
-
-openai_tools_logp = [2.99, 3.13]
 
 ant_smiles = ['O=c1c(O)c(-c2c(C)cc(C(=O)N)cc2)oc2c(F)ccc(C(=O)N)c12',
               'O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N)c12',
@@ -58,11 +53,13 @@ openai_logp = [4.38, 3.69]
 openai_qed = [0.715, 0.717 ]
 
 gem_smiles = ['O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
-              'O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12',
-              'O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12']
+              'O=c1cc(-c2c(OC)c(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
+              'O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
+              'O=c1cc(-c2c(F)cc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
+              'O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12']
 
 
-gem_scores = [-9.0, -8.9, -8.8]
+gem_scores = [-9.0, -8.9, -8.8, -9.0, -9.0]
 
 gem_logp = [2.17, 2.03, 2.03]
 
@@ -70,7 +67,6 @@ gem_qed = [0.74, 0.74, 0.74]
 
 hash_lists = {
     'one_shot': (one_shot_smiles, one_shot_scores, one_shot_logp),
-    'openai_tools': (openai_tools_smiles, openai_tools_scores, openai_tools_logp),
     'ANTHROPIC': (ant_smiles, ant_scores, ant_logp, ant_qed),
         'OPENAI': (openai_smiles, openai_scores, openai_logp, openai_qed),
         'GEMINI': (gem_smiles, gem_scores, gem_logp, gem_qed)

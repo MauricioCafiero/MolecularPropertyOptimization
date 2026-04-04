@@ -8,7 +8,7 @@ from rdkit.Chem import Draw
 import os
 
 # Define output directory
-output_dir = r'c:\Users\io927423\OneDrive - University of Reading\Research-Reading\Python\python_bootcamp\FragGrow\MolecularPropertyOptimization\results\ONE_SHOT\HL\molecule_images'
+output_dir = r'molecule_images'
 
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
