@@ -1,5 +1,5 @@
 from rdkit import Chem
-from rdkit.Chem import Draw
+from rdkit.Chem import Draw, QED
 import os, re, random, sys
 from typing import Optional
 import pubchempy as pcp
