@@ -35,3 +35,25 @@
 
 
 
+## In the folder results/ZERO_SHOT, you will find two files
+- gpt_ant_replies.md
+- ollama_replies.md
+
+each of these files contains up to five molecule predictions from several models. 
+
+### Extract the smiles for each model and:
+- create a list of smiles for each model, names {model name}_smiles
+- create a dictionary that has the model names as keys and the lists as values.
+- place all of these into a new .py file in the same folder
+
+
+## In the folder results/HL/ZERO_SHOT, you will find two files
+- HL_gpt_ant_replies.md
+- ollama_replies.md
+
+each of these files contains up to five molecule predictions from several models. 
+
+### Extract the smiles for each model and:
+- create a list of smiles for each model, names {model name}_smiles
+- create a dictionary that has the model names as keys and the lists as values.
+- place all of these into a new .py file in the same folder
