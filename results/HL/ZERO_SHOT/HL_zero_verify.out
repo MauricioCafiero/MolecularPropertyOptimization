@@ -1,0 +1,91 @@
+Number of cores: 32
+Analysing openai =======================================
+The HOMO-LUMO gap for CN(C)c1ccc(/C=C/C(=C(C#N)C#N))cc1 is: 5.789 and took 39.732 seconds
+The HOMO-LUMO gap for CN(C)c1ccc(/C=C/C=C/C(=C(C#N)C#N))cc1 is: 5.397 and took 44.615 seconds
+The HOMO-LUMO gap for CN(C)c1ccc(/C=C/C(=C(C#N)C#N)C#N)cc1 is: 5.040 and took 45.072 seconds
+The HOMO-LUMO gap for CN(C)c1ccc(-c2nc3ccccc3s2)cc1 is: 7.065 and took 41.094 seconds
+The HOMO-LUMO gap for N#CC(=C(C#N)C#N)C#N is: 7.568 and took 7.639 seconds
+
+Average HL gap for openai is: 6.171707754716016 eV
+======================================================
+
+Analysing anthropic =======================================
+The HOMO-LUMO gap for C1=CC=C2C(=C1)C=CC3=CC=CC4=CC=CC(=C3C2=C4)C5=CC=CC6=CC=CC=C6C5 is: 4.588 and took 103.654 seconds
+The HOMO-LUMO gap for C1=C(S1)C2=C(SC(=C2)S3CCCS3)S4CCCS4 is: 2.749 and took 91.384 seconds
+The HOMO-LUMO gap for C1=CC(=CC=C1C2=CC=CC(=C2)C3=CC=CC(=C3)C4=CC=CC(=C4)C5=CC=CC=C5)C6=CC=CC=C6 is: 8.622 and took 75.087 seconds
+The HOMO-LUMO gap for C1=CSC(=C1)C2=CC=CC(=C2)C3=CC=CS3 is: 8.230 and took 39.660 seconds
+The HOMO-LUMO gap for C1=CC2=C(C=C1)C=CC3=CC=CC4=CC=CC5=CC=CC6=CC=CC7=CC=CC(=C7C(=C6C(=C5C(=C4C(=C3C=C2)C=C)C=C)C=C)C=C)C=C is: 4.583 and took 263.749 seconds
+
+Average HL gap for anthropic is: 5.754358838077306 eV
+======================================================
+
+Analysing deepseek-v3.1 =======================================
+The HOMO-LUMO gap for c1ccc2cc3cc4cc5cc6cc7ccccc7cc6cc5cc4cc3cc2c1 is: 3.422 and took 60.557 seconds
+The HOMO-LUMO gap for N#Cc1ccc(C(C#N)(C#N)C#N)cc1 is: 9.315 and took 27.325 seconds
+The HOMO-LUMO gap for c1cnccc1-c1ccc(s1)/C=C/c1sc(c2ccncc2)cc1 is: 6.222 and took 46.203 seconds
+invalid smiles: c1cc2nc3ccccc3nc2n1-c1nc2ccccc2n1
+invalid smiles: c1cc2ccc3ccc4ccc5ccc1c2c3c4c5
+
+Average HL gap for deepseek-v3.1 is: 6.3196718857826895 eV
+======================================================
+
+Analysing gpt-oss:120b =======================================
+The HOMO-LUMO gap for CN(C)C1=CC=C(C=C1)C2=CN3C(=O)C4=CC=CC=C4C5=CC=CC=C5C(=O)N3C2 is: 6.910 and took 86.509 seconds
+The HOMO-LUMO gap for C1=CC2=C(C=C1)SC=S2C3=CN=C(N=C3)C4=CC=CC=C4 is: 3.226 and took 56.734 seconds
+The HOMO-LUMO gap for C1=SC=CS1C2=SC=CS2 is: 2.210 and took 38.118 seconds
+invalid smiles: O=C1C2=CC=CC3=CC=CC4=CC=CC5=CC=CC6=CC=CC=1N2N6C3C5
+
+Average HL gap for gpt-oss:120b is: 4.115 eV
+======================================================
+
+Analysing gpt-oss:20b =======================================
+invalid smiles: C60
+invalid smiles: C70
+The HOMO-LUMO gap for CCCCCC=CC=CC=CC=CC=C is: 6.509 and took 28.160 seconds
+The HOMO-LUMO gap for C1=CC2=CC3=CC4=CC5=CC=CC6=CC=C1C2C3C4C5C6 is: 5.745 and took 60.797 seconds
+invalid smiles: O=[N+]c1ccc(cc1)N(=O)=O-C1=CC2=CC3=CC=CC=C3CC4=CC=CC4C=C2C=C1
+
+Average HL gap for gpt-oss:20b is: 6.126900359430764 eV
+======================================================
+
+Analysing devstral-2 =======================================
+The HOMO-LUMO gap for C1=C(C=S1)C2=C(C=S2)C3=C(C=S3)C4=C(C=S4) is: 5.576 and took 50.821 seconds
+The HOMO-LUMO gap for C1=CC=C2C=C3C=CC=C4C=C5C=CC=CC5=C4C=C3C=C21 is: 4.620 and took 59.651 seconds
+
+Average HL gap for devstral-2 is: 5.098 eV
+======================================================
+
+Analysing cogito-2.1 =======================================
+The HOMO-LUMO gap for C1=CC=C2C(=C1)C=CC=C2 is: 7.770 and took 14.960 seconds
+The HOMO-LUMO gap for C1=CC2=C3C(=C1)C=CC4=CC=CC(=C43)C=C2 is: 6.177 and took 36.567 seconds
+The HOMO-LUMO gap for C1=CC=C2C(=C1)C3=CC=CC4=CC=CC(=C43)C=C2 is: 6.629 and took 45.886 seconds
+The HOMO-LUMO gap for C1=CC2=CC3=CC=C(N)C=C3C=C2C=C1 is: 5.841 and took 37.478 seconds
+The HOMO-LUMO gap for C1=CC2=C(C=CC3=CC4=C(C=CC=C4)C=C32)C=C1 is: 6.284 and took 44.037 seconds
+
+Average HL gap for cogito-2.1 is: 6.540159538624356 eV
+======================================================
+
+Analysing nemotron-3-nano =======================================
+invalid smiles: graphene
+
+No valid SMILES
+Analysing gemini-3-flash-preview =======================================
+The HOMO-LUMO gap for c1ccc2cc3cc4cc5cc6cc7ccccc7cc6cc5cc4cc3cc2c1 is: 3.422 and took 60.469 seconds
+invalid smiles: Fc1c(F)cc2c(c1)c3c(s2)c4c(nsn4)c5c(s3)c6cc(F)c(F)cc6n5
+invalid smiles: c1cc(sc1)-c2c3nsnc3c(c4sccc4)c5nsnc25
+The HOMO-LUMO gap for O=C1C(=C2C=CC(=[N+](C)C)C=C2)C(=O)C(=C3C=CC(=[N+](C)C)C=C3)C1=O is: 4.235 and took 72.519 seconds
+The HOMO-LUMO gap for N#CC(C#N)=C1C=CC(=C2C=CC(=C3C=CC(=C4C=CC(=C(C#N)C#N)S4)S3)S2)S1 is: 3.586 and took 56.431 seconds
+
+Average HL gap for gemini-3-flash-preview is: 3.747664307927133 eV
+======================================================
+
+Analysing kimi-k2 =======================================
+The HOMO-LUMO gap for C=C=C=C=C=C=C=C is: 3.790 and took 6.239 seconds
+The HOMO-LUMO gap for C=C=C=C=C=C=C=C=C=C is: 4.999 and took 10.399 seconds
+SCF not converged.
+SCF energy = -937.677767810208
+The HOMO-LUMO gap for c1cc2cc3cc4cc5cc6cc7cc8cc9cc1c2c3c4c5c6c7c89 is: 4.393 and took 79.912 seconds
+The HOMO-LUMO gap for C1=C2C(=C(C(=C(C1=S)S)S)S)C2=S is: 4.800 and took 38.412 seconds
+
+Average HL gap for kimi-k2 is: 4.50 eV
+======================================================

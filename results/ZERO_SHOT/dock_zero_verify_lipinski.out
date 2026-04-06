@@ -1,0 +1,182 @@
+Using 32 cores for docking.
+Analysing openai =======================================
+CC(C)C[C@H](O)C[C@H](O)CCCn1nnnc1-c2ccc(cc2)C(c3ccccc3)(c4ccccc4)O : docking score = -6.70 kcal/mol,
+aLogP = 4.56, QED = 0.25
+
+CC(C)C[C@H](O)C[C@H](O)CCCP(=O)(O)O-c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O : docking score = -7.50 kcal/mol,
+aLogP = 5.47, QED = 0.18
+
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)OCCc1nc2ccccc2n1-c3ccc(cc3)C(c4ccccc4)(c5ccccc5)O : docking score = -7.30 kcal/mol,
+aLogP = 6.33, QED = 0.10
+
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)OCCNS(=O)(=O)c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O : docking score = -6.70 kcal/mol,
+aLogP = 3.73, QED = 0.12
+
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)O-c1ccc(cc1)C2(c3ccccc3)Cc4ccccc42 : docking score = -7.70 kcal/mol,
+aLogP = 5.42, QED = 0.31
+
+
+Average docking score for openai is: -7.18
+======================================================
+
+Analysing anthropic =======================================
+invalid smiles: CC(C)c1c(C(=O)Nc2ccccc2C(=O)O)c(c(c1)C)C(O)CC(O)C(O)=O
+CC(C)C1=C(C(=O)O)C2CCC(O)C(O)C2(C)C1C(O)CC(O)C(=O)O : docking score = -6.90 kcal/mol,
+aLogP = -0.01, QED = 0.38
+
+invalid smiles: CC(C)c1c(C(=O)Nc2ccc(F)cc2)c(cc1C(O)CC(O)C(O)=O)CCc1ccccc1
+c1c(C(O)CC(O)C(=O)O)c(cc(n1)C(C)C)C(=O)Nc1ccccc1C(C)C : docking score = -8.30 kcal/mol,
+aLogP = 3.45, QED = 0.54
+
+CC(C)C1=C(C(=O)O)C(C)C(C)(O)C1C(O)CC(O)C(O)=O : docking score = -6.40 kcal/mol,
+aLogP = 0.24, QED = 0.47
+
+
+Average docking score for anthropic is: -7.2
+======================================================
+
+Analysing deepseek-v3.1 =======================================
+O=C(O)CC[C@H](O)C[C@H](O)CCc1c2ccccc2n(CC3CCCCC3)c1C : docking score = -7.10 kcal/mol,
+aLogP = 4.44, QED = 0.55
+
+O=C(O)C[C@H](O)CC[C@H](O)CCc1cnc2c(c1)ccc(c2)F : docking score = -7.00 kcal/mol,
+aLogP = 2.28, QED = 0.69
+
+invalid smiles: O=C(O)C[C@H](O)CC[C@H](O)CCc1c(CN2CCOCC2)nc2ccc(C(F)(F)F)cc12
+O=C(O)C[C@H](O)CC[C@H](O)CCS(=O)(=O)c1ccc(CN2CCCCC2)cc1 : docking score = -7.00 kcal/mol,
+aLogP = 1.81, QED = 0.51
+
+O=C(O)CC[C@H](O)C[C@H](O)CCc1cnc(-c2ccc(S(N)(=O)=O)cc2)nc1 : docking score = -7.40 kcal/mol,
+aLogP = 0.70, QED = 0.45
+
+
+Average docking score for deepseek-v3.1 is: -7.125
+======================================================
+
+Analysing gpt-oss:120b =======================================
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OCC(C)C : docking score = -6.80 kcal/mol,
+aLogP = 4.61, QED = 0.60
+
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC(C)(C)C : docking score = -6.10 kcal/mol,
+aLogP = 4.75, QED = 0.65
+
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC(C)C1=CC=CC=C1F : docking score = -7.10 kcal/mol,
+aLogP = 5.85, QED = 0.50
+
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OCC1=CN=CN1 : docking score = -6.30 kcal/mol,
+aLogP = 3.87, QED = 0.70
+
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC1=CC(=C(C=C1)Cl)C(F)(F)F : docking score = -7.40 kcal/mol,
+aLogP = 6.68, QED = 0.33
+
+
+Average docking score for gpt-oss:120b is: -6.74
+======================================================
+
+Analysing gpt-oss:20b =======================================
+CC12CCC(=O)C3CC(C(=O)OCCc4occc4)C3(O)C1C2 : docking score = -6.90 kcal/mol,
+aLogP = 2.12, QED = 0.86
+
+CCCCCCCCCC(=O)C(O)C1(C)C(C(=O)OCCc2ncccc2)C(C)C1C : docking score = -6.00 kcal/mol,
+aLogP = 5.15, QED = 0.33
+
+CC12CC(O)C3(C)C(=O)C(=O)OC(C)C1C3OC2 : docking score = -6.00 kcal/mol,
+aLogP = 0.29, QED = 0.50
+
+CC(C)(C)COC(=O)C1CC(C(=O)OCCc2c(C)cccc2)C(C)C1C : docking score = -6.80 kcal/mol,
+aLogP = 4.58, QED = 0.68
+
+invalid smiles: CC12CCCC(=O)C(O)C1NC(=O)S(=O)(=O)c3ccccc3
+
+Average docking score for gpt-oss:20b is: -6.425
+======================================================
+
+Analysing devstral-2 =======================================
+CC(C)C(=O)O[C@@H](Cc1ccccc1)C(=O)N[C@@H](CC2=CC=C(C=C2)O)C(=O)O : docking score = -7.00 kcal/mol,
+aLogP = 2.31, QED = 0.56
+
+CC(C)C(=O)O[C@@H](Cc1ccc(F)cc1)C(=O)N[C@@H](CCC(O)=O)C(=O)O : docking score = -6.90 kcal/mol,
+aLogP = 1.37, QED = 0.52
+
+CC(C)C(=O)O[C@@H](C1CCC2=CC=CC=C21)C(=O)N[C@@H](CC(O)=O)C(=O)O : docking score = -7.20 kcal/mol,
+aLogP = 1.33, QED = 0.58
+
+CC(C)C(=O)O[C@@H](C1CCN(C)CC1)C(=O)N[C@@H](CCc2ccco2)C(=O)O : docking score = -6.70 kcal/mol,
+aLogP = 1.69, QED = 0.61
+
+CC(C)C(=O)O[C@@H](Cc1ccc(CC(C)C)cc1)C(=O)N[C@@H](CC(O)=O)C(=O)O : docking score = -6.80 kcal/mol,
+aLogP = 2.04, QED = 0.48
+
+
+Average docking score for devstral-2 is: -6.92
+======================================================
+
+Analysing cogito-2.1 =======================================
+CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)N2C3CCCCC3)O : docking score = -6.90 kcal/mol,
+aLogP = 3.54, QED = 0.90
+
+CC(C)C1=CC(=C(C=C1)C2=C(NC(=O)NC2=O)C3=CC=CC=C3)O : docking score = -8.00 kcal/mol,
+aLogP = 3.23, QED = 0.69
+
+CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)NC2C3=CC=CC=C3)OC : docking score = -7.40 kcal/mol,
+aLogP = 3.78, QED = 0.88
+
+CC(C)C1=CC(=C(C=C1)C2=NC(=O)NC(=O)N2C3CCCC3)O : docking score = -7.30 kcal/mol,
+aLogP = 2.54, QED = 0.91
+
+CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)NC2C3CCC(CC3)O)O : docking score = -7.40 kcal/mol,
+aLogP = 2.66, QED = 0.67
+
+
+Average docking score for cogito-2.1 is: -7.4
+======================================================
+
+Analysing nemotron-3-nano =======================================
+CC1=CC(C(=C(C=C1)C(=O)O)O)C(=O)NCC(=O)N : docking score = -6.90 kcal/mol,
+aLogP = -0.38, QED = 0.55
+
+invalid smiles: CC(C)(C)C(=O)O)C(=O)NCC(=O)N
+O=C(N[C@H](C)C(=O)O)C(N[C@H]1CCC[CH]1)C1=CC=C(C=C1)C(=O)O : docking score = 0.00 kcal/mol,
+aLogP = 1.36, QED = 0.60
+
+invalid smiles: O=C(C)C1=CC=CC(=C1)C(O)=OC(=O)NCC(=O)N
+CCOC(=O)NCC(=O)NCC1=CC=C(C=C1)C(=O)O : docking score = -7.50 kcal/mol,
+aLogP = 0.75, QED = 0.71
+
+
+Average docking score for nemotron-3-nano is: -4.8
+======================================================
+
+Analysing gemini-3-flash-preview =======================================
+CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c2cc(F)ccc2nc1N(C)S(=O)(=O)C : docking score = -7.90 kcal/mol,
+aLogP = 2.49, QED = 0.53
+
+CC(C)n1c(C2=CC=C(F)C=C2)c(C2=CC3=CC=CC=C3C=C2)c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c1 : docking score = -8.10 kcal/mol,
+aLogP = 6.30, QED = 0.26
+
+invalid smiles: CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c(nc(n1)NS(=O)(=O)C(F)(F)F)C2=CC=C(F)C=C2)
+invalid smiles: CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c2cc(C(=O)NC)ccc12)C3=CC=C(F)C=C3
+invalid smiles: CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c2noc(c12)C3=CC=C(F)C=C3)
+
+Average docking score for gemini-3-flash-preview is: -8.0
+======================================================
+
+Analysing kimi-k2 =======================================
+O=C(O)CC(O)CC(O)CC1CC(c2ccc(F)cc2)CC1c1ccc(F)cc1 : docking score = -7.70 kcal/mol,
+aLogP = 4.22, QED = 0.62
+
+O=C(O)CC(O)CC(O)Cc1cccc2c1oc1cc(C(F)(F)F)ccc12 : docking score = -7.90 kcal/mol,
+aLogP = 3.73, QED = 0.60
+
+O=C(O)CC(O)CC(O)CC1CCc2c1cc(C(F)(F)F)cc2-c1ccccc1 : docking score = -8.30 kcal/mol,
+aLogP = 4.38, QED = 0.64
+
+O=C(O)CC(O)CC(O)Cc1cccc2nc(C3CC3)ccc12 : docking score = -7.00 kcal/mol,
+aLogP = 2.24, QED = 0.73
+
+O=C(O)CC(O)CC(O)CC1CCc2c1cc(Oc1cc(F)cc(F)c1)cc2 : docking score = -8.00 kcal/mol,
+aLogP = 3.76, QED = 0.64
+
+
+Average docking score for kimi-k2 is: -7.780000000000001
+======================================================
