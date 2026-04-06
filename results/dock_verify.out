@@ -1,9 +1,11 @@
 Using 32 cores for docking.
-Analysing one_shot =======================================
+Analysing one_shot OPENAI =======================================
 O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 : -8.9
 score validated.
+Analysing one_shot ANTHROPIC =======================================
 O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12 : -9.0
 score validated.
+Analysing one_shot GEMINI =======================================
 [O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc4ccccc4c3 : -9.2
 score validated.
 
