@@ -1,28 +1,34 @@
 Number of cores: 32
 Analysing gemini_smiles =======================================
-converged SCF energy = -4639.88370045233
 The HOMO-LUMO gap for c1ccc2cc3cc4c(S([NH3+]))c(S([NH3+]))c5c(S([NH3+]))c(S([NH3+]))c6c(S([NH3+]))c(S([NH3+]))c7c([N+](=O)[O-])cc8cc9cc%10ccccc%10cc9cc8cc7cc6cc5cc4cc3cc2c1 is: 1.386 an
-d took 307.214 seconds
-c1ccc2cc3cc4c(S([NH3+]))c(S([NH3+]))c5c(S([NH3+]))c(S([NH3+]))c6c(S([NH3+]))c(S([NH3+]))c7c([N+](=O)[O-])cc8cc9cc%10ccccc%10cc9cc8cc7cc6cc5cc4cc3cc2c1 : 1.3864334339682556
-converged SCF energy = -3768.41781556697
-The HOMO-LUMO gap for c1ccc2cc3cc4cc5cc6c(S([NH3+]))c(S([NH3+]))c7c(S([NH3+]))c(S([NH3+]))c8cc9cc%10cc%11cc%12ccccc%12cc%11cc%10cc9cc8cc7cc6cc5cc4cc3cc2c1 is: 1.492 and took 251.508 sec
+d took 307.313 seconds
+The HOMO-LUMO gap for c1ccc2cc3cc4cc5cc6c(S([NH3+]))c(S([NH3+]))c7c(S([NH3+]))c(S([NH3+]))c8cc9cc%10cc%11cc%12ccccc%12cc%11cc%10cc9cc8cc7cc6cc5cc4cc3cc2c1 is: 1.492 and took 251.820 sec
 onds
-c1ccc2cc3cc4cc5cc6c(S([NH3+]))c(S([NH3+]))c7c(S([NH3+]))c(S([NH3+]))c8cc9cc%10cc%11cc%12ccccc%12cc%11cc%10cc9cc8cc7cc6cc5cc4cc3cc2c1 : 1.4920742268399876
 invalid smiles: c1ccc2cc3c(S([NH3+]))c(S([NH3+]))c4c(S([NH3+]))c(S([NH3+]))c5c(S([NH3+]))c(S([NH3+]))c6cc7cc8ccccc8cc7cc6cc5cc4cc3cc2c1
 
-Average for gemini_smiles is: 1.4392538304041216
+Average for gemini_smiles is: 1.439253830403842
 ======================================================
 
 Analysing gpt_smiles =======================================
-converged SCF energy = -1969.73661575101
-The HOMO-LUMO gap for c1(C#CC#N)ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 is: 3.927 and took 117.958 seconds
-c1(C#CC#N)ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 : 3.9271503596483806
-converged SCF energy = -1969.73531236944
-The HOMO-LUMO gap for c1(C#C(C#N))ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 is: 3.947 and took 116.684 seconds
-c1(C#C(C#N))ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 : 3.9469041173518002
-converged SCF energy = -2005.18304067174
-The HOMO-LUMO gap for c1([N+](=O)[O-])ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 is: 3.909 and took 132.356 seconds
-c1([N+](=O)[O-])ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 : 3.9093955936338998
+The HOMO-LUMO gap for c1(C#CC#N)ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 is: 3.927 and took 117.970 seconds
+The HOMO-LUMO gap for c1(C#C(C#N))ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 is: 3.947 and took 115.975 seconds
+The HOMO-LUMO gap for c1([N+](=O)[O-])ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1 is: 3.909 and took 132.781 seconds
 
-Average for gpt_smiles is: 3.92781669021136
+Average for gpt_smiles is: 3.9278166902113427
 ======================================================
+
+Analysing ant_smiles =======================================
+The HOMO-LUMO gap for c1(OC)c(N(C)c1c(N(C(C)C)C)c(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))ccc2c1 is: 3.089 and took 189.205 seconds
+The HOMO-LUMO gap for c1(OC)c(N(C)c1cc(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))cc(N(C(C)C)C)c2c1 is: 3.102 and took 159.077 seconds
+The HOMO-LUMO gap for c1(OC)c(N(C)c1cc(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))cc(OC)c2c1 is: 2.982 and took 156.456 seconds
+
+Average for ant_smiles is: 3.057795010584005
+======================================================
+
+Analysing corrected_ant_smiles =======================================
+The HOMO-LUMO gap for c1(OC)c(N(C)c6c(N(C(C)C)C)c(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))ccc2c1 is: 6.027 and took 139.345 seconds
+The HOMO-LUMO gap for c1(OC)c(N(C)c6cc(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))cc(N(C(C)C)C)c2c1 is: 6.319 and took 105.258 seconds
+The HOMO-LUMO gap for c1(OC)c(N(C)c6cc(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))cc(OC)c2c1 is: 6.487 and took 95.528 seconds
+
+Average for corrected_ant_smiles is: 6.2778361325966445
+

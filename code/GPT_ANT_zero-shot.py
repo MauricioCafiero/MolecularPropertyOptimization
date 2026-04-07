@@ -28,6 +28,7 @@ sys_message = f'''
 '''
 print('created_prompt')
 first_prompt = 'HMGCR'
+first_prompt = 'Lowest possible HOMO LUMO gap.'
 
 def get_openai_response():
   '''
@@ -59,7 +60,7 @@ for model, name in zip([get_openai_response, get_ant_response], ['OpenAI', 'Anth
   answer = model() 
   print(answer)
 
-  path = "../results/ONE_SHOT/gtp_ant_replies.md"
+  path = "../results/ZERO_SHOT/gtp_ant_replies.md"
   with open(path, 'a', encoding = 'utf-8') as f:
       f.write(f'# {name} =========================================================\n')
       f.write(answer + '\n\n')

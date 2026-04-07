@@ -19,12 +19,28 @@ def scoring_function(smiles: str):
 
   return qed, alogp, mol
 
+## order openai, anthropic, gemini for zero and one shots
+
+zero_shot = ['CN(C)c1ccc(/C=C/C=C/C(=C(C#N)C#N))cc1',
+             'C1=C(S1)C2=C(SC(=C2)S3CCCS3)S4CCCS4',
+             'c1ccc2cc3cc4cc5cc6cc7ccccc7cc6cc5cc4cc3cc2c1']
+
 one_shot = ['N#CC=CCc1ccc2cccc3ccc1c23',
             'c1cc2ccc3cccc4cccc5cccc(c1)c2c3c45',
             'c1ccc2cc3cc4cc5ccccc5cc4cc3cc2c1'
                    ]
 
-#claude = []
+ant_smiles = [
+        'c1(OC)c(N(C)c1c(N(C(C)C)C)c(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))ccc2c1',
+        'c1(OC)c(N(C)c1cc(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))cc(N(C(C)C)C)c2c1',
+        'c1(OC)c(N(C)c1cc(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))cc(OC)c2c1'
+]
+
+corrected_ant_smiles = [
+        'c1(OC)c(N(C)c6c(N(C(C)C)C)c(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))ccc2c1',
+        'c1(OC)c(N(C)c6cc(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))cc(N(C(C)C)C)c2c1',
+        'c1(OC)c(N(C)c6cc(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))cc(OC)c2c1'
+]
              
 gemini3flash = [
         'c1ccc2cc3cc4c(S([NH3+]))c(S([NH3+]))c5c(S([NH3+]))c(S([NH3+]))c6c(S([NH3+]))c(S([NH3+]))c7c([N+](=O)[O-])cc8cc9cc%10ccccc%10cc9cc8cc7cc6cc5cc4cc3cc2c1',
@@ -37,9 +53,13 @@ gpt5p2 = [
         'c1([N+](=O)[O-])ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1'
 ]
 
+
+
 hash_lists = {
+    'ZERO_SHOT': zero_shot,
     'one_shot': one_shot,
-    #'ANTHROPIC': claude,
+    'ANTHROPIC': ant_smiles,
+    'Corrected-ANTHROPIC': corrected_ant_smiles,
     'OPENAI': gpt5p2,
     'GEMINI': gemini3flash
 }
@@ -61,5 +81,5 @@ for name, smiles_list in hash_lists.items():
 
 for name, img in zip(hash_lists.keys(), all_imgs):
     print(f'Saving image for {name}')
-    filename = f"../results/HL/finalist_images/{name}_finalists.png"
+    filename = f"../results/HL/HL_finalist_images/{name}_finalists.png"
     img.save(filename)

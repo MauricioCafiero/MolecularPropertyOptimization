@@ -86,9 +86,23 @@ gpt_smiles = [
         'c1([N+](=O)[O-])ccc2c(C#C(C#N))c3c(C#C(C#N))cc(C#CC#N)c(C#CC#N)c3c(C#Cc7ccc8cc9ccccc9cc8c7)c2c1'
 ]
 
+ant_smiles = [
+        'c1(OC)c(N(C)c1c(N(C(C)C)C)c(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))ccc2c1',
+        'c1(OC)c(N(C)c1cc(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))cc(N(C(C)C)C)c2c1',
+        'c1(OC)c(N(C)c1cc(C#N)c(C(=O)C#N)cc1)cc2cc(C(=O)C(C#N)(C#N))cc(OC)c2c1'
+]
+
+corrected_ant_smiles = [
+        'c1(OC)c(N(C)c6c(N(C(C)C)C)c(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))ccc2c1',
+        'c1(OC)c(N(C)c6cc(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))cc(N(C(C)C)C)c2c1',
+        'c1(OC)c(N(C)c6cc(C#N)c(C(=O)C#N)cc6)cc2cc(C(=O)C(C#N)(C#N))cc(OC)c2c1'
+]
+
 model_smiles = {
     'gemini_smiles': gemini_smiles,
     'gpt_smiles': gpt_smiles,
+    'ant_smiles': ant_smiles,
+    'corrected_ant_smiles': corrected_ant_smiles
 }
 
 for name, smiles_list in model_smiles.items():
@@ -101,7 +115,7 @@ for name, smiles_list in model_smiles.items():
       score = scoring_function(smile)
       ave += score
       count += 1
-      print(f'{smile} : {score}')
+ #     print(f'{smile} : {score}')
     else:
       print(f'invalid smiles: {smile}')
   print('')

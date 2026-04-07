@@ -19,6 +19,12 @@ def scoring_function(smiles: str):
 
   return qed, alogp, mol
 
+## order openai, anthropic, gemini for zero and one shots
+
+zero_shot = ['CC(C)C[C@H](O)C[C@H](O)CCC(=O)O-c1ccc(cc1)C2(c3ccccc3)Cc4ccccc42',
+             'c1c(C(O)CC(O)C(=O)O)c(cc(n1)C(C)C)C(=O)Nc1ccccc1C(C)C',
+             'CC(C)n1c(C2=CC=C(F)C=C2)c(C2=CC3=CC=CC=C3C=C2)c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c1']
+
 one_shot = [
                    'O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12',
                    'O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12',
@@ -40,7 +46,8 @@ gemini3flash = ['O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
               'O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12']
 
 hash_lists = {
-    'one_shot': one_shot,
+    'ZERO_SHOT': zero_shot,
+    'ONE_SHOT': one_shot,
     'ANTHROPIC': claude,
     'OPENAI': gpt5p2,
     'GEMINI': gemini3flash
@@ -63,5 +70,5 @@ for name, smiles_list in hash_lists.items():
 
 for name, img in zip(hash_lists.keys(), all_imgs):
     print(f'Saving image for {name}')
-    filename = f"../results/finalist_images/{name}_finalists.png"
+    filename = f"../results/dock_finalist_images/{name}_finalists.png"
     img.save(filename)
