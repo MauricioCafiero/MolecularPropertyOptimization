@@ -36,8 +36,8 @@
 
 
 ## In the folder results/ZERO_SHOT, you will find two files
-- gpt_ant_replies.md
-- ollama_replies.md
+- gpt_ant_replies_frag.md
+- ollama_replies_frags.md
 
 each of these files contains up to five molecule predictions from several models. 
 
@@ -48,8 +48,8 @@ each of these files contains up to five molecule predictions from several models
 
 
 ## In the folder results/HL/ZERO_SHOT, you will find two files
-- HL_gpt_ant_replies.md
-- ollama_replies.md
+- HL_gpt_ant_replies_frag.md
+- ollama_replies_frags.md
 
 each of these files contains up to five molecule predictions from several models. 
 
