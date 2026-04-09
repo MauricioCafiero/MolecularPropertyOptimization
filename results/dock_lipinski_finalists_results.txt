@@ -1,0 +1,33 @@
+ZERO_SHOT:
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)O-c1ccc(cc1)C2(c3ccccc3)Cc4ccccc42: ZERO_SHOT 1: QED=0.31, logP=5.42
+c1c(C(O)CC(O)C(=O)O)c(cc(n1)C(C)C)C(=O)Nc1ccccc1C(C)C: ZERO_SHOT 2: QED=0.54, logP=3.45
+CC(C)n1c(C2=CC=C(F)C=C2)c(C2=CC3=CC=CC=C3C=C2)c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c1: ZERO_SHOT 3: QED=0.26, logP=6.30
+---------------------------------------------------------------------------------
+ZERO_SHOT_FRAGMENTS:
+O=C(O)Cc1cccc(n1)c2ccc3ccccc3c2: ZERO_SHOT_FRAGMENTS 1: QED=0.79, logP=3.53
+CC(C)C[C@H](O)[C@H](C)C(=O)Oc1ccc2ccccc2c1-c1ccccc1C(=O)O: ZERO_SHOT_FRAGMENTS 2: QED=0.42, logP=5.15
+OC(=O)C[C@H](O)C[C@H](O)/C=C/c1c(-c2ccc(F)cc2)c2ccccc2nc1C(C)C: ZERO_SHOT_FRAGMENTS 3: QED=0.49, logP=4.76
+---------------------------------------------------------------------------------
+ONE_SHOT:
+O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12: ONE_SHOT 1: QED=0.51, logP=2.00
+O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12: ONE_SHOT 2: QED=0.43, logP=-0.37
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc4ccccc4c3: ONE_SHOT 3: QED=0.58, logP=2.91
+---------------------------------------------------------------------------------
+ANTHROPIC:
+O=c1c(O)c(-c2c(C)cc(C(=O)N)cc2)oc2c(F)ccc(C(=O)N)c12: ANTHROPIC 1: QED=0.66, logP=1.81
+O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N)c12: ANTHROPIC 2: QED=0.72, logP=2.41
+O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N(C)C)c12: ANTHROPIC 3: QED=0.71, logP=3.02
+O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)ccc2)oc2c(C(F)(F)(F))ccc(C(=O)N)c12: ANTHROPIC 4: QED=0.54, logP=1.61
+O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)c(F)cc2)oc2cc(F)cc(C)c12: ANTHROPIC 5: QED=0.71, logP=2.07
+---------------------------------------------------------------------------------
+OPENAI:
+O=c1c(O)c(-c2ccc(CC(C)(C)C)cc2)oc2cccc(C(C(=O)O))c12: OPENAI 1: QED=0.72, logP=4.38
+O=c1c(O)c(-c2ccc(OC(F)(F)(F))cc2)oc2cccc(C(C(=O)O))c12: OPENAI 2: QED=0.72, logP=3.69
+---------------------------------------------------------------------------------
+GEMINI:
+O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12: GEMINI 1: QED=0.74, logP=2.17
+O=c1cc(-c2c(OC)c(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12: GEMINI 2: QED=0.71, logP=2.18
+O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12: GEMINI 3: QED=0.74, logP=2.03
+O=c1cc(-c2c(F)cc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12: GEMINI 4: QED=0.74, logP=2.17
+O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12: GEMINI 5: QED=0.74, logP=2.03
+---------------------------------------------------------------------------------

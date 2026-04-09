@@ -25,6 +25,10 @@ zero_shot = ['CC(C)C[C@H](O)C[C@H](O)CCC(=O)O-c1ccc(cc1)C2(c3ccccc3)Cc4ccccc42',
              'c1c(C(O)CC(O)C(=O)O)c(cc(n1)C(C)C)C(=O)Nc1ccccc1C(C)C',
              'CC(C)n1c(C2=CC=C(F)C=C2)c(C2=CC3=CC=CC=C3C=C2)c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c1']
 
+zero_shot_frags = ['O=C(O)Cc1cccc(n1)c2ccc3ccccc3c2',
+                   'CC(C)C[C@H](O)[C@H](C)C(=O)Oc1ccc2ccccc2c1-c1ccccc1C(=O)O',
+                   'OC(=O)C[C@H](O)C[C@H](O)/C=C/c1c(-c2ccc(F)cc2)c2ccccc2nc1C(C)C']
+
 one_shot = [
                    'O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12',
                    'O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12',
@@ -47,6 +51,7 @@ gemini3flash = ['O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
 
 hash_lists = {
     'ZERO_SHOT': zero_shot,
+    'ZERO_SHOT_FRAGMENTS': zero_shot_frags,
     'ONE_SHOT': one_shot,
     'ANTHROPIC': claude,
     'OPENAI': gpt5p2,

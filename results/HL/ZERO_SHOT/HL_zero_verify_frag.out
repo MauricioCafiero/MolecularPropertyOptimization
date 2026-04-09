@@ -1,0 +1,132 @@
+Number of cores: 32
+Analysing openai =======================================
+The HOMO-LUMO gap for c1ccc2cc3cc(/C=C(C#N))ccc3cc2c1/C=C(C#N) is: 5.901 and took 52.635 seconds
+c1ccc2cc3cc(/C=C(C#N))ccc3cc2c1/C=C(C#N) : HL gap  = 5.901185259041463 eV
+The HOMO-LUMO gap for c1ccc2cc3cc(/C=C(OC))ccc3cc2c1/C=C(OC) is: 5.757 and took 49.021 seconds
+c1ccc2cc3cc(/C=C(OC))ccc3cc2c1/C=C(OC) : HL gap  = 5.756915350113948 eV
+The HOMO-LUMO gap for c1ccc2cc3cc(/C=C(OC))ccc3cc2c1/C=C(C#N) is: 5.770 and took 50.940 seconds
+c1ccc2cc3cc(/C=C(OC))ccc3cc2c1/C=C(C#N) : HL gap  = 5.770473512051284 eV
+The HOMO-LUMO gap for O=c1cc(-c2ccc(/C=C(C#N))cc2)oc2ccccc12 is: 6.499 and took 51.314 seconds
+O=c1cc(-c2ccc(/C=C(C#N))cc2)oc2ccccc12 : HL gap  = 6.4986456820070355 eV
+The HOMO-LUMO gap for O=c1cc(-c2cc(OC)cc(/C=C(C#N))c2)oc2ccccc12 is: 7.032 and took 62.976 seconds
+O=c1cc(-c2cc(OC)cc(/C=C(C#N))c2)oc2ccccc12 : HL gap  = 7.031643223278642 eV
+
+Average HL gap for openai is: 6.191772605298475 eV
+======================================================
+
+Analysing anthropic =======================================
+The HOMO-LUMO gap for OCc1ccc2ccccc2c1C=CC#N is: 7.434 and took 41.081 seconds
+OCc1ccc2ccccc2c1C=CC#N : HL gap  = 7.433990762358499 eV
+invalid smiles: C#C(OC(=O)C)c1ccc2cc3ccccc3cc2c1OC
+The HOMO-LUMO gap for C=CC(C#N)c1ccc2ccccc2c1N(C(Cl)(Cl)Cl) is: 7.437 and took 52.841 seconds
+C=CC(C#N)c1ccc2ccccc2c1N(C(Cl)(Cl)Cl) : HL gap  = 7.437395826199636 eV
+The HOMO-LUMO gap for C=CC(OC)c1ccc2ccccc2c1C=CC#N is: 7.615 and took 51.312 seconds
+C=CC(OC)c1ccc2ccccc2c1C=CC#N : HL gap  = 7.615406898472035 eV
+The HOMO-LUMO gap for OCc1ccc2cc3ccccc3cc2c1C=CC#N is: 5.942 and took 50.764 seconds
+OCc1ccc2cc3ccccc3cc2c1C=CC#N : HL gap  = 5.941923377428207 eV
+
+Average HL gap for anthropic is: 7.107179216114594 eV
+======================================================
+
+Analysing deepseek-v3.1 =======================================
+The HOMO-LUMO gap for O=C(C#C)c1ccc2ccccc2c1N(C(Cl)(Cl)Cl) is: 6.719 and took 57.211 seconds
+O=C(C#C)c1ccc2ccccc2c1N(C(Cl)(Cl)Cl) : HL gap  = 6.718830279688863 eV
+The HOMO-LUMO gap for c1ccc2cc3ccccc3cc2c1C=CC(OC) is: 5.938 and took 50.233 seconds
+c1ccc2cc3ccccc3cc2c1C=CC(OC) : HL gap  = 5.938134118139361 eV
+The HOMO-LUMO gap for O=c1cc(-c2ccc(S([NH3+]))cc2)oc2ccccc12 is: 5.692 and took 54.523 seconds
+O=c1cc(-c2ccc(S([NH3+]))cc2)oc2ccccc12 : HL gap  = 5.691572022168601 eV
+invalid smiles: O=C(O)O[nH]1cccc1C#C(OC(=O)C)
+The HOMO-LUMO gap for s1ccc(C#C)c1C#Cc1c[nH]cc1C=CC(C#N) is: 7.533 and took 43.476 seconds
+s1ccc(C#C)c1C#Cc1c[nH]cc1C=CC(C#N) : HL gap  = 7.532500780445801 eV
+
+Average HL gap for deepseek-v3.1 is: 6.470259300110657 eV
+======================================================
+
+Analysing gpt-oss:120b =======================================
+The HOMO-LUMO gap for CN(C)c1ccc2ccccc2c1C#N is: 6.680 and took 40.204 seconds
+CN(C)c1ccc2ccccc2c1C#N : HL gap  = 6.67961191108518 eV
+invalid smiles: CN(C)c1ccc2c3ccccc3c(c2c1)C#N
+invalid smiles: CN(C)c1ccc(cc1)c1c2ccccc2oc2ccccc12C#N
+The HOMO-LUMO gap for CN(C)c1ccc2sccc2c1C#N is: 7.253 and took 37.557 seconds
+CN(C)c1ccc2sccc2c1C#N : HL gap  = 7.253034578199838 eV
+invalid smiles: CN(C)c1ccc2c(c1)nc[nH]2C#N
+
+Average HL gap for gpt-oss:120b is: 6.966323244642509 eV
+======================================================
+
+Analysing gpt-oss:20b =======================================
+The HOMO-LUMO gap for c1ccc2cc3ccccc3cc2c1C#N is: 5.852 and took 38.785 seconds
+c1ccc2cc3ccccc3cc2c1C#N : HL gap  = 5.85203990892199 eV
+The HOMO-LUMO gap for c1ccc2ccccc2c1C#N is: 7.332 and took 25.649 seconds
+c1ccc2ccccc2c1C#N : HL gap  = 7.332407486415637 eV
+invalid smiles: O=c1cc(-c2ccccc2C#N)oc2ccccc12C#N
+The HOMO-LUMO gap for c1ccccc1C#Cc2ccccc2C#N is: 7.670 and took 31.537 seconds
+c1ccccc1C#Cc2ccccc2C#N : HL gap  = 7.670142150908911 eV
+The HOMO-LUMO gap for c1ccc2cc3ccccc3cc2c1C#C(OC(=O)C) is: 5.781 and took 50.486 seconds
+c1ccc2cc3ccccc3cc2c1C#C(OC(=O)C) : HL gap  = 5.781484728977181 eV
+
+Average HL gap for gpt-oss:20b is: 6.65901856880593 eV
+======================================================
+
+Analysing devstral-2 =======================================
+The HOMO-LUMO gap for c1ccc2cc3ccccc3cc2c1C=C(C#N)C=C(OC)C=C(C#N) is: 5.887 and took 68.195 seconds
+c1ccc2cc3ccccc3cc2c1C=C(C#N)C=C(OC)C=C(C#N) : HL gap  = 5.8872096773987375 eV
+invalid smiles: O=c1cc(-c2ccccc2)oc2ccccc12C(=O)O(O)
+invalid smiles: s1cccc1C=C(C#N)s1cccc1C=C(OC)s1cccc1
+The HOMO-LUMO gap for c1ccc2ccccc2c1C(=O)N(Cl)C=C(N(C(Cl)(Cl)Cl)) is: 7.029 and took 55.996 seconds
+c1ccc2ccccc2c1C(=O)N(Cl)C=C(N(C(Cl)(Cl)Cl)) : HL gap  = 7.02926441096642 eV
+invalid smiles: [nH]1cccc1C=C(C#N)[nH]1cccc1C=C(OC)[nH]1cccc1
+
+Average HL gap for devstral-2 is: 6.458237044182579 eV
+======================================================
+
+Analysing cogito-2.1 =======================================
+The HOMO-LUMO gap for CN(C)c1ccc2cc(ccc2c1)[N+](=O)[O-] is: 6.724 and took 44.114 seconds
+CN(C)c1ccc2cc(ccc2c1)[N+](=O)[O-] : HL gap  = 6.724089263551828 eV
+invalid smiles: Nc1ccc2cc3cc(ccc3c2c1)[N+](=O)[O-]
+The HOMO-LUMO gap for O=C1c2ccccc2OC2=C1C=CC(=C2)[N+](=O)[O-] is: 7.138 and took 49.039 seconds
+O=C1c2ccccc2OC2=C1C=CC(=C2)[N+](=O)[O-] : HL gap  = 7.138126552804967 eV
+The HOMO-LUMO gap for s1ccc(-c2ccc[nH]2)c1[N+](=O)[O-] is: 6.944 and took 31.914 seconds
+s1ccc(-c2ccc[nH]2)c1[N+](=O)[O-] : HL gap  = 6.943765508599176 eV
+The HOMO-LUMO gap for O=C1C=CC(=O)C2=C1N=C([N+](=O)[O-])N2 is: 6.663 and took 25.812 seconds
+O=C1C=CC(=O)C2=C1N=C([N+](=O)[O-])N2 : HL gap  = 6.662856410730912 eV
+
+Average HL gap for cogito-2.1 is: 6.867209433921721 eV
+======================================================
+
+Analysing nemotron-3-nano =======================================
+invalid smiles: c1ccc2ccccc2c1c(ccc(cc2)N(=O)=O)C=CC(CC)O
+invalid smiles: c1ccc2ccccc2c1c(ccc(cc2)C#N)C=CC(CC)O
+invalid smiles: N#CC(=O)C=C(c1ccc2ccccc2c1)C=CC(C(=O)N(C(Cl)(Cl)(Cl))C(Cl)(Cl)Cl))C(=O)C=O
+invalid smiles: O=C1c2cc(-c3ccccc3)ccc2c1c4ccccc4
+invalid smiles: N1C[NH3+]=n2c3ccccc3c2cc4ccccc4c1
+
+No valid SMILES
+Analysing gemini-3-flash-preview =======================================
+The HOMO-LUMO gap for N#Cc1c2ccccc2c(N(C)C)c3ccccc13 is: 5.635 and took 59.709 seconds
+N#Cc1c2ccccc2c(N(C)C)c3ccccc13 : HL gap  = 5.635261351191076 eV
+The HOMO-LUMO gap for N#Cc1sc(cc1)-c2sc(N(C)C)cc2 is: 6.383 and took 32.416 seconds
+N#Cc1sc(cc1)-c2sc(N(C)C)cc2 : HL gap  = 6.383096932251625 eV
+The HOMO-LUMO gap for CN(C)c1ccc(cc1)-c2cc(=O)c3ccccc3o2 is: 7.258 and took 56.204 seconds
+CN(C)c1ccc(cc1)-c2cc(=O)c3ccccc3o2 : HL gap  = 7.257770575935017 eV
+The HOMO-LUMO gap for N#CC=Cc1c2ccccc2c(C=CC#N)c3ccccc13 is: 5.862 and took 60.756 seconds
+N#CC=Cc1c2ccccc2c(C=CC#N)c3ccccc13 : HL gap  = 5.86241587090214 eV
+The HOMO-LUMO gap for CN(C)c1sc(cc1)-c2c3ccccc3c(c4sc(N(C)C)cc4)c5ccccc25 is: 5.367 and took 83.410 seconds
+CN(C)c1sc(cc1)-c2c3ccccc3c(c4sc(N(C)C)cc4)c5ccccc25 : HL gap  = 5.367218710069449 eV
+
+Average HL gap for gemini-3-flash-preview is: 6.101152688069861 eV
+======================================================
+
+Analysing kimi-k2.5 =======================================
+The HOMO-LUMO gap for COc1c2ccccc2c(/C=C/C#N)c2ccccc12 is: 5.788 and took 59.560 seconds
+COc1c2ccccc2c(/C=C/C#N)c2ccccc12 : HL gap  = 5.788322479812433 eV
+The HOMO-LUMO gap for N#CC=Cc1c2ccccc2c(/C=C/C#N)c2ccccc12 is: 5.863 and took 55.021 seconds
+N#CC=Cc1c2ccccc2c(/C=C/C#N)c2ccccc12 : HL gap  = 5.863430367582073 eV
+invalid smiles: COc1ccc(/C=C/c2cc(-c3ccccc3)oc3ccccc23)cc1
+The HOMO-LUMO gap for N#CC=Cc1ccc(/C=C/OC)s1 is: 6.433 and took 28.935 seconds
+N#CC=Cc1ccc(/C=C/OC)s1 : HL gap  = 6.432711717599271 eV
+The HOMO-LUMO gap for N#CC=Cc1c(/C=C/c2ccccc2OC)[nH]cn1 is: 7.315 and took 46.032 seconds
+N#CC=Cc1c(/C=C/c2ccccc2OC)[nH]cn1 : HL gap  = 7.31547189404839 eV
+
+Average HL gap for kimi-k2.5 is: 6.349984114760542 eV
+======================================================

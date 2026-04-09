@@ -1,4 +1,33 @@
-# Fragment-based, AI-assisted Optimization of molecular properties (FAO-MOL)
+# Fragment-based, AI-assisted Optimization of molecular properties (FAO-MOLPROP)
+
+## Methods
+
+### Fragment-based Molecular Optimization
+
+The automated property optimization requires one or more scaffolds--in SMILES format, defined substitution points for 'clean' molecules (no substituents added), defined substitution points for substituted molecules, a set of substituents to add, a substitution function, a grow function, a replacement function, one or more scoring functions, any desired auxilliary functions (optional).
+The workflow for the process begins by adding a random selection of the substituents to the 'clean' substitution points on all selected scaffolds using the substitution function. This set of molecules is then 'scored' by the scoring function. From this point, several paths can follow. A molecule with a promising score can be used with the grow function to add more/different substituents to try to improve the score, or the replacement function may be used on a promising molecule to see how different substituents would change the score. Additional scoring and auxilliary functions may be used to gain additional information on the molecules. These processes are then repeated until a best possible score is achieved. 
+
+In this work, we used the following scaffolds: ```c1ccccc1``` (benzene), ```n1ccccc1``` (pyridine),```o1cccc1``` (furan), ```s1cccc1``` (thiophene), ```[nH]1cccc1``` (pyrrole), ```n1c[nH]cc1``` (imidazole), ```c1ccc2ccccc2c1``` (naphthalene), ```c1ccc2cc3ccccc3cc2c1``` (anthracene), and ```O=c1cc(-c2ccccc2)oc2ccccc12``` (flavone). In practice any set of molecule SMILES may be used as a scaffold. For substituents we used sets of 11 electron withdrawing groups, 16 electron donating groups and 14 linkers. The linkers can be combined with the other two groups, combined with each other, or used alone as substituents themselves. This results in 567 potential substituents. (see supporting information)
+
+The clean subtitution points on the scaffolds are all attachment points that are symmetrically unique, i.e., benzene only has one unique attachment point, napthalene has two, anthracene has three, etc. Each of the 567 substituents can be placed on any clean attachment point; since the rings used in this work have a total of 26 attachment points, this results in a total of 14,742 unique molecules that may be generated in an automated fashion. Note that these are only the singly substituted molecules--multiply substituted molecules may also be created when using the grow function on a promising molecules generated with the substitution function. 
+
+### Scoring and auxilliary functions
+
+In this work, two scoring functions were tested: docking (using AutoDock Vina via DockString) and HOMO-LUMO gap (using PySCF). The scoring function should take two inputs: a globally defined ```scoring_args``` variable and the SMILES string of the molecule in question. In this work, the ```scoring_args``` were the protein to dock in ('HMGCR') and the DFT functional to use for gap calculations ('cam-b3lyp'). Along with the scoring fuunction, a 'task specific prompt' is needed to describe the task to be accomlished--this serves as part of the system message for the LLM (see below). In this work, the task specific prompts requested minimzation of docking score and the HOMO-LUMO gap.
+
+Two auxiliary functions were provided in this work: a 'Lipinski' module and a 'related' module. The former usses RDKit to calculate the QED, aLogP, molecular weight, etc for a SMILES string, and the latter queries PubChem with the SMILES and searches for structurally similar molecules. 'Lipinski' is used to steer molecular design towards feasible drug molecules, and 'related' is used to either perform a 'sense check' on the strucutre, or to look for other scaffolds in nearby chemical space.   
+
+### LLMs and Agents
+
+Ten LLMs were used in this work. Seven open-weight (OW) models were used in zero- and one-shot molecule design, and three closed-weight (CW) frontier models were used in zero-shot, one-shot and agentic molecular design. The OW models (deepseek-v3.1:671b, gpt-oss:120b, gpt-oss:20b, devstral-2:123b, cogito-2.1:671b, nemotron-3-nano:30b, and kimi-k2:1t) were used via the Ollama API on the Ollama cloud. The models were chosen...
+
+The CW models (GPT5.2, Claude Haiku 4.5 and Gemini 3 Flash) were used via the OpenAI, Anthropic and Google APIs. The models were chosen...
+
+#### Zero-shot
+
+#### One-shot
+
+#### Adversarial design
 
 ## Minimization of docking scores for HMGCR calculated by AutoDock Vina
 
@@ -18,6 +47,12 @@
 | Nemotron 3 Nano| 2 | -7.50 | -6.90 | -7.20 |
 | Kimi K2        | 5 | -8.30 | -7.00 | -7.78 |
 
+<figure>
+    <img src="../results/dock_finalist_images/ZERO_SHOT_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 1. Lowest docking score zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+</figure>
+
 #### Table 2. Docking Scores (kcal/mol) for zero shot molecules with suggested fragments for each model tested. 
 
 | Model | No. Mols | Low | High | Ave |
@@ -34,6 +69,11 @@
 | Nemotron 3 Nano| 0 | - | - | - |
 | Kimi K2        | 5 | -7.40 | -6.10 | -6.76 |
 
+<figure>
+    <img src="../results/dock_finalist_images/ZERO_SHOT_FRAGMENTS_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 2. Lowest docking score zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
+</figure>
 
 #### Table 3. Docking Scores (kcal/mol) for one shot molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
 
@@ -51,6 +91,11 @@
 | Nemotron 3 Nano| 3 | -9.10 | -7.60 | -8.26 |
 | Kimi K2        | 4 | -7.50 | -6.90 | -7.15 |
 
+<figure>
+    <img src="../results/dock_finalist_images/one_shot_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 3. Lowest docking score one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+</figure>
 
 #### Table 4. Docking Scores (kcal/mol) for adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
 
@@ -60,6 +105,24 @@
 | Claude   | GPT 5.2 | 5 | -9.90 | -8.10 | -8.96 |
 | Gemini   | Claude  | 5 | -9.10 | -8.90 | -8.98 |
 
+<figure>
+    <img src="../results/dock_finalist_images/OPENAI_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 4. Top molecules for GPT 5.2.</figcaption>
+</figure>
+
+
+<figure>
+    <img src="../results/dock_finalist_images/ANTHROPIC_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 5. Top molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GEMINI_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 6. Top molecules for Gemini.</figcaption>
+</figure>
 
 #### Table 5. Docking Scores (kcal/mol) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
 
@@ -82,9 +145,28 @@
 
 ### Lipinski properties for AI-designed molecules
 
+#### Table 6. QED and aLogP for the lowest docking score molecules from each model / design mode.
+
+| Model | design mode | QED | aLogP |
+|-------|:-:|:-:|---|
+| GPT 5.2  | zero-shot | 0.31 | 5.42 |
+| GPT 5.2  | zero/frags| 0.79 | 3.53 |
+| GPT 5.2  | one-shot  | 0.51 | 2.00 |
+| GPT 5.2  | w/ Claude | 0.72 | 4.38 |
+||||||
+| Claude   | zero-shot | 0.54 | 3.45 |
+| Claude   | zero/frags| 0.42 | 5.15 |
+| Claude   | one-shot  | 0.43 | -0.37|
+| Claude   | w/ GPT 5.2| 0.71 | 2.07 |
+||||||
+| Gemini   | zero-shot | 0.26 | 6.30 |
+| Gemini   | zero/frags| 0.49 | 4.76 |
+| Gemini   | one-shot  | 0.58 | 2.91 |
+| Gemini   | w/ Claude | 0.74 | 2.17 |
+
 ## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF. Molecule structures optimized with MMFF.
 
-#### Table 6. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
+#### Table 7. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -100,8 +182,14 @@
 | Nemotron 3 Nano| 0 | - | - | - |
 | Kimi K2        | 4 | 5.00 | 3.79 | 4.50 |
 
+<figure>
+    <img src="../results/HL/HL_finalist_images/ZERO_SHOT_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 7. Lowest HOMO-LUMO gap zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+</figure>
 
-#### Table 7. HOMO-LUMO gaps (eV) for zero shot molecules with suggested fragments for each model tested.
+
+#### Table 8. HOMO-LUMO gaps (eV) for zero shot molecules with suggested fragments for each model tested.
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -117,8 +205,14 @@
 | Nemotron 3 Nano| 0 | - | - | - |
 | Kimi K2        | 4 | 7.32 | 5.78 | 6.35 |
 
+<figure>
+    <img src="../results/HL/HL_finalist_images/ZERO_SHOT_FRAGMENTS_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 8. Lowest HOMO-LUMO gap zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
+</figure>
 
-#### Table 8. HOMO-LUMO gaps (eV) for one shot molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+
+#### Table 9. HOMO-LUMO gaps (eV) for one shot molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -134,8 +228,14 @@
 | Nemotron 3 Nano| 1 | 9.50 | 9.50 | 9.50 |
 | Kimi K2        | 5 | 7.52 | 5.69 | 6.10 |
 
+<figure>
+    <img src="../results/HL/HL_finalist_images/one_shot_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 9. Lowest HOMO-LUMO gap one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+</figure>
 
-#### Table 9. HOMO-LUMO gaps (eV) for adversarially designed molecules for each model tested. TThe lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+
+#### Table 10. HOMO-LUMO gaps (eV) for adversarially designed molecules for each model tested. TThe lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 /*correction for the SMILES error in the Claude session.
 
 | Model | Adversary |  No. Mols | High | Low | Ave |
@@ -145,8 +245,33 @@
 | Claude*   | GPT 5.2 | 3 | 6.49 | 6.03 | 6.28 |
 | Gemini   | Claude  | 2 | 1.49 | 1.39 | 1.44 |
 
+<figure>
+    <img src="../results/HL/HL_finalist_images/OPENAI_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 10. Top HOMO-LUMO gap molecules for GPT 5.2.</figcaption>
+</figure>
 
-#### Table 10. HOMO-LUMO gap (eV) progression for zero-shot, 
+
+<figure>
+    <img src="../results/HL/HL_finalist_images/ANTHROPIC_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 11. Top HOMO-LUMO gap molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_finalist_images/Corrected-ANTHROPIC_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 11. Top HOMO-LUMO gap corrected molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_finalist_images/GEMINI_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 12. Top HOMO-LUMO gap molecules for Gemini.</figcaption>
+</figure>
+
+
+#### Table 11. HOMO-LUMO gap (eV) progression for zero-shot,
 one-shot, and adversarially designed molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | design mode | No. Mols | High | Low | Ave |
