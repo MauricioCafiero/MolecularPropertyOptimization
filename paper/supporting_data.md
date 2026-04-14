@@ -217,3 +217,199 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 >in the reasoning or estimation of the gaps. You should then suggest modifications
 >to the proposed molecules that would make them more likely to have a low gap, and provide reasoning
 >for why those modifications would help.
+
+## Images of zero-shot gneneration for all models:
+
+### OPENAI
+
+<figure>
+    <img src="../results/dock_finalist_images/OPENAI Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 1. Zero-shot generated molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/OPENAI Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 2. Zero-shot with fragments generated molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/OPENAI One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 3. One-shot generated molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
+### ANTHROPIC
+
+<figure>
+    <img src="../results/dock_finalist_images/ANTHROPIC Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 4. Zero-shot generated molecules for Anthropic Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/ANTHROPIC Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 5. Zero-shot with fragments generated molecules for Anthropic Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/ANTHROPIC One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 6. One-shot generated molecules for Anthropic Claude.</figcaption>
+</figure>
+
+### GEMINI
+
+<figure>
+    <img src="../results/dock_finalist_images/GEMINI Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 7. Zero-shot generated molecules for Google Gemini.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GEMINI Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 8. Zero-shot with fragments generated molecules for Google Gemini.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GEMINI One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 9. One-shot generated molecules for Google Gemini.</figcaption>
+</figure>
+
+### Deepseek-v3.1
+
+<figure>
+    <img src="../results/dock_finalist_images/Deepseek-v3.1 Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 10. Zero-shot generated molecules for Deepseek-v3.1.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/Deepseek-v3.1 Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 11. Zero-shot with fragments generated molecules for Deepseek-v3.1.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/Deepseek-v3.1 One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 12. One-shot generated molecules for Deepseek-v3.1.</figcaption>
+</figure>
+
+### GPT-OSS-120B
+
+<figure>
+    <img src="../results/dock_finalist_images/GPT-OSS-120B Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 13. Zero-shot generated molecules for GPT-OSS-120B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GPT-OSS-120B Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 14. Zero-shot with fragments generated molecules for GPT-OSS-120B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GPT-OSS-120B One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 15. One-shot generated molecules for GPT-OSS-120B.</figcaption>
+</figure>
+
+### GPT-OSS-20B
+
+<figure>
+    <img src="../results/dock_finalist_images/GPT-OSS-20B Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 16. Zero-shot generated molecules for GPT-OSS-20B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GPT-OSS-20B Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 17. Zero-shot with fragments generated molecules for GPT-OSS-20B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/GPT-OSS-20B One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 18. One-shot generated molecules for GPT-OSS-20B.</figcaption>
+</figure>
+
+### DEVSTRAL-2
+
+<figure>
+    <img src="../results/dock_finalist_images/DEVSTRAL-2 Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 19. Zero-shot generated molecules for Devstral-2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/DEVSTRAL-2 Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 20. Zero-shot with fragments generated molecules for Devstral-2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/DEVSTRAL-2 One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 21. One-shot generated molecules for Devstral-2.</figcaption>
+</figure>
+
+### COGITO-2.1
+
+<figure>
+    <img src="../results/dock_finalist_images/COGITO-2.1 Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 22. Zero-shot generated molecules for Cogito-2.1.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/COGITO-2.1 Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 23. Zero-shot with fragments generated molecules for Cogito-2.1.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/COGITO-2.1 One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 24. One-shot generated molecules for Cogito-2.1.</figcaption>
+</figure>
+
+### NEMOTRON-3-NANO
+
+<figure>
+    <img src="../results/dock_finalist_images/NEMOTRON-3-NANO Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 25. Zero-shot generated molecules for Nemotron-3-Nano.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/NEMOTRON-3-NANO One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 26. One-shot generated molecules for Nemotron-3-Nano.</figcaption>
+</figure>
+
+### KIMI-K2
+
+<figure>
+    <img src="../results/dock_finalist_images/KIMI-K2 Zero-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 27. Zero-shot generated molecules for Kimi-K2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/KIMI-K2 Fragments_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 28. Zero-shot with fragments generated molecules for Kimi-K2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/KIMI-K2 One-shot_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 29. One-shot generated molecules for Kimi-K2.</figcaption>
+</figure>

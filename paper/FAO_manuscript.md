@@ -160,28 +160,60 @@ At the end of each session, the models suggest up to five final molecules with t
 
 ### Lipinski properties for AI-designed molecules
 
-#### Table 6. QED and aLogP for the lowest docking score molecules from each model / design mode.
+#### Table 6. Average QED and aLogP for from each CW model / design mode.
 
 | Model | design mode | QED | aLogP |
 |-------|:-:|:-:|---|
-| GPT 5.2  | zero-shot | 0.31 | 5.42 |
-| GPT 5.2  | zero/frags| 0.79 | 3.53 |
-| GPT 5.2  | one-shot  | 0.51 | 2.00 |
-| GPT 5.2  | w/ Claude | 0.72 | 4.38 |
+| GPT 5.2  | zero-shot | 0.19 | 5.10 |
+| GPT 5.2  | zero/frags| 0.72 | 3.77 |
+| GPT 5.2  | one-shot  | 0.64 | 1.20 |
+| GPT 5.2  | w/ Claude | 0.72 | 4.04 |
 ||||||
-| Claude   | zero-shot | 0.54 | 3.45 |
-| Claude   | zero/frags| 0.42 | 5.15 |
-| Claude   | one-shot  | 0.43 | -0.37|
-| Claude   | w/ GPT 5.2| 0.71 | 2.07 |
+| Claude   | zero-shot | 0.46 | 1.22 |
+| Claude   | zero/frags| 0.57 | 4.80 |
+| Claude   | one-shot  | 0.55 | 0.34|
+| Claude   | w/ GPT 5.2| 0.67 | 2.18 |
 ||||||
-| Gemini   | zero-shot | 0.26 | 6.30 |
-| Gemini   | zero/frags| 0.49 | 4.76 |
-| Gemini   | one-shot  | 0.58 | 2.91 |
-| Gemini   | w/ Claude | 0.74 | 2.17 |
+| Gemini   | zero-shot | 0.39 | 4.39 |
+| Gemini   | zero/frags| 0.38 | 5.19 |
+| Gemini   | one-shot  | 0.71 | 1.56 |
+| Gemini   | w/ Claude | 0.73 | 2.12 |
 
-## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF. Molecule structures optimized with MMFF.
+#### Table 7. Average QED and aLogP for from each OW model / design mode.
 
-#### Table 7. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
+| Model | design mode | QED | aLogP |
+|-------|:-:|:-:|---|
+| Deepseek V3.1  | zero-shot | 0.55 | 2.31 |
+| Deepseek V3.1  | zero/frags| 0.57 | 0.96 |
+| Deepseek V3.1  | one-shot  | 0.49 | 2.13 |
+||||||
+| GPT OSS 120B  | zero-shot | 0.55 | 5.15 |
+| GPT OSS 120B  | zero/frags| 0.61 | 0.27 |
+| GPT OSS 120B  | one-shot  | 0.39 | 3.29 |
+||||||
+| GPT OSS 20B  | zero-shot | 0.59 | 3.03 |
+| GPT OSS 20B  | zero/frags| 0.63 | 2.91 |
+| GPT OSS 20B  | one-shot  | 0.68 | 1.61 |
+||||||
+| Devstral 2  | zero-shot | 0.55 | 1.75 |
+| Devstral 2  | zero/frags| 0.70 | 2.71 |
+| Devstral 2  | one-shot  | 0.64 | 1.53 |
+||||||
+| Cogito 2.1  | zero-shot | 0.81 | 3.15 |
+| Cogito 2.1  | zero/frags| 0.83 | 2.65 |
+| Cogito 2.1  | one-shot  | 0.59 | 1.28 |
+||||||
+| Nemotron 3 Nano  | zero-shot | 0.62 | 0.58 |
+| Nemotron 3 Nano  | zero/frags| 0.00 | 0.00 |
+| Nemotron 3 Nano  | one-shot  | 0.37 | 5.19 |
+||||||
+| Kimi K2  | zero-shot | 0.64 | 3.67 |
+| Kimi K2  | zero/frags| 0.74 | 1.73 |
+| Kimi K2  | one-shot  | 0.62 | 3.79 |
+
+## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF.Molecule structures optimized with MMFF.
+
+#### Table 8. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -204,7 +236,7 @@ At the end of each session, the models suggest up to five final molecules with t
 </figure>
 
 
-#### Table 8. HOMO-LUMO gaps (eV) for zero shot molecules with suggested fragments for each model tested.
+#### Table 9. HOMO-LUMO gaps (eV) for zero shot molecules with suggested fragments for each model tested.
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -227,7 +259,7 @@ At the end of each session, the models suggest up to five final molecules with t
 </figure>
 
 
-#### Table 9. HOMO-LUMO gaps (eV) for one shot molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+#### Table 10. HOMO-LUMO gaps (eV) for one shot molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -250,7 +282,7 @@ At the end of each session, the models suggest up to five final molecules with t
 </figure>
 
 
-#### Table 10. HOMO-LUMO gaps (eV) for adversarially designed molecules for each model tested. TThe lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+#### Table 11. HOMO-LUMO gaps (eV) for adversarially designed molecules for each model tested. TThe lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 /*correction for the SMILES error in the Claude session.
 
 | Model | Adversary |  No. Mols | High | Low | Ave |
@@ -286,7 +318,7 @@ At the end of each session, the models suggest up to five final molecules with t
 </figure>
 
 
-#### Table 11. HOMO-LUMO gap (eV) progression for zero-shot,
+#### Table 12. HOMO-LUMO gap (eV) progression for zero-shot,
 one-shot, and adversarially designed molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | design mode | No. Mols | High | Low | Ave |

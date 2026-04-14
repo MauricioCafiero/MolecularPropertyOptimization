@@ -296,67 +296,59 @@ gemini3flash = ['O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
 
 hash_lists = {
     'OPENAI Zero-shot': zero_openai_smiles,
-    'ANTHROPIC Zero-shot': zero_anthropic_smiles,
-    'Deepseek-v3.1 Zero-shot': zero_deepseek_v3_smiles,
-    'GPT-OSS-120B Zero-shot': zero_gpt_oss_120b_smiles,
-    'GPT-OSS-20B Zero-shot': zero_gpt_oss_20b_smiles,
-    'DEVSTRAL-2 Zero-shot': zero_devstral_2_smiles,
-    'COGITO-2.1 Zero-shot': zero_cogito_2_smiles,
-    'NEMOTRON-3-NANO Zero-shot': zero_nemotron_3_nano_smiles,
-    'GEMINI Zero-shot': zero_gemini_3_flash_preview_smiles,
-    'KIMI-K2 Zero-shot': zero_kimi_k2_smiles,
     'OPENAI Fragments': frags_openai_smiles,
-    'ANTHROPIC Fragments': frags_anthropic_smiles,
-    'Deepseek-v3.1 Fragments': frags_deepseek_v3_smiles,
-    'GPT-OSS-120B Fragments': frags_gpt_oss_120b_smiles,
-    'GPT-OSS-20B Fragments': frags_gpt_oss_20b_smiles,
-    'DEVSTRAL-2 Fragments': frags_devstral_2_smiles,
-    'COGITO-2.1 Fragments': frags_cogito_2_smiles,
-    'NEMOTRON-3-NANO Fragments': frags_nemotron_3_nano_smiles,
-    'GEMINI Fragments': frags_gemini_3_flash_preview_smiles,
-    'KIMI-K2 Fragments': frags_kimi_k2_smiles,
     'OPENAI One-shot': one_gpt_5_2_smiles,
-    'ANTHROPIC One-shot': one_claude_smiles,
-    'Deepseek-v3.1 One-shot': one_deepseek_v3_1_671b_smiles,
-    'GPT-OSS-120B One-shot': one_gpt_oss_120b_smiles,
-    'GPT-OSS-20B One-shot': one_gpt_oss_20b_smiles,
-    'DEVSTRAL-2 One-shot': one_devstral_2_123b_smiles,
-    'COGITO-2.1 One-shot': one_cogito_2_1_671b_smiles,
-    'NEMOTRON-3-NANO One-shot': one_nemotron_3_nano_30b_smiles,
-    'GEMINI One-shot': one_gemini_3_flash_preview_smiles,
-    'KIMI-K2 One-shot': one_kimi_k2_1t_smiles,
-    'ANTHROPIC': claude,
     'OPENAI': gpt5p2,
-    'GEMINI': gemini3flash
+    'ANTHROPIC Zero-shot': zero_anthropic_smiles,
+    'ANTHROPIC Fragments': frags_anthropic_smiles,
+    'ANTHROPIC One-shot': one_claude_smiles,
+    'ANTHROPIC': claude,
+    'GEMINI Zero-shot': zero_gemini_3_flash_preview_smiles,
+    'GEMINI Fragments': frags_gemini_3_flash_preview_smiles,
+    'GEMINI One-shot': one_gemini_3_flash_preview_smiles,
+    'GEMINI': gemini3flash,
+    'Deepseek-v3.1 Zero-shot': zero_deepseek_v3_smiles,
+    'Deepseek-v3.1 Fragments': frags_deepseek_v3_smiles,
+    'Deepseek-v3.1 One-shot': one_deepseek_v3_1_671b_smiles,
+    'GPT-OSS-120B Zero-shot': zero_gpt_oss_120b_smiles,
+    'GPT-OSS-120B Fragments': frags_gpt_oss_120b_smiles,
+    'GPT-OSS-120B One-shot': one_gpt_oss_120b_smiles,
+    'GPT-OSS-20B Zero-shot': zero_gpt_oss_20b_smiles,
+    'GPT-OSS-20B Fragments': frags_gpt_oss_20b_smiles,
+    'GPT-OSS-20B One-shot': one_gpt_oss_20b_smiles,
+    'DEVSTRAL-2 Zero-shot': zero_devstral_2_smiles,
+    'DEVSTRAL-2 Fragments': frags_devstral_2_smiles,
+    'DEVSTRAL-2 One-shot': one_devstral_2_123b_smiles,
+    'COGITO-2.1 Zero-shot': zero_cogito_2_smiles,
+    'COGITO-2.1 Fragments': frags_cogito_2_smiles,
+    'COGITO-2.1 One-shot': one_cogito_2_1_671b_smiles,
+    'NEMOTRON-3-NANO Zero-shot': zero_nemotron_3_nano_smiles,
+    'NEMOTRON-3-NANO Fragments': frags_nemotron_3_nano_smiles,
+    'NEMOTRON-3-NANO One-shot': one_nemotron_3_nano_30b_smiles,
+    'KIMI-K2 Zero-shot': zero_kimi_k2_smiles,
+    'KIMI-K2 Fragments': frags_kimi_k2_smiles,
+    'KIMI-K2 One-shot': one_kimi_k2_1t_smiles,
 }
-
-all_imgs = []
-good_names = []
+out_string = ""
 for name, smiles_list in hash_lists.items():
-    alogp_list = []
-    qed_list = []
-    mols = []
+    alogp_total = 0
+    qed_total = 0
+    count = 0
+    #print(alogp_total, qed_total, count)
     for smile in smiles_list:
-        qed, alogp, mol = scoring_function(smile)
-        if mol is None:
-            continue
-        alogp_list.append(alogp)
-        qed_list.append(qed)
-        mols.append(mol)
-    legs = [f'{name} {i+1}: QED={q:.2f}, logP={a:.2f}' for i, (q, a) in enumerate(zip(qed_list, alogp_list))]
+        qed, alogp, _ = scoring_function(smile)
+        if qed != -999 and alogp != -999: 
+            alogp_total += alogp
+            qed_total += qed
+            count += 1
+            #print(alogp, qed, count)
     try:
-        img = Draw.MolsToGridImage(mols, legends=legs, molsPerRow=3)
-        all_imgs.append(img)
-        good_names.append(name)
-        print(f'Finished processing {name}')
-    except Exception as e:
-        print(f"Error processing {name}: {e}")
-    
+        out_string += f"{name}: QED={(qed_total/count):.2f}, ALogP={(alogp_total/count):.2f}\n"
+    except ZeroDivisionError:
+        out_string += f"{name}: QED=0.00, ALogP=0.00\n"
 
-for name, img in zip(good_names, all_imgs):
-    print(f'Saving image for {name}')
-    filename = f"../results/dock_finalist_images/{name}_finalists.png"
-    img.save(filename)
+with open("../results/lipinski_averages_all.md", "w") as f:
+    f.write(out_string)
 
 
 ## order openai, anthropic, gemini for zero and one shots
