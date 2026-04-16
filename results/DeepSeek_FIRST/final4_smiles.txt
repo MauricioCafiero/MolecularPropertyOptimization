@@ -1,0 +1,27 @@
+Calling lipinski with arguments {'smiles_list': ['O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12', 'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12', 'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12', 'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12']}
+lipinski tool
+===================================================
+Result: Properties of SMILES: O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12: QED: 0.578
+Molecular Weight: 353.271, LogP: 3.569
+Hydrogen bond acceptors: 4, Hydrogen bond donors: 1
+Polar Surface Area: 63.330, Rotatable Bonds: 3
+Aromatic Rings: 3, Undesireable moieties: 2
+===================================================
+Properties of SMILES: O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12: QED: 0.551
+Molecular Weight: 383.297, LogP: 3.578
+Hydrogen bond acceptors: 5, Hydrogen bond donors: 1
+Polar Surface Area: 72.560, Rotatable Bonds: 4
+Aromatic Rings: 3, Undesireable moieties: 2
+===================================================
+Properties of SMILES: O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12: QED: 0.521
+Molecular Weight: 396.296, LogP: 2.668
+Hydrogen bond acceptors: 5, Hydrogen bond donors: 2
+Polar Surface Area: 106.420, Rotatable Bonds: 4
+Aromatic Rings: 3, Undesireable moieties: 2
+===================================================
+Properties of SMILES: O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12: QED: 0.497
+Molecular Weight: 421.268, LogP: 4.588
+Hydrogen bond acceptors: 4, Hydrogen bond donors: 1
+Polar Surface Area: 63.330, Rotatable Bonds: 3
+Aromatic Rings: 3, Undesireable moieties: 2
+===================================================
