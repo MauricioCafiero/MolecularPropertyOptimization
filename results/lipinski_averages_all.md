@@ -2,50 +2,34 @@ OPENAI Zero-shot: QED=0.19, ALogP=5.10
 OPENAI Fragments: QED=0.72, ALogP=3.77
 OPENAI One-shot: QED=0.64, ALogP=1.20
 OPENAI: QED=0.72, ALogP=4.04
-
-
 ANTHROPIC Zero-shot: QED=0.46, ALogP=1.22
 ANTHROPIC Fragments: QED=0.57, ALogP=4.80
 ANTHROPIC One-shot: QED=0.55, ALogP=0.34
 ANTHROPIC: QED=0.67, ALogP=2.18
-
-
 GEMINI Zero-shot: QED=0.39, ALogP=4.39
 GEMINI Fragments: QED=0.38, ALogP=5.19
 GEMINI One-shot: QED=0.71, ALogP=1.56
 GEMINI: QED=0.73, ALogP=2.12
-
-
 Deepseek-v3.1 Zero-shot: QED=0.55, ALogP=2.31
 Deepseek-v3.1 Fragments: QED=0.57, ALogP=0.96
 Deepseek-v3.1 One-shot: QED=0.49, ALogP=2.13
-
-
+Deepseek: QED=0.54, ALogP=3.60
 GPT-OSS-120B Zero-shot: QED=0.55, ALogP=5.15
 GPT-OSS-120B Fragments: QED=0.61, ALogP=0.27
 GPT-OSS-120B One-shot: QED=0.39, ALogP=3.29
-
-
 GPT-OSS-20B Zero-shot: QED=0.59, ALogP=3.03
 GPT-OSS-20B Fragments: QED=0.63, ALogP=2.91
 GPT-OSS-20B One-shot: QED=0.68, ALogP=1.61
-
-
 DEVSTRAL-2 Zero-shot: QED=0.55, ALogP=1.75
 DEVSTRAL-2 Fragments: QED=0.70, ALogP=2.71
 DEVSTRAL-2 One-shot: QED=0.64, ALogP=1.53
-
-
 COGITO-2.1 Zero-shot: QED=0.81, ALogP=3.15
 COGITO-2.1 Fragments: QED=0.83, ALogP=2.65
 COGITO-2.1 One-shot: QED=0.59, ALogP=1.28
-
-
 NEMOTRON-3-NANO Zero-shot: QED=0.62, ALogP=0.58
 NEMOTRON-3-NANO Fragments: QED=0.00, ALogP=0.00
 NEMOTRON-3-NANO One-shot: QED=0.37, ALogP=5.19
-
-
 KIMI-K2 Zero-shot: QED=0.64, ALogP=3.67
 KIMI-K2 Fragments: QED=0.74, ALogP=1.73
 KIMI-K2 One-shot: QED=0.62, ALogP=3.79
+KIMI-K2: QED=0.74, ALogP=2.18

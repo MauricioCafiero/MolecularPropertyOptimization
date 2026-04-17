@@ -1,19 +1,27 @@
-# Fragment-based, AI-assisted Optimization of molecular properties (FAO-MOLPROP)
+# Fragment-based, AI-assisted Optimization of molecular properties (FAO-MOLPROP): Docking scores and HOMO-LUMO gaps
+
+Mauricio Cafiero
+Department of Chemistry, University of Reading, Reading UK
+
+## Abstract
 
 ## Introduction
 
-The work described here uses ten different open and closed-weight LLMs, augmented with tools, to optimize the properties of molecules for tasks which can be scored using a computational tool. In particular, we give two examples of property optimization: ligand docking scores and HOMO-LUMO gaps. 
+Frontier closed-weight and open-weight LLM models have achived levels of sophisitcation in chemistry and in tool use that it is no longer necessary to fine-tune general language models specifically for chemical tasks. The use of tools (including APIs for online chemical databases) and their own learned weights are enough to perform many chemistry related tasks that would have been impossible in 2024. This work proposes an AI-assisted molecular design process where specific fragments of molecules can be specified and an LLM-based agent generates molecules that adhere to a specified 'score' using those fragments. This score can be any molecular property that can be calculated on-the-fly. In the workflow suggested here, the user chooses a set of one or more scaffolds (or skeletons) to use as the base of molecular design. The user can also choose where on the molecules substituents can be added, and also provides a set of substituents to use in the design process. This allows for a great degree of control in the design process, where the user can tailor the design to any restriction their project may have. A subset of scaffolds with substituents are then chosen and 'scored.' These initial scored molecules are sent to the LLM as context, and the LLM uses that information as well as the same scoring function (and any auxilliary functions, see below) to design novel molecules. A second LLM is used as an 'adversary,' and critiques the suggestions from the first LLM, culimating in a set of molecules upon which both models agree. The work described here uses ten different open and closed-weight, tool-augmented LLMs (Agents) to generate molecules with optimized properties. In particular, two examples of property optimization are shown: ligand docking scores and HOMO-LUMO gaps. In general, molecules for any task which can be scored computationally can be optimized by this workflow.
 
 As early as 2023, Bioko *et al* were using OpenAI's GPT 4 in their *Coscientist* to perform 'autonomous design, planning and performance of complex scientific experiments.<sup>1</sup> They used a harness and three LLM-based sub-agents to perform planning, document searching and web-searching tasks, and provided a Python coding environment to execute LLL-designed code. They found that GPT 4 could reason about chemical information well enough to perform many tasks, including synthesis planning. More relevant to this work, Zhang *et al* used GPT4 (and GPT 3.5) in molecule identification and optimization. In one trial, they used a zero-shot approach to ask the LLM to refine a molecule to have a particular QED (quantitative estimate of drug-likeness) value, and found that the model, while at times producing invalid SMILES strings, could reason well about attaining a particular QED and suggested four molecules, though none had the desried value.<sup>2</sup>  Rather than rely on an LLM directly, Wang *et al* used GPT 4 for help with three distinct tasks within  a drug-deisgn workflow: idea generation, concept clarification, and coding help. <sup>3</sup> At that time, GPT 4 provided inaccurate information both about molecules and in the concept clarification regime. Bran *et al* designed the ChemCrow agent (again based on GPT 4), which had access to some simple chemical tools (SMILES to Weight, Func Groups). <sup>4</sup>. They evaluated ChemCrow for several types of chemical tasks; for the molecule design tasks relevant to the current work, they use zero-shot design for two different design tasks. Since the authors did not provide validation or verification of the LLM generated molecules, it is difficult to tell how well the LLM performed on these tasks. 
 
-In a very different use of LLMs for molecule design, Cavanagh *et al* fine-tuned the Llama 3.1 8B Instruct model on chemical information (SmileyLlama). <sup>5</sup> The fine-tuning prompts consisted of SMILES strings of 2M drug-like molecules from ChEMBL along with ADME data for each molecule calculated by RDKit. This fine tuning increased the model's ability to generate valid SMILES as well as molecules with desired properties, with the resulting SMILES similar in property distribution to the original training set. The authors further used a reinforcement learning-type approach to further train the model to generate molecules that would be good inhibitors of a particular enzyme. This aligned model could then generate novel SMILES that could be good inhibitors and adhere to other property requests. This approach uses AutoDock to provide data for the reinforcement learning, while the approach described in the current work uses AutoDock as a tool directly accessible to the foundation model LLM. 
+In a very different use of LLMs for molecule design, Cavanagh *et al* fine-tuned the Llama 3.1 8B Instruct model on chemical information (SmileyLlama). <sup>5</sup> The fine-tuning prompts consisted of SMILES strings of 2M drug-like molecules from ChEMBL along with ADME data for each molecule calculated by RDKit. This fine tuning increased the model's ability to generate valid SMILES as well as molecules with desired properties, with the resulting SMILES similar in property distribution to the original training set. The authors further used a reinforcement learning-type approach to further train the model to generate molecules that would be good inhibitors of a particular enzyme. This aligned model could then generate novel SMILES that could be good inhibitors for the enzyme and adhere to other property requests. This approach uses AutoDock to provide data for the reinforcement learning, while the approach described in the current work uses AutoDock as a tool directly accessible to the foundation model LLM. 
 
+Fan *et al* trained 1-8B parameter models with a novel text-based molecular representation scheme (based on SELFIES) and enhanced numerical embedding (ChatMol).<sup>6</sup> Training data included the molecules and numerical data on properties such as LogP and docking scores. Prompts for the model were descriptions of desired properties and molecular substructures, and outputs were molecule representations. While this method achieved good results, it requires training a model on  dataset. Also, it again uses AutoDock to generate docking scores at training time; the current approach which uses AutoDock at inference time is more efficient, especially as ChatMol must be trained on each desired protein target. 
 
+Closer to the current work, Gao *et al* introduced their *PharmAgents* workflow whch uses multiple LLMs and tools to perform several tasks; their 'Lead Optimization' task is closest to what is described in the currrent work.<sup>7</sup> This task uses four LLMs and Autodock to generate scores for input molecules, suggest alterations, make alterations, generate scores for the new molecules and evaluate. The procedure described here is a more streamlined process with only two LLMs and a of tools that generates molecule analogues based on the user's chosen scaffolds and substituents. PharmAgents tested GPT 4o and 4o-mini and DeepSeek V3 and R1. They observed improvements compared to baseline. Similarly, Kim *et al* proposed MT-Mol, a multi-LLM workflow using tools to design molecules with optimized properties.<sup>8</sup> MT-Mol uses eight LLMs in the design process (five to propose tool use, one to propose molecules, one to verify reasoning and one to review). While the complexity in MT-Mol makes it a more black-box molecule design tool, the modularity of the current proposed workflow, in which the user brings their own scoring function and auxilliary functions, and has the ability to specify fragments, is more bespoke to any particular research problem.  
 
+In the closest published workflow to the current work, Unlu *et al* proposed a multi-LLM molecule optimization system for drug design specifically, using six LLM agents.<sup>9</sup> Two of those LLMs are involved in target selection, and so are irrelavant to the current work where a specific task is specified. The other four are involved in proposed, scoring and evaluating molecule analogues. This system was tested with GPT 4.1, GPT o3, Gemini, and two Claude Sonnet variations. While this work is closely related to the current work, it is at once more broad (working from target selection to molecule validation) and more specific (it is designed for one task: drug design). The modularity and flexibility of the current work is suited to any range of molecule design tasks. An interesting variation that is similar to the current work comes from Brahmavar *et al*. They use successive modification of prompts in a multi-turn sesson with GPT 3 to achieve molecular property optimization.<sup>10</sup> At each turn, they sample datapoints of molecules and their property scores from a large dataset according to the previous LLM response. This is quite similar to the current work, with tool-calling replacing the dynamic sampling. The review of the use of LLMs in molecular optimization from Ramos *et al* from 2024<sup>11</sup> is dated at this point, but the authors keep an online repository with updated information.
 
+This work makes use of fragment-based design of molecules. Fragment based drug design (FBDD) has an over thirty-year history. In classical FBDD, the fragments themselves obey a 'Rule of 3' (derived form Lipinski's Rule of 5), and larger fragments are grown from promising smaller fragments. In the current work, property screening of the fragments is not taken into account, but the workflow does begin with a dataset of fragments (built from scaffolds and substituents) and larger molecules are grown from these fragments. See AlKharboush *et al* for a recent review<sup>12</sup> on FBDD, and Jinsong *et al* for a perspective on how molecular fragmentation can benefit AI/LLM-based workflows in particular.<sup>13</sup>  
 
-
-This work makes use of fragment-based design of molecules. 
+Yang *et al* published *DigFrag*, which is a workflow that involved a graph-neural-network trained to fragment drug-like molecules.<sup>14</sup> The obtained fragments are then screened for pharmacophore importance and unimportant fragments are discarded. The fragments obtained were then used in the DeepFMPO model<sup>15</sup> (an RNN) to generate novel molecules with desired traits. These new molecules were then scored using AutoDock. While this work does not use an LLM, the main ideas are close to the current work. 
 
 ## Methods
 
@@ -26,17 +34,17 @@ In this work, we used the following scaffolds: ```c1ccccc1``` (benzene), ```n1cc
 
 The clean subtitution points on the scaffolds are all attachment points that are symmetrically unique, i.e., benzene only has one unique attachment point, napthalene has two, anthracene has three, etc. Each of the 567 substituents can be placed on any clean attachment point; since the rings used in this work have a total of 26 attachment points, this results in a total of 14,742 unique molecules that may be generated in an automated fashion. Note that these are only the singly substituted molecules that can be generated by the substitution function--multiply substituted molecules may also be created when using the grow function on a promising molecules generated with the substitution function. In this work, the 10 randomly chosen substituents were added to all attachment points, for a a total of 260 molecules in the intial dataset.
 
-The grow function adds any user-specified set of substituents to any molecules--ususally a promising molecule from the substitution function. The substituents are added in any user-defined locations. For this work, the location were: ```c[0-9]c```, ```1c\[n```, ```cc```, ```c\[nH\]``` (these a regular expression for SMILES notation). Note that these include any open position on an aromatic ring. The replacement function looks for a user-defined substituent offset in the SMILES string with () and replaces it with an of a user-defined set of substituents. All novel molecules generatd by the grow and replacement functions are scored used the scoring function. 
+The grow function adds any user-specified set of substituents to any molecules--ususally a promising molecule from the substitution function. The substituents are added in any user-defined locations. For this work, the location were: ```c[0-9]c```, ```1c\[n```, ```cc```, ```c\[nH\]``` (these are regular expressions for SMILES notation). Note that these include any open position on an aromatic ring. The replacement function looks for a user-defined substituent offset in the SMILES string with () and replaces it with an of a user-defined set of substituents. All novel molecules generatd by the grow and replacement functions are scored used the scoring function. 
 
 ### Scoring and auxilliary functions
 
 In this work, two scoring functions were tested: docking (using AutoDock Vina via DockString) and HOMO-LUMO gap (HLG) (using PySCF). The scoring functions take two inputs: a globally defined ```scoring_args``` variable and the SMILES string of the molecule in question. In this work, the ```scoring_args``` were the protein to dock in ('HMGCR') and the DFT functional to use for gap calculations ('cam-b3lyp'). Along with the scoring fuunction, a 'task specific prompt' is needed to describe the task to be accomlished--this serves as part of the system message for the LLM (see below). In this work, the task specific prompts requested minimzation of docking score and the HOMO-LUMO gap. Since the docking scoring function used the convenient DockString package, all protein preparation is done beforhand by the package authors, and ligand preparation was done on-the-fly by protonating it at a pH of 7.4 using Open Babel, generating a conformation using ETKG from RDKit, optimizing the structure with MMFF94, andcomputing charges for all atoms using Open Babel, all while maintaining any stereochemistry in the original SMILES string. The prepared molecule is then docked into the protein binding site using AutoDock Vina with default values of exhaustiveness, binding modes, and energy range. The prepared HMGCR binding site from the DUD-E database was used for docking. The HLG scoring function used RDKit to make 3D structures by adding protons, creating a conformer using ETKG from RDKit, and optimizing the structure with MMFF94. A CAM-B3LYP/sto-3g calculation was then performed with PySCF and the HOMO and LUMO energies were retrieved. Note that the small basis set used in this work was chosen to make the proof-of-concept calculations fast; each LLM adversarial turn could generate dozens of molecules and so quick calculations were required. In production, any basis set can be used according to the user's computational resources.  
 
-Two auxiliary functions were provided in this work: a 'Lipinski' module and a 'related' module. The former usses RDKit to calculate the QED, aLogP, molecular weight, etc for a SMILES string, and the latter queries the PubChem API with the SMILES and searches for structurally similar molecules. 'Lipinski' is used to steer molecular design towards feasible drug molecules, and 'related' is used to either perform a 'sense check' on the strucutre, or to look for other scaffolds in nearby chemical space.   
+Two auxiliary functions were provided in this work: a 'Lipinski' module and a 'related' module. The former usses RDKit to calculate the QED, aLogP, molecular weight, etc for a SMILES string, and the latter queries the PubChem API with the SMILES and searches for structurally similar molecules. 'Lipinski' is used to steer molecular design towards feasible drug molecules, and 'related' is used to either perform a 'sense check' on the structure, or to look for other scaffolds in nearby chemical space.   
 
 ### LLMs and Agents
 
-Ten LLMs were used in this work. Seven open-weight (OW) models were used in zero- and one-shot molecule design, and three closed-weight (CW) frontier models were used in zero-shot, one-shot and agentic molecular design. The OW models (deepseek-v3.1:671b, gpt-oss:120b, gpt-oss:20b, devstral-2:123b, cogito-2.1:671b, nemotron-3-nano:30b, and kimi-k2:1t) were used via the Ollama API on the Ollama cloud. The models were chosen to provide a range of sizes from different labs. On the smaller side are OpenAI's gpt-oss and nemotron-3-nano with 20B and 30B parameters respectively; on the larger side are deepseek-v3.1, cogito-2.1 and kimi-k2 at 671B, 671B and 1T parameters. 
+Ten LLMs were used in this work. Seven open-weight (OW) models were used in zero- and one-shot molecule design, and three closed-weight (CW) frontier models were used in zero-shot, one-shot and agentic molecular design. The OW models (deepseek-v3.2, gpt-oss:120b, gpt-oss:20b, devstral-2:123b, cogito-2.1:671b, nemotron-3-nano:30b, and kimi-k2.5) were used via the Ollama API on the Ollama cloud. The models were chosen to provide a range of sizes from different labs. On the smaller side are OpenAI's gpt-oss and nemotron-3-nano with 20B and 30B parameters respectively; on the larger side are deepseek-v3.1, cogito-2.1 and kimi-k2 at 671B, 671B and 1T parameters. 
 
 The CW models (GPT5.2, Claude Haiku 4.5 and Gemini 3 Flash) were used via the OpenAI, Anthropic and Google APIs. The models were chosen to represent the three most commonly used commercial LLMs. The specific models were chosen to be of similar, middle-of-the-road prices. 
 OpenAI's GPT 5.3 had a cost of $1.75 per M input tokens and $14 per M output tokens at the time this work was performed; Claude Haiku had costs of $1 per M input and $5 per M output tokens, and Gemini 3 Flash had a cost of $0.50 per M input and $3 per M output tokens.
@@ -49,7 +57,7 @@ Zero-shot molecule design was carried out in two ways: giving the models freedom
 
 #### One-shot
 
-One shot molecule design was carried out similary to the zero-shot design, but the first user message contained an initial dataset for docking or HLG generated with the substitution tool. The prompts for docking and HLG design are given in the supporting information. The initial datasets and full models responses are available in the Github repository. 
+One shot molecule design was carried out similary to the zero-shot design, but the first user message contained an initial dataset for docking or HLG generated with the substitution tool. The prompts for docking and HLG design are given in the supporting information. The initial datasets and full models responses are available in the Github repository and consist of 260 SMILES/scores pairs for each task studied here. 
 
 #### Adversarial design
 
@@ -57,7 +65,7 @@ In adversarial design, the first model is given the initial dataset made with th
 
 ### Extracting data from the design sessions
 
-At the end of each session, the models suggest up to five final molecules with the desired properties. For adversarial design, often the models have verified the scores (docking score, HLG) with the tools, but other times they offer 'estimates' of the scores. The SMILES for the final molecules were extracted from the model replies and verified with the same scoring functions (an auxilliary functions) used by the models. In zero and one-shot sessions, the SMILES suggested by the models do not complile into viable molecules; in the adversarial sessions, the models sometimes trim their suggestions to fewer than five molecules. Although the prompts include information on how to embed a new ring into an existing SMILES by using higher numbers (i.e., ```c6ccccc6``` rather than ```c1ccccc1```) so as to not conflict with existing rings, in the adversarial session, the Gemini model created molecules incorrected by embedding new rings with the same numbers as exiting rings. In this case both the original SMILES proposed by Gemini and the 'corrected' SMILES taht Gemini though it was creating were verified.
+At the end of each session, the models suggest up to five final molecules with the desired properties. For adversarial design, often the models have verified the scores (docking score, HLG) with the tools, but other times they offer 'estimates' of the scores. The SMILES for the final molecules were extracted from the model replies and verified with the same scoring functions (an auxilliary functions) used by the models. In zero and one-shot sessions, the SMILES suggested by the models do not complile into viable molecules; in the adversarial sessions, the models sometimes trim their suggestions to fewer than five molecules. Although the prompts include information on how to embed a new ring into an existing SMILES by using higher numbers (i.e., ```c6ccccc6``` rather than ```c1ccccc1```) so as to not conflict with existing rings, in the adversarial session, the Gemini model created molecules incorrectly by embedding new rings with the same numbers as exiting rings. In this case both the original SMILES proposed by Gemini and the 'corrected' SMILES that Gemini though it was creating were verified.
 
 ## Results: Minimization of docking scores for HMGCR calculated by AutoDock Vina
 
@@ -133,7 +141,15 @@ When the models were given the SMILES/docking scores dataset and asked to genera
     <figcaption>Figure 3. Lowest docking score one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
-The CWDK models were tested in adversarial design sessions, where they were given in the intial dataset and allowed the use of scoring and auxilliary tools to test hypotheses on good inhibitor molecules. Additionally, their output was passed to another model which then offered criticism of their proposal. The first model then revised its proposal using the tools to refine the proposed molecules. 
+The CWDK models were tested in adversarial design sessions, where they were given in the intial dataset and allowed the use of scoring and auxilliary tools to test hypotheses on good inhibitor molecules. Additionally, their output was passed to another model which then offered criticism of their proposal. The first model then revised its proposal using the tools to refine the proposed molecules. This back-and-forth process between the models was continued until the suggested molecules stabilized, meaning the models were not suggesting any further meaningful changes. Transcripts of all adversarial design sessions are available on the Github repo for this work, and are organized by 'initial model response,' 'adversary response,' and 'model response.' In most cases, the molecules presented here as the final molecules (finalists) were the ones from the last 'model response.' In the case of Claude, it had suggested some molecules with very low scores a few turns earlier, but was convinced by GPT 5.2 to abandon them; those two abanadoned molecules were included here as finalists. In the case of Kimi K2, the criticism from GPT 5.2 convinced it to only put forward one molecule, and to offer many caveats on actually using it; no other model was so deferential to the adversary. In that case, we included two molecules from an earlier turn with low scores, which GPT 5.2 had convinced Kimi K2 to abandon. Finally, DeepSeek was the only one of the CWDK models that occasionally introduced errors into the tool calls. The errors it introduced were always in the ```best score``` variable in the replacement function and the grow function; it supplied random strings rather than a float representing the best score. In these cases the model was sent the follwing message: ```you had an error in your last tool call. You listed a best score as "-F" this should be a float. Please correct and continue.``` In each case it continued as normal (remember: state was maintained by storing all system, user and assistant messages and sending them as context in every turn). 
+
+Table 4 shows the docking score results for these adversarial sessions. Claude generated the molecule with the lowest score, followed by DeepSeek. Gemeini was the ony other model to generate a molecule with a score lower than -9.0 (remember: the baseline lowest score in the intial dataset was -8.6).  Gemini, however, had the lowest average score, followed by Claude and GPT 5.2. Kimi K2 was somwhat unremarkable in the adversarial session, perhaps owing to the deference it paid the adversary. In 'chat' situations, this is often called sycophancy, and it may be a serious detriment to scientific development with aligned fronteir models. The molecules generated by DeepSeek and Kimi K2 were considerably more 'creative' than those generated by the CW models (see Figures 4-8). 
+
+Table 5 shows that from zero-shot, through zero-shot with suggested fragments, through one-shot and to adversarial design, all of the CWDK models other than Kimi K2 improved in lowest docking score, average docking score or both. Kimi K2's best performance was adversarial design, followed by zero-shot. The biggest improvements usually came between zero-shot with suggested fragments/one-shot or between one-shot/adversarial design. From zero-shot to adversarial design, DeepSeek and Claude showed the biggest improvements, both in lowest score and average score (2.1 and 1.6 kcal/mol for DeepSeek and 1.6 and 1.8 kcal/mol for Claude). This can imply that these models are most adept at learning from provided context either at the start of a conversation or through tool use. Kimi K2 had the lowest improvement, 0.5 and 0.7 kcal/mol for lowest score and average score. Gemini has the second lowest improvement, but it started from a fairly good place. 
+
+The prompts for this task specifically asked for drug-like molecules, and in the adversarial design sessions, the models used the ```lipinski``` tool often to vaildate their choices. Table 6 shows how the aLogP and QED values changed as the models progressed from zero-shot --> zero-shot with suggested fragments --> one-shot --> adversarial design. QED values improved across the board and converged near and average of 0.7 for all models other than DeepSeek, which had and average near 0.5. In the desgign session logs, it can be seen that the models often discarded molecules for having poor ADME properties. aLogP also improved for the models, converging near ~2.00 for Claude, Gemini and Kimi K2, and near ~4 for GPT 5.2 and DeepSeek. 
+
+The current author recently published a transformer-decoder model fine-tuned to generate inhibitors of HMGCR.<sup>16</sup> In that work, a novel token sampling technique was used to obtain low docking scores for molecules in HMGCR. The best sampling technique in that work had an average docking score of -8.08, which is higher than all of the average docking scores for the adversarial design sessions. Those generated molecules has a QED of 0.44 and an aLogP of 4.8. Again, every adversarial design session produced molecules with higher QED values and more moderate aLogP values.  
 
 #### Table 4. Docking Scores (kcal/mol) for adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
 
@@ -142,6 +158,8 @@ The CWDK models were tested in adversarial design sessions, where they were give
 | GPT 5.2  | Claude  | 2 | -8.90 | -8.90 | -8.90 |
 | Claude   | GPT 5.2 | 5 | -9.90 | -8.10 | -8.96 |
 | Gemini   | Claude  | 5 | -9.10 | -8.90 | -8.98 |
+| DeepSeek | GPT 5.2 | 4 | -9.50 | -8.19 | -8.68 |
+| Kimi K2  | GPT 5.2 | 3 | -8.80 | -8.10 | -8.53 |
 
 <figure>
     <img src="../results/dock_finalist_images/OPENAI_finalists.png"
@@ -162,6 +180,18 @@ The CWDK models were tested in adversarial design sessions, where they were give
     <figcaption>Figure 6. Top molecules for Gemini.</figcaption>
 </figure>
 
+<figure>
+    <img src="../results/dock_finalist_images/DeepSeek_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 7. Top molecules for DeepSeek.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/dock_finalist_images/KIMI-K2_finalists.png"
+         alt="molecules">
+    <figcaption>Figure 8. Top molecules for Kimi K2.</figcaption>
+</figure>
+
 #### Table 5. Docking Scores (kcal/mol) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
 
 | Model | design mode | No. Mols | Low | High | Ave |
@@ -180,8 +210,16 @@ The CWDK models were tested in adversarial design sessions, where they were give
 | Gemini   | zero/frags| 4 | -8.50 | -7.80 | -8.13 |
 | Gemini   | one-shot  | 5 | -9.20 | -7.30 | -8.14 |
 | Gemini   | w/ Claude | 5 | -9.10 | -8.90 | -8.98 |
-
-### Lipinski properties for AI-designed molecules
+||||||
+| DeepSeek   | zero-shot | 4 | -7.40 | -7.00 | -7.13 |
+| DeepSeek   | zero/frags| 2 | -7.70 | -5.30 | -6.50 |
+| DeepSeek   | one-shot  | 4 | -8.20 | -7.50 | -7.80 |
+| DeepSeek   | w/ GPT 5.2| 4 | -9.50 | -8.19 | -8.68 |
+||||||
+| Kimi K2    | zero-shot | 5 | -8.30 | -7.00 | -7.78 |
+| Kimi K2    | zero/frags| 5 | -7.40 | -6.10 | -6.76 |
+| Kimi K2    | one-shot  | 4 | -7.50 | -6.90 | -7.15 |
+| Kimi K2    | w/ GPT 5.2| 3 | -8.80 | -8.10 | -8.53 |
 
 #### Table 6. Average QED and aLogP for from each CW model / design mode.
 
@@ -201,6 +239,17 @@ The CWDK models were tested in adversarial design sessions, where they were give
 | Gemini   | zero/frags| 0.38 | 5.19 |
 | Gemini   | one-shot  | 0.71 | 1.56 |
 | Gemini   | w/ Claude | 0.73 | 2.12 |
+||||||
+| Deepseek V3.1  | zero-shot | 0.55 | 2.31 |
+| Deepseek V3.1  | zero/frags| 0.57 | 0.96 |
+| Deepseek V3.1  | one-shot  | 0.49 | 2.13 |
+| DeepSeek V3.2  | w/ GPT 5.2| 0.54 | 3.60 |
+||||||
+| Kimi K2  | zero-shot | 0.64 | 3.67 |
+| Kimi K2  | zero/frags| 0.74 | 1.73 |
+| Kimi K2  | one-shot  | 0.62 | 3.79 |
+| Kimi K2.5| w/ GPT 5.2| 0.74 | 2.18 |
+
 
 #### Table 7. Average QED and aLogP for from each OW model / design mode.
 
@@ -236,6 +285,8 @@ The CWDK models were tested in adversarial design sessions, where they were give
 
 ## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF.Molecule structures optimized with MMFF.
 
+In order to show the generality of the agentic framework proposed here, the design process was repeated for the task of minimizing the HOMO-LUMO gap (HLG) for molecules. When asked to generate molecules with the lowest possible HLG,
+
 #### Table 8. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
 
 | Model | No. Mols | High | Low | Ave |
@@ -255,7 +306,7 @@ The CWDK models were tested in adversarial design sessions, where they were give
 <figure>
     <img src="../results/HL/HL_finalist_images/ZERO_SHOT_finalists.png"
          alt="molecules">
-    <figcaption>Figure 7. Lowest HOMO-LUMO gap zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+    <figcaption>Figure 9. Lowest HOMO-LUMO gap zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
 
@@ -278,7 +329,7 @@ The CWDK models were tested in adversarial design sessions, where they were give
 <figure>
     <img src="../results/HL/HL_finalist_images/ZERO_SHOT_FRAGMENTS_finalists.png"
          alt="molecules">
-    <figcaption>Figure 8. Lowest HOMO-LUMO gap zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
+    <figcaption>Figure 10. Lowest HOMO-LUMO gap zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
 
@@ -301,7 +352,7 @@ The CWDK models were tested in adversarial design sessions, where they were give
 <figure>
     <img src="../results/HL/HL_finalist_images/one_shot_finalists.png"
          alt="molecules">
-    <figcaption>Figure 9. Lowest HOMO-LUMO gap one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+    <figcaption>Figure 11. Lowest HOMO-LUMO gap one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
 
@@ -318,31 +369,30 @@ The CWDK models were tested in adversarial design sessions, where they were give
 <figure>
     <img src="../results/HL/HL_finalist_images/OPENAI_finalists.png"
          alt="molecules">
-    <figcaption>Figure 10. Top HOMO-LUMO gap molecules for GPT 5.2.</figcaption>
+    <figcaption>Figure 12. Top HOMO-LUMO gap molecules for GPT 5.2.</figcaption>
 </figure>
 
 
 <figure>
     <img src="../results/HL/HL_finalist_images/ANTHROPIC_finalists.png"
          alt="molecules">
-    <figcaption>Figure 11. Top HOMO-LUMO gap molecules for Claude.</figcaption>
+    <figcaption>Figure 13. Top HOMO-LUMO gap molecules for Claude.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_finalist_images/Corrected-ANTHROPIC_finalists.png"
          alt="molecules">
-    <figcaption>Figure 11. Top HOMO-LUMO gap corrected molecules for Claude.</figcaption>
+    <figcaption>Figure 14. Top HOMO-LUMO gap corrected molecules for Claude.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_finalist_images/GEMINI_finalists.png"
          alt="molecules">
-    <figcaption>Figure 12. Top HOMO-LUMO gap molecules for Gemini.</figcaption>
+    <figcaption>Figure 15. Top HOMO-LUMO gap molecules for Gemini.</figcaption>
 </figure>
 
 
-#### Table 12. HOMO-LUMO gap (eV) progression for zero-shot,
-one-shot, and adversarially designed molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+#### Table 12. HOMO-LUMO gap (eV) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | design mode | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|:-:|---|
@@ -361,6 +411,9 @@ one-shot, and adversarially designed molecules for each model tested. The lowest
 | Gemini   | one-shot  | 5 | 5.95 | 4.26 | 5.26 |
 | Gemini   | w/ Claude | 2 | 1.49 | 1.39 | 1.44 |
 
+## Conclusions
+
+
 ## References
 
 1. Boiko, D. A.; MacKnight, R.; Kline, B.; Gomes, G. Autonomous Chemical Research with Large Language Models. *Nature* **2023**, *624*, 570–578. https://doi.org/10.1038/s41586-023-06792-0.
@@ -373,11 +426,6 @@ one-shot, and adversarially designed molecules for each model tested. The lowest
 
 5. Cavanagh, J. M.; Sun, K.; Gritsevskiy, A.; Bagni, D.; Bannister, T. D.; Head-Gordon, T. SmileyLlama: Modifying Large Language Models for Directed Chemical Space Exploration. *ArXiv* **2024**, *abs/2409.02231*. https://doi.org/10.48550/arxiv.2409.02231.
 
-
-
-
-
-
 6. Fan, C.; Cao, Z.; Ma, Z.; Yu, N.; Peng, Y.; Zhang, J.; Gao, Y.; Fu, G. ChatMol: A Versatile Molecule Designer Based on the Numerically Enhanced Large Language Model. *ArXiv* **2025**, *abs/2502.19794*. https://doi.org/10.48550/arxiv.2502.19794.
 
 7. Gao, B.; Huang, Y.; Liu, Y.; Xie, W.; Ma, W.-Y.; Zhang, Y.-Q.; Lan, Y. PharmAgents: Building a Virtual Pharma with Large Language Model Agents. *ArXiv* **2025**, *abs/2503.22164*. https://doi.org/10.48550/arxiv.2503.22164.
@@ -386,15 +434,17 @@ one-shot, and adversarially designed molecules for each model tested. The lowest
 
 9. Ünlü, A.; Rohr, P.; Çelebi, A. An Auditable Agent Platform for Automated Molecular Optimisation. *ArXiv* **2508**, *abs/2508.03444*. https://doi.org/10.48550/arxiv.2508.03444.
 
-2. Ramos, M. C.; Collison, C. J.; White, A. D. A Review of Large Language Models and Autonomous Agents in Chemistry. *Chem. Sci.* **2025**, *16*, 2514–2572. https://doi.org/10.48550/arxiv.2407.01603.
+10. Brahmavar, S. B.; Srinivasan, A.; Dash, T.; Krishnan, S. R.; Vig, L.; Roy, A.; Aduri, R. Generating Novel Leads for Drug Discovery Using LLMs With Logical Feedback. AAAI 2024, 38, 21-29.
 
+11. Ramos, M. C.; Collison, C. J.; White, A. D. A Review of Large Language Models and Autonomous Agents in Chemistry. *Chem. Sci.* **2025**, *16*, 2514–2572. https://doi.org/10.48550/arxiv.2407.01603.
 
+12. AlKharboush, D. F.; Kozielski, F.; Wells, G.; Porta, E. O. J. Fragment-based Drug Discovery: A Graphical Review. *Curr. Res. Pharmacol. Drug Discov.* **2025**, *9*. https://doi.org/10.1016/j.crphar.2025.100233.
 
+13. Jinsong, S.; Qifeng, J.; Xing, C.; Hao, Y.; Wang, L. Molecular Fragmentation as a Crucial Step in the AI-based Drug Development Pathway. *Commun. Chem.* **2024**, *7*. https://doi.org/10.1038/s42004-024-01109-2.
 
-11. AlKharboush, D. F.; Kozielski, F.; Wells, G.; Porta, E. O. J. Fragment-based Drug Discovery: A Graphical Review. *Curr. Res. Pharmacol. Drug Discov.* **2025**, *9*. https://doi.org/10.1016/j.crphar.2025.100233.
+14. Yang, R.; Zhou, H.; Wang, F.; Yang, G. DigFrag as a Digital Fragmentation Method Used for Artificial Intelligence-based Drug Design. *Commun. Chem.* **2024**, *7*. https://doi.org/10.1038/s42004-024-01346-5.
 
-12. Woodhead, A. J.; Erlanson, D. A.; de Esch, I. J. P.; Holvey, R. S.; Jahnke, W.; Pathuri, P. Fragment-to-Lead Medicinal Chemistry Publications in 2022. *J. Med. Chem.* **2024**, *67*, 2287–2304. https://doi.org/10.1021/acs.jmedchem.3c02070.
+15. Niclas Ståhl; Göran Falkman; Alexander Karlsson; Gunnar Mathiason; Jonas Boström. Deep Reinforcement Learning for Multiparameter Optimization in de novo Drug Design, *J. Chem. Inf. Model.* **2019**, 59, 7, 3166–3176.
 
-13. Yang, R.; Zhou, H.; Wang, F.; Yang, G. DigFrag as a Digital Fragmentation Method Used for Artificial Intelligence-based Drug Design. *Commun. Chem.* **2024**, *7*. https://doi.org/10.1038/s42004-024-01346-5.
+16. Cafiero, M. Variable-temperature token sampling in decoder-GPT molecule-generation can produce more robust and potent virtual screening libraries. *Phys. Chem. Chem. Phys.*, **2025**,27, 14455-14468
 
-14. Jinsong, S.; Qifeng, J.; Xing, C.; Hao, Y.; Wang, L. Molecular Fragmentation as a Crucial Step in the AI-based Drug Development Pathway. *Commun. Chem.* **2024**, *7*. https://doi.org/10.1038/s42004-024-01109-2.

@@ -294,6 +294,16 @@ gemini3flash = ['O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
               'O=c1cc(-c2c(F)cc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
               'O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12']
 
+kimi_k2 = ['Cc1c(C)c2c(c3c(F)c(O)c(C(=O)N)c(C)c13)C(C)=C(C(=O)[O-])O2',
+           'Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(C)c13)C(C)=C(C(=O)[O-])O2',
+           'Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(F)c13)C(C)=C(C(=O)[O-])O2' ]
+
+
+deepseek = ['O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12', 
+            'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12', 
+            'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12', 
+            'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12']
+
 hash_lists = {
     'OPENAI Zero-shot': zero_openai_smiles,
     'OPENAI Fragments': frags_openai_smiles,
@@ -310,6 +320,7 @@ hash_lists = {
     'Deepseek-v3.1 Zero-shot': zero_deepseek_v3_smiles,
     'Deepseek-v3.1 Fragments': frags_deepseek_v3_smiles,
     'Deepseek-v3.1 One-shot': one_deepseek_v3_1_671b_smiles,
+    'Deepseek': deepseek,
     'GPT-OSS-120B Zero-shot': zero_gpt_oss_120b_smiles,
     'GPT-OSS-120B Fragments': frags_gpt_oss_120b_smiles,
     'GPT-OSS-120B One-shot': one_gpt_oss_120b_smiles,
@@ -328,6 +339,7 @@ hash_lists = {
     'KIMI-K2 Zero-shot': zero_kimi_k2_smiles,
     'KIMI-K2 Fragments': frags_kimi_k2_smiles,
     'KIMI-K2 One-shot': one_kimi_k2_1t_smiles,
+    'KIMI-K2': kimi_k2,
 }
 out_string = ""
 for name, smiles_list in hash_lists.items():

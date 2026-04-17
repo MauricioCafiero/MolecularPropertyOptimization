@@ -1,0 +1,31 @@
+Using 32 cores for docking.
+Analysing deepseek-v3.2 =======================================
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12 : docking score = -9.50 kcal/mol,
+aLogP = 3.57, QED = 0.58
+
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12 : docking score = -8.10 kcal/mol,
+aLogP = 3.58, QED = 0.55
+
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12 : docking score = -8.80 kcal/mol,
+aLogP = 2.67, QED = 0.52
+
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12 : docking score = -8.30 kcal/mol,
+aLogP = 4.59, QED = 0.50
+
+
+Average docking score for deepseek-v3.2 is: -8.675
+======================================================
+
+Analysing kimi-k2 =======================================
+Cc1c(C)c2c(c3c(F)c(O)c(C(=O)N)c(C)c13)C(C)=C(C(=O)[O-])O2 : docking score = -8.10 kcal/mol,
+aLogP = 2.13, QED = 0.74
+
+Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(C)c13)C(C)=C(C(=O)[O-])O2 : docking score = -8.80 kcal/mol,
+aLogP = 2.30, QED = 0.74
+
+Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(F)c13)C(C)=C(C(=O)[O-])O2 : docking score = -8.70 kcal/mol,
+aLogP = 2.13, QED = 0.74
+
+
+Average docking score for kimi-k2 is: -8.533333333333333
+======================================================
