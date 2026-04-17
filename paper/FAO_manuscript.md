@@ -181,7 +181,7 @@ The current author recently published a transformer-decoder model fine-tuned to 
 </figure>
 
 <figure>
-    <img src="../results/dock_finalist_images/DeepSeek_finalists.png"
+    <img src="../results/dock_finalist_images/Deepseek_finalists.png"
          alt="molecules">
     <figcaption>Figure 7. Top molecules for DeepSeek.</figcaption>
 </figure>
