@@ -1,0 +1,20 @@
+Atorvastatin:
+O=C(O)C[C@H](O)C[C@H](O)CCn2c(c(c(c2c1ccc(F)cc1)c3ccccc3)C(=O)Nc4ccccc4)C(C)C: Atorvastatin: QED=0.16, logP=6.31
+---------------------------------------------------------------------------------
+Rosuvastatin:
+OC(=O)C[C@H](O)C[C@H](O)\C=C\c1c(C(C)C)nc(N(C)S(=O)(=O)C)nc1c2ccc(F)cc2: Rosuvastatin: QED=0.47, logP=2.40
+---------------------------------------------------------------------------------
+Simvastatin:
+O=C(O[C@@H]1[C@H]3C(=C/[C@H](C)C1)\C=C/[C@@H]([C@@H]3CC[C@H]2OC(=O)C[C@H](O)C2)C)C(C)(C)CC: Simvastatin: QED=0.64, logP=4.59
+---------------------------------------------------------------------------------
+Lovastatin:
+O=C(O[C@@H]1[C@H]3C(=C/[C@H](C)C1)\C=C/[C@@H]([C@@H]3CC[C@H]2OC(=O)C[C@H](O)C2)C)[C@@H](C)CC: Lovastatin: QED=0.67, logP=4.20
+---------------------------------------------------------------------------------
+Fluvastatin:
+O=C(O)C[C@H](O)C[C@H](O)/C=C/c2c(c1ccccc1n2C(C)C)c3ccc(F)cc3: Fluvastatin: QED=0.50, logP=4.63
+---------------------------------------------------------------------------------
+Pravastatin:
+O=C(O)C[C@H](O)C[C@H](O)CC[C@H]2[C@H](/C=C\C1=C\[C@@H](O)C[C@H](OC(=O)[C@@H](C)CC)[C@@H]12)C: Pravastatin: QED=0.40, logP=2.44
+---------------------------------------------------------------------------------
+Average logP: 4.09
+Average QED: 0.47

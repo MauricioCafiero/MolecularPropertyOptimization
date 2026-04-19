@@ -69,6 +69,8 @@ At the end of each session, the models suggest up to five final molecules with t
 
 ## Results: Minimization of docking scores for HMGCR calculated by AutoDock Vina
 
+### Zero-shot
+
 When prompted to generate inhibitors for HMGCR, the three CW models, DeepSeek and Kimi K2 produced variations on the standard Type II statin molecules, featuring the carboxy-diol pharmacophore structure in particular. The other OW models produced random drug-like molecules of approximately the correct size and polarity (See Figure 1, as well as Figures 1, 4, 7, 10, 13, 16, 19, 22, 25 and 27 in the supporting data). For the CW plus DeepSeek and Kimi-K2 (CWDK) models, Claude and Kimi-K2 had molecules with the the overall lowest docking score (-8.30, Table 1), though Kimi-K2 produced a higher QED (0.64 vs. 0.46 for Claude, Table 6). Gemini had the second lowest docking score (-8.10) and the lowest average score (-8.0), though it only produced two viable SMILES, had a lower QED (0.39) and a relatively high aLogP (4.39). GPT 5.2 produced molecules of average quality, and was outperformed by Cogito 2.1 in both Docking score, QED and aLogP (Table 7). GPT OSS 20 and 120 had the highest average scores of all models tested. 
 
 #### Table 1. Docking Scores (kcal/mol) for zero shot molecules for each model tested. 
@@ -92,6 +94,8 @@ When prompted to generate inhibitors for HMGCR, the three CW models, DeepSeek an
          alt="molecules">
     <figcaption>Figure 1. Lowest docking score zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
+
+### Zero-shot with suggested fragments
 
 When asked to generate HMGCR inhibitors and given a set of SMILES fragments to work with, the already well performing Claude maintained roughly the same docking scores (Table 2), while GPT 5.2, Gemini, DeepSeek, GPT OSS 20, and Devstral saw improved scores. The remaining models saw higher docking scores, and Nemotron failed to produce any viable SMILES strings. Gemini and Kimi-K2 largely ignored the suggested fragments and produced more statin-like molecules, while all other models used the fragments (usually the napthalene core) and added the carboxyl suggested fragment (see Figure 2, as well as Figures 2, 5, 8, 11, 14, 17, 20, 23 and 28 in the supporting data). All models other than Gemini improved their QED scores (Tables 6, 7). aLogP values generally improved, other than Claude, Gemini, DeepSeek and OSS 120, which saw their aLogP values more closer to the edges of the Rule of 5 boundaries. In the zero-shot with suggested fragments design session, Gemini had the best docking score overall (-8.50, as well as the best average score) followed by GPT 5.2 and Devstral 2 (-8.30) and Claude (-8.10). 
 
@@ -117,6 +121,8 @@ When asked to generate HMGCR inhibitors and given a set of SMILES fragments to w
     <figcaption>Figure 2. Lowest docking score zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
+### One-shot
+
 When the models were given the SMILES/docking scores dataset and asked to generate HMGCR inhibitors, docking scores improved across the board, show strong few-shot learning from the models. All models other than OSS 20 saw lower 'best' docking scores and average docking scores, while OSS 20 saw a slightly increased 'best' scores but an improved average score. Gemini still had the lowest docking score (-9.20), followed by Nemotron (-9.10), Claude (-9.00), and GPT 5 (-8.90). While Devstral lagged behind these 4 leaders (-8.60), it had the lowest average docking score (-7.90). All models used the fragments present in the sample dataset, and most models used a napthalene or flavone scaffold, except for DeepSeek which opted for the anthrcene scaffold (See Figure 3, as well as Figures 3, 6, 9, 12, 15, 18, 21, 24, 26 and 29 in the supporting data). Gemini saw a significant improvement in QED and aLogP due to finally letting go of the statin-molecule motif and using the suggested fragments (Table 6). All other models saw smaller changes in QED and aLogP either better or slightly worse (Tables 6, 7). It should be noted that the sample data set had a lowest docking score of -8.6, and only the CW models and Nemotron beat that score, and Devstral tied it.
 
 #### Table 3. Docking Scores (kcal/mol) for one shot molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
@@ -140,6 +146,8 @@ When the models were given the SMILES/docking scores dataset and asked to genera
          alt="molecules">
     <figcaption>Figure 3. Lowest docking score one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
+
+### Adversarial design
 
 The CWDK models were tested in adversarial design sessions, where they were given in the intial dataset and allowed the use of scoring and auxilliary tools to test hypotheses on good inhibitor molecules. Additionally, their output was passed to another model which then offered criticism of their proposal. The first model then revised its proposal using the tools to refine the proposed molecules. This back-and-forth process between the models was continued until the suggested molecules stabilized, meaning the models were not suggesting any further meaningful changes. Transcripts of all adversarial design sessions are available on the Github repo for this work, and are organized by 'initial model response,' 'adversary response,' and 'model response.' In most cases, the molecules presented here as the final molecules (finalists) were the ones from the last 'model response.' In the case of Claude, it had suggested some molecules with very low scores a few turns earlier, but was convinced by GPT 5.2 to abandon them; those two abanadoned molecules were included here as finalists. In the case of Kimi K2, the criticism from GPT 5.2 convinced it to only put forward one molecule, and to offer many caveats on actually using it; no other model was so deferential to the adversary. In that case, we included two molecules from an earlier turn with low scores, which GPT 5.2 had convinced Kimi K2 to abandon. Finally, DeepSeek was the only one of the CWDK models that occasionally introduced errors into the tool calls. The errors it introduced were always in the ```best score``` variable in the replacement function and the grow function; it supplied random strings rather than a float representing the best score. In these cases the model was sent the follwing message: ```you had an error in your last tool call. You listed a best score as "-F" this should be a float. Please correct and continue.``` In each case it continued as normal (remember: state was maintained by storing all system, user and assistant messages and sending them as context in every turn). 
 
@@ -283,6 +291,42 @@ The current author recently published a transformer-decoder model fine-tuned to 
 | Kimi K2  | zero/frags| 0.74 | 1.73 |
 | Kimi K2  | one-shot  | 0.62 | 3.79 |
 
+### Pose analysis and comparison with known binders
+
+For the following analysis, the docking scores and poses and were compared with the docking scores for six known statins obtained via the same code: −8.3 kcal/mol for atorvastatin, −8.5 for rosuvastatin, −8.6 for fluvastatin, −7.6 for simvastatin, −7.6 for lovastatin, and −7.1 for pravastatin. The average docking score for the three type-2 statins (first three) is −8.5, and the average for the three type-1 statins is −7.4.The overall average docking score for the six statins is −7.95 kcal/mol. The statins have an average QED of 0.47 and an average aLogP of 4.09. The known most potent statin is Rosuvastatin (IC50 0.16 nM)<sup>17</sup>, which has a QED of 0.47 and an aLogP of 2.40. Thus, we will use aLogP of 2.40 as a target for molecule design. 
+
+Rosuvastatin docks in the known catalytic site for HMGCR, with the carboxyl-diol moiety binding to Lys, Asp, Ser, and Asn residues. Figures 9-13 show the top poses from each of the CWDK models along with the best docked pose for Rosuvastatin. At least one of the top molecules for Claude, Deepseek and Kimi K2 docked in the same pocket as Rosuvastatin (Figures 10, 12 and 13). Kimi K2's lowest score pose was in the Rosuvastatin pocket, but for Claude, only the second lowest docking score pose was in pocket (-9.4 kcal/mol), and for Deepseek it was the third lowest (-8.3 kcal/mol). None of the top poses for GPT 5.2 or Gemini were in the Rosivastatin pocket. They docked just outside the pocket, but still within the general area taken up by the natural substrate, HMG-Coenzyme A. Thus, while these two models do not act ad competitive inhibitors directly, they can interfere with the normal enzyme funcrtion. 
+
+<figure>
+    <img src="../poses/GPT_pose_3.png"
+         alt="molecules">
+    <figcaption>Figure 9. Best pose for GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin <figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Claude_pose_2.png"
+         alt="molecules">
+    <figcaption>Figure 10. Best pose for Claude in the HMGCR binding site; this was for the second lowest docking score, -9.4 kcal/mol. The grey molecule is the docked known statin, Rosuvastatin <figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Gemini_pose_1.png"
+         alt="molecules">
+    <figcaption>Figure 11. Best pose for Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin <figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Deepseek_pose_3.png"
+         alt="molecules">
+    <figcaption>Figure 12. Best pose for Deepseek in the HMGCR binding site; this was for the third lowest docking score, -8.3 kcal/mol. The grey molecule is the docked known statin, Rosuvastatin. <figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Kimi_pose_1.png"
+         alt="molecules">
+    <figcaption>Figure 13. Best pose for Kimi K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin. <figcaption>
+</figure>
+
 ## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF.Molecule structures optimized with MMFF.
 
 In order to show the generality of the agentic framework proposed here, the design process was repeated for the task of minimizing the HOMO-LUMO gap (HLG) for molecules. When asked to generate molecules with the lowest possible HLG,
@@ -306,7 +350,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 <figure>
     <img src="../results/HL/HL_finalist_images/ZERO_SHOT_finalists.png"
          alt="molecules">
-    <figcaption>Figure 9. Lowest HOMO-LUMO gap zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+    <figcaption>Figure 14. Lowest HOMO-LUMO gap zero-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
 
@@ -329,7 +373,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 <figure>
     <img src="../results/HL/HL_finalist_images/ZERO_SHOT_FRAGMENTS_finalists.png"
          alt="molecules">
-    <figcaption>Figure 10. Lowest HOMO-LUMO gap zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
+    <figcaption>Figure 15. Lowest HOMO-LUMO gap zero-shot molecules with fragment suggestions for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
 
@@ -352,7 +396,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 <figure>
     <img src="../results/HL/HL_finalist_images/one_shot_finalists.png"
          alt="molecules">
-    <figcaption>Figure 11. Lowest HOMO-LUMO gap one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
+    <figcaption>Figure 16. Lowest HOMO-LUMO gap one-shot molecules for GPT 5.2, Claude and Gemini.</figcaption>
 </figure>
 
 
@@ -369,26 +413,26 @@ In order to show the generality of the agentic framework proposed here, the desi
 <figure>
     <img src="../results/HL/HL_finalist_images/OPENAI_finalists.png"
          alt="molecules">
-    <figcaption>Figure 12. Top HOMO-LUMO gap molecules for GPT 5.2.</figcaption>
+    <figcaption>Figure 17. Top HOMO-LUMO gap molecules for GPT 5.2.</figcaption>
 </figure>
 
 
 <figure>
     <img src="../results/HL/HL_finalist_images/ANTHROPIC_finalists.png"
          alt="molecules">
-    <figcaption>Figure 13. Top HOMO-LUMO gap molecules for Claude.</figcaption>
+    <figcaption>Figure 18. Top HOMO-LUMO gap molecules for Claude.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_finalist_images/Corrected-ANTHROPIC_finalists.png"
          alt="molecules">
-    <figcaption>Figure 14. Top HOMO-LUMO gap corrected molecules for Claude.</figcaption>
+    <figcaption>Figure 19. Top HOMO-LUMO gap corrected molecules for Claude.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_finalist_images/GEMINI_finalists.png"
          alt="molecules">
-    <figcaption>Figure 15. Top HOMO-LUMO gap molecules for Gemini.</figcaption>
+    <figcaption>Figure 20. Top HOMO-LUMO gap molecules for Gemini.</figcaption>
 </figure>
 
 
@@ -447,4 +491,8 @@ In order to show the generality of the agentic framework proposed here, the desi
 15. Niclas Ståhl; Göran Falkman; Alexander Karlsson; Gunnar Mathiason; Jonas Boström. Deep Reinforcement Learning for Multiparameter Optimization in de novo Drug Design, *J. Chem. Inf. Model.* **2019**, 59, 7, 3166–3176.
 
 16. Cafiero, M. Variable-temperature token sampling in decoder-GPT molecule-generation can produce more robust and potent virtual screening libraries. *Phys. Chem. Chem. Phys.*, **2025**,27, 14455-14468
+
+17. McKenney, J. M. Pharmacologic Characteristics of Statins; Foundation for Advances in Medicine and Science Inc., **2003**; Vol.26, pp 32−38. *Clin. Cardiol.*
+
+
 
