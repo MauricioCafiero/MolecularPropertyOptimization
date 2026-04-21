@@ -12,9 +12,9 @@ Frontier closed-weight and open-weight LLM models have achived levels of sophisi
 <figure>
     <img src="workflow.jpg"
          alt="molecules">
-    <figcaption>Figure 1. Workflow for the adversarial deisg process proposed here. Blue boxes are tools; green boxes are LLM nodes or input to the LLM nodes; the purple box is the final output. Note that ony the red boxes need to be changed for any particular task; all other parts of the architecture remain, though different auxilliary functions may be added. </figcaption>
+    <figcaption>Figure 1. Workflow for the adversarial deisg process proposed here. Blue boxes are tools; green boxes are LLM nodes or input to the LLM nodes; the purple box is the final output. Note that ony the red boxes (input fragments and the scoring function) need to be changed for any particular task; all other parts of the architecture remain, though different auxilliary functions may be added. </figcaption>
 </figure>
-
+<br>
 As early as 2023, Bioko *et al* were using OpenAI's GPT 4 in their *Coscientist* to perform 'autonomous design, planning and performance of complex scientific experiments.<sup>1</sup> They used a harness and three LLM-based sub-agents to perform planning, document searching and web-searching tasks, and provided a Python coding environment to execute LLL-designed code. They found that GPT 4 could reason about chemical information well enough to perform many tasks, including synthesis planning. More relevant to this work, Zhang *et al* used GPT4 (and GPT 3.5) in molecule identification and optimization. In one trial, they used a zero-shot approach to ask the LLM to refine a molecule to have a particular QED (quantitative estimate of drug-likeness) value, and found that the model, while at times producing invalid SMILES strings, could reason well about attaining a particular QED and suggested four molecules, though none had the desried value.<sup>2</sup>  Rather than rely on an LLM directly, Wang *et al* used GPT 4 for help with three distinct tasks within  a drug-deisgn workflow: idea generation, concept clarification, and coding help. <sup>3</sup> At that time, GPT 4 provided inaccurate information both about molecules and in the concept clarification regime. Bran *et al* designed the ChemCrow agent (again based on GPT 4), which had access to some simple chemical tools (SMILES to Weight, Func Groups). <sup>4</sup>. They evaluated ChemCrow for several types of chemical tasks; for the molecule design tasks relevant to the current work, they use zero-shot design for two different design tasks. Since the authors did not provide validation or verification of the LLM generated molecules, it is difficult to tell how well the LLM performed on these tasks. 
 
 In a very different use of LLMs for molecule design, Cavanagh *et al* fine-tuned the Llama 3.1 8B Instruct model on chemical information (SmileyLlama). <sup>5</sup> The fine-tuning prompts consisted of SMILES strings of 2M drug-like molecules from ChEMBL along with ADME data for each molecule calculated by RDKit. This fine tuning increased the model's ability to generate valid SMILES as well as molecules with desired properties, with the resulting SMILES similar in property distribution to the original training set. The authors further used a reinforcement learning-type approach to further train the model to generate molecules that would be good inhibitors of a particular enzyme. This aligned model could then generate novel SMILES that could be good inhibitors for the enzyme and adhere to other property requests. This approach uses AutoDock to provide data for the reinforcement learning, while the approach described in the current work uses AutoDock as a tool directly accessible to the foundation model LLM. 
@@ -267,14 +267,10 @@ The current author recently published a transformer-decoder model fine-tuned to 
 | Kimi K2.5| w/ GPT 5.2| 0.74 | 2.18 |
 
 
-#### Table 7. Average QED and aLogP for from each OW model / design mode.
+#### Table 7. Average QED and aLogP for from each OW model / design mode (excluding Deepseek and Kimi K2).
 
 | Model | design mode | QED | aLogP |
 |-------|:-:|:-:|---|
-| Deepseek V3.1  | zero-shot | 0.55 | 2.31 |
-| Deepseek V3.1  | zero/frags| 0.57 | 0.96 |
-| Deepseek V3.1  | one-shot  | 0.49 | 2.13 |
-||||||
 | GPT OSS 120B  | zero-shot | 0.55 | 5.15 |
 | GPT OSS 120B  | zero/frags| 0.61 | 0.27 |
 | GPT OSS 120B  | one-shot  | 0.39 | 3.29 |
@@ -294,10 +290,6 @@ The current author recently published a transformer-decoder model fine-tuned to 
 | Nemotron 3 Nano  | zero-shot | 0.62 | 0.58 |
 | Nemotron 3 Nano  | zero/frags| 0.00 | 0.00 |
 | Nemotron 3 Nano  | one-shot  | 0.37 | 5.19 |
-||||||
-| Kimi K2  | zero-shot | 0.64 | 3.67 |
-| Kimi K2  | zero/frags| 0.74 | 1.73 |
-| Kimi K2  | one-shot  | 0.62 | 3.79 |
 
 ### Pose analysis and comparison with known binders 
 
@@ -328,7 +320,7 @@ Rosuvastatin docks in the known catalytic site for HMGCR, with the carboxyl-diol
 </figure>
 
 <figure>
-    <img src="../poses/Kimi_pose_1.png"
+    <img src="../poses/KImi_pose_1.png"
          alt="molecules">
     <figcaption>Figure 14. Best pose for Kimi K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin. <figcaption>
 </figure>

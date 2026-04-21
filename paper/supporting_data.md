@@ -218,7 +218,7 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 >to the proposed molecules that would make them more likely to have a low gap, and provide reasoning
 >for why those modifications would help.
 
-## Images of zero-shot gneneration for all models:
+## Images of zero- and one-shot generation for all models:
 
 ### OPENAI
 
@@ -413,3 +413,201 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
          alt="molecules">
     <figcaption>Supporting Figure 29. One-shot generated molecules for Kimi-K2.</figcaption>
 </figure>
+
+## Docking Poses for zero and one-shot molecules
+
+### OpenAI
+
+<figure>
+    <img src="../poses/GPT_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 30. Best pose for zero-shot generated molecules with GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/GPT_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 31. Best pose for zero-shot with suggested fragments generated molecules with GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/GPT_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 32. Best pose for one-shot generated molecules with GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Claude
+
+<figure>
+    <img src="../poses/Claude_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 33. Best pose for zero-shot generated molecules with Claude in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Claude_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 34. Best pose for zero-shot with suggested fragments generated molecules with Claude in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Claude_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 35. Best pose for one-shot generated molecules with Claude in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Gemini
+
+<figure>
+    <img src="../poses/Gemini_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 36. Best pose for zero-shot generated molecules with Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Gemini_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 37. Best pose for zero-shot with suggested fragments generated molecules with Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Gemini_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 38. Best pose for one-shot generated molecules with Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Deepseek-v3.1
+
+<figure>
+    <img src="../poses/Deepseek_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 39. Best pose for zero-shot generated molecules with Deepseek-v3.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Deepseek_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 40. Best pose for zero-shot with suggested fragments generated molecules with Deepseek-v3.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Deepseek_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 41. Best pose for one-shot generated molecules with Deepseek-v3.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Kimi-K2
+
+<figure>
+    <img src="../poses/Kimi_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 42. Best pose for zero-shot generated molecules with Kimi-K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Kimi_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 43. Best pose for zero-shot with suggested fragments generated molecules with Kimi-K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Kimi_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 44. Best pose for one-shot generated molecules with Kimi-K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### GPT-OSS-120B
+
+<figure>
+    <img src="../poses/OSS120_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 45. Best pose for zero-shot generated molecules with GPT-OSS-120B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/OSS120_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 46. Best pose for zero-shot with suggested fragments generated molecules with GPT-OSS-120B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/OSS120_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 47. Best pose for one-shot generated molecules with GPT-OSS-120B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### GPT-OSS-20B
+
+<figure>
+    <img src="../poses/OSS20_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 48. Best pose for zero-shot generated molecules with GPT-OSS-20B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/OSS20_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 49. Best pose for zero-shot with suggested fragments generated molecules with GPT-OSS-20B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/OSS20_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 50. Best pose for one-shot generated molecules with GPT-OSS-20B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Devstral-2
+
+<figure>
+    <img src="../poses/Devstral_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 51. Best pose for zero-shot generated molecules with Devstral-2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Devstral_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 52. Best pose for zero-shot with suggested fragments generated molecules with Devstral-2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Devstral_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 53. Best pose for one-shot generated molecules with Devstral-2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Cogito-2.1
+
+<figure>
+    <img src="../poses/Cogito_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 54. Best pose for zero-shot generated molecules with Cogito-2.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Cogito_frag.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 55. Best pose for zero-shot with suggested fragments generated molecules with Cogito-2.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Cogito_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 56. Best pose for one-shot generated molecules with Cogito-2.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+### Nemotron-3-Nano
+
+<figure>
+    <img src="../poses/Nemotron_zero.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 57. Best pose for zero-shot generated molecules with Nemotron-3-Nano in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+<figure>
+    <img src="../poses/Nemotron_one.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 58. Best pose for one-shot generated molecules with Nemotron-3-Nano in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+</figure>
+
+
