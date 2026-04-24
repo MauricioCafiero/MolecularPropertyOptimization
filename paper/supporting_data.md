@@ -419,19 +419,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### OpenAI
 
 <figure>
-    <img src="../poses/GPT_zero.png"
+    <img src="../poses/GPT_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 30. Best pose for zero-shot generated molecules with GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/GPT_frag.png"
+    <img src="../poses/GPT_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 31. Best pose for zero-shot with suggested fragments generated molecules with GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/GPT_one.png"
+    <img src="../poses/GPT_one.jpg"    
          alt="molecules">
     <figcaption>Supporting Figure 32. Best pose for one-shot generated molecules with GPT 5.2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -439,19 +439,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Claude
 
 <figure>
-    <img src="../poses/Claude_zero.png"
+    <img src="../poses/Claude_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 33. Best pose for zero-shot generated molecules with Claude in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Claude_frag.png"
+    <img src="../poses/Claude_frag.jpg"
          alt="molecules">
-    <figcaption>Supporting Figure 34. Best pose for zero-shot with suggested fragments generated molecules with Claude in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
+    <figcaption>Supporting Figure 34. Best pose for zero-shot with suggested fragments generated molecules with Clau in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Claude_one.png"
+    <img src="../poses/Claude_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 35. Best pose for one-shot generated molecules with Claude in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -459,19 +459,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Gemini
 
 <figure>
-    <img src="../poses/Gemini_zero.png"
+    <img src="../poses/Gemini_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 36. Best pose for zero-shot generated molecules with Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Gemini_frag.png"
+    <img src="../poses/Gemini_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 37. Best pose for zero-shot with suggested fragments generated molecules with Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Gemini_one.png"
+    <img src="../poses/Gemini_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 38. Best pose for one-shot generated molecules with Gemini in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -479,19 +479,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Deepseek-v3.1
 
 <figure>
-    <img src="../poses/Deepseek_zero.png"
+    <img src="../poses/Deepseek_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 39. Best pose for zero-shot generated molecules with Deepseek-v3.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Deepseek_frag.png"
+    <img src="../poses/Deepseek_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 40. Best pose for zero-shot with suggested fragments generated molecules with Deepseek-v3.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Deepseek_one.png"
+    <img src="../poses/Deepseek_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 41. Best pose for one-shot generated molecules with Deepseek-v3.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -499,19 +499,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Kimi-K2
 
 <figure>
-    <img src="../poses/Kimi_zero.png"
+    <img src="../poses/Kimi_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 42. Best pose for zero-shot generated molecules with Kimi-K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Kimi_frag.png"
+    <img src="../poses/Kimi_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 43. Best pose for zero-shot with suggested fragments generated molecules with Kimi-K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Kimi_one.png"
+    <img src="../poses/Kimi_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 44. Best pose for one-shot generated molecules with Kimi-K2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -519,19 +519,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### GPT-OSS-120B
 
 <figure>
-    <img src="../poses/OSS120_zero.png"
+    <img src="../poses/OSS120_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 45. Best pose for zero-shot generated molecules with GPT-OSS-120B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/OSS120_frag.png"
+    <img src="../poses/OSS120_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 46. Best pose for zero-shot with suggested fragments generated molecules with GPT-OSS-120B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/OSS120_one.png"
+    <img src="../poses/OSS120_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 47. Best pose for one-shot generated molecules with GPT-OSS-120B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -539,19 +539,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### GPT-OSS-20B
 
 <figure>
-    <img src="../poses/OSS20_zero.png"
+    <img src="../poses/OSS20_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 48. Best pose for zero-shot generated molecules with GPT-OSS-20B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/OSS20_frag.png"
+    <img src="../poses/OSS20_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 49. Best pose for zero-shot with suggested fragments generated molecules with GPT-OSS-20B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/OSS20_one.png"
+    <img src="../poses/OSS20_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 50. Best pose for one-shot generated molecules with GPT-OSS-20B in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -559,19 +559,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Devstral-2
 
 <figure>
-    <img src="../poses/Devstral_zero.png"
+    <img src="../poses/Devstral_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 51. Best pose for zero-shot generated molecules with Devstral-2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Devstral_frag.png"
+    <img src="../poses/Devstral_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 52. Best pose for zero-shot with suggested fragments generated molecules with Devstral-2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Devstral_one.png"
+    <img src="../poses/Devstral_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 53. Best pose for one-shot generated molecules with Devstral-2 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -579,19 +579,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Cogito-2.1
 
 <figure>
-    <img src="../poses/Cogito_zero.png"
+    <img src="../poses/Cogito_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 54. Best pose for zero-shot generated molecules with Cogito-2.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Cogito_frag.png"
+    <img src="../poses/Cogito_frag.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 55. Best pose for zero-shot with suggested fragments generated molecules with Cogito-2.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Cogito_one.png"
+    <img src="../poses/Cogito_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 56. Best pose for one-shot generated molecules with Cogito-2.1 in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
@@ -599,15 +599,217 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 ### Nemotron-3-Nano
 
 <figure>
-    <img src="../poses/Nemotron_zero.png"
+    <img src="../poses/Nemotron_zero.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 57. Best pose for zero-shot generated molecules with Nemotron-3-Nano in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
 <figure>
-    <img src="../poses/Nemotron_one.png"
+    <img src="../poses/Nemotron_one.jpg"
          alt="molecules">
     <figcaption>Supporting Figure 58. Best pose for one-shot generated molecules with Nemotron-3-Nano in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
+## Images of zero- and one-shot HOMO-LUMO task molecule generation for all models:
 
+### OPENAI
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_GPT5p2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 59. HOMO-LUMO gap zero-shot generated molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_GPT5p2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 60. HOMO-LUMO gap zero-shot with fragments generated molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_GPT5p2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 61. HOMO-LUMO gap one-shot generated molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
+### Claude
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 62. HOMO-LUMO gap zero-shot generated molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 63. HOMO-LUMO gap zero-shot with fragments generated molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 64. HOMO-LUMO gap one-shot generated molecules for Claude.</figcaption>
+</figure>
+
+### Corrected Claude
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Corrected_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 65. HOMO-LUMO gap zero-shot corrected molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Corrected_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 66. HOMO-LUMO gap zero-shot with fragments corrected molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Corrected_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 67. HOMO-LUMO gap one-shot corrected molecules for Claude.</figcaption>
+</figure>
+
+### Gemini
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Gemini_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 68. HOMO-LUMO gap zero-shot generated molecules for Gemini.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Gemini_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 69. HOMO-LUMO gap zero-shot with fragments generated molecules for Gemini.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Gemini_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 70. HOMO-LUMO gap one-shot generated molecules for Gemini.</figcaption>
+</figure>
+
+### Deepseek
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Deepseek_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 71. HOMO-LUMO gap zero-shot generated molecules for Deepseek.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Deepseek_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 72. HOMO-LUMO gap zero-shot with fragments generated molecules for Deepseek.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Deepseek_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 73. HOMO-LUMO gap one-shot generated molecules for Deepseek.</figcaption>
+</figure>
+
+### Kimi-K2
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Kimi_k2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 74. HOMO-LUMO gap zero-shot generated molecules for Kimi-K2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Kimi_k2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 75. HOMO-LUMO gap zero-shot with fragments generated molecules for Kimi-K2.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Kimi_k2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 76. HOMO-LUMO gap one-shot generated molecules for Kimi-K2.</figcaption>
+</figure>
+
+### GPT-OSS-120B
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_GPT_OSS120_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 77. HOMO-LUMO gap zero-shot generated molecules for GPT-OSS-120B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_GPT_OSS120_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 78. HOMO-LUMO gap zero-shot with fragments generated molecules for GPT-OSS-120B.</figcaption>
+</figure>
+
+### GPT-OSS-20B
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_GPT_OSS20_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 79. HOMO-LUMO gap zero-shot generated molecules for GPT-OSS-20B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_GPT_OSS20_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 80. HOMO-LUMO gap zero-shot with fragments generated molecules for GPT-OSS-20B.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_GPT_OSS20_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 81. HOMO-LUMO gap one-shot generated molecules for GPT-OSS-20B.</figcaption>
+</figure>
+
+### Devstral
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Devstral_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 82. HOMO-LUMO gap zero-shot generated molecules for Devstral.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Devstral_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 83. HOMO-LUMO gap zero-shot with fragments generated molecules for Devstral.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Devstral_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 84. HOMO-LUMO gap one-shot generated molecules for Devstral.</figcaption>
+</figure>
+
+### Cogito
+
+<figure>
+    <img src="../results/HL/HL_all_images/zero_Cogito_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 85. HOMO-LUMO gap zero-shot generated molecules for Cogito.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/frag_Cogito_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 86. HOMO-LUMO gap zero-shot with fragments generated molecules for Cogito.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Cogito_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 87. HOMO-LUMO gap one-shot generated molecules for Cogito.</figcaption>
+</figure>
+
+### Nemotron
+
+<figure>
+    <img src="../results/HL/HL_all_images/one_Nemotron_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 88. HOMO-LUMO gap one-shot generated molecules for Nemotron.</figcaption>
+</figure>
