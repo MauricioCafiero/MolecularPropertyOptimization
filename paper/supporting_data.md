@@ -610,10 +610,10 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
     <figcaption>Supporting Figure 58. Best pose for one-shot generated molecules with Nemotron-3-Nano in the HMGCR binding site. The grey molecule is the docked known statin, Rosuvastatin .</figcaption>
 </figure>
 
-## Images of zero- and one-shot HOMO-LUMO task molecule generation for all models:
+## Images of zero-, one-shot and adversarial HOMO-LUMO task molecule generation for all models:
 
 ### OPENAI
-
+ 
 <figure>
     <img src="../results/HL/HL_all_images/zero_GPT5p2_finalists.png"
          alt="molecules">
@@ -632,44 +632,44 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
     <figcaption>Supporting Figure 61. HOMO-LUMO gap one-shot generated molecules for OpenAI GPT 5.2.</figcaption>
 </figure>
 
+<figure>
+    <img src="../results/HL/HL_all_images/adversarial_GPT5p2_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 62. HOMO-LUMO gap adversarial design molecules for OpenAI GPT 5.2.</figcaption>
+</figure>
+
 ### Claude
 
 <figure>
     <img src="../results/HL/HL_all_images/zero_Claude_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 62. HOMO-LUMO gap zero-shot generated molecules for Claude.</figcaption>
+    <figcaption>Supporting Figure 63. HOMO-LUMO gap zero-shot generated molecules for Claude.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_Claude_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 63. HOMO-LUMO gap zero-shot with fragments generated molecules for Claude.</figcaption>
+    <figcaption>Supporting Figure 64. HOMO-LUMO gap zero-shot with fragments generated molecules for Claude.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/one_Claude_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 64. HOMO-LUMO gap one-shot generated molecules for Claude.</figcaption>
+    <figcaption>Supporting Figure 65. HOMO-LUMO gap one-shot generated molecules for Claude.</figcaption>
+</figure>
+
+<figure>
+    <img src="../results/HL/HL_all_images/adversarial_Claude_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 66. HOMO-LUMO gap adversarial design molecules for Claude.</figcaption>
 </figure>
 
 ### Corrected Claude
 
 <figure>
-    <img src="../results/HL/HL_all_images/zero_Corrected_Claude_finalists.png"
+    <img src="../results/HL/HL_all_images/adversarial_Corrected_Claude_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 65. HOMO-LUMO gap zero-shot corrected molecules for Claude.</figcaption>
-</figure>
-
-<figure>
-    <img src="../results/HL/HL_all_images/frag_Corrected_Claude_finalists.png"
-         alt="molecules">
-    <figcaption>Supporting Figure 66. HOMO-LUMO gap zero-shot with fragments corrected molecules for Claude.</figcaption>
-</figure>
-
-<figure>
-    <img src="../results/HL/HL_all_images/one_Corrected_Claude_finalists.png"
-         alt="molecules">
-    <figcaption>Supporting Figure 67. HOMO-LUMO gap one-shot corrected molecules for Claude.</figcaption>
+    <figcaption>Supporting Figure 67. HOMO-LUMO gap adversarial design corrected molecules for Claude.</figcaption>
 </figure>
 
 ### Gemini
@@ -692,24 +692,30 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
     <figcaption>Supporting Figure 70. HOMO-LUMO gap one-shot generated molecules for Gemini.</figcaption>
 </figure>
 
+<figure>
+    <img src="../results/HL/HL_all_images/adversarial_Gemini_finalists.png"
+         alt="molecules">
+    <figcaption>Supporting Figure 71. HOMO-LUMO gap adversarial design molecules for Gemini.</figcaption>
+</figure>
+
 ### Deepseek
 
 <figure>
     <img src="../results/HL/HL_all_images/zero_Deepseek_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 71. HOMO-LUMO gap zero-shot generated molecules for Deepseek.</figcaption>
+    <figcaption>Supporting Figure 72. HOMO-LUMO gap zero-shot generated molecules for Deepseek.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_Deepseek_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 72. HOMO-LUMO gap zero-shot with fragments generated molecules for Deepseek.</figcaption>
+    <figcaption>Supporting Figure 73. HOMO-LUMO gap zero-shot with fragments generated molecules for Deepseek.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/one_Deepseek_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 73. HOMO-LUMO gap one-shot generated molecules for Deepseek.</figcaption>
+    <figcaption>Supporting Figure 74. HOMO-LUMO gap one-shot generated molecules for Deepseek.</figcaption>
 </figure>
 
 ### Kimi-K2
@@ -717,13 +723,13 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/zero_Kimi_k2_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 74. HOMO-LUMO gap zero-shot generated molecules for Kimi-K2.</figcaption>
+    <figcaption>Supporting Figure 75. HOMO-LUMO gap zero-shot generated molecules for Kimi-K2.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_Kimi_k2_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 75. HOMO-LUMO gap zero-shot with fragments generated molecules for Kimi-K2.</figcaption>
+    <figcaption>Supporting Figure 76. HOMO-LUMO gap zero-shot with fragments generated molecules for Kimi-K2.</figcaption>
 </figure>
 
 <figure>
@@ -737,13 +743,13 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/zero_GPT_OSS120_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 77. HOMO-LUMO gap zero-shot generated molecules for GPT-OSS-120B.</figcaption>
+    <figcaption>Supporting Figure 78. HOMO-LUMO gap zero-shot generated molecules for GPT-OSS-120B.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_GPT_OSS120_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 78. HOMO-LUMO gap zero-shot with fragments generated molecules for GPT-OSS-120B.</figcaption>
+    <figcaption>Supporting Figure 79. HOMO-LUMO gap zero-shot with fragments generated molecules for GPT-OSS-120B.</figcaption>
 </figure>
 
 ### GPT-OSS-20B
@@ -751,19 +757,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/zero_GPT_OSS20_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 79. HOMO-LUMO gap zero-shot generated molecules for GPT-OSS-20B.</figcaption>
+    <figcaption>Supporting Figure 80. HOMO-LUMO gap zero-shot generated molecules for GPT-OSS-20B.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_GPT_OSS20_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 80. HOMO-LUMO gap zero-shot with fragments generated molecules for GPT-OSS-20B.</figcaption>
+    <figcaption>Supporting Figure 81. HOMO-LUMO gap zero-shot with fragments generated molecules for GPT-OSS-20B.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/one_GPT_OSS20_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 81. HOMO-LUMO gap one-shot generated molecules for GPT-OSS-20B.</figcaption>
+    <figcaption>Supporting Figure 82. HOMO-LUMO gap one-shot generated molecules for GPT-OSS-20B.</figcaption>
 </figure>
 
 ### Devstral
@@ -771,19 +777,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/zero_Devstral_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 82. HOMO-LUMO gap zero-shot generated molecules for Devstral.</figcaption>
+    <figcaption>Supporting Figure 83. HOMO-LUMO gap zero-shot generated molecules for Devstral.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_Devstral_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 83. HOMO-LUMO gap zero-shot with fragments generated molecules for Devstral.</figcaption>
+    <figcaption>Supporting Figure 84. HOMO-LUMO gap zero-shot with fragments generated molecules for Devstral.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/one_Devstral_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 84. HOMO-LUMO gap one-shot generated molecules for Devstral.</figcaption>
+    <figcaption>Supporting Figure 85. HOMO-LUMO gap one-shot generated molecules for Devstral.</figcaption>
 </figure>
 
 ### Cogito
@@ -791,19 +797,19 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/zero_Cogito_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 85. HOMO-LUMO gap zero-shot generated molecules for Cogito.</figcaption>
+    <figcaption>Supporting Figure 86. HOMO-LUMO gap zero-shot generated molecules for Cogito.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/frag_Cogito_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 86. HOMO-LUMO gap zero-shot with fragments generated molecules for Cogito.</figcaption>
+    <figcaption>Supporting Figure 87. HOMO-LUMO gap zero-shot with fragments generated molecules for Cogito.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/HL/HL_all_images/one_Cogito_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 87. HOMO-LUMO gap one-shot generated molecules for Cogito.</figcaption>
+    <figcaption>Supporting Figure 88. HOMO-LUMO gap one-shot generated molecules for Cogito.</figcaption>
 </figure>
 
 ### Nemotron
@@ -811,5 +817,5 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/one_Nemotron_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 88. HOMO-LUMO gap one-shot generated molecules for Nemotron.</figcaption>
+    <figcaption>Supporting Figure 89. HOMO-LUMO gap one-shot generated molecules for Nemotron.</figcaption>
 </figure>
