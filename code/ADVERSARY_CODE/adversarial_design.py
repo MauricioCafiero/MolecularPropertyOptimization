@@ -18,6 +18,8 @@ from MolPropOp import *
 from docking_module import *
 
 tools = [grow_cycle, replace_groups, make_random_list, related, lipinski]
+if auxilliary_functions:
+  tools.extend(auxilliary_functions)
 
 anthropic_key = os.getenv("ANTHROPIC_KEY")
 client = Anthropic(api_key=anthropic_key)
@@ -127,6 +129,8 @@ The tools you have available include:
             drug-like a molecule is, with 1 being the most drug-like. A higher QED score indicates that a 
             molecule has properties that are more consistent with known drugs, such as appropriate molecular 
             weight, lipophilicity, and number of hydrogen bond donors and acceptors.
+
+{task_specific_tools}
 
 ## Once you have ascertained the trends:
 - Use the trends you learned to suggest 1-5 new molecules that obey the trends you found
