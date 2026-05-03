@@ -23,15 +23,16 @@ def calculate_SAS_and_NP(smiles_list: list[str]):
     '''
     fscore = npscorer.readNPModel()
 
-    out_string = ''
+    out_string = '| SMILES | SAS Score | NP Score |\n'
+    out_string += '|---------|-----------|----------|\n'
     for smiles in smiles_list:
         mol = Chem.MolFromSmiles(smiles)
         if mol is not None:
             sas_score = sascorer.calculateScore(mol)
             np_score = npscorer.scoreMol(mol, fscore)
-            out_string += f'{smiles}\t{sas_score:.2f}\t{np_score:.2f}\n'
+            out_string += f'| {smiles} | {sas_score:.2f} | {np_score:.2f} |\n'
         else:
-            out_string += f'{smiles}\t{"Invalid SMILES"}\n'
+            out_string += f'| {smiles} | {"Invalid SMILES"} | {"Invalid SMILES"} |\n'
     return out_string
 
 
