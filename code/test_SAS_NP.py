@@ -5,7 +5,7 @@ sys.path.append(os.path.join(RDConfig.RDContribDir, 'SA_Score'))
 sys.path.append(os.path.join(RDConfig.RDContribDir, 'NP_Score'))
 import sascorer, npscorer
 
-# code works on local conda environment, on Colab
+# code works on local conda environment, on Colab, and on Github codespace
 
 def calculate_SAS_and_NP(smiles_list: list[str]):
     '''Calculate SAS and NP scores for a list of SMILES strings. SAS score is a measure 
@@ -36,7 +36,7 @@ def calculate_SAS_and_NP(smiles_list: list[str]):
     return out_string
 
 
-smiles_list = ['O=c1cc(-c2c(F)c(C)c(F)cc2)oc2cccc(CC(=O)O)c12']
+smiles_list = ['O=c1cc(-c2c(F)c(C)c(F)cc2)oc2cccc(CC(=O)O)c12', 'O=c1cc(-c2c(F)cc(Cl)cc2)oc2cccc(CC(=O)O)c12']
 
 results = calculate_SAS_and_NP(smiles_list)
 print(results)
