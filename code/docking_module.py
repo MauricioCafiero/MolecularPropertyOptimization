@@ -87,18 +87,19 @@ List of all interacting residues:
 '''
 
 def calculate_SAS_and_NP(smiles_list: list[str]):
-  '''Calculate SAS and NP scores for a list of SMILES strings. SAS score is a measure 
+  '''
+  Calculate SAS and NP scores for a list of SMILES strings. SAS score is a measure 
   of synthetic accessibility, and a value of 1 indicates that the molecule is easy to synthesize, 
   while a value of 10 indicates that it is difficult to synthesize. 
   NP score is a measure of natural product-likeness, and a higher score indicates that the 
   molecule is more similar to natural products; the score runs from -5 to 5, with higher scores 
   indicating greater similarity to natural products.
 
-  Args:
-      smiles_list (list[str]): A list of SMILES strings representing the molecules to be scored.
+    Args:
+        smiles_list (list[str]): A list of SMILES strings representing the molecules to be scored.
 
-  Returns:
-      list[tuple[float, float]]: A list of tuples containing the SAS and NP scores for each molecule.
+    Returns:
+        out_string (str): A string containing the SMILES, SAS score, and NP score for each molecule in the list.
   '''
   fscore = npscorer.readNPModel()
 
@@ -114,17 +115,19 @@ def calculate_SAS_and_NP(smiles_list: list[str]):
           out_string += f'| {smiles} | {"Invalid SMILES"} | {"Invalid SMILES"} |\n'
   return out_string
 
-def dock_and_get_interacting_residues(smiles: str):
+def dock_and_get_interacting_residues(smiles: str) -> str:
   '''
-    docks a molecule to the target and returns the interacting residues. If the docking fails, returns an empty list.
+    Docks a molecule to the target and returns the interacting residues. If the docking fails, returns an empty list.
 
-    Args:
-        smiles (str): the SMILES string of the molecule to dock and get interacting residues for
-    Returns:
-        output_string (str): a string containing the interacting residues and types of interactions.
+      Args:
+          smiles (str): the SMILES string of the molecule to dock and get interacting residues.
+      Returns:
+          contacts_results (str): a string containing the types of interactions between the docked molecule and 
+          residues in the target protein. If the docking fails, returns a string indicating that the docking
   '''
  
   score, aux = scoring_function(smiles)
+  #print(f'Docking score: {score}')
 
   if aux is None:
     return "Docking failed. No interacting residues found."
@@ -147,7 +150,17 @@ def dock_and_get_interacting_residues(smiles: str):
 
   return contacts_results
 
-def find_contacts(pro, lig):
+def find_contacts(pro, lig) -> str:
+  '''
+    Finds the interactions between a docked molecule and residues in the target protein. 
+
+      Args:
+          pro: the protein object from oddt
+          lig: the ligand object from oddt
+      Returns:
+          output_string (str): a string containing the types of interactions between the docked molecule and 
+          residues in the target protein.
+  '''
 
   int_types = ['hbonds', 'hydrophobic_contacts', 'pi_stacking', 'pi_cation', 'halogenbonds', 'salt_bridges']
   int_functions = [hbonds, hydrophobic_contacts, pi_stacking, pi_cation, halogenbonds, salt_bridges]
