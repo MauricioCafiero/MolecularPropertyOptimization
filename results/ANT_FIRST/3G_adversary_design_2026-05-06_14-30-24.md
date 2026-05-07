@@ -125,13 +125,13 @@ This looks like **score inflation** from the extra bulk filling the pocket, not 
 
 Based on rigorous analysis, I propose **2 lead molecules**:
 
-1. **O=c1cc(-c2cc(c7cc(C(F)(F)(F))ccc7)ccc2)oc2ccccc12** (**-8.7**)
+1. ** O=c1cc(-c2cc(c7cc(C(F)(F)(F))ccc7)ccc2)oc2ccccc12 ** (**-8.7**)
    - **Rationale**: Real halogen bonds (CF3 with SER125), strong hydrophobic network (HIS312, LEU413, LEU417, VAL664), matches Rosuvastatin
    - **Interactions**: H-bonds to SER665, halogen bonds to SER125, extensive hydrophobics
    - **Drug properties**: QED 0.426, PSA 30.2 (drug-like), LogP 6.1 (acceptable), SAS 2.05 (easy synthesis)
    - **Realistic**: Score is supported by real interactions, not just polarity
 
-2. **O=c1cc(-c2cc(c7ccc([N+](=O)[O-])cc7)ccc2)oc2ccccc12** (**-8.8**)
+2. ** O=c1cc(-c2cc(c7ccc([N+](=O)[O-])cc7)ccc2)oc2ccccc12 ** (**-8.8**)
    - **Rationale**: Real salt bridge to ARG128, H-bonds to ASN315/ASP671, good hydrophobic contacts
    - **Interactions**: Salt bridge (O from NO2 ↔ ARG128), H-bonds, hydrophobics to LEU413
    - **Drug properties**: QED 0.386 (moderate), PSA 73.35 (higher due to NO2), SAS 2.00 (easy), LogP 5.0
