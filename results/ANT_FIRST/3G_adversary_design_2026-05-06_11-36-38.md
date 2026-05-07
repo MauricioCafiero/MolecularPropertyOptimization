@@ -1,2 +1,0 @@
-# Adversarial Design Session - test
-
