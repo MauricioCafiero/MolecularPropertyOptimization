@@ -3,7 +3,7 @@ from PIL import Image
 
 path = "../poses/full_size_images"
 files = os.listdir(path)            
-filenames = [file for file in files if (os.path.splitext(file)[1]==".png")]
+filenames = [file for file in files if (os.path.splitext(file)[1]==".png" and "3G" in os.path.splitext(file)[0])]
 
 for filename in filenames:
     print(f"Processing {filename}...")

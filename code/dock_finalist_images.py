@@ -294,15 +294,53 @@ def scoring_function(smiles: str):
 #               'O=c1cc(-c2c(F)cc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12',
 #               'O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12']
 
-kimi_k2 = ['Cc1c(C)c2c(c3c(F)c(O)c(C(=O)N)c(C)c13)C(C)=C(C(=O)[O-])O2',
-           'Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(C)c13)C(C)=C(C(=O)[O-])O2',
-           'Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(F)c13)C(C)=C(C(=O)[O-])O2' ]
+# kimi_k2 = ['Cc1c(C)c2c(c3c(F)c(O)c(C(=O)N)c(C)c13)C(C)=C(C(=O)[O-])O2',
+#            'Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(C)c13)C(C)=C(C(=O)[O-])O2',
+#            'Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(F)c13)C(C)=C(C(=O)[O-])O2' ]
 
 
-deepseek = ['O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12', 
-            'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12', 
-            'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12', 
-            'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12']
+# deepseek = ['O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12', 
+#             'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12', 
+#             'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12', 
+#             'O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12']
+
+G3_openai_smiles = [
+  'CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(F)(F)F',
+  'CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(=O)OC',
+  'CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)CO'
+]
+
+G3_openai_orig_smiles = [
+  'O=c1cc(-c2c(F)cccc2)oc2cccc(C(C(=O)[O-]))c12', #-8.7
+  'O=c1cc(-c2ccc(C(=O)O)cc2)oc2cccc(C(C(=O)[O-]))c12', #-8.7
+  'O=c1cc(-c2ccc(C#N)cc2)oc2cccc(C(C(=O)[O-]))c12' #-8.5
+]
+
+# Anthropic
+G3_anthropic_smiles = [
+  'O=c1cc(-c2cc(c7ccc(C(=O)N)cc7)ccc2)oc2c(F)ccc(O)c12', #-9.6
+]
+
+# deepseek-v3.1:671b
+G3_deepseek_v3_smiles = [
+  'O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2c(F)cccc12', #-9.2
+  'O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccccc12', #-9.0
+  'O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccc(F)cc12' #-9.1
+]
+
+# gemini-3-flash-preview
+G3_gemini_3_flash_preview_smiles = [
+  'O=c1cc(-c2c(F)c(F)c(F)cc2)[nH]c2cc(F)cc(CC(=O)O)c12', #-9.1
+  'Cn1c(-c2ccc3cc(F)ccc3c2)cc(=O)c2cc(F)cc(CC(=O)O)c12', #-9.6
+  'Cn1c(-c2c(F)cc(F)cc2)cc(=O)c2cc(F)cc(CC(=O)O)c12' #-9.2
+]
+
+# kimi-k2:1t
+G3_kimi_k2_smiles = [
+  'O=c1cc(-c2c(C)cccc2)oc2cc(F)cc(C(C(=O)[O-]))c12', #-8.9
+  'O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)NS(=O)(=O)C))c12', #-8.0
+  'O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)[O-]))c12' #-8.9
+]
 
 hash_lists = {
     # 'OPENAI Zero-shot': zero_openai_smiles,
@@ -338,8 +376,14 @@ hash_lists = {
     # 'ANTHROPIC': claude,
     # 'OPENAI': gpt5p2,
     # 'GEMINI': gemini3flash
-    'KIMI-K2': kimi_k2,
-    'Deepseek': deepseek
+#     'KIMI-K2': kimi_k2,
+#     'Deepseek': deepseek
+    'G3_OpenAI': G3_openai_smiles,
+    'G3_OpenAI_Original': G3_openai_orig_smiles,
+    'G3_Anthropic': G3_anthropic_smiles,
+    'G3_Deepseek-v3p1': G3_deepseek_v3_smiles,
+    'G3_Gemini-3-Flash-Preview': G3_gemini_3_flash_preview_smiles,
+    'G3_Kimi-K2': G3_kimi_k2_smiles
 }
 
 all_imgs = []

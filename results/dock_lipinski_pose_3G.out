@@ -1,0 +1,96 @@
+Using 32 cores for docking.
+Analysing GPT5p2 =======================================
+SDF file written for score GPT5p2_top_pose.sdf
+CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(F)(F)F : docking score = -7.60 kcal/mol,
+aLogP = 4.12, QED = 0.78
+
+CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(=O)OC : docking score = -7.40 kcal/mol,
+aLogP = 3.37, QED = 0.79
+
+CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)CO : docking score = -7.50 kcal/mol,
+aLogP = 2.58, QED = 0.81
+
+
+Average docking score for GPT5p2 is: -7.5
+Average QED for GPT5p2 is: 0.7924700672645254
+Average aLogP for GPT5p2 is: 3.355186666666667
+======================================================
+
+Analysing GPT5p2_orig =======================================
+SDF file written for score GPT5p2_orig_top_pose.sdf
+O=c1cc(-c2c(F)cccc2)oc2cccc(C(C(=O)[O-]))c12 : docking score = -8.60 kcal/mol,
+aLogP = 1.89, QED = 0.74
+
+O=c1cc(-c2ccc(C(=O)O)cc2)oc2cccc(C(C(=O)[O-]))c12 : docking score = -8.50 kcal/mol,
+aLogP = 1.45, QED = 0.78
+
+O=c1cc(-c2ccc(C#N)cc2)oc2cccc(C(C(=O)[O-]))c12 : docking score = -8.50 kcal/mol,
+aLogP = 1.62, QED = 0.73
+
+
+Average docking score for GPT5p2_orig is: -8.533333333333333
+Average QED for GPT5p2_orig is: 0.750293010711952
+Average aLogP for GPT5p2_orig is: 1.6553933333333328
+======================================================
+
+Analysing Claude =======================================
+SDF file written for score Claude_top_pose.sdf
+O=c1cc(-c2cc(c7ccc(C(=O)N)cc7)ccc2)oc2c(F)ccc(O)c12 : docking score = -9.60 kcal/mol,
+aLogP = 4.07, QED = 0.56
+
+
+Average docking score for Claude is: -9.6
+Average QED for Claude is: 0.5643838757665806
+Average aLogP for Claude is: 4.070600000000002
+======================================================
+
+Analysing Gemini =======================================
+SDF file written for score Gemini_top_pose.sdf
+O=c1cc(-c2c(F)c(F)c(F)cc2)[nH]c2cc(F)cc(CC(=O)O)c12 : docking score = -9.10 kcal/mol,
+aLogP = 3.38, QED = 0.56
+
+Cn1c(-c2ccc3cc(F)ccc3c2)cc(=O)c2cc(F)cc(CC(=O)O)c12 : docking score = -8.50 kcal/mol,
+aLogP = 4.26, QED = 0.58
+
+Cn1c(-c2c(F)cc(F)cc2)cc(=O)c2cc(F)cc(CC(=O)O)c12 : docking score = -8.30 kcal/mol,
+aLogP = 3.25, QED = 0.79
+
+
+Average docking score for Gemini is: -8.633333333333335
+Average QED for Gemini is: 0.6437198352032897
+Average aLogP for Gemini is: 3.630833333333335
+======================================================
+
+Analysing DeepSeek =======================================
+SDF file written for score DeepSeek_top_pose.sdf
+O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2c(F)cccc12 : docking score = -9.20 kcal/mol,
+aLogP = 3.82, QED = 0.79
+
+O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccccc12 : docking score = -9.00 kcal/mol,
+aLogP = 3.68, QED = 0.80
+
+O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccc(F)cc12 : docking score = -9.10 kcal/mol,
+aLogP = 3.82, QED = 0.79
+
+
+Average docking score for DeepSeek is: -9.1
+Average QED for DeepSeek is: 0.7887733751421465
+Average aLogP for DeepSeek is: 3.7776333333333354
+======================================================
+
+Analysing KimiK2 =======================================
+SDF file written for score KimiK2_top_pose.sdf
+O=c1cc(-c2c(C)cccc2)oc2cc(F)cc(C(C(=O)[O-]))c12 : docking score = -8.90 kcal/mol,
+aLogP = 2.20, QED = 0.74
+
+O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)NS(=O)(=O)C))c12 : docking score = -8.00 kcal/mol,
+aLogP = 2.39, QED = 0.76
+
+O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)[O-]))c12 : docking score = -8.60 kcal/mol,
+aLogP = 2.06, QED = 0.74
+
+
+Average docking score for KimiK2 is: -8.5
+Average QED for KimiK2 is: 0.7480246351565526
+Average aLogP for KimiK2 is: 2.2158200000000003
+======================================================

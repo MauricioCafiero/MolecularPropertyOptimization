@@ -215,7 +215,18 @@ The current author recently published a transformer-decoder model fine-tuned to 
     <figcaption>Figure 9. Top molecules for Kimi K2.</figcaption>
 </figure>
 
-#### Table 5. Docking Scores (kcal/mol) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
+#### Table 5. Docking Scores (kcal/mol) for 3rd generation adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
+
+| Model | Adversary |  No. Mols | Low | High | Ave |
+|-------|:-:|:-:|:-:|:-:|---|
+| GPT 5.2  | Claude  | 3 | -7.60 | -7.40 | -7.50 |
+| GPT 5.2-O| Claude  | 3 | -8.60 | -8.50 | -8.53 |
+| Claude   | GPT 5.2 | 1 | -9.60 | -9.60 | -9.60 |
+| Gemini   | Claude  | 3 | -9.10 | -8.50 | -8.63 |
+| DeepSeek | GPT 5.2 | 3 | -9.20 | -9.00 | -9.10 |
+| Kimi K2  | GPT 5.2 | 3 | -8.90 | -8.00 | -8.50 |
+
+#### Table 6. Docking Scores (kcal/mol) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The highest docking score given in the one-shot dataset was -8.6 kcal/mol.
 
 | Model | design mode | No. Mols | Low | High | Ave |
 |-------|:-:|:-:|:-:|:-:|---|
@@ -223,28 +234,34 @@ The current author recently published a transformer-decoder model fine-tuned to 
 | GPT 5.2  | zero/frags| 4 | -8.30 | -6.40 | -7.15 |
 | GPT 5.2  | one-shot  | 5 | -8.90 | -7.20 | -7.82 |
 | GPT 5.2  | w/ Claude | 2 | -8.90 | -8.90 | -8.90 |
+| GPT 5.2  | w/ Claude 3G | 3 | -7.60 | -7.40 | -7.50 |
+| GPT 5.2-O| w/ Claude 3G | 3 | -8.60 | -8.50 | -8.53 |
 ||||||
 | Claude   | zero-shot | 3 | -8.30 | -6.40 | -7.20 |
 | Claude   | zero/frags| 5 | -8.10 | -6.40 | -7.46 |
 | Claude   | one-shot  | 5 | -9.00 | -7.40 | -8.42 |
 | Claude   | w/ GPT 5.2| 5 | -9.90 | -8.10 | -8.96 |
+| Claude   | w/ GPT 5.2 3G | 1 | -9.60 | -9.60 | -9.60 |
 ||||||
 | Gemini   | zero-shot | 2 | -8.10 | -7.90 | -8.00 |
 | Gemini   | zero/frags| 4 | -8.50 | -7.80 | -8.13 |
 | Gemini   | one-shot  | 5 | -9.20 | -7.30 | -8.14 |
 | Gemini   | w/ Claude | 5 | -9.10 | -8.90 | -8.98 |
+| Gemini   | w/ Claude 3G | 3 | -9.10 | -8.50 | -8.63 |
 ||||||
 | DeepSeek   | zero-shot | 4 | -7.40 | -7.00 | -7.13 |
 | DeepSeek   | zero/frags| 2 | -7.70 | -5.30 | -6.50 |
 | DeepSeek   | one-shot  | 4 | -8.20 | -7.50 | -7.80 |
 | DeepSeek   | w/ GPT 5.2| 4 | -9.50 | -8.19 | -8.68 |
+| DeepSeek | w/ GPT 5.2 3G | 3 | -9.20 | -9.00 | -9.10 |
 ||||||
 | Kimi K2    | zero-shot | 5 | -8.30 | -7.00 | -7.78 |
 | Kimi K2    | zero/frags| 5 | -7.40 | -6.10 | -6.76 |
 | Kimi K2    | one-shot  | 4 | -7.50 | -6.90 | -7.15 |
 | Kimi K2    | w/ GPT 5.2| 3 | -8.80 | -8.10 | -8.53 |
+| Kimi K2  | w/ GPT 5.2 3G | 3 | -8.90 | -8.00 | -8.50 |
 
-#### Table 6. Average QED and aLogP for from each CW model / design mode.
+#### Table 7. Average QED and aLogP for from each CW model / design mode.
 
 | Model | design mode | QED | aLogP |
 |-------|:-:|:-:|---|
@@ -252,29 +269,35 @@ The current author recently published a transformer-decoder model fine-tuned to 
 | GPT 5.2  | zero/frags| 0.72 | 3.77 |
 | GPT 5.2  | one-shot  | 0.64 | 1.20 |
 | GPT 5.2  | w/ Claude | 0.72 | 4.04 |
+| GPT 5.2  | w/ Claude 3G | 0.79 | 3.36 |
+| GPT 5.2-O| w/ Claude 3G | 0.75 | 1.66 |
 ||||||
 | Claude   | zero-shot | 0.46 | 1.22 |
 | Claude   | zero/frags| 0.57 | 4.80 |
 | Claude   | one-shot  | 0.55 | 0.34|
 | Claude   | w/ GPT 5.2| 0.67 | 2.18 |
+| Claude   | w/ GPT 5.2| 0.56 | 3.63 |
 ||||||
 | Gemini   | zero-shot | 0.39 | 4.39 |
 | Gemini   | zero/frags| 0.38 | 5.19 |
 | Gemini   | one-shot  | 0.71 | 1.56 |
 | Gemini   | w/ Claude | 0.73 | 2.12 |
+| Gemini   | w/ Claude | 0.64 | 3.63 |
 ||||||
 | Deepseek V3.1  | zero-shot | 0.55 | 2.31 |
 | Deepseek V3.1  | zero/frags| 0.57 | 0.96 |
 | Deepseek V3.1  | one-shot  | 0.49 | 2.13 |
 | DeepSeek V3.2  | w/ GPT 5.2| 0.54 | 3.60 |
+| DeepSeek V3.2  | w/ GPT 5.2| 0.79 | 3.78 |
 ||||||
 | Kimi K2  | zero-shot | 0.64 | 3.67 |
 | Kimi K2  | zero/frags| 0.74 | 1.73 |
 | Kimi K2  | one-shot  | 0.62 | 3.79 |
 | Kimi K2.5| w/ GPT 5.2| 0.74 | 2.18 |
+| Kimi K2.5| w/ GPT 5.2| 0.75 | 2.13 |
 
 
-#### Table 7. Average QED and aLogP for from each OW model / design mode (excluding Deepseek and Kimi K2).
+#### Table 8. Average QED and aLogP for from each OW model / design mode (excluding Deepseek and Kimi K2).
 
 | Model | design mode | QED | aLogP |
 |-------|:-:|:-:|---|
@@ -336,7 +359,7 @@ Rosuvastatin docks in the known catalytic site for HMGCR, with the carboxyl-diol
 
 In order to show the generality of the agentic framework proposed here, the design process was repeated for the task of minimizing the HOMO-LUMO gap (HLG) for molecules. All models were tested in zero-, zero-with-fragments, and one-shot design, and the CW models were tested in adversarial design. When asked to generate molecules with the lowest possible HLG in a zero-shot approach, 
 
-#### Table 8. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
+#### Table 9. HOMO-LUMO gaps (eV) for zero shot molecules for each model tested. 
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -359,7 +382,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 </figure>
 
 
-#### Table 9. HOMO-LUMO gaps (eV) for zero shot molecules with suggested fragments for each model tested.
+#### Table 10. HOMO-LUMO gaps (eV) for zero shot molecules with suggested fragments for each model tested.
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -382,7 +405,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 </figure>
 
 
-#### Table 10. HOMO-LUMO gaps (eV) for one shot molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+#### Table 11. HOMO-LUMO gaps (eV) for one shot molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|---|
@@ -405,7 +428,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 </figure>
 
 
-#### Table 11. HOMO-LUMO gaps (eV) for adversarially designed molecules for each model tested. TThe lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+#### Table 12. HOMO-LUMO gaps (eV) for adversarially designed molecules for each model tested. TThe lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 /*correction for the SMILES error in the Claude session.
 
 | Model | Adversary |  No. Mols | High | Low | Ave |
@@ -441,7 +464,7 @@ In order to show the generality of the agentic framework proposed here, the desi
 </figure>
 
 
-#### Table 12. HOMO-LUMO gap (eV) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
+#### Table 13. HOMO-LUMO gap (eV) progression for zero-shot, one-shot, and adversarially designed molecules for each model tested. The lowest HOMO-LUMO gap given in the one-shot dataset was 5.579 eV.
 
 | Model | design mode | No. Mols | High | Low | Ave |
 |-------|:-:|:-:|:-:|:-:|---|
