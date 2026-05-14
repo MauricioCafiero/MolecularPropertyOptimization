@@ -146,7 +146,8 @@ def dock_and_get_interacting_residues(smiles: str) -> str:
   lig = next(oddt.toolkit.readfile('sdf',ligand_file))
   pro.protein = True
 
-  contacts_results = find_contacts(pro, lig)
+  contacts_results = f'Docking score for the ligand: {score}\n'
+  contacts_results += find_contacts(pro, lig)
 
   return contacts_results
 

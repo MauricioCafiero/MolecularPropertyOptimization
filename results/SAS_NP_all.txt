@@ -1,0 +1,552 @@
+Calculating SAS and NP for OPENAI Zero-shot...
+Results for OPENAI Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)C[C@H](O)C[C@H](O)CCCn1nnnc1-c2ccc(cc2)C(c3ccccc3)(c4ccccc4)O | 3.39 | -0.49 |
+| CC(C)C[C@H](O)C[C@H](O)CCCP(=O)(O)O-c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O | 3.68 | 0.46 |
+| CC(C)C[C@H](O)C[C@H](O)CCC(=O)OCCc1nc2ccccc2n1-c3ccc(cc3)C(c4ccccc4)(c5ccccc5)O | 3.55 | -0.25 |
+| CC(C)C[C@H](O)C[C@H](O)CCC(=O)OCCNS(=O)(=O)c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O | 3.39 | -0.20 |
+| CC(C)C[C@H](O)C[C@H](O)CCC(=O)O-c1ccc(cc1)C2(c3ccccc3)Cc4ccccc42 | 3.57 | 0.62 |
+| Average | 3.52 | 0.03 |
+
+
+==================================================
+
+Calculating SAS and NP for ANTHROPIC Zero-shot...
+Results for ANTHROPIC Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)c1c(C(=O)Nc2ccccc2C(=O)O)c(c(c1)C)C(O)CC(O)C(O)=O | Invalid SMILES | Invalid SMILES |
+| CC(C)C1=C(C(=O)O)C2CCC(O)C(O)C2(C)C1C(O)CC(O)C(=O)O | 4.85 | 1.79 |
+| CC(C)c1c(C(=O)Nc2ccc(F)cc2)c(cc1C(O)CC(O)C(O)=O)CCc1ccccc1 | Invalid SMILES | Invalid SMILES |
+| c1c(C(O)CC(O)C(=O)O)c(cc(n1)C(C)C)C(=O)Nc1ccccc1C(C)C | 3.36 | -0.50 |
+| CC(C)C1=C(C(=O)O)C(C)C(C)(O)C1C(O)CC(O)C(O)=O | 4.56 | 1.46 |
+| Average | 4.25 | 0.92 |
+
+
+==================================================
+
+Calculating SAS and NP for Deepseek-v3.1 Zero-shot...
+Results for Deepseek-v3.1 Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=C(O)CC[C@H](O)C[C@H](O)CCc1c2ccccc2n(CC3CCCCC3)c1C | 3.25 | 0.17 |
+| O=C(O)C[C@H](O)CC[C@H](O)CCc1cnc2c(c1)ccc(c2)F | 3.12 | 0.16 |
+| O=C(O)C[C@H](O)CC[C@H](O)CCc1c(CN2CCOCC2)nc2ccc(C(F)(F)F)cc12 | Invalid SMILES | Invalid SMILES |
+| O=C(O)C[C@H](O)CC[C@H](O)CCS(=O)(=O)c1ccc(CN2CCCCC2)cc1 | 3.08 | -0.41 |
+| O=C(O)CC[C@H](O)C[C@H](O)CCc1cnc(-c2ccc(S(N)(=O)=O)cc2)nc1 | 3.16 | -0.23 |
+| Average | 3.15 | -0.08 |
+
+
+==================================================
+
+Calculating SAS and NP for GPT-OSS-120B Zero-shot...
+Results for GPT-OSS-120B Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OCC(C)C | 4.04 | 1.01 |
+| CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC(C)(C)C | 4.03 | 1.02 |
+| CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC(C)C1=CC=CC=C1F | 4.15 | 0.42 |
+| CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OCC1=CN=CN1 | 4.22 | 0.80 |
+| CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC1=CC(=C(C=C1)Cl)C(F)(F)F | 4.09 | 0.22 |
+| Average | 4.11 | 0.70 |
+
+
+==================================================
+
+Calculating SAS and NP for GPT-OSS-20B Zero-shot...
+Results for GPT-OSS-20B Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC12CCC(=O)C3CC(C(=O)OCCc4occc4)C3(O)C1C2 | 4.45 | 1.02 |
+| CCCCCCCCCC(=O)C(O)C1(C)C(C(=O)OCCc2ncccc2)C(C)C1C | 4.07 | 0.18 |
+| CC12CC(O)C3(C)C(=O)C(=O)OC(C)C1C3OC2 | 5.93 | 2.51 |
+| CC(C)(C)COC(=O)C1CC(C(=O)OCCc2c(C)cccc2)C(C)C1C | 3.70 | -0.08 |
+| CC12CCCC(=O)C(O)C1NC(=O)S(=O)(=O)c3ccccc3 | Invalid SMILES | Invalid SMILES |
+| Average | 4.54 | 0.91 |
+
+
+==================================================
+
+Calculating SAS and NP for DEVSTRAL-2 Zero-shot...
+Results for DEVSTRAL-2 Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)C(=O)O[C@@H](Cc1ccccc1)C(=O)N[C@@H](CC2=CC=C(C=C2)O)C(=O)O | 2.87 | 0.53 |
+| CC(C)C(=O)O[C@@H](Cc1ccc(F)cc1)C(=O)N[C@@H](CCC(O)=O)C(=O)O | 2.94 | 0.35 |
+| CC(C)C(=O)O[C@@H](C1CCC2=CC=CC=C21)C(=O)N[C@@H](CC(O)=O)C(=O)O | 3.48 | 0.57 |
+| CC(C)C(=O)O[C@@H](C1CCN(C)CC1)C(=O)N[C@@H](CCc2ccco2)C(=O)O | 3.43 | -0.04 |
+| CC(C)C(=O)O[C@@H](Cc1ccc(CC(C)C)cc1)C(=O)N[C@@H](CC(O)=O)C(=O)O | 3.03 | 0.55 |
+| Average | 3.15 | 0.39 |
+
+
+==================================================
+
+Calculating SAS and NP for COGITO-2.1 Zero-shot...
+Results for COGITO-2.1 Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)N2C3CCCCC3)O | 2.52 | -0.20 |
+| CC(C)C1=CC(=C(C=C1)C2=C(NC(=O)NC2=O)C3=CC=CC=C3)O | 2.35 | -0.04 |
+| CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)NC2C3=CC=CC=C3)OC | 3.01 | 0.18 |
+| CC(C)C1=CC(=C(C=C1)C2=NC(=O)NC(=O)N2C3CCCC3)O | 2.61 | -0.32 |
+| CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)NC2C3CCC(CC3)O)O | 3.46 | 0.76 |
+| Average | 2.79 | 0.08 |
+
+
+==================================================
+
+Calculating SAS and NP for NEMOTRON-3-NANO Zero-shot...
+Results for NEMOTRON-3-NANO Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC1=CC(C(=C(C=C1)C(=O)O)O)C(=O)NCC(=O)N | 3.69 | 0.18 |
+| CC(C)(C)C(=O)O)C(=O)NCC(=O)N | Invalid SMILES | Invalid SMILES |
+| O=C(N[C@H](C)C(=O)O)C(N[C@H]1CCC[CH]1)C1=CC=C(C=C1)C(=O)O | 3.61 | -0.15 |
+| O=C(C)C1=CC=CC(=C1)C(O)=OC(=O)NCC(=O)N | Invalid SMILES | Invalid SMILES |
+| CCOC(=O)NCC(=O)NCC1=CC=C(C=C1)C(=O)O | 1.74 | -1.06 |
+| Average | 3.01 | -0.35 |
+
+
+==================================================
+
+Calculating SAS and NP for GEMINI Zero-shot...
+Results for GEMINI Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c2cc(F)ccc2nc1N(C)S(=O)(=O)C | 3.75 | -0.07 |
+| CC(C)n1c(C2=CC=C(F)C=C2)c(C2=CC3=CC=CC=C3C=C2)c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c1 | 3.53 | 0.10 |
+| CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c(nc(n1)NS(=O)(=O)C(F)(F)F)C2=CC=C(F)C=C2) | Invalid SMILES | Invalid SMILES |
+| CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c2cc(C(=O)NC)ccc12)C3=CC=C(F)C=C3 | Invalid SMILES | Invalid SMILES |
+| CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c2noc(c12)C3=CC=C(F)C=C3) | Invalid SMILES | Invalid SMILES |
+| Average | 3.64 | 0.01 |
+
+
+==================================================
+
+Calculating SAS and NP for KIMI-K2 Zero-shot...
+Results for KIMI-K2 Zero-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=C(O)CC(O)CC(O)CC1CC(c2ccc(F)cc2)CC1c1ccc(F)cc1 | 3.69 | 0.62 |
+| O=C(O)CC(O)CC(O)Cc1cccc2c1oc1cc(C(F)(F)F)ccc12 | 3.26 | 0.33 |
+| O=C(O)CC(O)CC(O)CC1CCc2c1cc(C(F)(F)F)cc2-c1ccccc1 | 3.52 | 0.46 |
+| O=C(O)CC(O)CC(O)Cc1cccc2nc(C3CC3)ccc12 | 3.11 | 0.24 |
+| O=C(O)CC(O)CC(O)CC1CCc2c1cc(Oc1cc(F)cc(F)c1)cc2 | 3.52 | 0.38 |
+| Average | 3.42 | 0.41 |
+
+
+==================================================
+
+Calculating SAS and NP for OPENAI Fragments...
+Results for OPENAI Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=C(O)CCCCCCc1ccc2ccccc2c1 | 1.64 | 0.25 |
+| O=c1cc(-c2ccccc2)oc2ccccc12CCC(=O)O | Invalid SMILES | Invalid SMILES |
+| O=C(O)Cc1cccc(n1)c2ccc3ccccc3c2 | 1.85 | -0.69 |
+| O=C(O)CCCCc1ccc2cc3ccccc3cc2c1 | 1.81 | 0.27 |
+| O=C(O)Cc1ccc2cc(C#N)ccc2c1 | 1.87 | -0.69 |
+| Average | 1.79 | -0.22 |
+
+
+==================================================
+
+Calculating SAS and NP for ANTHROPIC Fragments...
+Results for ANTHROPIC Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)C[C@H](O)[C@H](C)[C@@H](C=C[C@@H](C)C(=O)O)C[C@@H]1CCC2=C(C1)C=CC(=C2)C(C)C | 4.27 | 1.01 |
+| CC(C)C[C@H](O)[C@H](C)C(=O)Oc1ccc2ccccc2c1-c1ccccc1C(=O)O | 3.05 | 0.33 |
+| CC(C)C[C@H](O)[C@H](C)[C@@H](C=Cc1ccncc1)C[C@H](C(=O)O)C(C)C | 4.00 | 0.75 |
+| O=c1cc(-c2ccccc2)oc2ccc(cc12)CC[C@H](O)[C@H](C)C(=O)O | 2.99 | 0.94 |
+| c1ccc2cc3ccccc3cc2c1CC[C@H](O)[C@H](C(=O)O)C(C)C | 3.06 | 0.74 |
+| Average | 3.47 | 0.75 |
+
+
+==================================================
+
+Calculating SAS and NP for Deepseek-v3.1 Fragments...
+Results for Deepseek-v3.1 Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=C(O)C(C)CC([O-])C(=O)c1cc(-c2ccccc2)oc2ccccc12 | Invalid SMILES | Invalid SMILES |
+| O=C([O-])CC(C)Cc1cnc(n1)c1ccc2ccccc2c1 | Invalid SMILES | Invalid SMILES |
+| C#Nc1ccc(CN(C(C)C)CC([O-])C(=O)O)cn1 | Invalid SMILES | Invalid SMILES |
+| O=C([O-])c1ccco1 | 2.99 | -1.10 |
+| C(C(=O)[O-])c1ccc2cc3ccccc3cc2c1 | 2.26 | -0.21 |
+| Average | 2.63 | -0.65 |
+
+
+==================================================
+
+Calculating SAS and NP for GPT-OSS-120B Fragments...
+Results for GPT-OSS-120B Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| Ic1ncccc1CC(C(O)CO)C(=O)O | 3.66 | 0.50 |
+| c1ccc2ccccc2c1CC(C(O)CO)C(=O)O | 2.86 | 0.57 |
+| O=c1cc(-c2ccccc2)oc2ccccc12C(C(O)CO)C(=O)O | Invalid SMILES | Invalid SMILES |
+| s1cccc1CC(C(O)CO)C(=O)O | 3.28 | -0.30 |
+| n1c[nH]cc1CC(C(O)CO)C(=O)O | 3.83 | 0.84 |
+| Average | 3.41 | 0.40 |
+
+
+==================================================
+
+Calculating SAS and NP for GPT-OSS-20B Fragments...
+Results for GPT-OSS-20B Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2ccccc2)oc2ccccc12C#N | Invalid SMILES | Invalid SMILES |
+| O=c1cc(-c2ccccc2)oc2ccccc12C(C(=O)O(C(C)C)) | Invalid SMILES | Invalid SMILES |
+| c1ccc2cc3ccccc3cc2c1C(=O)[O-] | 2.23 | -0.27 |
+| n1c[nH]cc1C(=O)[O-]C(C)C | Invalid SMILES | Invalid SMILES |
+| c1ccc2ccccc2c1C(C)C#N | 2.46 | -0.64 |
+| Average | 2.35 | -0.45 |
+
+
+==================================================
+
+Calculating SAS and NP for DEVSTRAL-2 Fragments...
+Results for DEVSTRAL-2 Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)(C)c1ccccc1C(=O)O[C@H](C)C(=O)N1CCN(C)CC1 | 2.54 | -1.10 |
+| CC(C)c1ncccc1C(=O)N[C@H](C(=O)O)C(C)C | 2.59 | -0.63 |
+| CC(C)C(=O)Oc1ccc2ccccc2c1C(=O)N[C@H](C)C(=O)O | 2.57 | -0.27 |
+| CC(C)c1c[nH]cc1C(=O)N[C@H](C(=O)O)C(C)C | 2.98 | -0.39 |
+| CC(C)(C)c1ccc2cc3ccccc3cc2c1C(=O)O[C@H](C)C(=O)N1CCN(C)CC1 | 2.91 | -0.70 |
+| Average | 2.72 | -0.62 |
+
+
+==================================================
+
+Calculating SAS and NP for COGITO-2.1 Fragments...
+Results for COGITO-2.1 Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)C(CC1=CC=C(C=C1)C2=CC=CC=C2)C(=O)[O-] | 2.54 | 0.03 |
+| CC(C)C(CC1=CC=CC2=CC=CC=C12)C(=O)[O-] | 2.77 | -0.01 |
+| CC(N(C)C)C(CC1=CC=CC2=CC3=CC=CC=C3CC2=C1)C(=O)[O-] | 4.35 | 0.66 |
+| CC(C)C(CC1=CC=C(O1)C2=CC=CC=C2)C(=O)[O-] | 2.98 | -0.19 |
+| CC(C)C(CC1=CC=CC2=CC=C(O2)C(=O)OCC(C)C)C(=O)[O-] | Invalid SMILES | Invalid SMILES |
+| Average | 3.16 | 0.12 |
+
+
+==================================================
+
+Calculating SAS and NP for NEMOTRON-3-NANO Fragments...
+Results for NEMOTRON-3-NANO Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)[O-] | Invalid SMILES | Invalid SMILES |
+| c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)N(C)C | Invalid SMILES | Invalid SMILES |
+| c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(C(S(=O)(=O)[O-]))(=-O) | Invalid SMILES | Invalid SMILES |
+| c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)C#N | Invalid SMILES | Invalid SMILES |
+| c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)CC(=O)[O-] | Invalid SMILES | Invalid SMILES |
+
+
+==================================================
+
+Calculating SAS and NP for GEMINI Fragments...
+Results for GEMINI Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC(C)c1c(C(=O)Nc2ccccc2)c(-c3ccc(F)cc3)n(CC[C@H](O)C[C@H](O)CC(=O)O)c1-c4ccccc4 | 3.43 | -0.35 |
+| OC(=O)C[C@H](O)C[C@H](O)/C=C/c1c(-c2ccc(F)cc2)c2ccccc2nc1C(C)C | 3.26 | 0.18 |
+| CC(C)c1nc(C(C)C)c(C=C[C@H](O)C[C@H](O)CC(=O)O)c(c1OC)-c2ccc(F)cc2 | 3.56 | 0.36 |
+| O=C(O)C[C@H](O)C[C@H](O)CCc1cc(=O)c2cc(F)ccc2o1-c3ccccc3 | Invalid SMILES | Invalid SMILES |
+| N#Cc1c(C(C)C)n(CC[C@H](O)C[C@H](O)CC(=O)O)c(-c2ccc(F)cc2)c1-c3ccccc3 | 3.37 | -0.36 |
+| Average | 3.41 | -0.04 |
+
+
+==================================================
+
+Calculating SAS and NP for KIMI-K2 Fragments...
+Results for KIMI-K2 Fragments:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CN(C)CCc1cc2ccccc2cc1CC(=O)[O-] | 2.53 | -0.20 |
+| O=c1c(CC(=O)[O-])c(-c2ccccc2)oc2ccccc12 | 2.40 | 0.19 |
+| NCc1cc2cc3ccccc3cc2cc1CC(=O)[O-] | 2.61 | -0.14 |
+| CC(C)OC(=O)c1cc(-c2ccccc2)sc1C#N | 2.36 | -1.11 |
+| O=C([O-])Cc1cc(C#CSC)ccn1 | 3.73 | -0.71 |
+| Average | 2.72 | -0.39 |
+
+
+==================================================
+
+Calculating SAS and NP for OPENAI One-shot...
+Results for OPENAI One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2ccc(C(C(=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 | 3.03 | 0.29 |
+| O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 | 2.95 | 0.43 |
+| O=c1cc(-c2ccccc2)oc2cccc(C(C(=O)[O-])C(=O)[O-])c12 | 2.99 | 0.20 |
+| O=c1cc(-c2ccccc2C(C(=O)[O-]))oc2cccc(C(C))c12 | 2.70 | 0.31 |
+| O=c1cc(-c2ccc(OC#N)cc2)oc2cccc(C(C(=O)[O-]))c12 | 2.96 | 0.31 |
+| Average | 2.93 | 0.31 |
+
+
+==================================================
+
+Calculating SAS and NP for ANTHROPIC One-shot...
+Results for ANTHROPIC One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cccc(c2)C(=O)[O-])oc2cccc(C(=O)[O-])c12 | 3.00 | 0.20 |
+| O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2cccc(C(=O)[O-])c12 | 3.01 | 0.24 |
+| O=c1cc(-c2ccccc2C(=O)[O-])oc2c(C=C([N+](=O)[O-]))ccc(C(C(=O)[O-]))c12 | 3.51 | 0.16 |
+| O=c1cc(-c2ccc(C(=O)[O-])cc2)oc2ccc(C(=O)[O-])cc12 | 2.88 | 0.18 |
+| O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12 | 3.52 | 0.25 |
+| Average | 3.18 | 0.20 |
+
+
+==================================================
+
+Calculating SAS and NP for Deepseek-v3.1 One-shot...
+Results for Deepseek-v3.1 One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cccc(C=C([N+](=O)[O-]))c12 | 2.99 | 0.24 |
+| c1ccc2c(C(C(=O)[O-]))c3cccc(C=C([N+](=O)[O-]))c3cc2c1 | 2.87 | -0.09 |
+| O=c1cc(-c2ccc(C(C(=O)[O-]))cc2)oc2ccc(C=C([N+](=O)[O-]))cc12 | 2.83 | 0.28 |
+| c1cc(C(C(=O)[O-]))c2cc3cc(C=C([N+](=O)[O-]))cc3cc2c1 | Invalid SMILES | Invalid SMILES |
+| O=c1c(C(C(=O)[O-]))c(-c2cc(C=C([N+](=O)[O-]))ccc2)oc2ccccc12 | 2.91 | 0.26 |
+| Average | 2.90 | 0.17 |
+
+
+==================================================
+
+Calculating SAS and NP for GPT-OSS-120B One-shot...
+Results for GPT-OSS-120B One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1c(C(=O)OCC)c(-c2ccc(I)cc2)oc2cccc(C(=O)OCC)c12 | 2.40 | -0.05 |
+| O=c1c(C(=O)OCC)c(-c2ccc([N+](=O)[O-])cc2)oc2cccc([N+](=O)[O-])c12 | 2.44 | -0.30 |
+| O=c1c(C(=O)OCC)c(-c2ccc([N+](=O)[O-])cc2)oc2cccc(C(=O)OCC)c12 | 2.38 | -0.12 |
+| O=c1c(C(=O)OC(C)(C)C)c(-c2ccc(C(=O)OC(C)(C)C)cc2)oc2cccc(C(=O)OC(C)(C)C)c12 | 2.70 | 0.26 |
+| O=c1c(C(=O)[O-])c(-c2ccc(C(=O)[O-])cc2)oc2cccc(C(=O)[O-])c12 | 3.37 | 0.19 |
+| Average | 2.66 | -0.00 |
+
+
+==================================================
+
+Calculating SAS and NP for GPT-OSS-20B One-shot...
+Results for GPT-OSS-20B One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| c1c(C(C(=O)[O-])c(C(C(=O)[O-]))ccc1 | Invalid SMILES | Invalid SMILES |
+| O=c1c(C(C(=O)[O-])c(-c2cc(C(C(=O)[O-]))ccc2)oc2ccccc12 | Invalid SMILES | Invalid SMILES |
+| c1c(C(C(=O)[O-])c(C(N)(C)C)cc1 | Invalid SMILES | Invalid SMILES |
+| O=c1c(O(C#N))c(-c2cc(C(C(=O)[O-]))ccc2)oc2ccccc12 | 2.85 | 0.10 |
+| Average | 2.85 | 0.10 |
+
+
+==================================================
+
+Calculating SAS and NP for DEVSTRAL-2 One-shot...
+Results for DEVSTRAL-2 One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C=C([N+](=O)[O-]))ccc12 | 2.90 | 0.29 |
+| O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C(=O)O(C(C)C))ccc12 | 2.59 | -0.08 |
+| O=c1cc(-c2ccccc2)oc2cccc(C(C(=O)[O-]))c12 | 2.54 | 0.35 |
+| O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2ccn(C=C([N+](=O)[O-]))cc12 | Invalid SMILES | Invalid SMILES |
+| O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C(C(=O)[O-]))ccc12 | 2.96 | 0.17 |
+| Average | 2.75 | 0.18 |
+
+
+==================================================
+
+Calculating SAS and NP for COGITO-2.1 One-shot...
+Results for COGITO-2.1 One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cccc(C(C(=O)[O-]))c12 | 3.08 | 0.31 |
+| O=c1cc(-c2cc(C(C(=O)[O-]))ccc2)oc2ccc(C=C([N+](=O)[O-]))cc12 | 2.88 | 0.25 |
+| O=c1cc(-c2cc(C(=O)O(C(C)C))ccc2)oc2ccc(C(C(=O)[O-]))cc12 | 2.59 | -0.16 |
+| O=c1cc(-c2ccccc2C(C(=O)[O-]))oc2cccc(C=C([N+](=O)[O-]))c12 | 3.04 | 0.22 |
+| O=c1cc(-c2cc(C(C(=O)[O-]))ccc2C(C(=O)[O-]))oc2ccccc12 | 3.04 | 0.18 |
+| Average | 2.93 | 0.16 |
+
+
+==================================================
+
+Calculating SAS and NP for NEMOTRON-3-NANO One-shot...
+Results for NEMOTRON-3-NANO One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| c1c2c(ccccc2)c(cccc1)C(=O)Oc3ccc(cc3)C(=O)O | Invalid SMILES | Invalid SMILES |
+| c1c2ccccc2c(ccccc1)C(=O)Nc3ccc(cc3)C(=O)O | Invalid SMILES | Invalid SMILES |
+| C1=CC=C(C=C1)C(=O)Oc2ccccc2C(=O)Oc3ccccc3 | 1.62 | -0.54 |
+| c1c2c(ccccc2)c(ccccc1)C(=O)Oc3ccc(cc3)N=C=O | 2.44 | -0.59 |
+| c1c2c(ccccc2)c(ccccc1)C(=O)Oc3ccccc3C(=O)Oc4ccccc4 | 2.25 | -0.43 |
+| Average | 2.10 | -0.52 |
+
+
+==================================================
+
+Calculating SAS and NP for GEMINI One-shot...
+Results for GEMINI One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| [O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc(CC(=O)[O-])cc3 | 3.03 | 0.29 |
+| [O-]C(=O)CC(O)Cc1cccc2oc(cc(=O)c12)-c3ccccc3 | 3.13 | 0.62 |
+| [O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc(F)cc3 | 2.59 | -0.02 |
+| [O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc4ccccc4c3 | 2.57 | 0.29 |
+| O=c1cc(-c2ccccc2)oc2c(O)cc(CC(=O)[O-])cc12 | 2.67 | 0.74 |
+| Average | 2.80 | 0.38 |
+
+
+==================================================
+
+Calculating SAS and NP for KIMI-K2 One-shot...
+Results for KIMI-K2 One-shot:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=C(O)Cc1cc2cc3ccccc3cc2o1 | 2.12 | 0.49 |
+| O=C(O)CCc1cc2cc3ccccc3cc2o1 | 2.06 | 0.37 |
+| O=C(O)Cc1cc2c(CC(=O)O)cc3ccccc3cc2o1 | Invalid SMILES | Invalid SMILES |
+| O=C(O)Cc1cc2cc3cc4ccccc4cc3cc2o1 | 2.28 | 0.45 |
+| O=C(O)C(C(=O)O)c1cc2cc3cc4ccccc4cc3cc2o1 | 2.51 | 0.21 |
+| Average | 2.24 | 0.38 |
+
+
+==================================================
+
+Calculating SAS and NP for ANTHROPIC...
+Results for ANTHROPIC:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1c(O)c(-c2c(C)cc(C(=O)N)cc2)oc2c(F)ccc(C(=O)N)c12 | 2.60 | -0.03 |
+| O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N)c12 | 2.63 | -0.39 |
+| O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N(C)C)c12 | 2.70 | -0.36 |
+| O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)ccc2)oc2c(C(F)(F)(F))ccc(C(=O)N)c12 | 3.14 | -0.00 |
+| O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)c(F)cc2)oc2cc(F)cc(C)c12 | 3.07 | -0.18 |
+| Average | 2.83 | -0.19 |
+
+
+==================================================
+
+Calculating SAS and NP for OPENAI...
+Results for OPENAI:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1c(O)c(-c2ccc(CC(C)(C)C)cc2)oc2cccc(C(C(=O)O))c12 | 2.48 | 0.63 |
+| O=c1c(O)c(-c2ccc(OC(F)(F)(F))cc2)oc2cccc(C(C(=O)O))c12 | 2.46 | 0.30 |
+| Average | 2.47 | 0.46 |
+
+
+==================================================
+
+Calculating SAS and NP for GEMINI...
+Results for GEMINI:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 | 2.85 | -0.27 |
+| O=c1cc(-c2c(OC)c(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 | 3.06 | 0.08 |
+| O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 | 2.74 | 0.09 |
+| O=c1cc(-c2c(F)cc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 | 2.87 | -0.16 |
+| O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12 | 2.72 | -0.31 |
+| Average | 2.85 | -0.12 |
+
+
+==================================================
+
+Calculating SAS and NP for KIMI-K2...
+Results for KIMI-K2:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| Cc1c(C)c2c(c3c(F)c(O)c(C(=O)N)c(C)c13)C(C)=C(C(=O)[O-])O2 | 3.40 | 0.06 |
+| Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(C)c13)C(C)=C(C(=O)[O-])O2 | 3.32 | 0.34 |
+| Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(F)c13)C(C)=C(C(=O)[O-])O2 | 3.45 | 0.03 |
+| Average | 3.39 | 0.15 |
+
+
+==================================================
+
+Calculating SAS and NP for Deepseek...
+Results for Deepseek:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12 | 3.19 | -0.19 |
+| O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12 | 3.25 | 0.03 |
+| O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12 | 3.37 | -0.11 |
+| O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12 | 3.43 | -0.06 |
+| Average | 3.31 | -0.08 |
+
+
+==================================================
+
+Calculating SAS and NP for G3_OpenAI...
+Results for G3_OpenAI:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(F)(F)F | 2.26 | -1.39 |
+| CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(=O)OC | 2.13 | -1.23 |
+| CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)CO | 1.92 | -1.33 |
+| Average | 2.10 | -1.32 |
+
+
+==================================================
+
+Calculating SAS and NP for G3_OpenAI_Original...
+Results for G3_OpenAI_Original:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2c(F)cccc2)oc2cccc(C(C(=O)[O-]))c12 | 2.65 | -0.11 |
+| O=c1cc(-c2ccc(C(=O)O)cc2)oc2cccc(C(C(=O)[O-]))c12 | 2.59 | 0.37 |
+| O=c1cc(-c2ccc(C#N)cc2)oc2cccc(C(C(=O)[O-]))c12 | 2.72 | -0.10 |
+| Average | 2.65 | 0.05 |
+
+
+==================================================
+
+Calculating SAS and NP for G3_Anthropic...
+Results for G3_Anthropic:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cc(c7ccc(C(=O)N)cc7)ccc2)oc2c(F)ccc(O)c12 | 2.30 | -0.01 |
+| Average | 2.30 | -0.01 |
+
+
+==================================================
+
+Calculating SAS and NP for G3_Deepseek-v3p1...
+Results for G3_Deepseek-v3p1:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2c(F)cccc12 | 2.89 | -0.19 |
+| O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccccc12 | 2.71 | 0.08 |
+| O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccc(F)cc12 | 2.82 | -0.28 |
+| Average | 2.81 | -0.13 |
+
+
+==================================================
+
+Calculating SAS and NP for G3_Gemini-3-Flash-Preview...
+Results for G3_Gemini-3-Flash-Preview:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2c(F)c(F)c(F)cc2)[nH]c2cc(F)cc(CC(=O)O)c12 | 2.69 | -0.36 |
+| Cn1c(-c2ccc3cc(F)ccc3c2)cc(=O)c2cc(F)cc(CC(=O)O)c12 | 2.54 | -0.46 |
+| Cn1c(-c2c(F)cc(F)cc2)cc(=O)c2cc(F)cc(CC(=O)O)c12 | 2.57 | -0.53 |
+| Average | 2.60 | -0.45 |
+
+
+==================================================
+
+Calculating SAS and NP for G3_Kimi-K2...
+Results for G3_Kimi-K2:
+| SMILES | SAS Score | NP Score |
+|---------|-----------|----------|
+| O=c1cc(-c2c(C)cccc2)oc2cc(F)cc(C(C(=O)[O-]))c12 | 2.77 | 0.00 |
+| O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)NS(=O)(=O)C))c12 | 2.42 | -0.19 |
+| O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)[O-]))c12 | 2.63 | 0.16 |
+| Average | 2.61 | -0.01 |
+
+
+==================================================
+

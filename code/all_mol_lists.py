@@ -1,51 +1,3 @@
-from rdkit import Chem
-from rdkit.Chem import RDConfig
-import sys, os
-sys.path.append(os.path.join(RDConfig.RDContribDir, 'SA_Score'))
-sys.path.append(os.path.join(RDConfig.RDContribDir, 'NP_Score'))
-import sascorer, npscorer
-
-# code works on local conda environment, on Colab, and on Github codespace
-
-def calculate_SAS_and_NP(smiles_list: list[str]):
-    '''Calculate SAS and NP scores for a list of SMILES strings. SAS score is a measure 
-    of synthetic accessibility, and a value of 1 indicates that the molecule is easy to synthesize, 
-    while a value of 10 indicates that it is difficult to synthesize. 
-    NP score is a measure of natural product-likeness, and a higher score indicates that the 
-    molecule is more similar to natural products; the score runs from -5 to 5, with higher scores 
-    indicating greater similarity to natural products.
-
-    Args:
-        smiles_list (list[str]): A list of SMILES strings representing the molecules to be scored.
-
-    Returns:
-        list[tuple[float, float]]: A list of tuples containing the SAS and NP scores for each molecule.
-    '''
-    fscore = npscorer.readNPModel()
-
-    out_string = '| SMILES | SAS Score | NP Score |\n'
-    out_string += '|---------|-----------|----------|\n'
-    ave_sas_score = 0
-    ave_np_score = 0
-    count_valid = 0
-    for smiles in smiles_list:
-        mol = Chem.MolFromSmiles(smiles)
-        if mol is not None:
-            sas_score = sascorer.calculateScore(mol)
-            np_score = npscorer.scoreMol(mol, fscore)
-            out_string += f'| {smiles} | {sas_score:.2f} | {np_score:.2f} |\n'
-            ave_sas_score += sas_score
-            ave_np_score += np_score
-            count_valid += 1
-        else:
-            out_string += f'| {smiles} | {"Invalid SMILES"} | {"Invalid SMILES"} |\n'
-    if count_valid > 0:
-        ave_sas_score /= count_valid
-        ave_np_score /= count_valid
-        out_string += f'| Average | {ave_sas_score:.2f} | {ave_np_score:.2f} |\n'
-    return out_string
-
-
 zero_openai_smiles = [
     "CC(C)C[C@H](O)C[C@H](O)CCCn1nnnc1-c2ccc(cc2)C(c3ccccc3)(c4ccccc4)O",
     "CC(C)C[C@H](O)C[C@H](O)CCCP(=O)(O)O-c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O",
@@ -409,10 +361,3 @@ hash_lists = {
     'G3_Gemini-3-Flash-Preview': G3_gemini_3_flash_preview_smiles,
     'G3_Kimi-K2': G3_kimi_k2_smiles
 }
-
-for name, smiles_list in hash_lists.items():
-    print(f"Calculating SAS and NP for {name}...")
-    result = calculate_SAS_and_NP(smiles_list)
-    print(f"Results for {name}:")
-    print(result)
-    print("\n" + "="*50 + "\n")
