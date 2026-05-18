@@ -46,7 +46,7 @@ and a higher score indicates that the molecule is more similar to natural produc
 indicating greater similarity to natural products. Should be called for promising molecules with good docking scores and
 good Lipinski Properties.
 
-dock_and_get_interacting_residues(smiles: str) -> str: Returns the types of interactions between a docked molecule and
+dock_and_get_interacting_residues(smiles: str) -> str: Returns the docking score and types of interactions between a docked molecule and
 residues in the target protein. To be used to evaluate whether or not a promising molecule is docked to the expected binding site.
 Not to be used until a molecule unless a molecule has been deemed to have a low docking score and  good Lipinsky properties. 
 For the system studied here, HMGCR, the interactions for the known binder Rosuvastatin are:
