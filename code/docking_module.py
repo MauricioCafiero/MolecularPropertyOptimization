@@ -117,7 +117,7 @@ def calculate_SAS_and_NP(smiles_list: list[str]):
 
 def dock_and_get_interacting_residues(smiles: str) -> str:
   '''
-    Docks a molecule to the target and returns the interacting residues. If the docking fails, returns an empty list.
+    Docks a molecule to the target and returns the score and interacting residues. If the docking fails, returns an empty list.
 
       Args:
           smiles (str): the SMILES string of the molecule to dock and get interacting residues.

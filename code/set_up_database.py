@@ -1,6 +1,7 @@
 import sqlite3
 from all_mol_lists import *
 import re
+from insert_qed_alogp import insert_QED_aLogP
 
 def set_up_database():
     conn = sqlite3.connect('../data/gen_molecules.db')
@@ -118,6 +119,7 @@ print("Setting up the database...")
 #set_up_database()
 #initial_setup()
 #insert_scores('../results/ZERO_SHOT/dock_zero_verify_lipinski.out', 5)
+#insert_QED_aLogP('../results/ZERO_SHOT/dock_zero_verify_lipinski.out')
 
 #print all columns where score < -9.0
 conn = sqlite3.connect('../data/gen_molecules.db')
@@ -130,7 +132,7 @@ for row in rows:
 conn.close()
 
 #print table
-print_flag = False
+print_flag = True
 if print_flag:
     conn = sqlite3.connect('../data/gen_molecules.db')
     c = conn.cursor()
