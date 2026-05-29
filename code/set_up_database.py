@@ -119,20 +119,29 @@ print("Setting up the database...")
 #set_up_database()
 #initial_setup()
 #insert_scores('../results/ZERO_SHOT/dock_zero_verify_lipinski.out', 5)
-#insert_QED_aLogP('../results/ZERO_SHOT/dock_zero_verify_lipinski.out')
+#insert_QED_aLogP('../results/lipinski_results_all.txt')
 
-#print all columns where score < -9.0
+#print all columns where score < -9.0, and include column headers
 conn = sqlite3.connect('../data/gen_molecules.db')
 c = conn.cursor()
 c.execute('SELECT * FROM molecules WHERE Score < -9.0')
 rows = c.fetchall()
 print(f"Total rows with Score < -9.0: {len(rows)}")
+print("id | model_mode_name | SMILES | Score | QED | aLogP | SAS | NP")
 for row in rows:
     print(row)
 conn.close()
 
+#print all columns where QED = -999, and include column headers
+conn = sqlite3.connect('../data/gen_molecules.db')
+c = conn.cursor()
+c.execute('SELECT * FROM molecules WHERE QED = -999')
+rows = c.fetchall()
+print(f"Total rows with QED = -999: {len(rows)} [These are likely molecules where QED calculation failed]")
+conn.close()
+
 #print table
-print_flag = True
+print_flag = False
 if print_flag:
     conn = sqlite3.connect('../data/gen_molecules.db')
     c = conn.cursor()

@@ -735,7 +735,7 @@ HLG example, adversary prompt. Same as above with the first paragraph replaced w
 <figure>
     <img src="../results/HL/HL_all_images/one_Kimi_k2_finalists.png"
          alt="molecules">
-    <figcaption>Supporting Figure 76. HOMO-LUMO gap one-shot generated molecules for Kimi-K2.</figcaption>
+    <figcaption>Supporting Figure 77. HOMO-LUMO gap one-shot generated molecules for Kimi-K2.</figcaption>
 </figure>
 
 ### GPT-OSS-120B

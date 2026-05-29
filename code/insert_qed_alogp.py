@@ -5,7 +5,7 @@ import re
 smiles_pattern = r'[CHONFClBrISPKacnosp0-9@+\-\[\]\(\)\/.=#$%]{5,}'
 
 def insert_QED_aLogP(filename: str):
-    """Extract QED and aLogP values from dock_zero_verify_lipinski.out and insert into database"""
+    """Extract QED and aLogP values from lipinski results file and insert into database"""
     qed_alogp_list = []
     
     with open(filename, 'r', encoding='utf-8', errors='ignore') as f:
@@ -16,8 +16,8 @@ def insert_QED_aLogP(filename: str):
         while i < len(lines):
             line = lines[i]
             
-            # Look for lines with SMILES and docking score (first line)
-            if ':' in line and 'docking score' in line:
+            # Look for lines with SMILES and properties marker
+            if ':' in line and ('properties' in line or 'docking score' in line):
                 # Extract SMILES from this line
                 parts = line.split(':')
                 smiles_part = parts[0].strip()

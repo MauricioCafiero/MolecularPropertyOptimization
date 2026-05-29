@@ -1,0 +1,450 @@
+OPENAI Zero-shot:
+CC(C)C[C@H](O)C[C@H](O)CCCn1nnnc1-c2ccc(cc2)C(c3ccccc3)(c4ccccc4)O : properties
+aLogP = 4.56, QED = 0.25
+CC(C)C[C@H](O)C[C@H](O)CCCP(=O)(O)O-c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O : properties
+aLogP = 5.47, QED = 0.18
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)OCCc1nc2ccccc2n1-c3ccc(cc3)C(c4ccccc4)(c5ccccc5)O : properties
+aLogP = 6.33, QED = 0.10
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)OCCNS(=O)(=O)c1ccc(cc1)C(c2ccccc2)(c3ccccc3)O : properties
+aLogP = 3.73, QED = 0.12
+CC(C)C[C@H](O)C[C@H](O)CCC(=O)O-c1ccc(cc1)C2(c3ccccc3)Cc4ccccc42 : properties
+aLogP = 5.42, QED = 0.31
+----------------------------------------------------------
+ANTHROPIC Zero-shot:
+CC(C)c1c(C(=O)Nc2ccccc2C(=O)O)c(c(c1)C)C(O)CC(O)C(O)=O : properties
+aLogP = -999.00, QED = -999.00
+CC(C)C1=C(C(=O)O)C2CCC(O)C(O)C2(C)C1C(O)CC(O)C(=O)O : properties
+aLogP = -0.01, QED = 0.38
+CC(C)c1c(C(=O)Nc2ccc(F)cc2)c(cc1C(O)CC(O)C(O)=O)CCc1ccccc1 : properties
+aLogP = -999.00, QED = -999.00
+c1c(C(O)CC(O)C(=O)O)c(cc(n1)C(C)C)C(=O)Nc1ccccc1C(C)C : properties
+aLogP = 3.45, QED = 0.54
+CC(C)C1=C(C(=O)O)C(C)C(C)(O)C1C(O)CC(O)C(O)=O : properties
+aLogP = 0.24, QED = 0.47
+----------------------------------------------------------
+Deepseek-v3.1 Zero-shot:
+O=C(O)CC[C@H](O)C[C@H](O)CCc1c2ccccc2n(CC3CCCCC3)c1C : properties
+aLogP = 4.44, QED = 0.55
+O=C(O)C[C@H](O)CC[C@H](O)CCc1cnc2c(c1)ccc(c2)F : properties
+aLogP = 2.28, QED = 0.69
+O=C(O)C[C@H](O)CC[C@H](O)CCc1c(CN2CCOCC2)nc2ccc(C(F)(F)F)cc12 : properties
+aLogP = -999.00, QED = -999.00
+O=C(O)C[C@H](O)CC[C@H](O)CCS(=O)(=O)c1ccc(CN2CCCCC2)cc1 : properties
+aLogP = 1.81, QED = 0.51
+O=C(O)CC[C@H](O)C[C@H](O)CCc1cnc(-c2ccc(S(N)(=O)=O)cc2)nc1 : properties
+aLogP = 0.70, QED = 0.45
+----------------------------------------------------------
+GPT-OSS-120B Zero-shot:
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OCC(C)C : properties
+aLogP = 4.61, QED = 0.60
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC(C)(C)C : properties
+aLogP = 4.75, QED = 0.65
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC(C)C1=CC=CC=C1F : properties
+aLogP = 5.85, QED = 0.50
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OCC1=CN=CN1 : properties
+aLogP = 3.87, QED = 0.70
+CC(C)CCCC(C)C1CCC2C(C1)C(=O)O[C@@H]2C(=O)OC1=CC(=C(C=C1)Cl)C(F)(F)F : properties
+aLogP = 6.68, QED = 0.33
+----------------------------------------------------------
+GPT-OSS-20B Zero-shot:
+CC12CCC(=O)C3CC(C(=O)OCCc4occc4)C3(O)C1C2 : properties
+aLogP = 2.12, QED = 0.86
+CCCCCCCCCC(=O)C(O)C1(C)C(C(=O)OCCc2ncccc2)C(C)C1C : properties
+aLogP = 5.15, QED = 0.33
+CC12CC(O)C3(C)C(=O)C(=O)OC(C)C1C3OC2 : properties
+aLogP = 0.29, QED = 0.50
+CC(C)(C)COC(=O)C1CC(C(=O)OCCc2c(C)cccc2)C(C)C1C : properties
+aLogP = 4.58, QED = 0.68
+CC12CCCC(=O)C(O)C1NC(=O)S(=O)(=O)c3ccccc3 : properties
+aLogP = -999.00, QED = -999.00
+----------------------------------------------------------
+DEVSTRAL-2 Zero-shot:
+CC(C)C(=O)O[C@@H](Cc1ccccc1)C(=O)N[C@@H](CC2=CC=C(C=C2)O)C(=O)O : properties
+aLogP = 2.31, QED = 0.56
+CC(C)C(=O)O[C@@H](Cc1ccc(F)cc1)C(=O)N[C@@H](CCC(O)=O)C(=O)O : properties
+aLogP = 1.37, QED = 0.52
+CC(C)C(=O)O[C@@H](C1CCC2=CC=CC=C21)C(=O)N[C@@H](CC(O)=O)C(=O)O : properties
+aLogP = 1.33, QED = 0.58
+CC(C)C(=O)O[C@@H](C1CCN(C)CC1)C(=O)N[C@@H](CCc2ccco2)C(=O)O : properties
+aLogP = 1.69, QED = 0.61
+CC(C)C(=O)O[C@@H](Cc1ccc(CC(C)C)cc1)C(=O)N[C@@H](CC(O)=O)C(=O)O : properties
+aLogP = 2.04, QED = 0.48
+----------------------------------------------------------
+COGITO-2.1 Zero-shot:
+CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)N2C3CCCCC3)O : properties
+aLogP = 3.54, QED = 0.90
+CC(C)C1=CC(=C(C=C1)C2=C(NC(=O)NC2=O)C3=CC=CC=C3)O : properties
+aLogP = 3.23, QED = 0.69
+CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)NC2C3=CC=CC=C3)OC : properties
+aLogP = 3.78, QED = 0.88
+CC(C)C1=CC(=C(C=C1)C2=NC(=O)NC(=O)N2C3CCCC3)O : properties
+aLogP = 2.54, QED = 0.91
+CC(C)C1=CC(=C(C=C1)C2=CC(=O)NC(=O)NC2C3CCC(CC3)O)O : properties
+aLogP = 2.66, QED = 0.67
+----------------------------------------------------------
+NEMOTRON-3-NANO Zero-shot:
+CC1=CC(C(=C(C=C1)C(=O)O)O)C(=O)NCC(=O)N : properties
+aLogP = -0.38, QED = 0.55
+CC(C)(C)C(=O)O)C(=O)NCC(=O)N : properties
+aLogP = -999.00, QED = -999.00
+O=C(N[C@H](C)C(=O)O)C(N[C@H]1CCC[CH]1)C1=CC=C(C=C1)C(=O)O : properties
+aLogP = 1.36, QED = 0.60
+O=C(C)C1=CC=CC(=C1)C(O)=OC(=O)NCC(=O)N : properties
+aLogP = -999.00, QED = -999.00
+CCOC(=O)NCC(=O)NCC1=CC=C(C=C1)C(=O)O : properties
+aLogP = 0.75, QED = 0.71
+----------------------------------------------------------
+GEMINI Zero-shot:
+CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c2cc(F)ccc2nc1N(C)S(=O)(=O)C : properties
+aLogP = 2.49, QED = 0.53
+CC(C)n1c(C2=CC=C(F)C=C2)c(C2=CC3=CC=CC=C3C=C2)c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c1 : properties
+aLogP = 6.30, QED = 0.26
+CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c(nc(n1)NS(=O)(=O)C(F)(F)F)C2=CC=C(F)C=C2) : properties
+aLogP = -999.00, QED = -999.00
+CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c2cc(C(=O)NC)ccc12)C3=CC=C(F)C=C3 : properties
+aLogP = -999.00, QED = -999.00
+CC(C)c1c(\C=C\[C@H](O)C[C@H](O)CC(=O)O)c(c2noc(c12)C3=CC=C(F)C=C3) : properties
+aLogP = -999.00, QED = -999.00
+----------------------------------------------------------
+KIMI-K2 Zero-shot:
+O=C(O)CC(O)CC(O)CC1CC(c2ccc(F)cc2)CC1c1ccc(F)cc1 : properties
+aLogP = 4.22, QED = 0.62
+O=C(O)CC(O)CC(O)Cc1cccc2c1oc1cc(C(F)(F)F)ccc12 : properties
+aLogP = 3.73, QED = 0.60
+O=C(O)CC(O)CC(O)CC1CCc2c1cc(C(F)(F)F)cc2-c1ccccc1 : properties
+aLogP = 4.38, QED = 0.64
+O=C(O)CC(O)CC(O)Cc1cccc2nc(C3CC3)ccc12 : properties
+aLogP = 2.24, QED = 0.73
+O=C(O)CC(O)CC(O)CC1CCc2c1cc(Oc1cc(F)cc(F)c1)cc2 : properties
+aLogP = 3.76, QED = 0.64
+----------------------------------------------------------
+OPENAI Fragments:
+O=C(O)CCCCCCc1ccc2ccccc2c1 : properties
+aLogP = 4.42, QED = 0.74
+O=c1cc(-c2ccccc2)oc2ccccc12CCC(=O)O : properties
+aLogP = -999.00, QED = -999.00
+O=C(O)Cc1cccc(n1)c2ccc3ccccc3c2 : properties
+aLogP = 3.53, QED = 0.79
+O=C(O)CCCCc1ccc2cc3ccccc3cc2c1 : properties
+aLogP = 4.79, QED = 0.54
+O=C(O)Cc1ccc2cc(C#N)ccc2c1 : properties
+aLogP = 2.34, QED = 0.83
+----------------------------------------------------------
+ANTHROPIC Fragments:
+CC(C)C[C@H](O)[C@H](C)[C@@H](C=C[C@@H](C)C(=O)O)C[C@@H]1CCC2=C(C1)C=CC(=C2)C(C)C : properties
+aLogP = 6.24, QED = 0.45
+CC(C)C[C@H](O)[C@H](C)C(=O)Oc1ccc2ccccc2c1-c1ccccc1C(=O)O : properties
+aLogP = 5.15, QED = 0.42
+CC(C)C[C@H](O)[C@H](C)[C@@H](C=Cc1ccncc1)C[C@H](C(=O)O)C(C)C : properties
+aLogP = 4.50, QED = 0.65
+O=c1cc(-c2ccccc2)oc2ccc(cc12)CC[C@H](O)[C@H](C)C(=O)O : properties
+aLogP = 3.47, QED = 0.71
+c1ccc2cc3ccccc3cc2c1CC[C@H](O)[C@H](C(=O)O)C(C)C : properties
+aLogP = 4.64, QED = 0.64
+----------------------------------------------------------
+Deepseek-v3.1 Fragments:
+O=C(O)C(C)CC([O-])C(=O)c1cc(-c2ccccc2)oc2ccccc12 : properties
+aLogP = -999.00, QED = -999.00
+O=C([O-])CC(C)Cc1cnc(n1)c1ccc2ccccc2c1 : properties
+aLogP = -999.00, QED = -999.00
+C#Nc1ccc(CN(C(C)C)CC([O-])C(=O)O)cn1 : properties
+aLogP = -999.00, QED = -999.00
+O=C([O-])c1ccco1 : properties
+aLogP = -0.36, QED = 0.50
+C(C(=O)[O-])c1ccc2cc3ccccc3cc2c1 : properties
+aLogP = 2.29, QED = 0.64
+----------------------------------------------------------
+GPT-OSS-120B Fragments:
+Ic1ncccc1CC(C(O)CO)C(=O)O : properties
+aLogP = 0.28, QED = 0.53
+c1ccc2ccccc2c1CC(C(O)CO)C(=O)O : properties
+aLogP = 1.44, QED = 0.76
+O=c1cc(-c2ccccc2)oc2ccccc12C(C(O)CO)C(=O)O : properties
+aLogP = -999.00, QED = -999.00
+s1cccc1CC(C(O)CO)C(=O)O : properties
+aLogP = 0.34, QED = 0.66
+n1c[nH]cc1CC(C(O)CO)C(=O)O : properties
+aLogP = -0.99, QED = 0.49
+----------------------------------------------------------
+GPT-OSS-20B Fragments:
+O=c1cc(-c2ccccc2)oc2ccccc12C#N : properties
+aLogP = -999.00, QED = -999.00
+O=c1cc(-c2ccccc2)oc2ccccc12C(C(=O)O(C(C)C)) : properties
+aLogP = -999.00, QED = -999.00
+c1ccc2cc3ccccc3cc2c1C(=O)[O-] : properties
+aLogP = 2.36, QED = 0.59
+n1c[nH]cc1C(=O)[O-]C(C)C : properties
+aLogP = -999.00, QED = -999.00
+c1ccc2ccccc2c1C(C)C#N : properties
+aLogP = 3.47, QED = 0.66
+----------------------------------------------------------
+DEVSTRAL-2 Fragments:
+CC(C)(C)c1ccccc1C(=O)O[C@H](C)C(=O)N1CCN(C)CC1 : properties
+aLogP = 2.30, QED = 0.80
+CC(C)c1ncccc1C(=O)N[C@H](C(=O)O)C(C)C : properties
+aLogP = 2.04, QED = 0.85
+CC(C)C(=O)Oc1ccc2ccccc2c1C(=O)N[C@H](C)C(=O)O : properties
+aLogP = 2.60, QED = 0.65
+CC(C)c1c[nH]cc1C(=O)N[C@H](C(=O)O)C(C)C : properties
+aLogP = 1.98, QED = 0.75
+CC(C)(C)c1ccc2cc3ccccc3cc2c1C(=O)O[C@H](C)C(=O)N1CCN(C)CC1 : properties
+aLogP = 4.61, QED = 0.45
+----------------------------------------------------------
+COGITO-2.1 Fragments:
+CC(C)C(CC1=CC=C(C=C1)C2=CC=CC=C2)C(=O)[O-] : properties
+aLogP = 2.92, QED = 0.84
+CC(C)C(CC1=CC=CC2=CC=CC=C12)C(=O)[O-] : properties
+aLogP = 2.40, QED = 0.82
+CC(N(C)C)C(CC1=CC=CC2=CC3=CC=CC=C3CC2=C1)C(=O)[O-] : properties
+aLogP = 2.76, QED = 0.83
+CC(C)C(CC1=CC=C(O1)C2=CC=CC=C2)C(=O)[O-] : properties
+aLogP = 2.51, QED = 0.83
+CC(C)C(CC1=CC=CC2=CC=C(O2)C(=O)OCC(C)C)C(=O)[O-] : properties
+aLogP = -999.00, QED = -999.00
+----------------------------------------------------------
+NEMOTRON-3-NANO Fragments:
+c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)[O-] : properties
+aLogP = -999.00, QED = -999.00
+c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)N(C)C : properties
+aLogP = -999.00, QED = -999.00
+c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(C(S(=O)(=O)[O-]))(=-O) : properties
+aLogP = -999.00, QED = -999.00
+c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)C#N : properties
+aLogP = -999.00, QED = -999.00
+c1c2ccnc3c2ncd2n1c(cc3)CC(=O)OCC(=O)CC(=O)[O-] : properties
+aLogP = -999.00, QED = -999.00
+----------------------------------------------------------
+GEMINI Fragments:
+CC(C)c1c(C(=O)Nc2ccccc2)c(-c3ccc(F)cc3)n(CC[C@H](O)C[C@H](O)CC(=O)O)c1-c4ccccc4 : properties
+aLogP = 6.31, QED = 0.16
+OC(=O)C[C@H](O)C[C@H](O)/C=C/c1c(-c2ccc(F)cc2)c2ccccc2nc1C(C)C : properties
+aLogP = 4.76, QED = 0.49
+CC(C)c1nc(C(C)C)c(C=C[C@H](O)C[C@H](O)CC(=O)O)c(c1OC)-c2ccc(F)cc2 : properties
+aLogP = 4.74, QED = 0.49
+O=C(O)C[C@H](O)C[C@H](O)CCc1cc(=O)c2cc(F)ccc2o1-c3ccccc3 : properties
+aLogP = -999.00, QED = -999.00
+N#Cc1c(C(C)C)n(CC[C@H](O)C[C@H](O)CC(=O)O)c(-c2ccc(F)cc2)c1-c3ccccc3 : properties
+aLogP = 4.93, QED = 0.39
+----------------------------------------------------------
+KIMI-K2 Fragments:
+CN(C)CCc1cc2ccccc2cc1CC(=O)[O-] : properties
+aLogP = 1.24, QED = 0.81
+O=c1c(CC(=O)[O-])c(-c2ccccc2)oc2ccccc12 : properties
+aLogP = 1.75, QED = 0.73
+NCc1cc2cc3ccccc3cc2cc1CC(=O)[O-] : properties
+aLogP = 1.74, QED = 0.73
+CC(C)OC(=O)c1cc(-c2ccccc2)sc1C#N : properties
+aLogP = 3.85, QED = 0.80
+O=C([O-])Cc1cc(C#CSC)ccn1 : properties
+aLogP = 0.05, QED = 0.64
+----------------------------------------------------------
+OPENAI One-shot:
+O=c1cc(-c2ccc(C(C(=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 0.04, QED = 0.65
+O=c1cc(-c2ccc(C=C([N+](=O)[O-]))cc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 2.00, QED = 0.51
+O=c1cc(-c2ccccc2)oc2cccc(C(C(=O)[O-])C(=O)[O-])c12 : properties
+aLogP = 0.04, QED = 0.63
+O=c1cc(-c2ccccc2C(C(=O)[O-]))oc2cccc(C(C))c12 : properties
+aLogP = 2.31, QED = 0.74
+O=c1cc(-c2ccc(OC#N)cc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 1.61, QED = 0.68
+----------------------------------------------------------
+ANTHROPIC One-shot:
+O=c1cc(-c2cccc(c2)C(=O)[O-])oc2cccc(C(=O)[O-])c12 : properties
+aLogP = 0.19, QED = 0.68
+O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2cccc(C(=O)[O-])c12 : properties
+aLogP = 1.34, QED = 0.55
+O=c1cc(-c2ccccc2C(=O)[O-])oc2c(C=C([N+](=O)[O-]))ccc(C(C(=O)[O-]))c12 : properties
+aLogP = 0.36, QED = 0.43
+O=c1cc(-c2ccc(C(=O)[O-])cc2)oc2ccc(C(=O)[O-])cc12 : properties
+aLogP = 0.19, QED = 0.68
+O=c1cc(-c2cc3ccccc3cc2C(=O)[O-])oc2c(C(C(=O)[O-]))ccc(C(=O)[O-])c12 : properties
+aLogP = -0.37, QED = 0.43
+----------------------------------------------------------
+Deepseek-v3.1 One-shot:
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cccc(C=C([N+](=O)[O-]))c12 : properties
+aLogP = 2.00, QED = 0.51
+c1ccc2c(C(C(=O)[O-]))c3cccc(C=C([N+](=O)[O-]))c3cc2c1 : properties
+aLogP = 2.53, QED = 0.42
+O=c1cc(-c2ccc(C(C(=O)[O-]))cc2)oc2ccc(C=C([N+](=O)[O-]))cc12 : properties
+aLogP = 2.00, QED = 0.51
+c1cc(C(C(=O)[O-]))c2cc3cc(C=C([N+](=O)[O-]))cc3cc2c1 : properties
+aLogP = -999.00, QED = -999.00
+O=c1c(C(C(=O)[O-]))c(-c2cc(C=C([N+](=O)[O-]))ccc2)oc2ccccc12 : properties
+aLogP = 2.00, QED = 0.51
+----------------------------------------------------------
+GPT-OSS-120B One-shot:
+O=c1c(C(=O)OCC)c(-c2ccc(I)cc2)oc2cccc(C(=O)OCC)c12 : properties
+aLogP = 4.42, QED = 0.39
+O=c1c(C(=O)OCC)c(-c2ccc([N+](=O)[O-])cc2)oc2cccc([N+](=O)[O-])c12 : properties
+aLogP = 3.45, QED = 0.37
+O=c1c(C(=O)OCC)c(-c2ccc([N+](=O)[O-])cc2)oc2cccc(C(=O)OCC)c12 : properties
+aLogP = 3.72, QED = 0.34
+O=c1c(C(=O)OC(C)(C)C)c(-c2ccc(C(=O)OC(C)(C)C)cc2)oc2cccc(C(=O)OC(C)(C)C)c12 : properties
+aLogP = 6.33, QED = 0.29
+O=c1c(C(=O)[O-])c(-c2ccc(C(=O)[O-])cc2)oc2cccc(C(=O)[O-])c12 : properties
+aLogP = -1.45, QED = 0.55
+----------------------------------------------------------
+GPT-OSS-20B One-shot:
+c1c(C(C(=O)[O-])c(C(C(=O)[O-]))ccc1 : properties
+aLogP = -999.00, QED = -999.00
+O=c1c(C(C(=O)[O-])c(-c2cc(C(C(=O)[O-]))ccc2)oc2ccccc12 : properties
+aLogP = -999.00, QED = -999.00
+c1c(C(C(=O)[O-])c(C(N)(C)C)cc1 : properties
+aLogP = -999.00, QED = -999.00
+O=c1c(O(C#N))c(-c2cc(C(C(=O)[O-]))ccc2)oc2ccccc12 : properties
+aLogP = 1.61, QED = 0.68
+----------------------------------------------------------
+DEVSTRAL-2 One-shot:
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C=C([N+](=O)[O-]))ccc12 : properties
+aLogP = 2.00, QED = 0.51
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C(=O)O(C(C)C))ccc12 : properties
+aLogP = 2.32, QED = 0.64
+O=c1cc(-c2ccccc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 1.75, QED = 0.73
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2ccn(C=C([N+](=O)[O-]))cc12 : properties
+aLogP = -999.00, QED = -999.00
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cc(C(C(=O)[O-]))ccc12 : properties
+aLogP = 0.04, QED = 0.65
+----------------------------------------------------------
+COGITO-2.1 One-shot:
+O=c1cc(-c2cccc(C(C(=O)[O-]))c2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 0.04, QED = 0.65
+O=c1cc(-c2cc(C(C(=O)[O-]))ccc2)oc2ccc(C=C([N+](=O)[O-]))cc12 : properties
+aLogP = 2.00, QED = 0.51
+O=c1cc(-c2cc(C(=O)O(C(C)C))ccc2)oc2ccc(C(C(=O)[O-]))cc12 : properties
+aLogP = 2.32, QED = 0.64
+O=c1cc(-c2ccccc2C(C(=O)[O-]))oc2cccc(C=C([N+](=O)[O-]))c12 : properties
+aLogP = 2.00, QED = 0.51
+O=c1cc(-c2cc(C(C(=O)[O-]))ccc2C(C(=O)[O-]))oc2ccccc12 : properties
+aLogP = 0.04, QED = 0.65
+----------------------------------------------------------
+NEMOTRON-3-NANO One-shot:
+c1c2c(ccccc2)c(cccc1)C(=O)Oc3ccc(cc3)C(=O)O : properties
+aLogP = -999.00, QED = -999.00
+c1c2ccccc2c(ccccc1)C(=O)Nc3ccc(cc3)C(=O)O : properties
+aLogP = -999.00, QED = -999.00
+C1=CC=C(C=C1)C(=O)Oc2ccccc2C(=O)Oc3ccccc3 : properties
+aLogP = 4.13, QED = 0.54
+c1c2c(ccccc2)c(ccccc1)C(=O)Oc3ccc(cc3)N=C=O : properties
+aLogP = 5.10, QED = 0.29
+c1c2c(ccccc2)c(ccccc1)C(=O)Oc3ccccc3C(=O)Oc4ccccc4 : properties
+aLogP = 6.35, QED = 0.28
+----------------------------------------------------------
+GEMINI One-shot:
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc(CC(=O)[O-])cc3 : properties
+aLogP = 0.04, QED = 0.65
+[O-]C(=O)CC(O)Cc1cccc2oc(cc(=O)c12)-c3ccccc3 : properties
+aLogP = 1.50, QED = 0.77
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc(F)cc3 : properties
+aLogP = 1.89, QED = 0.74
+[O-]C(=O)Cc1cccc2oc(cc(=O)c12)-c3ccc4ccccc4c3 : properties
+aLogP = 2.91, QED = 0.58
+O=c1cc(-c2ccccc2)oc2c(O)cc(CC(=O)[O-])cc12 : properties
+aLogP = 1.46, QED = 0.79
+----------------------------------------------------------
+KIMI-K2 One-shot:
+O=C(O)Cc1cc2cc3ccccc3cc2o1 : properties
+aLogP = 3.21, QED = 0.73
+O=C(O)CCc1cc2cc3ccccc3cc2o1 : properties
+aLogP = 3.60, QED = 0.76
+O=C(O)Cc1cc2c(CC(=O)O)cc3ccccc3cc2o1 : properties
+aLogP = -999.00, QED = -999.00
+O=C(O)Cc1cc2cc3cc4ccccc4cc3cc2o1 : properties
+aLogP = 4.37, QED = 0.55
+O=C(O)C(C(=O)O)c1cc2cc3cc4ccccc4cc3cc2o1 : properties
+aLogP = 3.99, QED = 0.44
+----------------------------------------------------------
+ANTHROPIC:
+O=c1c(O)c(-c2c(C)cc(C(=O)N)cc2)oc2c(F)ccc(C(=O)N)c12 : properties
+aLogP = 1.81, QED = 0.66
+O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N)c12 : properties
+aLogP = 2.41, QED = 0.72
+O=c1c(O)c(-c2c(C)cc(C(=O)N(C)C)cc2)oc2c(F)ccc(C(=O)N(C)C)c12 : properties
+aLogP = 3.02, QED = 0.71
+O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)ccc2)oc2c(C(F)(F)(F))ccc(C(=O)N)c12 : properties
+aLogP = 1.61, QED = 0.54
+O=c1c(O)c(-c2c(C(=O)[O-])c(NC(=O)C)c(F)cc2)oc2cc(F)cc(C)c12 : properties
+aLogP = 2.07, QED = 0.71
+----------------------------------------------------------
+OPENAI:
+O=c1c(O)c(-c2ccc(CC(C)(C)C)cc2)oc2cccc(C(C(=O)O))c12 : properties
+aLogP = 4.38, QED = 0.72
+O=c1c(O)c(-c2ccc(OC(F)(F)(F))cc2)oc2cccc(C(C(=O)O))c12 : properties
+aLogP = 3.69, QED = 0.72
+----------------------------------------------------------
+GEMINI:
+O=c1cc(-c2cc(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 : properties
+aLogP = 2.17, QED = 0.74
+O=c1cc(-c2c(OC)c(F)c(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 : properties
+aLogP = 2.18, QED = 0.71
+O=c1cc(-c2ccc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 : properties
+aLogP = 2.03, QED = 0.74
+O=c1cc(-c2c(F)cc(F)cc2)oc2cc(F)cc(CC(=O)[O-])c12 : properties
+aLogP = 2.17, QED = 0.74
+O=c1cc(-c2cc(F)c(F)cc2)oc2cccc(CC(=O)[O-])c12 : properties
+aLogP = 2.03, QED = 0.74
+----------------------------------------------------------
+KIMI-K2:
+Cc1c(C)c2c(c3c(F)c(O)c(C(=O)N)c(C)c13)C(C)=C(C(=O)[O-])O2 : properties
+aLogP = 2.13, QED = 0.74
+Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(C)c13)C(C)=C(C(=O)[O-])O2 : properties
+aLogP = 2.30, QED = 0.74
+Cc1c(C)c2c(c3c(O)c(C(=O)N)c(C)c(F)c13)C(C)=C(C(=O)[O-])O2 : properties
+aLogP = 2.13, QED = 0.74
+----------------------------------------------------------
+Deepseek:
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2cccc(C(C(F)(F)O))c12 : properties
+aLogP = 3.57, QED = 0.58
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(OC)ccc(C(C(F)(F)O))c12 : properties
+aLogP = 3.58, QED = 0.55
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(=O)N)ccc(C(C(F)(F)O))c12 : properties
+aLogP = 2.67, QED = 0.52
+O=c1c(F)c(-c2cnc(F)c(C)c2)oc2c(C(F)(F)F)ccc(C(C(F)(F)O))c12 : properties
+aLogP = 4.59, QED = 0.50
+----------------------------------------------------------
+G3_OpenAI:
+CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(F)(F)F : properties
+aLogP = 4.12, QED = 0.78
+CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)COC(=O)OC : properties
+aLogP = 3.37, QED = 0.79
+CC1=C(C=C(C=C1)F)C(=O)NC2=CC(=CC(=C2)C(=O)O)CO : properties
+aLogP = 2.58, QED = 0.81
+----------------------------------------------------------
+G3_OpenAI_Original:
+O=c1cc(-c2c(F)cccc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 1.89, QED = 0.74
+O=c1cc(-c2ccc(C(=O)O)cc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 1.45, QED = 0.78
+O=c1cc(-c2ccc(C#N)cc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 1.62, QED = 0.73
+----------------------------------------------------------
+G3_Anthropic:
+O=c1cc(-c2cc(c7ccc(C(=O)N)cc7)ccc2)oc2c(F)ccc(O)c12 : properties
+aLogP = 4.07, QED = 0.56
+----------------------------------------------------------
+G3_Deepseek-v3p1:
+O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2c(F)cccc12 : properties
+aLogP = 3.82, QED = 0.79
+O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccccc12 : properties
+aLogP = 3.68, QED = 0.80
+O=c1cc(-c2cccc(C(C(C)C)C(=O)N)c2)oc2ccc(F)cc12 : properties
+aLogP = 3.82, QED = 0.79
+----------------------------------------------------------
+G3_Gemini-3-Flash-Preview:
+O=c1cc(-c2c(F)c(F)c(F)cc2)[nH]c2cc(F)cc(CC(=O)O)c12 : properties
+aLogP = 3.38, QED = 0.56
+Cn1c(-c2ccc3cc(F)ccc3c2)cc(=O)c2cc(F)cc(CC(=O)O)c12 : properties
+aLogP = 4.26, QED = 0.58
+Cn1c(-c2c(F)cc(F)cc2)cc(=O)c2cc(F)cc(CC(=O)O)c12 : properties
+aLogP = 3.25, QED = 0.79
+----------------------------------------------------------
+G3_Kimi-K2:
+O=c1cc(-c2c(C)cccc2)oc2cc(F)cc(C(C(=O)[O-]))c12 : properties
+aLogP = 2.20, QED = 0.74
+O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)NS(=O)(=O)C))c12 : properties
+aLogP = 2.39, QED = 0.76
+O=c1cc(-c2c(C)cccc2)oc2cccc(C(C(=O)[O-]))c12 : properties
+aLogP = 2.06, QED = 0.74
+----------------------------------------------------------
