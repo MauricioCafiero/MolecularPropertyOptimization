@@ -235,38 +235,38 @@ The CWDK models were further tested in adversarial design sessions with two addi
 <figure>
     <img src="../results/dock_finalist_images/G3_OpenAI_finalists.png"
          alt="molecules">
-    <figcaption>Figure 10. Top molecules for GPT 5.2.</figcaption>
+    <figcaption>Figure 10. Top molecules for GPT 5.2 3G.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/dock_finalist_images/G3_OpenAI_Original_finalists.png"
          alt="molecules">
-    <figcaption>Figure 11. Top molecules for GPT 5.2 (original).</figcaption>
+    <figcaption>Figure 11. Top molecules for GPT 5.2 (original) 3G.</figcaption>
 </figure>
 
 
 <figure>
     <img src="../results/dock_finalist_images/G3_Anthropic_finalists.png"
          alt="molecules">
-    <figcaption>Figure 12. Top molecules for Claude.</figcaption>
+    <figcaption>Figure 12. Top molecules for Claude 3G.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/dock_finalist_images/G3_Gemini-3-Flash-Preview_finalists.png"
          alt="molecules">
-    <figcaption>Figure 13. Top molecules for Gemini.</figcaption>
+    <figcaption>Figure 13. Top molecules for Gemini 3G.</figcaption>
 </figure>
 
 <figure>
     <img src="../results/dock_finalist_images/G3_Deepseek-v3p1_finalists.png"
          alt="molecules">
-    <figcaption>Figure 14. Top molecules for DeepSeek.</figcaption>
+    <figcaption>Figure 14. Top molecules for DeepSeek 3G.</figcaption>
 </figure>
 
 <figure>
-    <img src="../results/dock_finalist_images/G3_KIMI-K2_finalists.png"
+    <img src="../results/dock_finalist_images/G3_Kimi-K2_finalists.png"
          alt="molecules">
-    <figcaption>Figure 15. Top molecules for Kimi K2.</figcaption>
+    <figcaption>Figure 15. Top molecules for Kimi K2 3G.</figcaption>
 </figure>
 
 ### Design overview
