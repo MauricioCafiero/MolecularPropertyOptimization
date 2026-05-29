@@ -217,7 +217,7 @@ Table 4 shows the docking score results for these adversarial sessions. Claude g
     <figcaption>Figure 9. Top molecules for Kimi K2.</figcaption>
 </figure>
 
-### Third genration adversarial design
+### Third generation adversarial design
 
 The CWDK models were further tested in adversarial design sessions with two additonal auxilliary tools: 'dock_and_get_interacting_residues' and 'calculate_SAS_and_NP.' In previous adversarial design tests, the Lipinski function was used to filter results and at times kept the model from advancing leads that had lower docking scores. In the third generation tests the two new functions served as additional filters, checking for correct binding site localization and ease of synthesis. Due to these additional restrictions, it is not surprising that the leads proposed by the models had overall *higher* docking scores (see Table 5) comapared to first-generation adversarial design. The overall scaffolds for the molecules put forward did not change significantly (see figures 10-15) other than for GPT 5.2, which switched scaffolds and ended up with docking scores considerably higher than previous tests. Howver, the original scaffolds (before switching) did yield molecules with docking scores more in-line with previous tests. In this test, Claude remained the leader in low docking scores, followed by Deepseek and Gemini.   
 
@@ -233,26 +233,26 @@ The CWDK models were further tested in adversarial design sessions with two addi
 | Kimi K2  | GPT 5.2 | 3 | -8.90 | -8.00 | -8.50 |
 
 <figure>
-    <img src="../results/dock_finalist_images/G3_OPENAI_finalists.png"
+    <img src="../results/dock_finalist_images/G3_OpenAI_finalists.png"
          alt="molecules">
     <figcaption>Figure 10. Top molecules for GPT 5.2.</figcaption>
 </figure>
 
 <figure>
-    <img src="../results/dock_finalist_images/G3_OPENAI_Original_finalists.png"
+    <img src="../results/dock_finalist_images/G3_OpenAI_Original_finalists.png"
          alt="molecules">
     <figcaption>Figure 11. Top molecules for GPT 5.2 (original).</figcaption>
 </figure>
 
 
 <figure>
-    <img src="../results/dock_finalist_images/G3_ANTHROPIC_finalists.png"
+    <img src="../results/dock_finalist_images/G3_Anthropic_finalists.png"
          alt="molecules">
     <figcaption>Figure 12. Top molecules for Claude.</figcaption>
 </figure>
 
 <figure>
-    <img src="../results/dock_finalist_images/G3_GEMINI-3-Flash-Preview_finalists.png"
+    <img src="../results/dock_finalist_images/G3_Gemini-3-Flash-Preview_finalists.png"
          alt="molecules">
     <figcaption>Figure 13. Top molecules for Gemini.</figcaption>
 </figure>
