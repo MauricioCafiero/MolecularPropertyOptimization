@@ -446,7 +446,7 @@ For the third-generation adversarial design, binding site location testing was a
     <figcaption>Figure 26. Best pose for Kimi K2 (third generation) in the HMGCR binding site. HMG-Coenzyme A is shown for reference.<figcaption>
 </figure>
 
-## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF.Molecule structures optimized with MMFF.
+## Minimization of the HOMO-LUMO gap as calculated with CAM-B3LYP/sto-3g in PySCF.
 
 In order to show the generality of the agentic framework proposed here, the design process was repeated for the task of minimizing the HOMO-LUMO gap (HLG) for molecules. All models were tested in zero-, zero-with-fragments, and one-shot design, and the CW models were tested in adversarial design. 
 
