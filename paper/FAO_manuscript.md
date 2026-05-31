@@ -592,7 +592,7 @@ Table 12 shows that the models all created three leads, except for Gemini which 
 
 ## Conclusions
 
-
+This work has shown
 
 ## References
 
