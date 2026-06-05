@@ -1,6 +1,6 @@
-# Molecular Property Optimization
+# Molecular Property Optimization (FAO-MOLPROP)
 
-An **AI-driven framework for iterative drug molecule design** that combines LLM-powered multi-agent reasoning with computational chemistry tools to discover optimized bioactive compounds.
+A **fragment-based, AI-assisted framework for molecular property optimization** that combines tool-augmented LLMs with computational chemistry to design optimized molecules without model fine-tuning.
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.8+-green.svg)
@@ -9,14 +9,15 @@ An **AI-driven framework for iterative drug molecule design** that combines LLM-
 
 ## 🎯 Overview
 
-This project leverages **large language models (LLMs)** to intelligently design better drug molecules by:
+This project demonstrates a modular workflow for molecular design using **10 different LLMs** (3 closed-weight, 7 open-weight) across multiple design paradigms:
 
-1. **Analyzing molecular trends** — Understanding what chemical features drive binding affinity and drug-likeness
-2. **Proposing new molecules** — Using LLM reasoning to suggest targeted chemical modifications
-3. **Scoring & validation** — Computing docking scores (protein-ligand binding affinity) and ADME properties
-4. **Iterative refinement** — Cycling through rounds of design, evaluation, and improvement
+1. **Fragment-based design** — User-specified scaffolds and substituents create a flexible design space
+2. **Tool-augmented reasoning** — LLMs access computational chemistry tools (docking, HOMO-LUMO gap, Lipinski properties, SAS/NP scores)
+3. **Multiple design modes** — Zero-shot, one-shot, and adversarial design with iterative refinement
+4. **Multi-objective optimization** — Balance binding affinity, drug-likeness, synthetic accessibility, and binding site localization
+5. **Generality** — Successfully demonstrated for docking score minimization (HMGCR inhibitors) and HOMO-LUMO gap minimization
 
-The system supports **adversarial design** where multiple LLMs debate and validate proposals, enabling robust molecule discovery with reduced false positives.
+The framework supports **adversarial design** where two LLMs debate and validate proposals, achieving superior results compared to zero/one-shot approaches and fine-tuned models.
 
 ---
 
@@ -26,130 +27,153 @@ The system supports **adversarial design** where multiple LLMs debate and valida
 MolecularPropertyOptimization/
 ├── README.md                          # This file
 ├── LICENSE                            # MIT License
-├── code/                              # Core functionality
-│   ├── MolPropOp.py                  # Main optimization engine & cycle functions
-│   ├── app.py                         # Gradio web interface & LangChain agent
-│   ├── docking_module.py              # Protein-ligand binding affinity scoring
-│   ├── lipinski_module.py             # Drug-likeness properties (QED, LogP, etc.)
-│   ├── adversarial_design.py          # Multi-agent debate framework
-│   ├── required.txt                   # Python dependencies
+├── requirements.txt                   # Python dependencies
+├── code/                              # Core functionality & design scripts
+│   ├── MolPropOp.py                  # Fragment manipulation (grow, replace, substitute)
+│   ├── docking_module.py              # AutoDock Vina scoring via DockString
+│   ├── HL_gap_module.py               # HOMO-LUMO gap calculations (PySCF)
+│   ├── lipinski_module.py             # Drug-likeness (QED, aLogP, MW, etc.)
+│   ├── all_mol_lists.py               # Generated molecule SMILES collections
+│   ├── set_up_database.py             # SQLite database management
+|   ├── query_database.py              # Script to extract data from SQLite database
+│   ├── insert_qed_alogp.py            # Database population utilities
+│   ├── GPT_ANT_*.py                   # Adversarial design scripts (GPT/Claude)
+│   ├── Ollama_*.py                    # Open-weight model design scripts
+│   ├── dock_*.py                      # Docking verification & analysis
+│   ├── HL_*.py                        # HOMO-LUMO verification & analysis
+│   ├── *_finalist_images.py           # Molecule visualization generators
 │   └── *.ipynb                        # Jupyter notebooks for exploration
 │
-├── data/                              # Molecular datasets & benchmarks
-│   ├── input_set.md                   # Initial molecule screening data
-│   ├── HMGCR_input_set.md             # HMGCR target benchmark
-│   ├── maob_input_set.md              # MAOB target benchmark
-│   ├── model_replies.md               # LLM responses from design sessions
-│   └── *.py                           # Data extraction & processing scripts
+├── data/                              # Input datasets & database
+│   ├── gen_molecules.db               # SQLite: SMILES, scores, properties
+│   ├── HMGCR_input_set.md             # HMGCR docking initial dataset
+│   ├── HL_initial_data.txt            # HOMO-LUMO gap initial dataset
+│   └── model_replies.md               # LLM conversation logs
 │
 ├── results/                           # Design session outputs
-│   ├── ANT_FIRST/                     # Anthropic Claude design session
-│   ├── GPT_FIRST/                     # OpenAI GPT design session
-│   ├── molecule_images/               # 2D structure visualizations
-│   ├── molecular_structures/          # 3D structure files
-│   └── DESIGN_SESSION_ANALYSIS.md     # Summary of design outcomes
+│   ├── ZERO_SHOT/                     # Zero-shot design results
+│   ├── ONE_SHOT/                      # One-shot design results
+│   ├── FRAGMENTS/                     # Zero-shot with fragment suggestions
+│   ├── HL/                            # HOMO-LUMO gap results
+│   ├── SAS_NP_all.txt                 # Synthetic accessibility scores
+│   ├── lipinski_results_all.txt       # QED/aLogP for all molecules
+│   └── dock_finalist_images/          # Final candidate visualizations
 │
-├── agent_analysis_code/               # Post-analysis & visualization
-│   ├── generate_molecule_images.py    # RDKit structure rendering
-│   └── *.py                           # Analysis utilities
+├── paper/                             # Manuscript & documentation
+│   └── supporting_data.md             # Supporting information
 │
-└── .venv/                             # Python virtual environment
+├── poses/                             # Docking pose images & PDB files
+│   └── *.jpg, *.pdb                   # PyMOL-rendered binding poses
+│
+└── tables/                            # Summary data & figures
+    └── summary_tables_images.md       # Figure collection
 ```
 
 ---
 
 ## 🔧 Core Components
 
-### 1. **Optimization Engine** (`MolPropOp.py`)
+### 1. **Fragment Manipulation Engine** (`MolPropOp.py`)
 
 Provides three main operations for molecular exploration:
 
-- **`grow_cycle(smiles, substituents, num_items)`** — Add functional groups to strategic positions
-- **`replace_groups(smiles, mapping)`** — Swap chemical groups (e.g., tBu → OCF₃)
-- **`make_random_list(count, base_smiles)`** — Generate random structural variants
+- **`substitute(smiles, substituents, positions)`** — Add substituents to specified positions on scaffolds
+- **`grow_cycle(smiles, substituents, positions)`** — Grow molecules by adding functional groups
+- **`replace_groups(smiles, old_group, new_groups)`** — Swap chemical groups systematically
 
-All operations maintain validity using RDKit and sanitization checks.
+All operations maintain validity using RDKit sanitization and SMILES verification.
 
-### 2. **Scoring Functions**
+### 2. **Scoring  and Auxilliary Functions**
 
 #### Docking Module (`docking_module.py`)
-- Computes **binding affinity** via molecular docking (using `dockstring`)
+- Computes **binding affinity** via AutoDock Vina (through DockString)
 - Returns docking score (kcal/mol, lower = better binding)
-- Supports multiple protein targets (DRD2, HMGCR, MAOB, etc.)
+- Supports HMGCR target from DUD-E database
+- Automated ligand preparation (protonation, conformer generation, MMFF94 optimization)
+
+#### HOMO-LUMO Gap Module (`HL_gap_module.py`)
+- Calculates **frontier orbital energy gaps** using PySCF
+- CAM-B3LYP/sto-3g level of theory
+- 3D structure generation with RDKit ETKDG
+- Returns gap in eV (lower = better for optoelectronic applications)
 
 #### Lipinski Module (`lipinski_module.py`)
 - Calculates **drug-likeness properties**:
-  - LogP (lipophilicity)
+  - aLogP (lipophilicity)
+  - QED (quantitative estimate of drug-likeness)
   - Molecular weight (MW)
   - Hydrogen bond donors/acceptors (HBD/HBA)
   - Topological polar surface area (PSA)
-  - QED (quantitative estimate of drug-likeness)
 - Flags Lipinski violations for ADME risk assessment
 
-### 3. **LLM Integration** (`app.py`)
+#### Synthetic Accessibility (`test_SAS_NP.py`)
+- **SAS scores** — Synthetic Accessibility Score (1-10, lower = easier)
+- **NP scores** — Natural Product-likeness
+
+### 3. **LLM Integration**
 
 Built with **LangChain** and **LangGraph** for multi-step agentic reasoning:
 
-- **LLM Agent** — GPT-4 or Claude (configurable)
-- **Tool Binding** — Calls grow_cycle, replace_groups dynamically
-- **State Management** — Tracks conversation history & molecular evolution
-- **Web Interface** — Gradio-based UI for interactive design sessions
+- **10 LLMs tested**:
+  - Closed-weight: GPT 5.2, Claude 4.5 Haiku, Gemini 3 Flash
+  - Open-weight: DeepSeek V3.1, GPT-OSS-120B/20B, Devstral-2, Cogito-2.1, Nemotron-3-Nano, Kimi-K2.5
+- **Tool Binding** — Dynamic access to all scoring and manipulation functions
+- **State Management** — Conversation history tracked through message lists
+- **Ollama Integration** — Local hosting of open-weight models
 
-### 4. **Adversarial Framework** (`adversarial_design.py`)
+### 4. **Adversarial Framework**
 
-Enables **debate-driven design**:
+Enables **debate-driven design** between two LLMs:
 
-- **Model Node** — Proposes new molecules based on trend analysis
-- **Adversary Node** — Critiques proposals, flags risks
-- **Multiple LLMs** — Different providers debate strengths/weaknesses
-- **Convergence** — Refinement until high-confidence leads emerge
+- **Primary Model** — Analyzes data, proposes molecules, uses tools
+- **Adversary Model** — Critiques proposals, suggests improvements, validates reasoning
+- **Iterative Refinement** — Multi-turn conversations until convergence
+- **Three Generations**:
+  - Gen 1: Basic adversarial with docking/Lipinski tools
+  - Gen 2: (Reserved for future development)
+  - Gen 3: Added binding site analysis and SAS/NP scoring
 
 ---
 
 ## 🧪 How It Works
 
-### Typical Design Cycle
+### Fragment-Based Design Cycle
 
 ```
-1. Input Screening Data
-   (↓ Initial molecules + docking scores)
+1. Define Fragments
+   9 scaffolds (benzene, pyridine, furan, naphthalene, anthracene, etc.)
+   567 substituents (11 EWG + 16 EDG + 14 linkers)
+   → 14,742+ unique singly-substituted molecules possible
 
-2. Trend Analysis
-   LLM reads scores → identifies SAR (structure-activity relationships)
-   "Lower docking scores correlate with aromatic rings + tBu groups"
+2. Initial Dataset Generation
+   Random selection of 10 substituents added to all attachment points
+   → 260 molecules scored with target function
 
-3. Propose Modifications
-   (↓ grow_cycle / replace_groups suggestions)
+3. LLM Analysis & Design
+   ├─ Zero-shot: Generate molecules without examples
+   ├─ Zero-shot + Fragments: With suggested scaffolds/substituents
+   ├─ One-shot: Given initial 260 scored molecules
+   └─ Adversarial: Iterative debate between two LLMs
 
-4. Score New Molecules
-   Docking + Lipinski properties calculated for each proposal
+4. Tool-Augmented Refinement
+   LLM uses tools to:
+   ├─ Calculate scores (docking, HOMO-LUMO gap)
+   ├─ Check drug-likeness (Lipinski, QED, aLogP)
+   ├─ Verify binding site location
+   ├─ Assess synthetic accessibility (SAS)
+   └─ Query PubChem for related structures
 
-5. Adversarial Review
-   ├─ Model: "These 5 candidates look promising"
-   ├─ Adversary: "Risk #1 has poor LogP; #3 may be metabolically unstable"
-   └─ Refined Set: Champion molecules selected
+5. Validation & Selection
+   ├─ Primary model proposes 5 lead molecules
+   ├─ Adversary critiques and suggests improvements
+   ├─ Iterate until convergence
+   └─ Verify all final molecules computationally
 
-6. Iterate
-   (↓ Repeat with best molecules as seed set)
+6. Results Analysis
+   All SMILES verified with same scoring functions
+   Comparison to known benchmarks (e.g., statins for HMGCR)
+   Visualization of structures and docking poses
 ```
-
----
-
-## 📊 Results & Key Findings
-
-### Recent Design Sessions
-
-#### **GPT-First Session (2026-03-20)**
-- **Target:** Chromone-based HMGCR inhibitors
-- **Best Affinity:** -9.2 kcal/mol (tBu variant)
-- **Optimized Lead:** -9.1 kcal/mol @ LogP 3.69 (OCF₃ bioisostere)
-- **Key Insight:** Ether linker + halogenated groups preserve binding while improving drug-likeness
-- **Deliverables:** [Detailed analysis with embedded structures](results/GPT_FIRST/TURN_BY_TURN_ANALYSIS_WITH_STRUCTURES.md)
-
-#### **ANT-First Session**
-- **Target:** Multiple protein targets (DRD2, MAOB)
-- **Outcomes:** [Comprehensive SAR summary](results/ANT_FIRST/)
-- **Highlights:** Adversarial feedback improved lead selection accuracy
 
 ---
 
@@ -159,8 +183,12 @@ Enables **debate-driven design**:
 
 - Python 3.8+
 - RDKit
-- OpenAI API key (for GPT models) or Anthropic API key
-- dockstring (for docking scoring)
+- PySCF (for HOMO-LUMO gap calculations)
+- OpenAI API key (for GPT models)
+- Anthropic API key (for Claude models)
+- Google API key (for Gemini models)
+- Ollama (for open-weight models - optional)
+- DockString (for docking scoring)
 
 ### Installation
 
@@ -171,166 +199,70 @@ cd MolecularPropertyOptimization
 
 # Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+.venv\Scripts\activate  # On Windows
+# source .venv/bin/activate  # On Linux/Mac
 
 # Install dependencies
-pip install -r code/requirements.txt
+pip install -r requirements.txt
 
-# Set up API keys
-export OPENAI_API_KEY="your-key-here"
-export ANTHROPIC_API_KEY="your-key-here"  # If using Claude
+# Set up API keys (Windows PowerShell)
+$env:OPENAI_API_KEY="your-openai-key-here"
+$env:ANTHROPIC_API_KEY="your-anthropic-key-here"
+$env:GOOGLE_API_KEY="your-google-key-here"
+
+# For Ollama (open-weight models)
+# Download and install from https://ollama.com/
+# Pull desired models: ollama pull deepseek-v3.1
 ```
 
 ### Running a Design Session
 
-#### Interactive Web UI (Gradio)
-```bash
-cd code
-python app.py
-# Opens at http://localhost:7860
-```
-
-#### Command-Line Design
 ```python
-from MolPropOp import grow_cycle, replace_groups
-from docking_module import scoring_function
+# See example notebooks in code/ folder:
+# - gen_design.ipynb: Main adversarial design workflow
+# - Ollama_MolOpt.ipynb: Open-weight model design
+# - Agent_demo.ipynb: Single-agent tool calling examples
 
-# Suggest new molecules
-new_molecules = grow_cycle(
-    smiles="c1ccc2cc(C(=O)O)ccc2c1",
-    substituents=["F", "Cl", "Br"],
-    num_items=5
-)
-
-# Score them
-for smi in new_molecules:
-    affinity, _ = scoring_function(smi)
-    print(f"{smi} → {affinity:.2f} kcal/mol")
+# Or run scripts directly:
+python code/GPT_ANT_ONE_SHOT.py  # GPT vs Claude adversarial (one-shot)
+python code/Ollama_OneShot.py    # Open-weight model one-shot design
 ```
-
----
-
-## 🔬 Detailed Guides
-
-### Using the Optimization Engine
-
-- **[Grow Cycle Guide](code/MolPropOp.py)** — Add substituents at strategic positions
-- **[Replace Groups Guide](code/MolPropOp.py)** — Bioisostere exploration
-- **[Scoring Functions](code/docking_module.py)** — Binding affinity & ADME properties
-
-### Design Session Analysis
-
-- **[Executive Summary](results/GPT_FIRST/EXECUTIVE_SUMMARY_2026-03-20.md)** — Quick decision summary
-- **[Full SAR Analysis](results/GPT_FIRST/SAR_SUMMARY_2026-03-20.md)** — Chemistry & synthesis routes
-- **[Turn-by-Turn Breakdown](results/GPT_FIRST/TURN_BY_TURN_ANALYSIS_WITH_STRUCTURES.md)** — With embedded molecule structures
-- **[Complete Design Session](results/GPT_FIRST/DESIGN_SESSION_ANALYSIS_2026-03-20.md)** — Full methodology & data tables
-
-### Data & Benchmarks
-
-- **[Input Datasets](data/HMGCR_input_set.md)** — Screening data for various targets
-- **[Molecular Sets](data/sets.md)** — Curated molecule databases
-
----
-
-## 🛠️ Configuration
-
-### Switching Scoring Functions
-
-Edit `code/app.py` or `code/MolPropOp.py` to select scoring:
-
-```python
-# Use docking (protein-specific)
-from docking_module import scoring_function
-
-# Or use Lipinski properties (target-agnostic)
-from lipinski_module import scoring_function
-
-# Or create custom scoring function
-def my_scoring_function(smiles: str):
-    # Your logic here
-    return score, auxiliary_data
-```
-
-### Selecting LLM Providers
-
-```python
-from langchain_openai.chat_models import ChatOpenAI
-from langchain_anthropic import ChatAnthropic
-
-# OpenAI GPT
-model = ChatOpenAI(model_name="gpt-4", api_key=openai_key)
-
-# Anthropic Claude
-model = ChatAnthropic(model_name="claude-3-opus", api_key=anthropic_key)
-
-# Local LLM via Ollama
-from OllamaMolPropOp import model  # Uses local Ollama instance
-```
-
----
 
 ## 📈 Key Features
 
-✅ **Automated Molecular Design** — LLM-driven structure optimization  
-✅ **Multi-Target Support** — DRD2, HMGCR, MAOB, custom proteins  
-✅ **Adversarial Validation** — LLM debate reduces false positives  
-✅ **Drug-Likeness Filtering** — Lipinski rules, QED, LogP assessment  
-✅ **Molecule Visualization** — Embedded 2D/3D structure rendering  
-✅ **Reproducible Workflows** — Complete session logs & analysis  
-✅ **Scalable Design** — Parallel molecule testing, batch operations  
+✅ **Fragment-Based Design** — User-controlled scaffolds and substituents  
+✅ **10 LLM Comparison** — 3 closed-weight + 7 open-weight models tested  
+✅ **Multiple Design Modes** — Zero-shot, one-shot, adversarial with tool access  
+✅ **Dual Optimization Tasks** — HMGCR docking (-9.90 kcal/mol best) and HOMO-LUMO gaps (1.39 eV best)  
+✅ **Multi-Objective Balancing** — Score, QED, aLogP, SAS, binding site localization  
+✅ **No Fine-Tuning Required** — Frontier LLMs perform chemistry tasks with general weights  
+✅ **Tool Integration** — Docking, DFT, Lipinski, SAS/NP, binding site analysis, PubChem queries  
+✅ **Comprehensive Documentation** — Full manuscript, supporting data, and conclusions provided  
+✅ **Database Management** — SQLite storage of all molecules and properties  
+✅ **Visualization** — Automated 2D structure and 3D docking pose generation
 
 ---
 
-## 🔍 Example Use Cases
+## 📚 References
 
-### 1. Lead Generation
-Start with a known active scaffold; use `grow_cycle` to explore nearby chemical space.
+### Software & Tools
+- **RDKit** — Landrum, G. (2024). RDKit: Open-source cheminformatics. http://www.rdkit.org
+- **DockString** — García-Ortegón et al. (2022). J. Chem. Inf. Model. 62, 3486–3502
+- **AutoDock Vina** — Trott & Olson (2010). J. Comput. Chem. 31, 455–461
+- **PySCF** — Sun et al. (2020). J. Chem. Phys. 153, 024109
+- **LangChain/LangGraph** — LangChain Inc. (2024). Multi-step agentic reasoning framework
+- **Ollama** — Ollama (2024). Local LLM hosting platform
 
-### 2. SAR Exploration
-Systematic `replace_groups` to map structure-activity relationships.
+### LLMs Tested
+- **Closed-weight**: GPT 5.2 (OpenAI), Claude 4.5 Haiku (Anthropic), Gemini 3 Flash (Google)
+- **Open-weight**: DeepSeek V3.1, GPT-OSS-120B/20B, Devstral-2, Cogito-2.1, Nemotron-3-Nano, Kimi-K2.5
 
-### 3. ADME Optimization
-Use Lipinski module to balance binding affinity with drug-likeness.
-
-### 4. Multi-Target Design
-Run parallel design sessions against different proteins; use adversarial framework to identify common pharmacophores.
-
----
-
-## 📚 Publications & References
-
-- **RDKit:** Landrum, G. (2016). RDKit: Open-source cheminformatics. http://www.rdkit.org
-- **Docking:** Via dockstring library; supports VINA, Smina backends
-- **LLM Tools:** LangChain, LangGraph for agent orchestration
-- **Molecular Scoring:** QED (Bickerton et al., 2012); Lipinski (Lipinski et al., 2001)
+### Related Work
+- **ChemCrow** — Bran et al. (2023). LLM agents for chemistry
+- **SmileyLlama** — Cavanagh et al. (2024). Fine-tuned LLMs for molecular design
+- **PharmAgents** — Gao et al. (2025). Multi-LLM drug discovery workflow
 
 ---
-
-## 🤝 Contributing
-
-Contributions welcome! Areas for expansion:
-
-- **Additional scoring functions** (QSAR models, ML-based fitness)
-- **More molecular operations** (linker optimization, scaffold hopping)
-- **Multi-objective optimization** (Pareto frontier analysis)
-- **Experimental validation** (integration with lab robotics)
-- **Case studies** (publication of designed & synthesized compounds)
-
----
-
-## ⚠️ Disclaimer
-
-This tool is designed for **research and educational purposes**. While molecules are computationally optimized for binding, they must be:
-
-1. **Synthesized** to confirm experimental validity
-2. **Experimentally validated** (cell assays, enzyme kinetics, PK/PD)
-3. **Toxicity-tested** before any therapeutic development
-4. **Reviewed by medicinal chemists** for synthetic feasibility & off-target risks
-
-Docking scores are estimates; real-world binding may differ significantly.
-
----
-
 ## 📝 License
 
 MIT License © 2026 Mauricio Cafiero
@@ -346,15 +278,4 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-## 🎓 Quick Start Checklist
-
-- [ ] Install dependencies (`pip install -r code/requirements.txt`)
-- [ ] Set API keys (OpenAI/Anthropic)
-- [ ] Review example molecules in `/data/`
-- [ ] Run `python code/app.py` for interactive design
-- [ ] Check `/results/GPT_FIRST/` for design session examples
-- [ ] Read [design session analysis](results/GPT_FIRST/TURN_BY_TURN_ANALYSIS_WITH_STRUCTURES.md) for methodology
-
----
-
-**Status:** Active development | Latest design session: 2026-03-20 | Local optimization at -9.2 kcal/mol ✅
+**Status:** Published research | Latest session: June 2026 | Best HMGCR docking: -9.90 kcal/mol (Claude) | Best HOMO-LUMO gap: 1.39 eV (Gemini) ✅

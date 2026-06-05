@@ -1,4 +1,20 @@
 
+<span style="font-size: 30px;"> Fragment-based, AI-assisted Optimization of molecular properties (FAO-MOLPROP): Docking scores and HOMO-LUMO gaps </span>
+
+<center>Mauricio Cafiero</center>
+<center>Department of Chemistry, University of Reading, Reading UK</center>
+<br>
+
+# Supporting Data
+Contents:
+- Prompts for zero-shot with fragment suggestions
+- Prompts for one-shot molecule design
+- Prompts for adversarial design
+- Images of zero- and one-shot generation for all models:
+- Docking Poses for zero and one-shot molecules
+- Images of zero-, one-shot and adversarial HOMO-LUMO task molecule generation for all models:
+
+
 ## Prompts for zero-shot with fragment suggestions
 
 Docking example:
@@ -176,7 +192,7 @@ Docking example, model prompt:
 
 Docking example, adversary prompt:
 
->You are a drug design assistant. You will recieve a proposal from  another model
+># You are a drug design assistant. You will recieve a proposal from  another model
 >of novel molecules it has designed to bind to a particular protein target. The proposal will 
 >include reasoning as to why the model thinks those molecules will bind well, and estimated 
 >docking scores for each molecule. Your task is to analyze the proposal and find any flaws 
